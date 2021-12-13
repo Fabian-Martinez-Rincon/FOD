@@ -1,0 +1,116 @@
+
+{Hacer un programa con opciones para la gestión de personas. De cada persona se debe registrar: apellido, nombre y fecha de nacimiento. El programa debe
+cumplir con las siguientes especificaciones
+1- Los registros deben almacenarse con longitud variable utilizando bytes prefijo para la longitud de campo para los campos de longitud variable
+2- El campo fecha debe guardarse como longInt
+3- El archivo debe abrirse con tamaño de unidades de transferencia 1 byte, se debera leer campo a campo desde memoria secundaria.
+}
+
+Program personas;
+Uses CRT;
+Type
+ rPersona=record
+  apellido:string;
+  nombre:string;
+  fNac:longInt;
+ end;
+var
+    aPersona: file; {archivo sin tipo}
+    opc: Byte;
+
+
+procedure escribirRegistro(var aPer: file; var r:rPersona);
+var
+tam:integer;
+begin
+         tam:= length(r.apellido)+ 1;  // Guarda la longitud del string luego el campo completo
+         BlockWrite(aPer,tam,sizeOf(tam)); // Guarda tantos bytes como ocupa el tipo de dato integer usado para tam
+         BlockWrite(aPer,r.apellido,tam);
+         tam:= length(r.nombre)+ 1;
+         BlockWrite(aPer,tam,sizeOf(tam));
+         BlockWrite(aPer,r.nombre,tam);
+         BlockWrite(aPer,r.fnac,sizeOf(r.fnac)); // Guarda tantos bytes como ocupa el tipo de dato longint (fnac)
+
+end;
+
+procedure crearYCargarArchivo (var aPer: file);
+var
+rPer:rPersona;
+begin
+ ReWrite(aPer, 1);
+ writeln('Ingrese el apellido de la persona o enter para finalizar la carga');
+ readln(rPer.apellido);
+ while (rPer.apellido <> '') do begin
+         writeln('Ingrese el nombre de la persona');
+         readln(rPer.nombre);
+         writeln('Ingrese la fecha de nacimiento en formato dMA (Ej: 10022018)');
+         readln(rPer.fNac);
+         escribirRegistro(aPer,rPer);
+         writeln('Ingrese el apellido de la persona');
+         readln(rPer.apellido);
+    end;
+    Write('Archivo cargado....');
+   Close(aPer);
+end;
+ //// Lectura ////////////
+
+procedure leerRegistro (var aPer:file; var r:rPersona);
+var
+  tam:integer;
+begin
+         BlockRead(aPer,tam,sizeOf(tam));   // lee la longitud del String apellido
+         BlockRead(aPer,r.apellido,tam);   // lee el contenido
+         BlockRead(aPer,tam,sizeOf(tam));   // lee longitud del String nombre
+         BlockRead(aPer,r.nombre,tam); // lee el contenido
+         BlockRead(aPer,r.fnac,sizeOf(r.fnac));     // lee la fecha de nacimiento
+
+end;
+
+procedure mostrarPantalla (var aPer: file);
+var
+rP:rPersona;
+begin
+ Reset(aPer,1);
+ while (not eof(aPer))  do begin
+         leerRegistro (aPer,rP);
+         Write('-El apellido es: ',rP.apellido,', el nombre es:', rP.nombre, ' y nacio:', rP.fNac);
+         readln;
+
+    end;
+ Close(aPer);
+end;
+
+
+Begin
+
+WriteLn('Sistema de Gestion de Personas');
+
+
+Repeat
+Write('Ingrese el nro. de opcion: ');
+
+WriteLn;
+WriteLn('0. Terminar el Programa');
+WriteLn('1. Crear archivo de personas');
+WriteLn('2. Abrir archivo existente');
+ReadLn(opc);
+Assign(aPersona,'personasVariableV0.dat');
+If (opc=1) then begin
+
+   WriteLn;
+
+   end;
+Case opc of
+     1: begin
+        crearYCargarArchivo(aPersona);
+         end;
+     2: begin
+          mostrarPantalla(aPersona);
+          end;
+end;
+ClrScr
+until opc=0;
+end.
+
+end.
+ 
