@@ -32,3 +32,9 @@ Archivos
 - Colección de registros guardados en almacenamiento secundario.
 - Colección de datos almacenados en dispositivos secundarios de memoria.
 - Colección de registros que abarcan entidades con un aspecto común y originadas para algún propósito particular
+
+### Hardware
+
+- Almacenamiento primario
+- Almacenamiento secundario (DR)
+- Acceso a RAM vs Acceso a DR
