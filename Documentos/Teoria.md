@@ -51,8 +51,8 @@ Archivos
 
 ### Acceso
 
-```Secuencial Físico: ``` Acceso a los registros uno tras otro y en el orden físico en el que están guardados
+```Secuencial Físico:``` Acceso a los registros uno tras otro y en el orden físico en el que están guardados
 
-```Secuencial indizado (lógico): ```Acceso a los registros de acuerdo al orden establecido por otra estructura (Ej: una guía telefonica, o indice tematico de un libro)
+```Secuencial indizado (lógico):``` Acceso a los registros de acuerdo al orden establecido por otra estructura (Ej: una guía telefonica, o indice tematico de un libro)
 
-```Directo: ``` Se accede a un registro determinado sin necesidad de haber accedido a los predecesores.
+```Directo:``` Se accede a un registro determinado sin necesidad de haber accedido a los predecesores.
