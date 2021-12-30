@@ -39,3 +39,17 @@ end.
 
 Recorrido
 ---------
+```Pas
+Procedure Recorrido(var arc_logico: archivo );
+var  
+    nro: integer;                 { para leer elemento del archivo}
+begin
+    reset( arc_logico );          {archivo ya creado, para operar debe abrirse como de lect/escr} 
+    while not eof( arc_logico) do begin
+        read( arc_logico, nro );  {se obtiene elemento desde archivo }
+        write( nro );             {se presenta cada valor en pantalla}
+    end;
+    close( arc_logico );
+end;
+
+```
