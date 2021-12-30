@@ -145,10 +145,18 @@ End.
 ```
 
 ```Pas
-Rewrite(nombre_logico); //De dolo escritura (Creacion)
+Rewrite(nombre_logico); //De solo escritura (Creacion)
 Reset (nombre_logico);  //Lectura Escritura (Apertura)
 //Nombre logico representa una variable de tipo archivo sobre la que se realizó la asignación
 Close(nombre_logico);   //Cierre de archivo
-//Esta instruccion indica que no se va a trabajar mas sobre el archivo. Significa poner una marca de EOF (end of file) al final del mismo
+//Esta instruccion indica que no se va a trabajar mas sobre el archivo. Significa poner una marca de 
+//EOF (end of file) al final del mismo
+Read(nombre_logico, variable);
+Write(nombre_logico, variable);
 
+{
+Estas operaciones leen y/o escriben los buffers relacionados a los archivos
+No se realizan directamente sobre el DR
+En ambos casos la variable debe ser del mismo tipo que los elementos que se declararon como parte del archivo
+}
 ```
