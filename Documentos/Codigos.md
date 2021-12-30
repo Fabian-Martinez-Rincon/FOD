@@ -4,6 +4,7 @@ Indice
 <!--ts-->
    * [Archivos](#Archivos)
      *  [Crear](#Crear)
+     *  [Recorrido](#Recorrido)
 
 
 Archivos
@@ -35,3 +36,6 @@ begin
 end. 
 
 ```
+
+Recorrido
+---------
