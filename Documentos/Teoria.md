@@ -75,3 +75,15 @@ Archivos
 
 ![Imagen1](https://user-images.githubusercontent.com/55964635/147784122-9baeb6a7-2dc1-4a41-b15f-922c1393c571.png)
 
+### Operaciones básicas
+
+```Dos niveles```
+
+- Físico (almacenamiento secundario)
+- Lógico (dentro del programa)
+  - Operaciones
+    - Crear
+    - Abrir
+    - Read/Write
+    - Eof
+    - Seek (localización)  
