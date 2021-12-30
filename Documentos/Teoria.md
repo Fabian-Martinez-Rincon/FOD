@@ -38,3 +38,21 @@ Archivos
 - Almacenamiento primario
 - Almacenamiento secundario (DR)
 - Acceso a RAM vs Acceso a DR
+
+### Organización
+
+```Secuencia de bytes``` 
+- No se puede determinar fácilmente comienzo y fin de cada dato.
+- Archivos de texto
+
+```Registros y Campos```
+- Campo: Unidad más pequeña, lógicamente significativa de un archivo
+- Registros: Conjunto de campos agrupados que definen un elemento del archivo
+
+### Acceso
+
+```Secuencial Físico: ``` Acceso a los registros uno tras otro y en el orden físico en el que están guardados
+
+```Secuencial indizado (lógico): ```Acceso a los registros de acuerdo al orden establecido por otra estructura (Ej: una guía telefonica, o indice tematico de un libro)
+
+```Directo: ``` Se accede a un registro determinado sin necesidad de haber accedido a los predecesores.
