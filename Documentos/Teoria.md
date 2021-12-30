@@ -62,4 +62,16 @@ Archivos
 ```De acuerdo a la forma de acceso```
 
 - ***Serie:*** cada registro es accesible solo luego de procesar su antecesor, simples de acceder (acceso secuencial físico)
-- ***Secuencial:***
+- ***Secuencial:*** los registros son accesibles en orden de alguna clave (acceso secuencial lógico)
+- ***Directo:*** se accede al registro deseado (Acceso directo)
+
+### Buffers
+
+- Memoria intermedia entre un archivo yu un programa, donde los datos residen provisoriamente hasta ser almacenados definitivamente en memoria secundaria o donde los datos residen provisoriamente hasta ser almacenados definitivamente en memoria secundaria o donde los datos residen una vez recuperados de dicha memoria secundaria.
+- Los buffers ocuman lugar en RAM
+- SO encargado de manipular los buffers
+- Como trabaja?
+
+
+![Imagen1](https://user-images.githubusercontent.com/55964635/147784122-9baeb6a7-2dc1-4a41-b15f-922c1393c571.png)
+
