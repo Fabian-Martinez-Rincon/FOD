@@ -99,3 +99,21 @@ Archivos
 - Tipo
   - ```Type archivo: file of Tipo_de_dato;```
   - ```Var arch: archivo``` 
+
+```Pas
+  Type emple = record
+    nombre: string [20];
+    direccion: string [40];
+    edad: integer;
+  end;
+  numero = file of integer;
+  empleado = file of emple;
+Var arch_num: numero;
+Var arch_emp: empleado,
+```
+
+Relacion con el sistema operativo
+
+- Se tiene que establecer la correspondencia entre el nombre físico y nombre lógico
+
+
