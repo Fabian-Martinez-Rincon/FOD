@@ -87,3 +87,12 @@ Archivos
     - Read/Write
     - Eof
     - Seek (localización)  
+
+### Declaraciones
+
+```Utilizaremos la notación Pascal```
+
+```Declaración de archivos```
+
+- Variables 
+  - ```Var archivo: file of Tipo_de_dato;``` 
