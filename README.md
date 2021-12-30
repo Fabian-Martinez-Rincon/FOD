@@ -1,1 +1,1 @@
-[Resumen]()
+[Resumen](/Documentos/Teoria.md)
