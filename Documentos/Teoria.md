@@ -160,3 +160,25 @@ No se realizan directamente sobre el DR
 En ambos casos la variable debe ser del mismo tipo que los elementos que se declararon como parte del archivo
 }
 ```
+
+Operaciones Adicionales
+-----------------------
+
+```Pas
+EOF(nombre_logico); (funcion)
+{
+Fin de archivo
+Como trabaja?
+Hay que preguntar eso primero
+}
+
+FilePos(nombre_logico); (funcion)
+// Posicion dentro del archivo
+
+Seek(nombre_logico, posicion); (Procedimiento)
+{
+Ir a una posición del archivo
+La posición se cuenta como siempre desde el comienzo del archivo
+El primer lugar es el cero
+}
+```
