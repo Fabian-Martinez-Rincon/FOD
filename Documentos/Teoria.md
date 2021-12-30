@@ -96,3 +96,6 @@ Archivos
 
 - Variables 
   - ```Var archivo: file of Tipo_de_dato;``` 
+- Tipo
+  - ```Type archivo: file of Tipo_de_dato;```
+  - ```Var arch: archivo``` 
