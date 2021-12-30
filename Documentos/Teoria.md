@@ -9,7 +9,7 @@ Indice
    * [Hashing](#Hashing)
 
 Base_de_Datos
--------------
+=============
 
 ***¿Qué es una Base de Datos?***
 
@@ -23,3 +23,12 @@ Base_de_Datos
 - Una ***BD*** es una colección coherente de datos con significados inherentes. Un conjunto aleatorio de datos no puede considerarse una ***BD***. O sea los datos deben tener cierta lógica.
 - Una ***BD*** se diseña, construye y complementa de datos para un propósito específico. Está destinada a un grupo de usuarios concretos y tiene algunos aplicaciones preconcebidas en las cuales están interesados los usuarios.
 - Una ***BD*** está sustentada físicamente en archivos en dispositivos de almacenamiento persistente de datos.
+
+Archivos
+========
+
+### Definiciones
+
+- Colección de registros guardados en almacenamiento secundario.
+- Colección de datos almacenados en dispositivos secundarios de memoria.
+- Colección de registros que abarcan entidades con un aspecto común y originadas para algún propósito particular
