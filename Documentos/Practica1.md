@@ -36,4 +36,10 @@
 
 ***NOTA 2:*** El archivo de carga debe editarse de manera que cada artículo se especifique en dos lineas consecutivas: En la primera linea sólo se especifica el precio y nombre, y en la segunda el stock disponible y la descripcion, en ese orden. Cada articulo se carga leyendo dos lineas de archivo "carga.txt"
 
-```6)```
+```6)``` Agregar al menú del programa del ejercicio 5, opciones para:
+
+ 1) Añadir uno o más articulos al final del archivo con sus datos ingresados por teclado.
+ 2) Modificar el stock de un articulo dado
+ 3) Exportar el contenido del archivo binario a un archivo de texto denominado: "SinStock.txt", con aquellos articulos que tengan stock 0.
+ 
+ ***NOTA:*** Las búsquedas deben realizarse por nombre de artículo.
