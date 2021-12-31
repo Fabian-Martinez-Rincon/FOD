@@ -43,3 +43,11 @@
  3) Exportar el contenido del archivo binario a un archivo de texto denominado: "SinStock.txt", con aquellos articulos que tengan stock 0.
  
  ***NOTA:*** Las búsquedas deben realizarse por nombre de artículo.
+
+```7)``` Realizar un programa que permita:
+
+1) Crear un archivo binario a partir de la informacion almacenada en un archivo de texto. El nombre del archivo de texto es: "novelas.txt"
+2) Abrir el archivo binario y permitir la actualización del mismo. Se debe poder agregar una novela y modificar una existente. La búsquedas se realizan por codigo de novela.
+
+***NOTA:*** La informacion en el archivo de texto consiste en: codigo novela, nombre, genero y precio de diferentes novelas argentinas. De cada novela se almacena la informacion en dos lineas en el archivo de texto. La primera linea contendra la siguiente informacion: codigo novela, precio y genero, y la segunda linea almacenara el nombre de la novela.
+
