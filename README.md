@@ -6,3 +6,4 @@
 
 - [Resumen](/Documentos/Teoria.md)
 - [Codigos](/Documentos/Codigos.md)
+- [Practica 1](/Documentos/Practica1.md)
