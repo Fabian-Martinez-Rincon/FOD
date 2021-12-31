@@ -5,6 +5,7 @@ Indice
    * [Archivos](#Archivos)
      *  [Crear](#Crear)
      *  [Recorrido](#Recorrido)
+     *  [Actualizar](#Actualizar)
 
 
 Archivos
@@ -52,4 +53,22 @@ begin
     close( arc_logico );
 end;
 
+```
+Actualizar
+----------
+```Pas
+Procedure actualizar (Var archi:archivo); 
+var 
+    E: Integer;
+begin
+    Reset( archi ); 
+    while not eof( archi ) do 
+    begin
+        Read( archi, E); 
+        E:=E * 2;    
+        Seek( archi,  filepos(archi) -1 );
+        Write( archi, E ); 
+    end;
+    close( archi );
+end;
 ```
