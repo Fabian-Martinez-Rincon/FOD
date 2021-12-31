@@ -24,3 +24,16 @@
 4) Exportar a un archivo de texto llamado: "erroneos.txt", las personas que no tengan cargado el DNI (DNI en 0) 
 
 ***NOTA:*** Las búsquedas deben realizarse por apellido y nombre
+
+```5)``` Realizar un programa para una cadena de zapatería, que presente un menú con opciones para:
+
+1) Crear un archivo de registros no ordenados de articulos de zapateria y cargarlo con datos ingresados desde un archivo de texto denominado "zapatos.txt". Los registros correspondientes a los articulos, deben contener: el nombre de artículo, descripción, precio y el stock disponible.
+2) Listar en pantalla los datos de aquellos articulos que tengan un stock inferior a 100 unidades.
+3) Listar en pantalla los articulos del archivo cuya descripcion contenga una cadena de caracteres proporcionada por el usuario.
+4) Exportar el archivo creado en el inciso "a)" a un archivo de texto denominado "zapateria.txt" con todos los articulos del mismo.
+
+***NOTA 1:*** El nombre del archivo binario de artículos debe ser proporciononado por el usuario una única vez.
+
+***NOTA 2:*** El archivo de carga debe editarse de manera que cada artículo se especifique en dos lineas consecutivas: En la primera linea sólo se especifica el precio y nombre, y en la segunda el stock disponible y la descripcion, en ese orden. Cada articulo se carga leyendo dos lineas de archivo "carga.txt"
+
+```6)```
