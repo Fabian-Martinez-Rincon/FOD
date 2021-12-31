@@ -15,3 +15,12 @@
 3) Listar en pantalla personas mayores de 18 años
 
 ***NOTA:***  El nombre del archivo a crear o utilizar debe ser proporcionado por el usuario una única vez.
+
+```4)``` Agregar al menú del programa del ejercicio 3, opciones para.
+
+1) Añadir una o más personas al final del archivo con sus datos ingresados por teclado
+2) Modificar la edad de a una o más personas.
+3) Exportar el contenido del archivo a un archivo del texto llamado "personas.txt"
+4) Exportar a un archivo de texto llamado: "erroneos.txt", las personas que no tengan cargado el DNI (DNI en 0) 
+
+***NOTA:*** Las búsquedas deben realizarse por apellido y nombre
