@@ -1,13 +1,14 @@
-program untitled;
+program FabianMartinezPrograma1;
 
 uses crt;
 type 
 
 archivoNumeros= file of integer;
 
-var fileName:string;
-archivo:archivoNumeros;
-numero:integer;
+var 
+	fileName:string;
+	archivo:archivoNumeros;
+	numero:integer;
 BEGIN
 	clrscr;
 	write('Ingrese nombre de archivo:' ); 
