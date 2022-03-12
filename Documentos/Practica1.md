@@ -86,6 +86,7 @@ Ejercicio_2
 ===========
 ```Pas
 program dos;
+uses crt;
 type 
     archivo = file of integer;
     cadena20 = string[20];
@@ -95,6 +96,7 @@ var
     num, cant, multiplosDos: integer;
     contador:integer;
 begin
+    clrscr;
     multiplosDos:=0; 
     cant:=0; 
     writeln('Ingrese el nombre del archivo: ');     //a.data
