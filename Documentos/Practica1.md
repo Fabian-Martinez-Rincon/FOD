@@ -58,11 +58,11 @@ program FabianMartinezPrograma1;
 
 uses crt;
 type 
-
-archivoNumeros= file of integer;
+	archivoNumeros= file of integer;
+	cadena20 = string[20];
 
 var 
-	fileName:string;
+	fileName:cadena20;
 	archivo:archivoNumeros;
 	numero:integer;
 BEGIN
