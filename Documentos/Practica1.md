@@ -4,7 +4,7 @@
 
 ```2)``` Realizar un algoritmo que utilizando el archivo de numeros enteros no ordenados en el ejercicio 1, y recorriendolo una unica vez, informe por pantalla la cantidad de numeros multiplos de 2 y la cantidad de numeros mayores a 100000. El nombre del archivo a procesar debe ser proporcionado por el usuario una única vez. Además, el algoritmo deberá listar el contenido del archivo en pantalla. [Resolución](#Ejercicio_2)
 
-```3)``` Realizar un programa que presente un menú con opciones para:
+```3)``` Realizar un programa que presente un menú con opciones para: [Resolución](#Ejercicio_3)
 
 ```a)``` Crear un archivo de registros no ordenados de personas y completarlo con datos ingresados desde teclado. De cada persona se registra apellido, nombre , edad y DNI. Algunas personas se ingresan con DNI 0. La carga finaliza cuando se ingresa el String ```"``` como apellido.
 
@@ -117,4 +117,137 @@ begin
     writeln(multiplosDos,' es la cantidad de numeros que son multiplos de 2 .');
     writeln(cant,' Numeros mayores que 100000.');
 end.
+```
+
+Ejercicio_3
+===========
+```Pas
+program tres;
+uses crt;
+type
+    cadena20 = string[20];
+    persona = record
+    apellido:cadena20;
+    nombre:cadena20;
+    edad:integer;
+    dni:integer;
+    end;
+    archivo = file of persona;
+//_______________________________________________________________
+procedure LeerPersona(var p:persona);
+begin
+    Write('Apellido: '); ReadLn(p.apellido);
+    if(p.apellido <> '"')then
+    begin
+        Write('Nombre: '); ReadLn(p.nombre);
+        Write('Edad: '); ReadLn(p.edad);
+        Write('Dni: '); ReadLn(p.dni);
+    end;
+end;
+//_______________________________________________________________
+procedure CrearArchivo();
+var
+    p:persona;
+    arch_logico: archivo;
+    arch_fisico: cadena20;
+begin
+    writeln( 'Ingrese el nombre del archivo:' );
+    Readln( arch_fisico );          
+    assign( arch_logico, arch_fisico );
+    rewrite( arch_logico );        
+    LeerPersona(p);                
+    while p.apellido <> '"' do          
+    begin
+        write( arch_logico, p ); 
+        LeerPersona(p);
+    end;
+    close( arch_logico ); 
+end;
+//_______________________________________________________________
+procedure MostarPersona(p:persona);
+begin
+    WriteLn('Apellido: ',p.apellido);
+    WriteLn('Nombre: ',p.nombre);
+    WriteLn('Dni: ',p.dni);
+    WriteLn('Edad: ',p.edad);
+end;
+//_______________________________________________________________
+procedure ListarDatosi(apellidoPre:cadena20);
+var
+    arch_logico: archivo;
+    arch_fisico: cadena20;
+    p:persona;
+begin
+    arch_fisico:='Tres';
+    assign(arch_logico, arch_fisico);
+    reset(arch_logico); 
+    while(not eof(arch_logico)) do begin
+    read(arch_logico, p);
+    if (p.apellido = apellidoPre) then 
+    	MostarPersona(p);
+    end;
+    close(arch_logico);
+end;
+//_______________________________________________________________
+procedure ListarDatosii();
+var
+    arch_logico: archivo;
+    arch_fisico: cadena20;
+    p:persona;
+begin
+    arch_fisico:='Tres';
+    assign(arch_logico, arch_fisico);
+    reset(arch_logico); 
+    while(not eof(arch_logico)) do begin
+	read(arch_logico, p);
+	WriteLn('Apellido: ',p.apellido);
+        WriteLn('Nombre: ',p.nombre);
+        WriteLn('Dni: ',p.dni);
+        WriteLn('Edad: ',p.edad);
+        WriteLn('__________');
+    end;
+    close(arch_logico);
+end;
+//_______________________________________________________________
+procedure ListarDatosiii();
+var
+    arch_logico: archivo;
+	arch_fisico: cadena20;
+    p:persona;
+begin
+    arch_fisico:='Tres';
+    assign(arch_logico, arch_fisico);
+    reset(arch_logico); 
+    while(not eof(arch_logico)) do begin
+	read(arch_logico, p);
+        if (p.edad > 18) then
+	begin
+            WriteLn('Apellido: ',p.apellido);
+            WriteLn('Nombre: ',p.nombre);
+            WriteLn('Dni: ',p.dni);
+            WriteLn('Edad: ',p.edad);
+            WriteLn('__________');
+        end;
+        
+    end;
+    close(arch_logico);
+end;
+//_______________________________________________________________
+var
+    apellidoPre:cadena20; //Queria pasar arch logico y fisico por parametros pero no funciona
+begin                     //Entonces los declare como variables locales a los modulos
+    clrscr;
+    //CrearArchivo(); //A
+    apellidoPre:= 'Cosa';
+    WriteLn('________________________');
+    WriteLn('Lista con apellidos predeterminados');
+    ListarDatosi(apellidoPre); //i
+    WriteLn('________________________');
+    WriteLn('Lista de personas del archivo generado en A');
+    ListarDatosii(); //ii
+    WriteLn('________________________');
+    WriteLn('Lista de personas del Mayores de 18');
+    ListarDatosiii();
+end.
+
 ```
