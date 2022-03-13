@@ -15,26 +15,22 @@ Crear
 -----
 
 ```Pas
-Program Generar_Archivo;
-type 
-    archivo = file of integer;   
-var 
-    arc_logico: archivo;         
-    nro: integer;                 
-    arc_fisico: string[12];       
+procedure CrearArchivo(var arch_logico:archivo;var arch_fisico:cadena20);
+var
+    p:persona;
 begin
-    write( 'Ingrese el nombre del archivo:' );
-    read( arc_fisico );          
-    assign( arc_logico, arc_fisico );
-    rewrite( arc_logico );        
-    read( nro );                 
-    while nro <> 0 do 
+    writeln( 'Ingrese el nombre del archivo:' );
+    Readln( arch_fisico );          
+    assign( arch_logico, arch_fisico );
+    rewrite( arch_logico );        
+    readln(x);                
+    while x <> 0 do          
     begin
-        write( arc_logico, nro ); 
-        read( nro );
+        write( arch_logico, x); 
+        readln(x);
     end;
-    close( arc_logico );          
-end. 
+    close( arch_logico ); 
+end;
 
 ```
 
