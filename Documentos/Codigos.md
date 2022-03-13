@@ -6,6 +6,7 @@ Indice
      *  [Crear](#Crear)
      *  [Imprimir](#Imprimir)
      *  [Actualizar](#Actualizar)
+     *  [Agregar](#Agregar)
 
 
 Archivos
@@ -77,5 +78,20 @@ begin
     end   
     else
         WriteLn('No existe el nro');
+end;
+```
+
+Agregar
+-------
+```Pas
+procedure Agregar(var arch_logico:archivo);
+var
+    x:integer;
+begin
+    reset(arch_logico);
+    while (not eof(arch_logico)) do read(arch_logico,x);
+    Readln(x);
+    write(arch_logico, x);
+    close(arch_logico);
 end;
 ```
