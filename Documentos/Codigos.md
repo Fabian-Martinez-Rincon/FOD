@@ -8,6 +8,7 @@ Indice
      *  [Actualizar](#Actualizar)
      *  [Agregar](#Agregar)
      *  [Exportar a TXT](#Exportar_A_TXT)
+     *  [Menu](#Menu)
 
 
 Archivos
@@ -116,5 +117,49 @@ begin
 		end;
 	writeln('________ Exportado Crack ________');
 	close(arch_logico); close(carga);
+end;
+```
+Menu
+----
+```Pas
+procedure Menu();
+var 
+    categoria:integer;
+    apellidoPre:cadena20;
+    arch_logico: archivo;
+	arch_fisico: cadena20;
+begin
+    categoria:= 0;
+    apellidoPre:= 'Cosa';
+    arch_fisico:='Tres';                        
+	assign(arch_logico, arch_fisico);
+	while (categoria <> 9)do begin
+		writeln('_______________________');
+		writeln('Menu 100% real no fake: ');
+		writeln('1 | Crear un Archivo con empleados(Siempre lo primero)');
+		writeln('2 | Datos de Personas con un apellido predeterminado');
+		writeln('3 | Mostrar Todas la Personas');
+		writeln('4 | Mostrar las personas mayores de 18');
+        writeln('5 | Agregar una persona');
+        writeln('6 | Modifica edad de Personas');
+        writeln('7 | Exportar a .txt');
+        writeln('8 | Exportar a erroneos a .txt');
+        writeln('9 | Cerrar Menu');
+		write('Numero: ');
+		readln(categoria);
+		writeln('_______________________');
+		case categoria of
+			1: CrearArchivo(arch_logico,arch_fisico);
+			2: ListarDatosi(arch_logico,apellidoPre);
+			3: ListarDatosii(arch_logico);
+			4: ListarDatosiii(arch_logico);
+            5: Agregar(arch_logico);
+            6: ModificarEdades(arch_logico);
+            7: Exportar_Txt(arch_logico);
+            8: ExportarErroneos(arch_logico);
+            9: WriteLn('Archivo Cerrado');
+			else writeln('Numero invalido'); 
+		end;
+	end;
 end;
 ```
