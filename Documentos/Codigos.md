@@ -7,6 +7,7 @@ Indice
      *  [Imprimir](#Imprimir)
      *  [Actualizar](#Actualizar)
      *  [Agregar](#Agregar)
+     *  [Exportar a TXT](#Exportar_A_TXT)
 
 
 Archivos
@@ -93,5 +94,27 @@ begin
     Readln(x);
     write(arch_logico, x);
     close(arch_logico);
+end;
+```
+
+Exportar_A_TXT
+--------------
+
+```Pas
+procedure Exportar_Txt(var arch_logico:archivo);
+var
+	carga: text;
+	p: persona;
+begin
+	assign(carga, 'C:\Users\fabian\Desktop\FOD\Practicas\Practica 1\Personas.txt');
+	reset(arch_logico);
+	rewrite(carga);
+	while(not eof(arch_logico)) do begin
+		read(arch_logico,p);
+		with p do
+			writeln(carga,' ',apellido,' ',nombre,' ', edad,' ', dni);
+		end;
+	writeln('________ Exportado Crack ________');
+	close(arch_logico); close(carga);
 end;
 ```
