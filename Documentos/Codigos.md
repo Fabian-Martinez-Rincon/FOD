@@ -4,7 +4,7 @@ Indice
 <!--ts-->
    * [Archivos](#Archivos)
      *  [Crear](#Crear)
-     *  [Recorrido](#Recorrido)
+     *  [Imprimir](#Imprimir)
      *  [Actualizar](#Actualizar)
 
 
@@ -34,37 +34,48 @@ end;
 
 ```
 
-Recorrido
+Imprimir
 ---------
 ```Pas
-Procedure Recorrido(var arc_logico: archivo );
-var  
-    nro: integer;                 { para leer elemento del archivo}
+procedure ImprimirArchivo(var arch_logico:archivo);
+var
+    x:integer;
 begin
-    reset( arc_logico );          {archivo ya creado, para operar debe abrirse como de lect/escr} 
-    while not eof( arc_logico) do begin
-        read( arc_logico, nro );  {se obtiene elemento desde archivo }
-        write( nro );             {se presenta cada valor en pantalla}
+    reset(arch_logico); 
+    while(not eof(arch_logico)) do begin
+		read(arch_logico, x);
+		WriteLn('x : ',x);
+        WriteLn('__________');
     end;
-    close( arc_logico );
+    close(arch_logico);
 end;
 
 ```
 Actualizar
 ----------
 ```Pas
-Procedure actualizar (Var archi:archivo); 
-var 
-    E: Integer;
+procedure Actualizar(var arch_logico:archivo);
+var
+    x:Integer;
+    actual:Integer;
+    Encontro:Boolean;
 begin
-    Reset( archi ); 
-    while not eof( archi ) do 
+    reset(arch_logico);
+    WriteLn('Ingrese un nro para remplazarlo: ');
+    ReadLn(x);
+    Encontro:=false;
+    while(not eof(arch_logico))and(not Encontro) do 
     begin
-        Read( archi, E); 
-        E:=E * 2;    
-        Seek( archi,  filepos(archi) -1 );
-        Write( archi, E ); 
+        read(arch_logico, actual);
+        if(actual = x) then Encontro:=true;
     end;
-    close( archi );
+    if Encontro then
+    begin
+        writeln('Nro de Remplazo: '); readln(x);
+        seek(arch_logico, filepos(arch_logico)-1);
+        write(arch_logico, x);
+    end   
+    else
+        WriteLn('No existe el nro');
 end;
 ```
