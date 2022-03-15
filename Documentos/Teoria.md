@@ -146,12 +146,15 @@ End.
 
 ```Pas
 Rewrite(nombre_logico); //De solo escritura (Creacion)
+Ojo con usarlo con un archivo que ya esta cargado, ya que lo reescribe y lo formatea
 Reset (nombre_logico);  //Lectura Escritura (Apertura)
 //Nombre logico representa una variable de tipo archivo sobre la que se realizó la asignación
 Close(nombre_logico);   //Cierre de archivo
 //Esta instruccion indica que no se va a trabajar mas sobre el archivo. Significa poner una marca de 
 //EOF (end of file) al final del mismo
+
 Read(nombre_logico, variable);
+Tiene que ser del mismo tipo de dato del archivo 
 Write(nombre_logico, variable);
 
 {
