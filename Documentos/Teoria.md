@@ -146,6 +146,7 @@ End.
 
 ```Pas
 Rewrite(nombre_logico); //De solo escritura (Creacion)
+Crea y mantiene el archivo abierto, para esto tenemos que usar un close al final de la carga
 Ojo con usarlo con un archivo que ya esta cargado, ya que lo reescribe y lo formatea
 Reset (nombre_logico);  //Lectura Escritura (Apertura)
 //Nombre logico representa una variable de tipo archivo sobre la que se realizó la asignación
