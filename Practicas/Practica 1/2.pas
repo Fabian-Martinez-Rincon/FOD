@@ -3,30 +3,25 @@ creados en el ejercicio 1, informe por pantalla cantidad de n�meros menores a 
 el promedio de los n�meros ingresados. El nombre del archivo a procesar debe ser
 proporcionado por el usuario una �nica vez. Adem�s, el algoritmo deber� listar el
 contenido del archivo en pantalla.}
-program dos;
+program dos; //Fabian Martinez Rincon
 type 
 	archivo = file of integer;
-
-{ PP }
+    cadena20 = string[20];
 var 
 	arch_logico: archivo;
-	arch_fisico: string;
+	arch_fisico: cadena20;
     num, cant, cantM,suma: integer;
 begin
 	cantM:=0; 
     cant:=0; 
     suma:= 0;
-    
-    
     writeln('Ingrese el nombre del archivo: ');     //a.data
     arch_fisico:='Pruebas';                         //direccion del archivo fisico
 	assign(arch_logico, arch_fisico);
     reset(arch_logico); 
-    
     writeln('Elementos del archivo: ');
     while(not eof(arch_logico)) do begin
 		read(arch_logico, num);
-		
 		if num < 1500 then cantM:= cantM + 1;       //suma la cantidad de numeros menores a 1500	
 		suma:= suma + num;                          //acumulador de los numeros
 		cant:= cant +  1;                           //sumador de cantidad de numeros

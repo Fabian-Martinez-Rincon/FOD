@@ -1,12 +1,13 @@
-program FabianMartinezPrograma1;
+{Realizar un algoritmo que cree e incorpore datos, a un archivo de números enteros no ordenados. Los números son ingresados desde teclado. El nombre del archivo debe ser proporcionado por el usuario. La carga finaliza cuando se ingrese el número O (cero),que no debe incorporarse al archivo.}
+program uno; //Fabian Martinez Rincon
 
 uses crt;
 type 
-
-archivoNumeros= file of integer;
+	archivoNumeros= file of integer;
+	cadena20 = string[20];
 
 var 
-	fileName:string;
+	fileName:cadena20;
 	archivo:archivoNumeros;
 	numero:integer;
 BEGIN
