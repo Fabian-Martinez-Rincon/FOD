@@ -3,8 +3,7 @@
 ## ```INDICE```
 
 **Practicas**
-  - [Practica 1 Vieja](/Documentos/Practica1.md)
-  - [Practica 1 Nueva](/Documentos/Practica1Nueva.md)
+  - [Practica 1](/Documentos/Practica1Nueva.md)
   - [Practica 2](/Documentos/Practica2.md)
   - [Practica 3](/Documentos/Practica3.md)
   - [Practica 4](/Documentos/Practica4.md)
