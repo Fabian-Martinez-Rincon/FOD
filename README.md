@@ -10,7 +10,7 @@
   - [Practica 5](/Documentos/Practica5.md)
 
 **Teorias**
-- [Teoria 1](/Documentos/Teoria1.md)
+- [Teoria 1](/Documentos/Teoria.md)
 - [Teoria 2](/Documentos/Teoria2.md)
 - [Teoria 3](/Documentos/Teoria3.md)
 - [Teoria 4](/Documentos/Teoria4.md)
@@ -19,5 +19,4 @@
 - [Teoria 7](/Documentos/Teoria7.md)
 
 **Otros**
-- [Resumen](/Documentos/Teoria.md)
 - [Codigos](/Documentos/Codigos.md)
