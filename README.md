@@ -1,12 +1,22 @@
 <h1 align="center"> 💻FOD </h1>
 
+## ```INDICE```
 
+**Practicas**
+  - [Practica 1 Vieja](/Documentos/Practica1.md)
+  - [Practica 1 Nueva](/Documentos/Practica1Nueva.md)
+  - [Practica 2](/Documentos/Practica2.md)
+  - [Practica 3](/Documentos/Practica3.md)
+  - [Practica 4](/Documentos/Practica4.md)
+  - [Practica 5](/Documentos/Practica5.md)
 
+**Teorias**
+- [Teoria 1](/Documentos/Teoria1.md)
+- [Teoria 2](/Documentos/Teoria2.md)
+- [Teoria 3](/Documentos/Teoria3.md)
+- [Teoria 4](/Documentos/Teoria4.md)
+- [Teoria 5](/Documentos/Teoria5.md)
+
+**Otros**
 - [Resumen](/Documentos/Teoria.md)
 - [Codigos](/Documentos/Codigos.md)
-- [Practica 1 Vieja](/Documentos/Practica1.md)
-- [Practica 1 Nueva](/Documentos/Practica1Nueva.md)
-
-<div align="center">
-<img src="https://media.giphy.com/media/lP3YRSPQbYXgBKdLUI/giphy.gif"/>
- </div>
