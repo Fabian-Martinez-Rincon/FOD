@@ -17,7 +17,6 @@
   - [Teoria 6](/Documentos/Teoria6.md)
 
 **Hashing**
-  - [Practica 5](/Documentos/Practica5.md)
   - [Teoria 7](/Documentos/Teoria7.md)
 
 **Otros**
