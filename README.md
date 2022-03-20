@@ -2,7 +2,7 @@
 
 ## ```INDICE```
 
-**Archivos**
+- [Archivos](/Documentos/Archivos.md)
   - [Practica 1](/Documentos/Practica1Nueva.md)
   - [Practica 2](/Documentos/Practica2.md)
   - [Practica 3](/Documentos/Practica3.md)
