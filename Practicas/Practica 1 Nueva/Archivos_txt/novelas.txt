@@ -1,0 +1,8 @@
+1 1.0 genero1
+nombre1
+2 2.0 genero2
+nombre2
+3 3.0 genero3
+nombre3
+4 4.0 genero4
+nombre4
