@@ -1,0 +1,45 @@
+Busqueda Binaria:
+Arboles y arreglos (tiene ques estar ordenados (clave))
+
+Cada registro tiene distintas direcciones de memoria.
+
+Log2 N > secuencial 
+
+Cuando doy de alta un archivo, tengo que volver a ordenarlo.
+Para mantenerlo ordenado: Archivo esta en disco y no tenes limites(dimF), en un arreglo es estatico y esta en la ram
+
+El archivo lo llevo a la ram y lo ordeno y lo vuelvo a escribir (el acceso no es tan costoso porque llevo un registro al lado del otro (lo llevo completo))
+
+No siempre lo puedo llevar a ram por el espacio (es mejor llevar las clases ya que no ocupan tanto). En caso de no poder con las claves a las ram, en el disco puedo separar el archivo y utilizamor el merge ya que esta ordenado.
+El merge lo podes usar si el archivo esta desordenado.
+Partimos el archivo dependiendo de cuanta memoria ram tenga.
+Las busquedas las haces en ram y el merge en el disco.
+El merge no es para unirlos sino para mezclarlos
+ran (nseg) > disco (mlseg)
+
+El nro de accesos baja pero no llega a cero.
+
+Cuando agrego en un archivo siempre es al final (si desplazo me mato) solo si hay bajas logicas.
+
+Las dos son muy costosas.
+
+Otra forma de hacerlo es utilizando una lista
+
+SI es un archivo guardo la posicion o la direccion fisica.
+
+Estructuras Auxiliares > todo
+
+Si el indice es de un archivo con longitud variable, voy a tener la posicion 
+si es fisico, tengo el rango en dando esta, por ejemplo de 4 a 9 en cambio con variable solo mandas el primer numero.
+
+Puedo hacer un indice con una estructura lineal (no lo vemos)
+indice<arhivo de datos
+
+Indice : Ventaja Es mas chico
+Desventaja: 
+
+
+
+
+
+
