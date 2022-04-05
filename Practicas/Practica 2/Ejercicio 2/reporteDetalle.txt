@@ -1,0 +1,7 @@
+ 1  Matematicas D A
+ 1  Filosofia A A
+ 1  FOD D A
+ 1  AYED A A
+ 2  FOD D A
+ 3  Matematicas D D
+ 4  Matematicas A A

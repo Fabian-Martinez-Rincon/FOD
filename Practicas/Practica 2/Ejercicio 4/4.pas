@@ -1,0 +1,4 @@
+program cuatro;
+begin
+  
+end.
