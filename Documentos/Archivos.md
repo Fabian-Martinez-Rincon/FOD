@@ -89,8 +89,8 @@ begin
     begin
         Read(log,nro); 
         nro:= nro * 2;    
-        Seek(nro,filepos(nro)-1);
-        Write(log, nro); 
+        Seek(log,filepos(log)-1);
+        Write(log,nro); 
     end;
     close(log);
 end;
@@ -105,19 +105,19 @@ end;
 Agregar_Datos
 =============
 ```Pas
-Procedure agregar (Var Emp: Empleados); 
+Procedure Agregar(var log:archivo); 
 var 
-    E: registro;
+    nro: integer;
 begin
-    reset( Emp ); 
-    seek( Emp, filesize(Emp)); 
-    leer( E ); 
-    while E.nombre <> ' ' do 
+    reset(log); 
+    seek(log,filesize(nro)); 
+    read(nro); 
+    while (nro <> 10) do 
     begin
-        write( Emp, E );     
-        leer( E ); 
+        write(log,nro);     
+        read(nro) 
     end;
-    close( Emp );
+    close(log);
 end;
 ```
 Actualizar_Un_Maestro_Con_Un_Detalle
