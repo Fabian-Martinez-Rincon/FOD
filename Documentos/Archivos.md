@@ -5,9 +5,7 @@ Indice
 
 <!--ts-->
 * [Declarar Ejemplos](#Declarar_Ejemplos)
-*  [Generar Archivo](#Generar_Archivo)
-*  [Recorrido](#Recorrido)
-*  [Modificación del Archivo](#Modificación_del_Archivo)
+*  [Operaciones](#Operaciones)
 *  [Agregar Datos](#Agregar_Datos)
 *  [Actualizar Un Maestro Con Un Detalle](#Actualizar_Un_Maestro_Con_Un_Detalle)
 *  [Un Maestro Un detalle sobre la base del anterior](#Un_Maestro_Un_detalle_sobre_la_base_del_anterior)
@@ -31,6 +29,9 @@ begin
 End.
 
 ```
+
+Operaciones
+===========
 
 <table>
 <tr>
