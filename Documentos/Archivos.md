@@ -22,105 +22,84 @@ Indice
 Declarar_Ejemplos
 =================
 ```Pas
-Type 
-    emple = record
-        nombre: string [20];
-        direccion: string [40];
-        edad: integer;
-    end;
-    numero = file of integer;
-    empleado = file of emple;
-    Var arch_num: numero;
-    Var arch_emp: empleado,
-```
-
-```Pas
-Program ejemplo;
-
 type 
-    emple = record
-        nombre:string[20];
-        dirección: string[30};
-        edad:integer:
-    end;
-    numero = file of integer;
-    empleado = file of emple;
-    Var arch_num: numero;
-    arch_emp: empleado;
-
+    numero = file of integer;    
+Var 
+    arch_num: numero;
 begin
-
     assign (arch_num, 'pepe.dat');
-    assign (arch_emp, 'pipo.dat');
 End.
 
 ```
-Generar_Archivo
-===============
+
+<table>
+<tr>
+<td> Crear </td> <td> Recorrer </td><td> Actualizar </td>
+</tr>
+<tr>
+<td>
+ 
 ```Pas
-Program Generar_Archivo;
-type 
-    archivo = file of integer; 
-var 
-    arc_logico: archivo;        
-    nro: integer;               
-    arc_fisico: string[12]; 
+procedure Crear(var logico:archivo);
+var
+    nro:integer;
 begin
-    write( 'Ingrese el nombre del archivo:' );
-    read( arc_fisico ); 
-    assign( arc_logico, arc_fisico );
-    rewrite( arc_logico ); 
+    assign( logico, 'Archivo.data' );
+    rewrite( logico ); 
     read( nro ); 
     while nro <> 0 do begin
-        write( arc_logico, nro ); 
+        write( logico, nro ); 
         read( nro );
     end;
-    close( arc_logico );  
-   end. 
+    close( logico );  
+end. 
 ```
+</td>
+<td>
+ 
 
-Recorrido
-=========
 ```Pas
-Procedure Recorrido(var arc_logico: archivo );
+Procedure Recorrido(var logico: archivo);
 var  
     nro: integer;  
 begin
-    reset( arc_logico ); 
-    while not eof( arc_logico) do 
+    reset( logico ); 
+    while not eof( logico) do 
     begin
-        read( arc_logico, nro );
+        read( logico, nro );
         write( nro );           
     end;
     close( arc_logico );
 end;
 ```
-Modificación_del_Archivo
-========================
-```Pas
-Type 
-    registro = record
-        Nombre: string[20];
-        Direccion: string[20];
-        Salario: real;
-    End;
-    Empleados = file of registro;
 
-Procedure actualizar (Var Emp:empleados); 
+</td>
+ <td>
+ 
+
+```Pas
+Procedure actualizar (Var logico:archivo); 
 var 
-    E: registro;
+    nro: integer;
 begin
-    Reset( Emp ); 
-    while not eof( Emp ) do 
+    Reset(logico); 
+    while not eof( logico ) do 
     begin
-        Read( Emp, E); 
-        E.salario:=E.salario * 1.1;    
-        Seek( Emp,  filepos(Emp) -1 );
-        Write( Emp, E ); 
+        Read( logico, nro); 
+        nro:=nro * 2;    
+        Seek( nro,  filepos(nro) -1 );
+        Write( logico, nro ); 
     end;
-    close( Emp );
+    close(logico);
 end;
 ```
+ 
+</td>
+</tr>
+ 
+</table>
+
+
 Agregar_Datos
 =============
 ```Pas
