@@ -45,14 +45,15 @@ procedure Crear(var log:archivo);
 var
     nro:integer;
 begin
-    assign( logico,'Archivo.data');
-    rewrite( logico ); 
-    read( nro ); 
-    while nro <> 0 do begin
-        write( logico, nro ); 
-        read( nro );
+    assign(log,'Archivo.data');
+    rewrite(log); 
+    read(nro); 
+    while (nro <> 0) do 
+    begin
+        write(log,nro); 
+        read(nro);
     end;
-    close( logico );  
+    close(log);  
 end. 
 ```
 </td>
@@ -62,15 +63,15 @@ end.
 ```Pas
 Procedure Recorrido(var log:archivo);
 var  
-    nro: integer;  
+    nro:integer;  
 begin
-    reset( logico ); 
-    while not eof( logico) do 
+    reset(log); 
+    while not eof(log) do 
     begin
-        read( logico, nro );
-        write( nro );           
+        read(log, nro );
+        write(nro);           
     end;
-    close( arc_logico );
+    close(log);
 end;
 ```
 
@@ -83,15 +84,15 @@ Procedure actualizar(Var log:archivo);
 var 
     nro: integer;
 begin
-    Reset(logico); 
-    while not eof( logico ) do 
+    Reset(log); 
+    while not eof(log) do 
     begin
-        Read( logico, nro); 
-        nro:=nro * 2;    
-        Seek( nro,  filepos(nro) -1 );
-        Write( logico, nro ); 
+        Read(log,nro); 
+        nro:= nro * 2;    
+        Seek(nro,filepos(nro)-1);
+        Write(log, nro); 
     end;
-    close(logico);
+    close(log);
 end;
 ```
  
