@@ -40,11 +40,11 @@ End.
 <td>
  
 ```Pas
-procedure Crear(var logico:archivo);
+procedure Crear(var log:archivo);
 var
     nro:integer;
 begin
-    assign( logico, 'Archivo.data' );
+    assign( logico,'Archivo.data');
     rewrite( logico ); 
     read( nro ); 
     while nro <> 0 do begin
@@ -59,7 +59,7 @@ end.
  
 
 ```Pas
-Procedure Recorrido(var logico: archivo);
+Procedure Recorrido(var log:archivo);
 var  
     nro: integer;  
 begin
@@ -78,7 +78,7 @@ end;
  
 
 ```Pas
-Procedure actualizar (Var logico:archivo); 
+Procedure actualizar(Var log:archivo); 
 var 
     nro: integer;
 begin
