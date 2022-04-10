@@ -284,7 +284,7 @@ end;
 
 Cargar_Vector_Ordenado
 ======================
-```Java
+```Pascal
 Procedure CargarVector ( var v:vector;var dimL:integer;a:arbol;Datos:PuntoA );
 begin 
     if ( a<> nil )  then begin
