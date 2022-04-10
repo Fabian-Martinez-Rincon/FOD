@@ -32,7 +32,7 @@ type
         nombre:cadena20;
         apellido:cadena20;
         matricula:integer; //Matricula del medico
-        fecha:cadena20;
+        fecha:Integer;
         hora:integer;
         lugar:cadena20;
     end;
@@ -127,10 +127,13 @@ begin
 
 end;
 //________________________________________________________________________
-{procedure cargarMaestroF(var actual:regMaestro;minF:fallecimiento);
+procedure cargarMaestroF(var actual:regMaestro;minF:fallecimiento);
 begin
-    actual.siFallecio.matricula:=minF.
-end;}
+    actual.siFallecio.matricula:=minF.matricula;
+    actual.siFallecio.fecha:=minF.fecha;
+    actual.siFallecio.hora:=minF.hora;
+    actual.siFallecio.lugar:=minF.lugar;
+end;
 //________________________________________________________________________
 procedure crearMaestro(var maestro:archMaestro;var vN:nacimientos;var vNR:nacimientoReg;var vF:fallecimientos;var vFR:fallecimientosReg);
 var
@@ -149,6 +152,8 @@ begin
         minimoN(vN,vNR,minN);
     end;
     //Esto lo hago para volver al primer elemento y agregar si fallecieron
+    for i:=1 to dimF do 
+        close(vN[i]);
     Close(maestro); 
     Reset(maestro);
     minimoF(vF,vFR,minF);
@@ -156,17 +161,35 @@ begin
     begin
         while (actual.nroNaci <> minF.nroNaci) do
             Read(maestro,actual);
-        actual.siFallecio.matricula:=minF.matricula;
-        actual.siFallecio.fecha:=minF.fecha;
-        actual.siFallecio.hora:=minF.hora;
-        actual.siFallecio.lugar:=minF.lugar;
+        cargarMaestroF(actual,minF);
         seek(maestro,FilePos(maestro)-1);
-        
-        //cargarMaestroF(actual,minF);
+        Write(maestro,actual);
+        minimoF(vF,vFR,minF);
     end;
     
+    for i:=1 to dimF do 
+        close(vF[i]);
+    close(maestro);
 
-
+end;
+//________________________________________________________________________
+procedure ExportarATxtMaestro(var archivoMae:archMaestro);
+var
+    texto:Text;
+    r:regMaestro;
+begin
+    assign(archivoMae,'maestroSiniestro.data');
+    Reset(archivoMae); //abro mi archivo binario
+    assign(texto,'reporteSiniestros.txt');
+    rewrite(texto); //creo mi archivo de texto
+    while(not EOF(archivoMae)) do begin
+        read(archivoMae,r);
+        with r do begin
+          writeln(texto,' ',nroNaci,' ',nombre,' ',apellido,' ',matricula);
+        end;
+    end;
+    close(texto);
+    close(archivoMae);
 end;
 //________________________________________________________________________
 var
@@ -183,8 +206,7 @@ begin
         Reset(vN[i]);                     Reset(vF[i]);
         
         LeerN(vN[i],vNR[i]);              LeerF(vF[i],vFR[i]);
-
-        Close(vN[i]);                     Close(vF[i]); //Esto hacerlo fuera porque voy a seguir trabajando con el archivo
     end;
     crearMaestro(maestro,vN,vNR,vF,vFR);
+    ExportarATxtMaestro(maestro);
 end.
