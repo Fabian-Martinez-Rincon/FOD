@@ -7,10 +7,8 @@ Indice
 * [Declarar Ejemplos](#Declarar_Ejemplos)
 *  [Operaciones](#Operaciones)
 *  [Agregar Datos](#Agregar_Datos)
-*  [Actualizar Un Maestro Con Un Detalle](#Actualizar_Un_Maestro_Con_Un_Detalle)
-*  [Un Maestro Un detalle sobre la base del anterior](#Un_Maestro_Un_detalle_sobre_la_base_del_anterior)
-*  [Un Maestro Un Detalle Solucion Correcta](#Un_Maestro_Un_Detalle_Solucion_Correcta)
-*  [Un Maestro N Detalle](#Un_Maestro_N_Detalle)
+*  [Maestro-Detalle](#Maestro_Detalle)
+*  [Maestro N Detalle](#Maestro_N_Detalle)
 *  [Corte De Control](#Corte_De_Control)
 *  [Mege 3 Archivos](#Mege_3_Archivos)
 *  [Merge 3 Archivos Con Repetición](#Merge_3_Archivos_Con_Repetición)
@@ -120,261 +118,128 @@ begin
     close(log);
 end;
 ```
-Actualizar_Un_Maestro_Con_Un_Detalle
-====================================
+
+Maestro_Detalle
+===============
 ```Pas
-program actualizar;
-type 
-    emp = record    
-        nombre: string[30]; 
-        direccion: string[30];               
-        cht: integer;
-    end;
-    e_diario = record
-        nombre: string[30];
-        cht: integer;                           
-    end;
-    detalle = file of e_diario; 
-    maestro = file of emp; 
-var 
-    regm: emp;   
-    regd: e_diario;    
-    mae1: maestro; 
-    det1: detalle;
-begin
-    assign (mae1, 'maestro');
-    assign (det1, 'detalle');
-    reset (mae1);  
-    reset (det1);
-    while (not eof(det1)) do 
-    begin
-        read(mae1, regm);
-        read(det1, regd);
-        while (regm.nombre <> regd.nombre) do
-          read (mae1,regm);
-        regm.cht := regm.cht + regd.cht;
-        seek (mae1, filepos(mae1)-1);
-        write(mae1,regm);
-    end;
-end.
-```
-
-Un_Maestro_Un_detalle_sobre_la_base_del_anterior
-================================================
-```Pas
-program actualizar;
-const 
-    valoralto='9999';
-type 
-    str4 = string[4];
-    prod = record
-        cod: str4;                   
-        descripcion: string[30];     
-        pu: real;                    
-        cant: integer;               
-    end;
-    v_prod = record
-        cod: str4;               
-        cv: integer;   
-    end;
-    detalle = file of v_prod;     
-    maestro = file of prod;       
-var
-    regm: prod;
-    regd: v_prod;
-    mae1: maestro;
-    det1: detalle;
-    total: integer;
-
-begin
-    assign (mae1, 'maestro');
-    assign (det1, 'detalle');
-    reset (mae1);  reset (det1);
-    while (not eof(det1)) do 
-    begin
-        read(mae1, regm);
-        read(det1,regd);
-        while (regm.cod <> regd.cod) do
-            read (mae1,regm);
-		while (regm.cod = regd.cod) do
-        begin
-            regm.cant := regm.cant - regd.cv;        
-            read (det1,reg);
-        end;
-        seek (mae1, filepos(mae1)-1);
-        write(mae1,regm);
-    end;
-end.
-```
-
-Un_Maestro_Un_Detalle_Solucion_Correcta
-=======================================
-```Pas
-procedure leer (var archivo:detalle;var dato:v_prod);
-begin
-    if (not eof(archivo))
-        then read (archivo,dato)
-    else 
-        dato.cod := valoralto;
-end;
-//_______________________________________________________
-begin
-    assign (mae1, 'maestro');  
-    assign (det1, 'detalle');
-    reset (mae1);  reset (det1);
-    leer(det1,regd);  
-    while (regd.cod <> valoralto) do 
-    begin
-        read(mae1, regm);
-        while (regm.cod <> regd.cod) do
-            read (mae1,regm);
-        while (regm.cod = regd.cod) do 
-        begin
-            regm.cant := regm.cant - regd.cv;        
-	        leer(det1,regd);          
-        end;
-        seek (mae1, filepos(mae1)-1);
-        write(mae1,regm);
-    end;
-End;
-
-```
-
-Un_Maestro_N_Detalle
-====================
-```Pas
-procedure minimo (var r1,r2,r3: v_prod; var min:v_prod);
-begin
-    if (r1.cod<=r2.cod) and (r1.cod<=r3.cod) then 
-    begin
-        min := r1;  leer(det1,r1)
-    end
-    else if (r2.cod<=r3.cod) then 
-    begin
-        min := r2; leer(det2,r2)
-    end
-    else 
-    begin
-        min := r3;leer(det3,r3)
-    end;
-end;
-//_______________________________________________________
-procedure leer (var archivo: detalle; var dato:v_prod);
+procedure leer (var archivo:detalle;var dato:registro);
 begin
     if (not eof(archivo))then 
         read (archivo,dato)
     else 
         dato.cod := valoralto;
 end;
-//_______________________________________________________
-
-Var   
-    regm: prod;  
-    min, regd1, regd2,regd3: v_prod;
-    mae1: maestro;   
-    det1,det2,det3: detalle;
+procedure Maestro_Detalle(var m:maestro;var d:detalle);
+var
+    datoM,datoD:registro;
 begin
-    assign (mae1, 'maestro');   
-    assign (det1, 'detalle1');   
-    assign (det2, 'detalle2');  
-    assign (det3, 'detalle3');
-    reset (mae1);  
-    reset (det1); 
-    reset (det2); 
-    reset (det3);
-    leer(det1, regd1); 
-    leer(det2, regd2); 
-    leer(det3, regd3);
-    minimo(regd1, regd2, regd3, min);
+    assign (m,'maestro.data'); reset (m);
+    assign (d,'detalle.data'); reset(d);
+    leer(d,datoD);  
+    while (datoD.cod <> valoralto) do begin
+        read(m, datoM);
+        while (datoM.cod <> datoD.cod) do
+            read (m,datoM);
+        while (datoM.cod = datoD.cod) do 
+        begin
+            datoM.cant := datoM.cant - datoD.cv;        
+	        leer(det1,datoD);          
+        end;
+        seek (m, filepos(m)-1);
+        write(m,datoM);
+    end;
+End;
+```
+Maestro_N_Detalle
+=================
+```Pas
+procedure minimo (var r1,r2,r3:registro; var min:registro);
+begin
+    if (r1.cod<=r2.cod) and (r1.cod<=r3.cod) then 
+    begin
+        min := r1;  leer(d1,r1)
+    end
+    else if (r2.cod<=r3.cod) then 
+    begin
+        min := r2; leer(d2,r2)
+    end
+    else 
+    begin
+        min := r3;leer(d3,r3)
+    end;
+end;
+//_______________________________________________________
+procedure leer (var archivo: detalle; var x:registro);
+begin
+    if (not eof(archivo))then 
+        read (archivo,x)
+    else 
+        x.cod := valoralto;
+end;
+//_______________________________________________________
+procedure Maestro_NDetalles(var m:maestro;var d1,d2,d3:detalle);
+Var   
+    x: prod;  
+    min, r1, r2,r3: registro;
+    m: maestro;   
+    d1,d2,d3: detalle;
+begin
+    assign (m, 'maestro.data');    reset (m); 
+    assign (d1, 'detalle1.data');  reset (d1);  leer(d1, r1); 
+    assign (d2, 'detalle2.data');  reset (d2);  leer(d2, r2); 
+    assign (d3, 'detalle3.data');  reset (d3);  leer(d3, r3);
+    minimo(r1, r2, r3, min);
     while (min.cod <> valoralto) do  
     begin
-        read(mae1,regm);
-        while (regm.cod <> min.cod) do 
-            read(mae1,regm);
-        while (regm.cod = min.cod ) do 
+        read(m,x);
+        while (x.cod <> min.cod) do 
+            read(m,x);
+        while (x.cod = min.cod ) do 
         begin
-            regm.cant:=regm.cant - min.cantvendida;
-            minimo(regd1, regd2, regd3, min);
+            x.cant:=x.cant - min.cantvendida;
+            minimo(r1, r2, r3, min);
         end;
-        seek (mae1, filepos(mae1)-1);
-        write(mae1,regm);
+        seek (m, filepos(m)-1);
+        write(m,x);
     end;
-end.
-
+end;
 ```
 Corte_De_Control
 ================
 ```Pas
-procedure leer (var archivo:instituto;  var dato:prov);
+procedure leer( var archivo: detalle; var dato: registroD);
 begin
-    if (not eof( archivo ))then 
-        read (archivo,dato)
-    else 
-        dato.provincia := valoralto;
+    if (not(EOF(archivo))) then
+        read (archivo, dato)
+    else
+        dato.cod := valoralto;
 end;
-//_______________________________________________________
-program Corte_de_Control;
-const 
-    valoralto='zzzz';
-type 
-    str10 = string[10];
-    prov = record
-        provincia, partido, ciudad: str10;            
-        cant_varones, 
-        cant_mujeres, 
-        cant_desocupados : integer; 
-    end;
-    instituto = file of prov;
-var 
-    regm: prov;
-    inst: instituto;
-    t_varones, t_mujeres,t_desocupa, t_prov_var,t_prov_muj, t_prov_des: integer;
-    ant_prov, ant_partido : str10;
+procedure CorteDeControl(var m:maestro; var d:detalle);
+var
+    datoM: registroM;
+    datoD: registroD;
+    total: integer; actual: integer;
 begin
-    assign (inst, 'censo' ); 
-    reset (inst); 
-    leer (inst, regm);
-
-    writeln ('Provincia: ',regm.provincia);
-    writeln ('Partido: ', regm.partido);
-    writeln('Ciudad','Mas','Fem','Desocupa');
-
-    t_varones := 0;     
-    t_mujeres := 0;   
-    t_desocupa := 0;
-    t_prov_var := 0;    
-    t_prov_muj := 0;  
-    t_prov_des := 0;
-    while ( regm.provincia <> valoralto)do 
-    begin
-        ant_prov := regm.provincia; 
-        ant_partido := regm.partido;
-        while (ant_prov=regm.provincia) and (ant_partido=regm.partido) do 
-        begin
-            write (regm.ciudad, regm.cant_varones,   
-            regm.cant_mujeres,regm.cant_desocupados);
-            t_varones := t_varones + regm.cant_varones;      
-            t_mujeres := t_mujeres + regm.cant_mujeres;
-            t_desocupa := t_desocupa + regm.cant_desocupados;
-            leer (inst, regm);
+    assign(m, 'maestro'); reset(m); read(m, datoM);
+    assign(d, 'detalle'); reset(d); leer(d, datoD);
+    while (datoD.cod <> valoralto) do begin
+        actual := datoD.cod;
+        total := 0;
+        while (actual = datoD.cod) do begin
+            total := total + datoD.cant_vendida;
+            leer(d, datoD);
         end;
-        writeln ('Total Partido: ', t_varones, t_mujeres, t_desocupa);
-        t_prov_var := t_prov_var + t_varones; 
-        t_prov_muj := t_prov_muj +  t_mujeres;  
-        t_prov_des := t_prov_des + t_desocupa;
-        t_varones := 0; t_mujeres := 0; t_desocupa := 0;
-        ant_partido := regm.partido;
-        if (ant_prov <> regm.provincia) then   
-        begin
-            writeln ('TotalProv.’,t_prov_var, 
-            t_prov_muj, t_prov_des);
-            t_prov_var := 0; t_prov_muj := 0; 
-            t_prov_des := 0;
-            writeln('Prov.:‘,regm.provincia);
-        end;
-        writeln('Partido:', regm.partido);
+        while (datoM.cod <> actual) do
+            read (m, datoM);
+        datoM.cant := datoM.cant - total;
+        seek(m, filepos(m)-1);
+        write(m, datoM);
+        if (not(EOF(m))) then
+            read(m, datoM);
     end;
-end.
+    close(d);
+    close(m);
+end;
 ```
 
 Mege_3_Archivos
