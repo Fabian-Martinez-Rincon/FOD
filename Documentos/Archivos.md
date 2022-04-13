@@ -6,6 +6,7 @@ Indice
 <!--ts-->
 * [Declarar Ejemplos](#Declarar_Ejemplos)
 *  [Operaciones](#Operaciones)
+*  [Importar](#Importar)
 *  [Agregar Datos](#Agregar_Datos)
 *  [Maestro-Detalle](#Maestro_Detalle)
 *  [Maestro N Detalle](#Maestro_N_Detalle)
@@ -116,6 +117,28 @@ begin
         read(nro) 
     end;
     close(log);
+end;
+```
+
+Importar
+========
+```Pas
+procedure Importar(var z:tipoArchivo);
+var
+    carga:text;
+    dato:empleado;
+begin
+    Assign(z,'maestro.data');
+    Assign(carga,'maestro.txt');
+    Rewrite(z);
+    Reset(carga);
+    while (not (Eof(carga))) do
+    begin
+        with dato do readln(carga, departamento, division, nro, categoria, horas_extras);
+        Write(z,dato);
+    end;
+    Close(z);
+    Close(carga);
 end;
 ```
 
