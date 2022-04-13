@@ -24,6 +24,7 @@ del valor coincidente con el número de categoría.}
 program Ej10;
 const
     dimF = 15;
+    valorAlto = 9999;
 type
     rango = 1..15;
     empleado = record
@@ -32,8 +33,104 @@ type
         nro:integer;
         categoria:integer;
         horas_extras:integer;
-
     end;
+    maestro = file of empleado;
+    vector = array [rango] of integer; //Arreglos con valores de las horas extra
+//_____________________________________________
+procedure ImportarMaestro(var m:maestro);
+var
+    carga:text;
+    dato:empleado;
 begin
-    WriteLn('cosa');
+    Assign(m,'maestro.data');
+    Assign(carga,'maestro.txt');
+    Rewrite(m);
+    Reset(carga);
+    while (not (Eof(carga))) do
+    begin
+        with dato do readln(carga, departamento, division, nro, categoria, horas_extras);
+        Write(m,dato);
+    end;
+    Close(m);
+    Close(carga);
+end;
+//_____________________________________________
+procedure CargarVector(var v:vector);
+var
+    i:integer;
+begin
+    for i:=0 to dimF do
+    begin
+        v[i]:=i;
+    end;
+end;
+//_____________________________________________
+procedure leer(var arch:maestro; var aux:empleado);
+begin
+    if(not eof(arch))then 
+		read(arch,aux)
+    else 
+		aux.departamento:=valorAlto;
+end;
+//_____________________________________________
+procedure listado(var m:maestro; v:vector);
+var
+    actualD,actualDiv,actualN,x:empleado;
+    totalHD,montoTD:integer;
+    totalHDiv,montoTDiv:Integer;
+    TotalHs:integer;
+    Importe:integer;
+begin
+    Assign(m,'maestro.data');
+    Reset(m);
+    leer(m,x);
+    while x.departamento <> valoralto do
+    begin
+        actualD:=x;
+        totalHD:=0;
+        montoTD:=0;
+        WriteLn('___________________');
+        WriteLn('Departamento: ', x.departamento);
+        while x.departamento = actualD.departamento do
+        begin
+            actualDiv:=x;
+            totalHDiv:=0;
+            montoTDiv:=0;
+            WriteLn('___________________');
+            WriteLn('Division: ', x.division);
+            while (x.division = actualDiv.division) and (x.departamento = actualD.departamento) do
+            begin
+                actualN:=x;
+                TotalHs:=0;
+                Importe:=0;
+                WriteLn('Numero de Empleado: ', x.nro);
+                while (x.nro = actualN.nro) and (x.division = actualDiv.division) and (x.departamento = actualD.departamento) do
+                begin
+                    TotalHs:=TotalHs + x.horas_extras;
+                    leer(m,x);
+                end;
+                totalHDiv:=totalHDiv + TotalHs;
+                Importe:=TotalHs*v[x.categoria];
+                WriteLn('Total de Hs: ',TotalHs);
+                WriteLn('Importe a cobrar: ',Importe);
+                montoTDiv:=montoTDiv +Importe;
+            end;
+            WriteLn('Total de horas division: ', totalHDiv);
+            WriteLn('Monto total por division: ',montoTDiv);
+            totalHD:=totalHD + totalHDiv;
+            montoTD:=montoTD + montoTDiv;
+        end;
+        WriteLn('Total horas departamento: ', totalHD);
+        WriteLn('Monto total departamento: ', montoTD);
+    end;
+end;
+//_____________________________________________
+var
+    m:maestro;
+    v:vector;
+begin
+    randomize;
+    importarMaestro(m);
+    CargarVector(v); //Cargo el vector con los precios de las horas extras
+    listado(m,v);
 end.
