@@ -1,4 +1,4 @@
-program dos;
+program Ej2;
 type
     cadena20 = string[20];
     alumno = record

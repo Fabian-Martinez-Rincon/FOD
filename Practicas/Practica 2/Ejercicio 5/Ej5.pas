@@ -1,4 +1,4 @@
-program cinco;
+program Ej5;
 const
     dimF = 5; //Tendira que ser 50
     valorAlto = 9999;

@@ -1,4 +1,4 @@
-program practica2_uno;
+program Ej1;
 const
     valoralto = 9999;
 type
@@ -17,7 +17,7 @@ var
 begin
 	writeln('Nombre del archivo fisico: ');
 	assign(arch_logico,arch_fisico);
-	assign(carga, 'C:\Users\fabian\Desktop\FOD\Practicas\Practica 2\Archivos_txt\empleados.txt');
+	assign(carga, 'empleados.txt');
 	rewrite(arch_logico);
 	reset(carga);
 	while(not  eof(carga)) do 
@@ -64,16 +64,13 @@ begin
     fisico := 'detalle_uno'; 
     CrearArchivo(detalle,fisico);
     Imprimir(detalle);
-
     assign (maestro, 'maestro_uno');
     Rewrite (maestro);  reset (detalle);
     leer(detalle,regDetalle);  
     while (regDetalle.codigo <> 9999) do 
     begin
-        WriteLn('Bien: ',regDetalle.codigo);
         total:=0;
         act:=regDetalle;  
-        WriteLn('E');
         while (act.codigo = regDetalle.codigo) do 
         begin
             total:=total+regDetalle.monto;        

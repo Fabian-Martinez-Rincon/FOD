@@ -1,4 +1,4 @@
-program tres;
+program Ej3;
 const 
     dimF = 30;
     valorAlto = 9999;

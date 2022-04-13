@@ -1,4 +1,4 @@
-program cuatro;
+program Ej4;
 const
     valorAlto = 9999;
     dimf = 5;         //Cantidad de maquinas
