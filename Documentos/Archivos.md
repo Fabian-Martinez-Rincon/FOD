@@ -4,9 +4,8 @@ Indice
 =================
 
 <!--ts-->
-* [Declarar Ejemplos](#Declarar_Ejemplos)
-*  [Operaciones](#Operaciones)
-*  [Importar](#Importar)
+*  [Crear](#Crear)
+*  [Imprimir](#Imprimir)
 *  [Agregar Datos](#Agregar_Datos)
 *  [Maestro-Detalle](#Maestro_Detalle)
 *  [Maestro 2 Detalles](#Maestro2Detalles)
@@ -15,7 +14,6 @@ Indice
 *  [Mege 3 Archivos](#Mege_3_Archivos)
 *  [Merge 3 Archivos Con Repetición](#Merge_3_Archivos_Con_Repetición)
 *  [Merge N Archivos Con Repetición](#Merge_N_Archivos_Con_Repetición)
-
 
 Declarar_Ejemplos
 =================
@@ -27,33 +25,32 @@ Var
 begin
     assign (arch_num, 'pepe.dat');
 End.
-
 ```
 
-Operaciones
-===========
+Crear
+=====
 
 <table>
 <tr>
-<td> Crear </td> <td> Recorrer </td><td> Actualizar </td>
+<td> Crear </td> <td> Crear Con texto </td>
 </tr>
 <tr>
 <td>
  
 ```Pas
-procedure Crear(var log:archivo);
+procedure Crear(var m:maestro);
 var
     nro:integer;
 begin
-    assign(log,'Archivo.data');
-    rewrite(log); 
+    assign(m,'Archivo.data');
+    rewrite(m); 
     read(nro); 
     while (nro <> 0) do 
     begin
-        write(log,nro); 
+        write(m,nro); 
         read(nro);
     end;
-    close(log);  
+    close(m);  
 end. 
 ```
 </td>
@@ -61,23 +58,96 @@ end.
  
 
 ```Pas
-Procedure Recorrido(var log:archivo);
+procedure CrearConTexto(var m:maestro);
+var
+	carga: text;
+	a: articulo;
+begin
+	assign(m,'maestro.data');
+	assign(carga,'Articulos.txt');
+	rewrite(m); reset(carga);
+	while(not eof(carga))do begin
+		with a do readln(carga, color);
+		write(m,a);
+	end;
+	close(m); close(carga);
+end;
+```
+
+</td>
+
+</tr>
+ 
+</table>
+
+
+Imprimir
+========
+
+<table>
+<tr>
+<td> Imprimir </td><td> Listado </td>
+</tr>
+<tr>
+<td>
+
+```Pas
+Procedure Imprimir(var m:maestro);
 var  
     nro:integer;  
 begin
-    reset(log); 
-    while not eof(log) do 
+    reset(m); 
+    while not eof(m) do 
     begin
-        read(log, nro );
+        read(m, nro );
         write(nro);           
     end;
     close(log);
 end;
 ```
-
 </td>
  <td>
+
+```Pas
+procedure leer(var m:maestro; var aux:mesas);
+begin
+    if(not eof(m))then 
+		read(m,aux)
+    else 
+		aux.codigoP:=valorAlto;
+end;
+//__________________________________________
+procedure listado(var m:maestro);
+var
+	x,actual:mesas;
+    totalP:Integer;
+begin
+	assign(m,'maestro.data');
+	reset(m);
+	leer(m,x);
+	while (x.codigoP <> valoralto) do begin
+		actual:= x;
+        totalP:=0;
+        WriteLn('___________');
+		writeln('Codigo de Provincia: ', actual.codigoP);
+		while(actual.codigoP = x.codigoP)do 
+        begin
+            totalP:=totalP+x.votos;
+            leer(m,x);
+		end;
+        writeln('Total de votos provinciales: ', totalP);
+	end;
+	close(m);
+end;
+```
  
+</td>
+</tr>
+ 
+</table>
+
+Actualizar
+==========
 
 ```Pas
 Procedure actualizar(Var log:archivo); 
@@ -95,15 +165,16 @@ begin
     close(log);
 end;
 ```
- 
-</td>
-</tr>
- 
-</table>
 
-
-Agregar_Datos
+Agregar
 =============
+<table>
+<tr>
+<td> Agregar </td> <td> Agregar desde un Detalle </td>
+</tr>
+<tr>
+<td>
+ 
 ```Pas
 Procedure Agregar(var log:archivo); 
 var 
@@ -120,38 +191,17 @@ begin
     close(log);
 end;
 ```
+</td>
+<td>
+ 
 
-Importar
-========
 ```Pas
-procedure Importar(var z:tipoArchivo);
-var
-    carga:text;
-    dato:empleado;
+procedure leer (var d:detalle;var x:registro);
 begin
-    Assign(z,'maestro.data');
-    Assign(carga,'maestro.txt');
-    Rewrite(z);
-    Reset(carga);
-    while (not (Eof(carga))) do
-    begin
-        with dato do readln(carga, departamento, division, nro, categoria, horas_extras);
-        Write(z,dato);
-    end;
-    Close(z);
-    Close(carga);
-end;
-```
-
-Maestro_Detalle
-===============
-```Pas
-procedure leer (var archivo:detalle;var dato:registro);
-begin
-    if (not eof(archivo))then 
-        read (archivo,dato)
+    if (not eof(d))then 
+        read (d,x)
     else 
-        dato.cod := valoralto;
+        x.cod := valoralto;
 end;
 procedure Maestro_Detalle(var m:maestro;var d:detalle);
 var
@@ -174,6 +224,15 @@ begin
     end;
 End;
 ```
+
+</td>
+
+</tr>
+ 
+</table>
+
+
+
 Maestro2Detalles
 ================
 ```Pas

@@ -7,6 +7,8 @@ necesarios para actualizar el archivo maestro a partir de los dos archivos detal
 NOTA: Los archivos están ordenados por nombre de provincia y en los archivos detalle
 pueden venir 0, 1 ó más registros por cada provincia}
 program Ej11;
+const
+    valoralto = 'ZZZZ';
 type
     cadena20 = string[20];
     maestroR = record
@@ -53,10 +55,10 @@ begin
     Close(carga2);
 end;
 //__________________________________________
-procedure importarMaestro(var m:tipoArchivo);
+procedure importarMaestro(var m:maestro);
 var
     carga:text;
-    dato:empleado;
+    dato:maestroR;
 begin
     Assign(m,'maestro.data');
     Assign(carga,'maestro.txt');
@@ -64,7 +66,73 @@ begin
     Reset(carga);
     while (not (Eof(carga))) do
     begin
-        with dato do readln(carga, departamento, division, nro, categoria, horas_extras);
+        with dato do readln(carga, nombre, cantidadA, cantidadE);
+        Write(m,dato);
+    end;
+    Close(m);
+    Close(carga);
+end;
+//__________________________________________
+procedure leer (var archivo: detalle; var x:detalleR);
+begin
+    if (not eof(archivo))then 
+        read (archivo,x)
+    else 
+        x.nombre := valoralto;
+end;
+//__________________________________________
+procedure minimo (var r1,r2:detalleR;var d1,d2:detalle; var min:detalleR);
+begin
+    if (r1.nombre<=r2.nombre)  then 
+    begin
+        min := r1;  leer(d1,r1)
+    end
+    else 
+    begin
+        min := r2; leer(d2,r2)
+    end
+end;
+//_______________________________________________________
+procedure actualizarMaestro(var m:maestro;var d1,d2:detalle);
+Var   
+    x: maestroR;  
+    min, r1, r2: detalleR; 
+begin
+    assign (m, 'maestro.data');    reset (m); 
+    assign (d1, 'detalle1.data');  reset (d1);  leer(d1, r1); 
+    assign (d2, 'detalle2.data');  reset (d2);  leer(d2, r2); 
+    minimo(r1, r2, d1, d2,min);
+    while (min.nombre <> valoralto) do  
+    begin
+        read(m,x);
+        while (x.nombre <> min.nombre) do 
+            read(m,x);
+        while (x.nombre = min.nombre ) do 
+        begin
+            x.cantidadA:=x.cantidadA + min.cantidadA;
+            x.cantidadE:=x.cantidadE + min.cantidadE;
+            minimo(r1, r2, d1, d2,min);
+        end;
+        seek (m, filepos(m)-1);
+        write(m,x);
+    end;
+    Close(m);
+    Close(d1);
+    Close(d2);
+end;
+//__________________________________________
+procedure exportar(var m:maestro);
+var
+    carga:text;
+    dato:maestroR;
+begin
+    Assign(m,'maestro.data');
+    Assign(carga,'reporteMaestro.txt');
+    Rewrite(m);
+    Reset(carga);
+    while (not (Eof(carga))) do
+    begin
+        with dato do readln(carga, nombre,cantidadA,cantidadE);
         Write(m,dato);
     end;
     Close(m);
@@ -72,9 +140,11 @@ begin
 end;
 //__________________________________________
 var
-    m:maestroR;
+    m:maestro;
     d1,d2:detalle;
 begin
     importarDetalles(d1,d2);
     importarMaestro(m);
+    actualizarMaestro(m,d1,d2);
+    exportar(m);
 end.
