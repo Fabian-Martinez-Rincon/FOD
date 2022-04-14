@@ -9,6 +9,7 @@ Indice
 *  [Importar](#Importar)
 *  [Agregar Datos](#Agregar_Datos)
 *  [Maestro-Detalle](#Maestro_Detalle)
+*  [Maestro 2 Detalles](#Maestro2Detalles)
 *  [Maestro N Detalle](#Maestro_N_Detalle)
 *  [Corte De Control](#Corte_De_Control)
 *  [Mege 3 Archivos](#Mege_3_Archivos)
@@ -173,6 +174,58 @@ begin
     end;
 End;
 ```
+Maestro2Detalles
+================
+```Pas
+procedure leer (var archivo: detalle; var x:detalleR);
+begin
+    if (not eof(archivo))then 
+        read (archivo,x)
+    else 
+        x.nombre := valoralto;
+end;
+//__________________________________________
+procedure minimo (var r1,r2:detalleR;var d1,d2:detalle; var min:detalleR);
+begin
+    if (r1.nombre<=r2.nombre)  then 
+    begin
+        min := r1;  leer(d1,r1)
+    end
+    else 
+    begin
+        min := r2; leer(d2,r2)
+    end
+end;
+//_______________________________________________________
+procedure actualizarMaestro(var m:maestro;var d1,d2:detalle);
+Var   
+    x: maestroR;  
+    min, r1, r2: detalleR; 
+begin
+    assign (m, 'maestro.data');    reset (m); 
+    assign (d1, 'detalle1.data');  reset (d1);  leer(d1, r1); 
+    assign (d2, 'detalle2.data');  reset (d2);  leer(d2, r2); 
+    minimo(r1, r2, d1, d2,min);
+    while (min.nombre <> valoralto) do  
+    begin
+        read(m,x);
+        while (x.nombre <> min.nombre) do 
+            read(m,x);
+        while (x.nombre = min.nombre ) do 
+        begin
+            x.cantidadA:=x.cantidadA + min.cantidadA;
+            x.cantidadE:=x.cantidadE + min.cantidadE;
+            minimo(r1, r2, d1, d2,min);
+        end;
+        seek (m, filepos(m)-1);
+        write(m,x);
+    end;
+    Close(m);
+    Close(d1);
+    Close(d2);
+end;
+```
+
 Maestro_N_Detalle
 =================
 ```Pas
