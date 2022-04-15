@@ -5,15 +5,20 @@ Indice
 
 <!--ts-->
 *  [Crear](#Crear)
+   *  [Desde Teclado]()
+   *  [Desde un Texto]()
 *  [Imprimir](#Imprimir)
+   * [Desordenado]()
+   * [Ordenado]()
+*  [Actualizar]()
+   * [Con una Constante]()
 *  [Agregar Datos](#Agregar_Datos)
-*  [Maestro-Detalle](#Maestro_Detalle)
-*  [Maestro 2 Detalles](#Maestro2Detalles)
-*  [Maestro N Detalle](#Maestro_N_Detalle)
 *  [Corte De Control](#Corte_De_Control)
 *  [Mege 3 Archivos](#Mege_3_Archivos)
 *  [Merge 3 Archivos Con Repetición](#Merge_3_Archivos_Con_Repetición)
 *  [Merge N Archivos Con Repetición](#Merge_N_Archivos_Con_Repetición)
+
+
 
 Declarar_Ejemplos
 =================
@@ -27,16 +32,13 @@ begin
 End.
 ```
 
+
 Crear
 =====
 
-<table>
-<tr>
-<td> Crear </td> <td> Crear Con texto </td>
-</tr>
-<tr>
-<td>
- 
+Desde_Teclado
+-------------
+
 ```Pas
 procedure Crear(var m:maestro);
 var
@@ -53,9 +55,9 @@ begin
     close(m);  
 end. 
 ```
-</td>
-<td>
- 
+
+Desde_un_Texto
+--------------
 
 ```Pas
 procedure CrearConTexto(var m:maestro);
@@ -74,22 +76,42 @@ begin
 end;
 ```
 
-</td>
+Desde_Teclado
+-------------
 
-</tr>
- 
-</table>
+```Pas
+	
+procedure importarDetalle(var det:archDet);
+procedure leerDatos(var d:detalle);
+	begin
+	write('Numero de usuario: '); readln(d.nroUsuario);
+	if d.nroUsuario <> valoralto then begin
+		write('Destinatario: '); readln(d.cuentaDestino);
+		write('Mensaje: '); readln(d.cuerpoMensaje);
+	end;
+end;
+  
+var
+	d: detalle;
+begin
+	assign(det,'detalle13.data');
+	rewrite(det);
+	writeln('Escriba el nro 9999 para terminar la carga.');
+	leerDatos(d);
+	while(d.nroUsuario <> valoralto)do begin
+		write(det,d);
+		leerDatos(d);
+	end;
+	close(det);
+end;
+```
 
 
 Imprimir
 ========
 
-<table>
-<tr>
-<td> Imprimir </td><td> Listado </td>
-</tr>
-<tr>
-<td>
+Desordenado
+-----------
 
 ```Pas
 Procedure Imprimir(var m:maestro);
@@ -105,9 +127,9 @@ begin
     close(log);
 end;
 ```
-</td>
- <td>
 
+Ordenado
+--------
 ```Pas
 procedure leer(var m:maestro; var aux:mesas);
 begin
@@ -140,11 +162,6 @@ begin
 	close(m);
 end;
 ```
- 
-</td>
-</tr>
- 
-</table>
 
 Actualizar
 ==========
@@ -170,7 +187,7 @@ Agregar
 =============
 <table>
 <tr>
-<td> Agregar </td> <td> Agregar desde un Detalle </td>
+<td> Datos </td> <td> Desde un Detalle </td>
 </tr>
 <tr>
 <td>
@@ -228,13 +245,13 @@ End;
 </td>
 
 </tr>
- 
-</table>
+<tr> 
+<td> Desde 2 Detalles </td> <td> Desde N Detalles </td>
+</tr>
 
+<tr> 
+<td> 
 
-
-Maestro2Detalles
-================
 ```Pas
 procedure leer (var archivo: detalle; var x:detalleR);
 begin
@@ -244,7 +261,8 @@ begin
         x.nombre := valoralto;
 end;
 //__________________________________________
-procedure minimo (var r1,r2:detalleR;var d1,d2:detalle; var min:detalleR);
+procedure minimo (var r1,r2:detalleR;var d1,d2:detalle;
+var min:detalleR);
 begin
     if (r1.nombre<=r2.nombre)  then 
     begin
@@ -285,8 +303,9 @@ begin
 end;
 ```
 
-Maestro_N_Detalle
-=================
+</td> 
+<td> 
+
 ```Pas
 procedure minimo (var r1,r2,r3:registro; var min:registro);
 begin
@@ -339,6 +358,17 @@ begin
     end;
 end;
 ```
+
+
+</td>
+</tr>
+
+
+</table>
+
+
+</table>
+
 Corte_De_Control
 ================
 ```Pas
