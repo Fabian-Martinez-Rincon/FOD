@@ -32,7 +32,7 @@ Crear
 
 <table>
 <tr>
-<td> Crear </td> <td> Crear Con texto </td>
+<td> Crear </td> <td> Crear Con texto </td> <td>Crear desde Teclasdo</td>
 </tr>
 <tr>
 <td>
@@ -67,13 +67,44 @@ begin
 	assign(carga,'Articulos.txt');
 	rewrite(m); reset(carga);
 	while(not eof(carga))do begin
-		with a do readln(carga, color);
-		write(m,a);
+	with a do readln(carga, color);
+	write(m,a);
 	end;
 	close(m); close(carga);
 end;
 ```
 
+</td>
+	
+<td>
+	
+```Pas
+	
+procedure importarDetalle(var det:archDet);
+procedure leerDatos(var d:detalle);
+	begin
+	write('Numero de usuario: '); readln(d.nroUsuario);
+	if d.nroUsuario <> valoralto then begin
+		write('Destinatario: '); readln(d.cuentaDestino);
+		write('Mensaje: '); readln(d.cuerpoMensaje);
+	end;
+end;
+  
+var
+	d: detalle;
+begin
+	assign(det,'detalle13.data');
+	rewrite(det);
+	writeln('Escriba el nro 9999 para terminar la carga.');
+	leerDatos(d);
+	while(d.nroUsuario <> valoralto)do begin
+		write(det,d);
+		leerDatos(d);
+	end;
+	close(det);
+end;
+```
+	
 </td>
 
 </tr>
