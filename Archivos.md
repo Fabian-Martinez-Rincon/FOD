@@ -69,8 +69,8 @@ begin
 	assign(carga,'Articulos.txt');
 	rewrite(m); reset(carga);
 	while(not eof(carga))do begin
-		with a do readln(carga, color);
-		write(m,a);
+	with a do readln(carga, color);
+	write(m,a);
 	end;
 	close(m); close(carga);
 end;
