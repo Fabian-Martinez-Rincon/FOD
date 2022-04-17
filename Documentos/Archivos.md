@@ -5,15 +5,19 @@ Indice
 
 <!--ts-->
 *  [Crear](#Crear)
-   *  [Un archivo desde Teclado]()
-   *  [Un archivo desde un Texto]()
-   *  [Un Texto desde un archivo]()
+   *  [Un archivo desde Teclado](#Un_Archivo_Desde_Teclado)
+   *  [Un archivo desde un Texto](#Un_Archivo_Desde_un_Texto)
+   *  [Un Texto desde un archivo](#Un_Texto_Desde_un_Archivo)
 *  [Imprimir](#Imprimir)
-   * [Un archivo que esta Desordenado]()
-   * [Un archivo que esta Ordenado]()
-*  [Actualizar]()
-   * [Con una Constante]()
-*  [Agregar Datos](#Agregar_Datos)
+   * [Un archivo que esta Desordenado](#Un_archivo_que_esta_Desordenado)
+   * [Un archivo que esta Ordenado](#Un_archivo_que_esta_Ordenado)
+*  [Actualizar](#Actualizar)
+   * [Un Archivo Con una constante](#Un_Archivo_Con_una_constante)
+   * [Un Archivo desde otro archivo](#Un_Archivo_desde_otro_archivo)
+   * [Un Archivo desde dos archivos](#Un_Archivo_desde_dos_archivos)
+   * [Un Archivo desde N archivos](#Un_Archivo_desde_N_archivos)
+*  [Agregar](#Agregar)
+   * [Datos a un archivo Desde teclado]()
 *  [Corte De Control](#Corte_De_Control)
 *  [Mege 3 Archivos](#Mege_3_Archivos)
 *  [Merge 3 Archivos Con Repetición](#Merge_3_Archivos_Con_Repetición)
@@ -21,8 +25,8 @@ Indice
 
 
 
-Declarar_Ejemplos
-=================
+Declarar
+========
 ```Pas
 type 
     numero = file of integer;    
@@ -38,7 +42,7 @@ Crear
 =====
 
 Un_Archivo_Desde_Teclado
--------------
+------------------------
 
 ```Pas
 procedure Crear(var m:maestro);
@@ -58,7 +62,7 @@ end.
 ```
 
 Un_Archivo_Desde_un_Texto
---------------
+-------------------------
 
 ```Pas
 procedure CrearConTexto(var m:maestro);
@@ -130,8 +134,8 @@ end;
 Imprimir
 ========
 
-Desordenado
------------
+Un_archivo_que_esta_Desordenado
+-------------------------------
 
 ```Pas
 Procedure Imprimir(var m:maestro);
@@ -148,8 +152,8 @@ begin
 end;
 ```
 
-Ordenado
---------
+Un_archivo_que_esta_Ordenado
+----------------------------
 ```Pas
 procedure leer(var m:maestro; var aux:mesas);
 begin
@@ -186,6 +190,9 @@ end;
 Actualizar
 ==========
 
+Un_Archivo_Con_una_constante
+----------------------------
+
 ```Pas
 Procedure actualizar(Var log:archivo); 
 var 
@@ -203,35 +210,8 @@ begin
 end;
 ```
 
-Agregar
-=============
-<table>
-<tr>
-<td> Datos </td> <td> Desde un Detalle </td>
-</tr>
-<tr>
-<td>
- 
-```Pas
-Procedure Agregar(var log:archivo); 
-var 
-    nro: integer;
-begin
-    reset(log); 
-    seek(log,filesize(nro)); 
-    read(nro); 
-    while (nro <> 10) do 
-    begin
-        write(log,nro);     
-        read(nro) 
-    end;
-    close(log);
-end;
-```
-</td>
-<td>
- 
-
+Un_Archivo_desde_otro_archivo
+-----------------------------
 ```Pas
 procedure leer (var d:detalle;var x:registro);
 begin
@@ -262,15 +242,8 @@ begin
 End;
 ```
 
-</td>
-
-</tr>
-<tr> 
-<td> Desde 2 Detalles </td> <td> Desde N Detalles </td>
-</tr>
-
-<tr> 
-<td> 
+Un_Archivo_desde_dos_archivos
+-----------------------------
 
 ```Pas
 procedure leer (var archivo: detalle; var x:detalleR);
@@ -323,8 +296,8 @@ begin
 end;
 ```
 
-</td> 
-<td> 
+Un_Archivo_desde_n_archivos
+-----------------------------
 
 ```Pas
 procedure minimo (var r1,r2,r3:registro; var min:registro);
@@ -379,15 +352,28 @@ begin
 end;
 ```
 
+Agregar
+=============
 
-</td>
-</tr>
+Datos_a_un_archivo_Desde_teclado
+--------------------------------
 
-
-</table>
-
-
-</table>
+```Pas
+Procedure Agregar(var log:archivo); 
+var 
+    nro: integer;
+begin
+    reset(log); 
+    seek(log,filesize(nro)); 
+    read(nro); 
+    while (nro <> 10) do 
+    begin
+        write(log,nro);     
+        read(nro) 
+    end;
+    close(log);
+end;
+```
 
 Corte_De_Control
 ================
