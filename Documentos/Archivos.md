@@ -5,8 +5,9 @@ Indice
 
 <!--ts-->
 *  [Crear](#Crear)
-   *  [Desde Teclado]()
-   *  [Desde un Texto]()
+   *  [Un archivo desde Teclado]()
+   *  [Un archivo desde un Texto]()
+   *  [Un Texto desde un archivo]()
 *  [Imprimir](#Imprimir)
    * [Desordenado]()
    * [Ordenado]()
@@ -36,7 +37,7 @@ End.
 Crear
 =====
 
-Desde_Teclado
+Un_Archivo_Desde_Teclado
 -------------
 
 ```Pas
@@ -56,7 +57,7 @@ begin
 end. 
 ```
 
-Desde_un_Texto
+Un_Archivo_Desde_un_Texto
 --------------
 
 ```Pas
@@ -73,6 +74,25 @@ begin
 	write(m,a);
 	end;
 	close(m); close(carga);
+end;
+```
+
+Un_Texto_Desde_un_Archivo
+-------------------------
+```Pas
+procedure exportarTxt(var mae: archMae);
+var
+	carga:text;
+	m: maestro;
+begin
+	assign(carga,'archivoDetDia.txt');
+	rewrite(carga);
+	reset(mae);
+	while not eof(mae)do begin
+		read(mae,m);
+		with m do writeln(carga,nroUsuario,' ',cantMailsEnviados);
+	end;
+	close(mae); close(carga);
 end;
 ```
 
