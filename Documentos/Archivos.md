@@ -608,3 +608,35 @@ begin
 	close(x);
 end.
 ```
+
+Un_Dato_Ingresado_Desde_Teclado
+-------------------------------
+```Pas
+procedure bajaLogica(var x:archivo);
+var
+    datox:empleado;
+    ultimoR:empleado;
+    nro:integer;
+begin 
+	assign(x, 'archivo.data');
+	reset(x);
+    Seek(x,FileSize(x)-1); {Guardo el ultimo Registro}
+	leer(x,datox);
+    reset(x); {Abro el archivo desde el princio, no se si es buena practica, despues me fijo en el libro}
+    leer(x,datox);
+    WriteLn('Ingrese el nro del empleado que quiere eliminar: ');
+    ReadLn(nro);
+	while (datox.nro <> nro) and (datox.nro <> valorAlto) do	leer(x, datox);
+    if (datox.nro <> valorAlto) then
+    begin
+	    seek(x, filepos(x)-1);
+	    write(x, datox);
+        seek(x, FileSize(x)-1);
+	    Truncate(x);
+    end
+    else
+        WriteLn('No se encontro el nro del empleado');
+	
+	close(x);
+end;
+```
