@@ -14,7 +14,7 @@ Total de Votos Provincia: ___
 …………………………………………………………..
 Total General de Votos: ___
 }
-program nueve;
+program Ej9;
 const valorAlto = 9999;
 type
     mesas = record

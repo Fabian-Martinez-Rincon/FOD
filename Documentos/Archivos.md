@@ -19,9 +19,12 @@ Indice
 *  [Agregar](#Agregar)
    * [Datos a un archivo Desde teclado]()
 *  [Corte De Control](#Corte_De_Control)
-*  [Mege 3 Archivos](#Mege_3_Archivos)
-*  [Merge 3 Archivos Con Repetición](#Merge_3_Archivos_Con_Repetición)
-*  [Merge N Archivos Con Repetición](#Merge_N_Archivos_Con_Repetición)
+*  [Merge](#Merge)
+   *  [Con 3 Archivos](#Mege_3_Archivos)
+   *  [Con 3 Archivos Con Repetición](#Merge_3_Archivos_Con_Repetición)
+   *  [Con N Archivos Con Repetición](#Merge_N_Archivos_Con_Repetición)
+*  [Eliminar](#Eliminar)
+   * [Baja Logica](#Baja_Logica)
 
 
 
@@ -412,9 +415,11 @@ begin
     close(m);
 end;
 ```
+Merge
+=====
 
-Mege_3_Archivos
-===============
+Con_3_Archivos
+---------------
 ```Pas
 program union_de_archivos;
 const 
@@ -459,8 +464,8 @@ begin
     close (maestro);
 end.
 ```
-Merge_3_Archivos_Con_Repetición
-===============================
+Con_3_Archivos_Con_Repetición
+-----------------------------
 ```Pas
 program union_de_archivos_II;
 const 
@@ -512,8 +517,8 @@ begin
     end;
 End.
 ```
-Merge_N_Archivos_Con_Repetición
-===============================
+Con_N_Archivos_Con_Repetición
+-----------------------------
 ```Pas
 program union_de_archivos_III;
 const 
@@ -580,5 +585,26 @@ begin
         end;
         write(mae1, regm);
     end;    
+end.
+```
+
+Eliminar
+========
+Baja_Logica
+-----------
+```Pas
+{se sabe que existe Carlos Garcia}
+procedure bajaLogica(var x:archivox);
+var
+    datox:archivoxR;
+begin 
+	assign(x, 'x.data');
+	reset(x);
+	leer(x, datox);
+	while (datox.nombre <> 'Carlos Garcia') do	leer(x, datox);
+	datox.nombre := '***';	
+	seek(x, filepos(x)-1);
+	write(x, datox);
+	close(x);
 end.
 ```

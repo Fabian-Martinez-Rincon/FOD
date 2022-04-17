@@ -59,26 +59,6 @@ begin
 	close(mae); close(carga);
 end;
 //__________________________________________________________________________
-{procedure ExportarATxtMaestro(var m:maestro);
-var
-    texto:Text;
-    r:articulo;
-begin
-    assign(m,'maestro.data');
-    reset(m); //abro mi archivo binario
-    assign(texto,'articulosStockDispMin.txt');
-    rewrite(texto); //creo mi archivo de texto
-    while(not EOF(m)) do begin
-        read(m,r);
-        if r.stockD < r.stockM then 
-			with r do begin
-				writeln(texto,' ',nombre,' ',descripcion,' ',stockD,' ',precio);
-			end;
-    end;
-    close(texto);
-    close(m);
-end;}
-//__________________________________________________________________________
 procedure minimo(var v:vecDetalle; var vr:vecDetalleR; var min:regDetalle);
 var
     i,minPos:integer;
