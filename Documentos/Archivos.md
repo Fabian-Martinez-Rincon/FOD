@@ -80,19 +80,19 @@ end;
 Un_Texto_Desde_un_Archivo
 -------------------------
 ```Pas
-procedure exportarTxt(var mae: archMae);
+procedure exportarTxt(var x: archivox);
 var
 	carga:text;
-	m: maestro;
+	datox: registrox;
 begin
 	assign(carga,'archivoDetDia.txt');
 	rewrite(carga);
-	reset(mae);
-	while not eof(mae)do begin
-		read(mae,m);
-		with m do writeln(carga,nroUsuario,' ',cantMailsEnviados);
+	reset(x);
+	while not eof(x)do begin
+		read(x,datox);
+		with datox do writeln(carga,nroUsuario,' ',cantMailsEnviados);
 	end;
-	close(mae); close(carga);
+	close(x); close(carga);
 end;
 ```
 
