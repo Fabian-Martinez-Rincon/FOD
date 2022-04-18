@@ -23,9 +23,12 @@ Indice
    *  [Con 3 Archivos](#Mege_3_Archivos)
    *  [Con 3 Archivos Con Repetición](#Merge_3_Archivos_Con_Repetición)
    *  [Con N Archivos Con Repetición](#Merge_N_Archivos_Con_Repetición)
-*  [Eliminar](#Eliminar)
-   * [Baja Logica](#Baja_Logica)
-
+*  [Baja](#Baja)
+   * [Un Dato Sabiendo Que Existe](#Un_Dato_Sabiendo_QueExiste)
+   * [Un Dato Sin Saber Si Existe](#Un_Dato_Sin_Saber_Si_Existe)
+   * [Un Dato Ingresado Desde Teclado](#Un_Dato_Ingresado_Desde_Teclado)
+*  [Alta](#Alta)
+   * [Un Dato Ingresado Desde Teclado](#Un_Dato_Ingresado_Desde_Teclado)
 
 
 Declarar
@@ -590,8 +593,8 @@ end.
 
 Eliminar
 ========
-Baja_Logica
------------
+Un_Dato_Sabiendo_Que_Existe
+---------------------------
 ```Pas
 {se sabe que existe Carlos Garcia}
 procedure bajaLogica(var x:archivox);
@@ -607,6 +610,36 @@ begin
 	write(x, datox);
 	close(x);
 end.
+```
+Un_Dato_Sin_Saber_Si_Existe
+---------------------------
+```Pas
+procedure leer (var archivo:maestro; var dato:empleado);
+begin
+    if (not eof( archivo ))then 
+        read (archivo, dato)
+    else 
+        dato.codigo := valoralto;
+end;
+procedure bajaLogica(var x:maestro);
+var
+    datox:empleado;
+begin 
+	assign(x, 'maestro.data');
+	reset(x);
+	leer(x, datox);
+    while datox.codigo <> valorAlto do
+    begin
+        if (datox.dni<800) then
+        begin
+            datox.apellido:='*'+datox.apellido;
+            seek(x, filepos(x)-1);
+            write(x, datox);
+        end;
+        leer(x, datox);        
+    end;
+	close(x);
+end;
 ```
 
 Un_Dato_Ingresado_Desde_Teclado
@@ -636,7 +669,40 @@ begin
     end
     else
         WriteLn('No se encontro el nro del empleado');
-	
 	close(x);
+end;
+```
+
+Alta
+====
+Un_Dato_Ingresado_Desde_Teclado
+-------------------------------
+```Pas
+procedure Alta(var m:maestro);
+var
+    cabecera,n:novela;
+begin
+    Reset(m);
+    leer(m,cabecera);
+    LeerNovela(n);
+    if (cabecera.codigo = 0) then
+    begin //Si tengo la cabecera vacia agrego el elemento al final
+        Seek(m,FileSize(m));
+        Write(m,n);
+    end
+    else 
+        begin
+            //Ej si el resultado es -5 voy a la posicion 5
+            //(La cabecera siempre tiene que ser un nro negativo o 0)
+            Seek(m,(cabecera.codigo*(-1)));
+             //Una vez que me ubico, en el lugar libre, remplazo el elemento
+            read(m,cabecera);
+            Seek(m,FilePos(m)-1);
+            Write(m,n);
+            Seek(m,0);
+            Write(m,cabecera);
+            //Guardo el elemento que habia en la posicion 5
+        end;
+    Close(m);
 end;
 ```
