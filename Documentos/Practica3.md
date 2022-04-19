@@ -4,9 +4,15 @@
 
 ```1)``` Modificar el ejercicio 4 de la práctica 1 (programa de gestión de empleados), agregándole una opción para realizar bajas copiando el último registro del archivo en la posición del registro a borrar y luego truncando el archivo en la posición del último registro de forma tal de evitar duplicados. [Resolución](#Ejercicio_1)
 
-```2)``` Definir un programa que genere un archivo con registros de longitud fija conteniendo información de empleados de una empresa de correo privado. Se deberá almacenar: código de empleado, apellido y nombre, dirección, teléfono, D.N.I y fecha nacimiento. Implementar un algoritmo que, a partir del archivo de datos generado, elimine de forma ***lógica*** todo los empleados con DNI inferior a 8.000.000. 
+```2)``` Definir un programa que genere un archivo con registros de longitud fija conteniendo
+información de asistentes a un congreso a partir de la información obtenida por
+teclado. Se deberá almacenar la siguiente información: nro de asistente, apellido y
+nombre, email, teléfono y D.N.I. Implementar un procedimiento que, a partir del
+archivo de datos generado, elimine de forma lógica todos los asistentes con nro de
+asistente inferior a 1000.
 
-Para ello se podrá utilizar algún carácter especial delante de algún campo String a su elección. Ejemplo: ```*PEDRO```. [Resolución](#Ejercicio_2)
+Para ello se podrá utilizar algún carácter especial situándolo delante de algún campo
+String a su elección. Ejemplo: ```@Saldaño.``` [Resolución](#Ejercicio_2)
 
 ```3) ``` Realizar un programa que genere un archivo de novelas filmadas durante el presente año. De cada novela se registra: código, género, nombre, duración, director y precio. El programa debe presentar un menú con las siguientes opciones: [Resolución](#Ejercicio_3)
 
