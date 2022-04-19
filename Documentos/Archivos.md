@@ -16,6 +16,7 @@ Indice
    * [Un Archivo desde otro archivo](#Un_Archivo_desde_otro_archivo)
    * [Un Archivo desde dos archivos](#Un_Archivo_desde_dos_archivos)
    * [Un Archivo desde N archivos](#Un_Archivo_desde_N_archivos)
+   * [Un Dato desde Teclado](#Un_Dato_desde_Teclado)
 *  [Agregar](#Agregar)
    * [Datos a un archivo Desde teclado]()
 *  [Corte De Control](#Corte_De_Control)
@@ -27,8 +28,11 @@ Indice
    * [Un Dato Sabiendo Que Existe](#Un_Dato_Sabiendo_QueExiste)
    * [Un Dato Sin Saber Si Existe](#Un_Dato_Sin_Saber_Si_Existe)
    * [Un Dato Ingresado Desde Teclado](#Un_Dato_Ingresado_Desde_Teclado)
+   * [Un Dato Ingresado Desde Teclado 2](#Un_Dato_Ingresado_Desde_Teclado2)
+   * [De Datos desde un archivo](#De_Datos_desde_un_archivo)
+   * [Baja Fisica](#Baja_Fisica)
 *  [Alta](#Alta)
-   * [Un Dato Ingresado Desde Teclado](#Un_Dato_Ingresado_Desde_Teclado)
+   * [Un Dato Ingresado Desde Teclado](#Un_Registro_Ingresado_Desde_Teclado)
 
 
 Declarar
@@ -358,6 +362,30 @@ begin
 end;
 ```
 
+Un_Dato_desde_Teclado
+---------------------
+```Pas
+procedure modificar(var logicx:archivo);
+var
+	n:novelas;
+	cod:integer;
+begin
+    writeln('Ingrese el codigo de la novela a modificar:');
+    readln(cod);
+    reset(logicx);
+    leer(logicx,n);
+    if(n.cod <> valoralto)then begin
+		while(n.cod <> cod)do leer(logicx,n);
+		n.cod:=cod;
+        write('Nombre de novela:'); readln(n.nombre);
+		seek(logicx,filepos(logicx)-1);
+		write(logicx,n);
+    end;
+    close(logicx);
+end;
+```
+
+
 Agregar
 =============
 
@@ -672,10 +700,89 @@ begin
 	close(x);
 end;
 ```
+Un_Dato_Ingresado_Desde_Teclado2
+--------------------------------
+```Pas
+procedure baja(var arch:maestro);
+var 
+    n,actual:novela;
+    num,pos:integer;
+begin
+    reset(arch);
+    read(arch,actual);
+    writeln('Ingrese el codigo de la novela a eliminar:'); 
+    readln(num);
+    leer(arch,n);
+    while (n.codigo <> num) do	    //busco hasta encontrar el numero
+		leer(arch,n);
+    if n.codigo = num then begin //si lo encuentro guardo la posicion
+        pos:=filepos(arch)-1; //guardo la posicion de la baja
+        n:=actual;
+        seek(arch,pos); 
+        write(arch,n); //sobreescribo la baja con los datos de cabecera
+        actual.codigo:=-pos;
+
+        seek(arch,0); //me paro en el principio de la lista
+        write(arch,actual);
+    end
+    else 
+        writeln('No se encuentra el codigo.');
+    close(arch);
+end;
+```
+
+De_Datos_desde_un_archivo
+-------------------------
+```Pas
+procedure bajaLogica(var m:maestro;var d:detalle);
+var
+    datoM:prenda;
+    datoD:Integer;
+begin
+    Reset(m);       Reset(d);
+    LeerD(d,datoD);  
+    while datoD <> valorAlto do
+    begin
+        Seek(m,0); LeerM(m,datoM); //Leo lo que tengo en la cabecera
+        while datoM.cod_prenda <> valorAlto do 
+        begin
+            if (datoM.cod_prenda = datoD) then
+            begin
+                datoM.stock:=-1;
+                Seek(m,FilePos(m)-1); Write(m,datoM);
+            end;
+            LeerM(m,datoM);
+        end;
+        LeerD(d,datoD); 
+    end;
+    Close(m); Close(d);
+end;
+```
+
+Baja_Fisica
+-----------
+```Pas
+procedure bajaFisica(var m,mAux:maestro);
+var
+    datoM:prenda;
+begin
+    Reset(m); Rewrite(mAux);
+    LeerM(m,datoM);
+    while datoM.cod_prenda <> valorAlto do
+    begin
+        if (datoM.cod_prenda = -1) then
+            Write(mAux,datoM);
+        LeerM(m,datoM);
+    end;
+    Close(m); Close(mAux);
+    Erase(m); //Elimino el archivo maestro
+    Rename(mAux,'maestro');
+end;
+```
 
 Alta
 ====
-Un_Dato_Ingresado_Desde_Teclado
+Un_Registro_Ingresado_Desde_Teclado
 -------------------------------
 ```Pas
 procedure Alta(var m:maestro);

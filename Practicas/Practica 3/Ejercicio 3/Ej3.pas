@@ -32,8 +32,6 @@ representan la lista de espacio libre. El archivo debe llamarse “novelas.txt�
 NOTA: Tanto en la creación como en la apertura el nombre del archivo debe ser
 proporcionado por el usuario.
 }
-
-
 program Ej3;
 const
     valorAlto = 9999;
@@ -116,6 +114,56 @@ begin
     Close(m);
 end;
 //_________________________________________
+procedure modificar(var arch:maestro);
+var
+	n:novela;
+	cod:integer;
+begin
+    writeln('Ingrese el codigo de la novela a modificar:');
+    readln(cod);
+    reset(arch);
+    leer(arch,n);
+    if(n.codigo <> valoralto)then begin
+		while(n.codigo <> cod)do leer(arch,n);
+		n.codigo:=cod;
+		write('Genero de novela:'); readln(n.genero);
+        write('Nombre de novela:'); readln(n.nombre);
+        write('Duracion de novela:'); readln(n.duracion);
+        write('Director de novela:'); readln(n.director);
+        write('Precio de novela:'); readln(n.precio);
+		seek(arch,filepos(arch)-1);
+		write(arch,n);
+    end;
+    close(arch);
+end;
+//_________________________________________
+procedure baja(var arch:maestro);
+var 
+    n,actual:novela;
+    num,pos:integer;
+begin
+    reset(arch);
+    read(arch,actual);
+    writeln('Ingrese el codigo de la novela a eliminar:'); 
+    readln(num);
+    leer(arch,n);
+    while (n.codigo <> num) do	    //busco hasta encontrar el numero
+		leer(arch,n);
+    if n.codigo = num then begin //si lo encuentro guardo la posicion
+        pos:=filepos(arch)-1; //guardo la posicion de la baja
+        n:=actual;
+        seek(arch,pos); 
+        write(arch,n); //sobreescribo la baja con los datos de cabecera
+        actual.codigo:=-pos;
+
+        seek(arch,0); //me paro en el principio de la lista
+        write(arch,actual);
+    end
+    else 
+        writeln('No se encuentra el codigo.');
+    close(arch);
+end;
+//_________________________________________
 procedure Menu(var m:maestro);
 var
     opcion:integer;
@@ -125,15 +173,31 @@ begin
     begin
         WriteLn('1| Dar de alta');
         WriteLn('2| Modificar');
-        WriteLn('3| Eliminar');
+        WriteLn('3| Baja');
         WriteLn('4| Cerrar programa');
         ReadLn(opcion);
         case opcion of
             1: Alta(m);
-
+            2: Modificar(m);
+            3: Baja(m);
         end;
     end;
   
+end;
+//_________________________________________
+procedure exportarTxt(var x: maestro);
+var
+	carga:text;
+	datox: novela;
+begin
+	assign(carga,'novelas.txt');
+	rewrite(carga);
+	reset(x);
+	while not eof(x)do begin
+		read(x,datox);
+		with datox do writeln(carga,codigo,' ',nombre, ' ', genero);
+	end;
+	close(x); close(carga);
 end;
 //_________________________________________
 var
@@ -141,4 +205,5 @@ var
 begin
     Crear(m);
     Menu(m);
+    exportarTxt(m);
 end.
