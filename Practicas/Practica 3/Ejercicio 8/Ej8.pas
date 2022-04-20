@@ -18,6 +18,8 @@ cantidad de desarrolladores para mantener actualizada la lista invertida. Para v
 que la distribución a borrar exista debe utilizar el módulo ExisteDistribucion. En caso de no
 existir se debe informar “Distribución no existente”.}
 program Ej8;
+const
+    valorAlto = 9999;
 type
     cadena20 = string[20];
     distribucion = record
@@ -75,12 +77,12 @@ begin
     WriteLn('Descripcion: '); ReadLn(d.descripcion);
 end;
 //___________________________________________________
-procedure leer (var archivo:maestro; var dato:empleado);
+procedure leer (var archivo:maestro; var dato:distribucion);
 begin
     if (not eof( archivo ))then 
         read (archivo, dato)
     else 
-        dato.codigo := valoralto;
+        dato.cantidad := valoralto;
 end;
 //___________________________________________________
 procedure Alta(var m:maestro;d:distribucion);
@@ -89,14 +91,14 @@ var
 begin
     Seek(m,0); //Es lo mismo que hacer Reset(m)
     leer(m,cabecera);
-    if (cabecera.codigo = 0) then
+    if (cabecera.cantidad = 0) then
     begin 
         Seek(m,FileSize(m));
         Write(m,d);
     end
     else 
         begin
-            Seek(m,(cabecera.codigo*(-1))); //Saco el valor absoluto(tambien se puede hacer con abs)
+            Seek(m,(cabecera.cantidad*(-1))); //Saco el valor absoluto(tambien se puede hacer con abs)
             read(m,cabecera);
             Seek(m,FilePos(m)-1);
             Write(m,d);
@@ -106,22 +108,55 @@ begin
     //Close(m); No lo hago ya que lo cierro en el programa principal
 end;
 //___________________________________________________
-procedure AltaDistribución(var m:maestro; d:distribucion);
+procedure AltaDistribucion(var m:maestro; d:distribucion);
 begin
     Assign(m,'maestro.data');
     Reset(m);
-    if not(ExisteDistribucion(m,d.nombre)) then
+    if (not(ExisteDistribucion(m,d.nombre)) and (not eof(m))) then
     begin
         Alta(m,d);
     end
     else
-        WriteLn('La distribución Existe');
+        WriteLn('La distribucion Existe');
     Close(m);
 end;
 //___________________________________________________
-procedure BajaDistribucion(var m:maestro;d:distribucion);
+procedure Baja(var arch:maestro;nom:cadena20);
+var 
+    datox,actual:distribucion;
+    pos:integer; //Pos de la cabecera
 begin
+    seek(arch,0);//reset(arch);
+    read(arch,actual);
+    Read(arch,datox);
+    while (datox.nombre <> nom) do	    //busco hasta encontrar el dato
+		Read(arch,datox);
+    if datox.nombre = nom then begin //si lo encuentro guardo la posicion
+        datox:=actual;
+        pos:=filepos(arch)-1;        //guardo la posicion de la baja
+        seek(arch,pos); 
+        write(arch,datox);           //sobreescribo la baja con los datos de cabecera
+        actual.cantidad:=-pos;
 
+        seek(arch,0); //me paro en el principio de la lista
+        write(arch,actual);
+    end
+    else 
+        writeln('No se encuentra el codigo.');
+    //close(arch);
+end;
+//___________________________________________________
+procedure BajaDistribucion(var m:maestro; nom:cadena20);
+begin
+    Assign(m,'maestro.data');
+    Reset(m);
+    if not(ExisteDistribucion(m,nom)) then
+    begin
+        Baja(m,nom);
+    end
+    else
+        WriteLn('La distribución Existe');
+    Close(m);
 end;
 //___________________________________________________
 var
@@ -129,7 +164,7 @@ var
     nom:cadena20;
     d:distribucion;
 begin
-    nom:='Windows'
+    nom:='Windows';
     importarMaestro(m);
     if ExisteDistribucion(m,nom) then
         WriteLn('La distribucion existe')
@@ -137,5 +172,5 @@ begin
         WriteLn('La distribucion no existe');
     LeerDistribucion(d);
     AltaDistribucion(m,d);
-    BajaDistribucion(m,d);
+    BajaDistribucion(m,nom);
 end.
