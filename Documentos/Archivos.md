@@ -25,13 +25,16 @@ Indice
    *  [De 3 Archivos](#Mege_3_Archivos)
    *  [De 3 Archivos Con Repetición](#Merge_3_Archivos_Con_Repetición)
    *  [De N Archivos Con Repetición](#Merge_N_Archivos_Con_Repetición)
-*  [Baja](#Baja)
+*  [Baja Logica](#Baja)
    * [Un Dato Sabiendo Que Existe](#Un_Dato_Sabiendo_QueExiste)
    * [Un Dato Sin Saber Si Existe](#Un_Dato_Sin_Saber_Si_Existe)
    * [Un Dato Ingresado Desde Teclado](#Un_Dato_Ingresado_Desde_Teclado)
    * [Un Dato Ingresado Desde Teclado 2](#Un_Dato_Ingresado_Desde_Teclado2)
+   * [Un Dato Ingresado Desde Teclado 3](#Un_Dato_Ingresado_Desde_Teclado3)
    * [De Datos desde un archivo](#De_Datos_desde_un_archivo)
-   * [Baja Fisica Archivo Auxiliar](#Baja_Fisica_Archivo_Auxiliar)
+*  [Baja Fisica]()
+   * [Con Archivo Auxiliar](#Con_Archivo_Auxiliar)
+   * [Con Datos Desde Teclado](#Con_Datos_Desde_Teclado)
 *  [Alta](#Alta)
    * [Un Dato Ingresado Desde Teclado](#Un_Registro_Ingresado_Desde_Teclado)
 
@@ -670,8 +673,43 @@ begin
 end;
 ```
 
-Baja_Fisica_Archivo_Auxiliar
-----------------------------
+Un_Dato_Ingresado_Desde_Teclado3
+--------------------------------
+```Pas
+procedure BajaLogica(var m:maestro);
+var
+    datoM:ave;
+    codigoAve:integer;
+begin
+    Assign(m,'maestro.data');
+    Reset(m);       
+    WriteLn('El codigo del ave que quiere eliminar: ');
+    ReadLn(codigoAve);
+    while codigoAve <> 500 do
+    begin
+        Leer(m,datoM); //Leo lo que tengo en la cabecera
+        while datoM.codigo <> valorAlto do 
+        begin
+            if (datoM.codigo = codigoAve) then
+            begin
+                datoM.codigo:=-1;
+                Seek(m,FilePos(m)-1); Write(m,datoM);
+            end;
+            Leer(m,datoM);
+        end;
+        WriteLn('El codigo del ave que quiere eliminar: ');
+        ReadLn(codigoAve);
+        Seek(m,0);
+    end;
+    Close(m); 
+end;
+```
+
+Baja_Fisica
+===========
+
+Con_Archivo_Auxiliar
+--------------------
 ```Pas
 procedure bajaFisica(var m,mAux:maestro);
 var
@@ -688,6 +726,52 @@ begin
     Close(m); Close(mAux);
     Erase(m); //Elimino el archivo maestro
     Rename(mAux,'maestro');
+end;
+```
+
+Con_Datos_Desde_Teclado
+-----------------------
+
+```Pas
+procedure BuscarUltimo(var m:maestro;var ultimo:ave; var posUlt:Integer);
+begin
+    Seek(m,posUlt); //Nos vamos moviendo para atras
+    Read(m,ultimo);
+    while ultimo.codigo = -1 do //Busco el ultimo registro no borrado
+    begin
+        Seek(m,posUlt-1);   //Voy al anterior
+        posUlt:=FilePos(m); //Guardo el anterior
+        Read(m,ultimo);     //Continuo leyendo normal
+    end;
+end;
+//_________________________________________
+procedure BajaFisica(var m:maestro);
+var
+    datox,ultimo:ave;
+    pos,posUlt:integer;
+begin
+    Assign(m,'maestro.data');
+    Reset(m);
+    Leer(m,datox);
+    //Me quedo con la ultima posicion en la que tengo un registro
+    //ya que es mas facil manejar el corte del archivo
+    posUlt:=FilePos(m)-1; 
+    while (datox.codigo <> valorAlto) and (FilePos(m) <= posUlt) do
+    begin
+        pos:=FilePos(m);
+        if (datox.codigo = -1) then
+        begin
+            BuscarUltimo(m,ultimo,posUlt);
+            posUlt:=posUlt-1;               //Decremento mi posUlt ya que encontre el eliminado
+            Seek(m,pos-1); Write(m,ultimo); //remplazo el dato
+        end;
+        Leer(m,datox);
+    end;
+    Seek(m,posUlt+1); //Voy a la ultima posicion que seria EOF ya que antes esta en la anteultima
+    //Para trabajar con solo los registros
+    //Trunca un fichero en la posición actual. Dicha posición actual se convierte en el fin de fichero (EOF).
+    Truncate(m);
+    Close(m);
 end;
 ```
 
