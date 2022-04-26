@@ -475,6 +475,8 @@ begin
         end;
         write(m, datoM);
     end;
+    close(d1);close(d2);close(d3);
+    close(m);
 End;
 ```
 Con_N_Archivos_Con_Repetición
