@@ -1,13 +1,8 @@
-<h1 align="center"> 💻FOD </h1>
+<h1 align="center"><img src="https://media.giphy.com/media/sUvXqhA9nukbIM0MyO/giphy.gif" height="38" /> FOD </a>
+ <img style="transform:scaleX(-1);" src="https://media.giphy.com/media/sUvXqhA9nukbIM0MyO/giphy.gif" height="38" /></h1>
 
-<div align="center">
-<img src="https://media.giphy.com/media/yoJC2lKmI4ljtpdiJa/giphy.gif"/>
- </div>
-<br>
 
-<div align="center">
-
-## ```INDICE```
+<img src="https://media.giphy.com/media/GecUnSleXiHKCq7pcF/giphy.gif" align="right" width="275 " height="215">
 
 
 <table>
