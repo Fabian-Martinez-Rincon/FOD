@@ -3,7 +3,7 @@
 <img src="https://media.giphy.com/media/6kzosxOjoPMNJYmSMF/giphy.gif" align="right" width="275 " height="215">
 <table>
 <tr>
-<td> Temas </td> <td> Practicas </td><td> Teorias </td><td> Otros </td>
+<td> Temas </td> <td> Practicas </td><td> Otros </td>
 </tr>
 <tr>
 <td>
@@ -25,18 +25,7 @@
 - [Practica 4](/Documentos/Practica4.md)
  
 </td>
- <td>
- 
 
-- [Teoria 1](/Documentos/Teoria.md)
-- [Teoria 2](/Documentos/Teoria2.md)
-- [Teoria 3](/Documentos/Teoria3.md)
-- [Teoria 4](/Documentos/Teoria4.md)
-- [Teoria 5](/Documentos/Teoria5.md)
-- [Teoria 6](/Documentos/Teoria6.md)
-- [Teoria 7](/Documentos/Teoria7.md)
- 
-</td>
 
  <td>
  
