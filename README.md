@@ -1,10 +1,6 @@
 <h1 align="center"><img src="https://media.giphy.com/media/sXD7snjkFWKaWzNt9D/giphy.gif" height="38" /> FOD </a>
 </h1>
-
-
 <img src="https://media.giphy.com/media/6kzosxOjoPMNJYmSMF/giphy.gif" align="right" width="275 " height="215">
-
-
 <table>
 <tr>
 <td> Temas </td> <td> Practicas </td><td> Teorias </td><td> Otros </td>
