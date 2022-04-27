@@ -1,8 +1,8 @@
-<h1 align="center"><img src="https://media.giphy.com/media/sUvXqhA9nukbIM0MyO/giphy.gif" height="38" /> FOD </a>
- <img style="transform:scaleX(-1);" src="https://media.giphy.com/media/sUvXqhA9nukbIM0MyO/giphy.gif" height="38" /></h1>
+<h1 align="center"><img src="https://media.giphy.com/media/sXD7snjkFWKaWzNt9D/giphy.gif" height="38" /> FOD </a>
+</h1>
 
 
-<img src="https://media.giphy.com/media/GecUnSleXiHKCq7pcF/giphy.gif" align="right" width="275 " height="215">
+<img src="https://media.giphy.com/media/6kzosxOjoPMNJYmSMF/giphy.gif" align="right" width="275 " height="215">
 
 
 <table>
