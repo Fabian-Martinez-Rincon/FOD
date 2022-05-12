@@ -3,7 +3,7 @@
 <img src="https://media.giphy.com/media/6kzosxOjoPMNJYmSMF/giphy.gif" align="right" width="275 " height="215">
 <table>
 <tr>
-<td> Temas </td> <td> Practicas </td><td> Otros </td>
+<td> Temas </td> <td> Practicas </td>
 </tr>
 <tr>
 <td>
@@ -27,15 +27,12 @@
 </td>
 
 
- <td>
- 
 
-- [Codigos](/Documentos/Codigos.md)
-
-</td>
 </tr>
  
 </table>
 
 
 </div>
+
+- [Codigos](/Documentos/Codigos.md)
