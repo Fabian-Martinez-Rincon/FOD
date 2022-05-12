@@ -1,0 +1,314 @@
+  @charset "utf-8";
+  /* CSS Document */
+  
+  .elemento{
+	  padding-top:5px;
+	  font-size:10px;
+  }
+  .explicacionBusquedaNegativa{
+	  float:right;
+	  padding-left:50px;
+	  padding-top:10px;
+	  color:#F9F;
+  }
+  .explicacionBusquedaPositiva{
+	  float:right;
+	  padding-left:50px;
+	  padding-top:10px;
+	  color:#3CC;
+  }
+	 
+  .cuerpo{
+	  padding:0;
+	  margin:0 auto;
+	  font-family:Verdana, Geneva, sans-serif;
+	  font-size:12px;
+	  background:#c6e9a0 url(../image/fondo.jpg) no-repeat;
+	  min-height:700px;
+	  color:#15595E;
+	  overflow-x:hidden;
+  }
+  
+  .cuerpoCompleto{
+	  padding:0;
+	  margin:0 auto;
+	  font-family:Verdana, Geneva, sans-serif;
+	  font-size:12px;
+	  background:#c6e9a0 url(../image/fondo_completo.jpg) no-repeat;
+	  min-height:700px;
+	  color:#15595E;
+	  overflow-x:hidden;
+  }
+  
+  
+  .encabezado{
+	  height:90px;
+	  width:100%;
+  }
+  
+  .encabezadoCompleto
+  {
+	  height:20px;
+  }
+  
+  #vinculos{
+	  float:right;
+	  font-size:10px;
+	  margin:7px;
+	  text-align:right;
+	  line-height:10px;
+  }
+  body.cuerpoCompleto #vinculos a{
+	  color:#fff;
+  }
+  #vinculos a{
+	  color:#666;
+	  text-decoration:none;
+  }
+  
+  .formulario{
+	  background-repeat:no-repeat;
+	  height:65px;
+	  padding-top:26px;
+	  padding-left:33px;
+  }
+  
+  .formularioCompleto{
+	  background-repeat:no-repeat;
+	  height:85px;
+	  padding-top:6px;
+	  padding-left:33px;
+  }
+  
+  .nada{
+	  background-image:none;
+  }
+  .boton1{
+	  background-image:url('../image/menu1.png');  
+  }
+  .boton2{	
+	  background-image:url('../image/menu2.png');
+  }
+  .boton3{
+	  background-image:url('../image/menu3.png');
+  }
+  body.cuerpoCompleto .boton1,body.cuerpoCompleto .boton2,body.cuerpoCompleto .boton3{
+  	  background-position: 0px -20px;	
+  }
+  input{
+	  color:#15595E;
+  }
+  #eCrearArbol{
+	  margin-right:43px;
+  }
+  #eCrearArbol label{
+	  color:#15595E;	
+  }
+  #eEliminar{
+	  margin-left:3px;
+  }
+  #eBuscar{
+	  margin-left:43px;
+  }
+  #eBuscar label{
+		  color:#15595E;	
+  }
+  #numeroABuscar, #numeroAEliminar, #numeroAInsertar, #orden{
+	  width:30px;
+  }
+  .formularioPasivo
+  {
+	  background-color: #fff;
+	  border: solid 1px #33677F;
+  }
+  .formularioActivo
+  {
+	  background-color: #D5EEB9;
+	  border: solid 2px #33677F;
+  }
+  .formu, label{
+	  float:left;
+	  padding-left:10px;
+	  font-weight:bolder;
+  }
+  .limpio{
+	  float:none;
+	  clear:both;
+	  height:1px;
+  }
+  .boton{
+	  margin-top:3px;
+	  font-weight:bold;
+	  font-size:10px;
+  }
+  .campo{
+	  margin-top:3px;
+	  font-size:10px;
+	  background-color:#EDF4E4;
+	  height:17px;
+  }
+  .seleccion{
+	  margin-top:3px;
+	  height:17px;
+	  font-size:10px;
+  }
+  .masmenos{
+	  font-size:10px;
+	  font-weight:bolder;
+  }
+  .nadaEstrella{
+	  visibility:hidden;
+  }
+  .todoEstrella{
+	  visibility:visible;
+  }
+  #opcionesArbolEstrella{
+	  clear:both;
+	  float:none;
+	  height:35px;
+	  width:100%;
+	  padding-top:10px;
+	  padding-left:20px;
+  }
+  #opcionesArbolEstrellaAdentro{
+	  background:transparent url(../image/estrella.png) bottom left;
+	  height:30px;
+  }
+  
+  .historial{
+	  width:14%;
+	  padding-left:10px;
+	  margin: 5px;
+	  margin-top:10px;
+	  color:#59888E;
+	  height:375px;
+	  overflow:hidden;
+	  overflow-y:scroll;
+	  border:4px solid #92b9be;
+	  float:left;
+	  background-image:url('../image/fondoHistorial.jpg');
+	  text-align:left;
+  }
+  #historial h2{
+	  color:#15595E;
+	  padding-left:5px;
+	  text-align:center;
+	  margin:5px -10px;
+	  font-size:14px;
+	  font-style:italic;
+  }
+  
+  div#explicacionHistorial p{
+	  text-align:left;
+	  font-size:11px;
+  }
+  
+  .wrapperContenedor{
+	  margin-top:10px;
+	  margin-left:5px;
+	  border:4px solid #8BB4CA;
+	  float:left;
+	  width:80%;
+	  height:375px;
+	  overflow:scroll;
+	  background-image:url('../image/fondoHistorial.jpg');
+  }
+  
+  
+  
+  #contenedor{
+	  position:relative;
+	  width:100%;
+	  height:1px;
+  }
+  #enlaces
+  {
+  
+		/* height:auto;*/
+		 left:0;
+		 position:absolute;
+		 /*top:0px;
+		/* width:auto;*/
+		 border:1px solid #59888e;
+		 /*position:relative;
+		 top:-15px;
+		 border:1px solid #59888e;*/
+  }
+  #pie{
+	  background:transparent url(../image/pie.png) right bottom no-repeat;
+	  height:50px;
+	  z-index:99999;
+	  position:fixed;
+	  bottom: 0px; 
+	  right: 0px;
+	  width:100%;
+	  text-align:right;
+  }
+  #pieLogo{
+	  background:transparent url(../image/pieLogo.png) left bottom no-repeat;
+	  height:50px;
+	  width:360px;
+	  float:left;
+	  margin:0;
+	  padding:0;
+  }
+  #pieAdentro{
+	  float:right;
+	  margin:0;
+	  padding:0;
+	  padding-top:24px;
+	  padding-right:35px;
+  }
+  #version{
+  text-align:right;
+  }
+  .piiLabel{
+	  float:left;
+	  padding:0 5px;
+  }
+  
+  .elemento, .desborde{
+	  background-color:#8bb4ca;
+	  border:1px solid #59888e;
+	  color:#FFF;
+  }
+  .puntero{
+	  background:transparent url('../image/puntero.png');
+	  color:#FFF;
+	  border:1px solid #59888e;
+  }
+  div{
+	  text-align:center;
+	  font-weight:bold;
+  }
+  .historialCompleto{
+		  display:block;
+	  width:97%;
+	  padding-left:10px;
+	  margin-top: 100px;
+	  margin-left:5px;
+          margin-bottom:50px;
+	  color:#59888E;
+	  height:195px;
+	  overflow:scroll;
+	  border:4px solid #92b9be;
+	  background-image:url('../image/fondoHistorial.jpg');
+	  text-align:left;
+	  float:none;
+	  clear:both;
+  }
+  .wrapperContenedorCompleto{
+	  margin-top:2px;
+	  border:4px solid #8BB4CA;
+	  float:left;
+	  width:98%;
+	  height:450px;
+	  overflow:scroll;
+	  margin-left:5px;
+	  background-image:url('../image/fondoHistorial.jpg');
+  }
+  
+  .mensajeExplorer{
+  width:100%;
+  font-size:20px;
+  }
