@@ -1,5 +1,6 @@
 <h2 align="center">Practica 4 (Arboles 🌳)</h2>
 
+### `ESTOS EJERCICIOS SE TIENEN QUE CORREGIR`
 
 
 <details>
@@ -315,7 +316,7 @@ en entrar, primero en salir).
 
 ```
 
-<details open>
+<details >
 
 <summary>📖 Resolución</summary><blockquote>
 
@@ -323,18 +324,36 @@ en entrar, primero en salir).
 
 ![image](https://user-images.githubusercontent.com/55964635/168456796-9216c748-3cc2-4ac1-82f9-100d25fcfa2d.png)
 
-#### +320
+### +320
 El elemento se inserta en el nodo 1 entre los numeros "241 y 331" como ya no tiene espacio disponible, ocurre un overflow. Lo que hacemos es mantener los elementos que se encuentran a la izquierda, subir el 320 y crear otro nodo con los elementos a la derecha de donde trendria que haberse insertado el 320.
 
 Cuando subo el 320, tambien tengo overflow en el nodo 2, tengo que subir el elemento que se encuentra en el medio que seria "390" y creo otro nodo con los elementos que se encontraban a la derecha del 320.
 
 ![1](https://user-images.githubusercontent.com/55964635/168476748-f387d459-0223-48d0-acef-cb433c64f31a.jpg)
 
-#### -390
+### -390
 
 Se remplaza por el menor elemento del subArbol derecho (en este caso es el 400). No tenemos underflow en la hoja ya que tiene la minima cantidad de elementos.
 
 ![resta](https://user-images.githubusercontent.com/55964635/168477005-a58dac78-d3e6-4ac2-9190-491e62066d1e.jpg)
+
+
+### -400
+
+Se remplaza por el menor elemento del subArbol derecho. TENEMOS UNDERFLOW  
+
+![-400](https://user-images.githubusercontent.com/55964635/168477927-10c49f49-4f0f-4bea-9c8c-8c240987f7ad.jpg)
+
+Como tengo "underflow" intento redistribuir con el hermano ya que tiene mas de la cantidad minima necesaria de elementos para un nodo. Es como mover todos los elementos de derecha a izquierda.
+
+![-400Ulti](https://user-images.githubusercontent.com/55964635/168478189-022a7b84-1029-47b2-aa41-39ab0a0a80f4.jpg)
+
+
+### -533
+
+Como no puedo redistribuir ya que el hermano izquierdo tiene la minima cantidad de elementos necesarias, tengo que concatenar. Bajo el "508" al nodo "4" y elimino el nodo "5".
+
+![-533](https://user-images.githubusercontent.com/55964635/168478806-610c4e86-d442-4bb9-a3bf-005519beea49.jpg)
 
 
 </details>
