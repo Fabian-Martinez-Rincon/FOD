@@ -1,46 +1,10 @@
 <h2 align="center">Practica 4 (Arboles 🌳)</h2>
 
-<details> <summary>📖 Politicas</summary>
-<br/>
 
-### `Políticas para la resolución de underflow`
-
-- #### `Política izquierda:`
-
-Se intenta distribuir con el hermano adyacente izquierdo, si no es posible, se fusiona con hermano adyacente izquierdo.
-
-- #### `Política derecha:`
-
-se intenta redistribuir con el hermano adyacente derecho, si no es posible, se fusiona con hermano adyacente derecho
-
-- #### `Política izquierda o derecha:`
-
-Se intenta redistribuir con el hermano adyacente izquierdo, si no es posible, se intenta con el hermano adyacente derecho, si tampoco es posible, se fusiona con hermano adyacente izquierdo.
-
-- #### `Política derecha o izquierda:`
-
-Se intenta redistribuir con el hermano adyacente derecho, si no es posible, se intenta con el hermano adyacente izquierdo, si tampoco es posible, se fusiona con hermano adyacente derecho.
-
-- #### `Casos especiales:`
-
-En cualquier política si se tratase de un nodo hoja de un extremo del árbol debe intentarse redistribuir con el hermano adyacente que el mismo posea.
-
-
-- #### `Aclaración:`
-
-- En caso de underflow lo primero que se intenta `SIEMPRE` es redistribuir y el hermano adyacente se encuentra en condiciones de ceder elementos si al hacerlo no se produce underflow en el.
-- En caso de overflow `SIEMPRE` se genera un nuevo nodo. Las claves se distribuyen
-equitativamente entre el nodo desbordado y el nuevo.
-
-```
-En el caso de órdenes impares se debe promocionar la clave o la copia 
-(en árbol B+) que se encuentra en la posición del medio.
-```
-</details>
 
 <details>
 
-<summary>📖 Ejemplos</summary>
+<summary>📖 Ejemplos</summary><blockquote>
 <br/>
 
 <div align="center">
@@ -82,30 +46,95 @@ En el caso de órdenes impares se debe promocionar la clave o la copia
 
 `1)` Definir la estructura de datos correspondiente a un árbol B de orden M, que almacenará información correspondiente a alumnos de la facultad de informática de la UNLP. De los mismos deberá guardarse nombre y apellido, DNI, legajo y año de ingreso. ¿Cuál de estos datos debería seleccionarse como clave de identificación para organizar los elementos en el árbol? ¿Hay más de una opción? Justifique su elección.
 
-<details>
+<details >
 
-<summary>📖 Resolución</summary>
+<summary>📖 Resolución</summary><blockquote>
 <br/>
 
+### Definición
+
+Los `árboles B` son árboles multicamino con una construcción especial que permite mantenerlos balanceados a bajo costo.
+
+Un árbol B de orden M posee las siguientes propiedades básicas:
+
+- `1)` Cada nodo del árbol puede contener, como máximo, M desendientes y M-1 elementos.
+- `2)`La raíz no posee descendientes directos o tiene al menos dos.
+- `3)` Un nodo con x descendientes directos contiene x-1 elementos.
+- `4)` Los nodos terminales (hojas) tienen, como mínimo `[M/2]-1 elementos`, y como maximo `M-1 elementos`
+- `5)` Los nodos que no son terminales ni raíz tienen, como mínimo, [M/2] elementos.
+- `6)` Todos los nodos terminales se encuentran al mismo nivel
+
+
+```Pas
+program Ej1;
+const M = 10;
+type
+    cadena20 = string[20];
+    alumnos = record
+        nombre:cadena20;
+        apellido:cadena20;
+        dni:cadena20;   
+        legajo:integer;
+        anio:integer;
+    end;
+    nodo = record
+        cant_claves:integer;
+        claves: array[1..M-1] of alumnos;
+        hijos:array[1..M] of Integer;
+    end;
+    arbol = file of nodo;
+var
+    arbolB:arbol;
+begin
+end.
+```
+Deberian seleccionarse el `dni` y el `legajo` ya que son claves unicas.
 </details>
 
 `2)` Redefinir la estructura de datos del ejercicio anterior para un árbol B+ de orden M.
 
+<details >
+
+<summary>📖 Resolución</summary><blockquote>
+<br/>
+
+### Problema
+Se ha discutido una solución de bajo costo, para recuperar los elementos en forma ordenada de un archivo, sin necesidad de reacomodamientos físicos costosos.
+
+Ahora se debe encontrar un mecanismo que permite localizar los datos contenidos en los nodos, a bajo costo. La solución que presentaban los árboles B y B* debería poder aplicarse en este entorno.
+
+### Solucion
+
+La estructura intermedia resultante se denomina árbol B+ e incorpora las características discutidad para árboles B, ademas del tratamiento secuencial ordenado del archivo. Así, se podrán realizar búsquedas aleatorias rápidas de información, en conjunto con acceso secuencial eficiente.
+
+### Arboles B+
+Es un árbol multicamino con las siguientes propiedades:
+- Cada nodo del árbol puede contener, como máximo, M desendientes y M-1 elementos.
+- La raíz no posee descendientes o tiene al menos dos.
+- Un nodo con x descendientes contiene x-1 elemenetos.
+- Los nodos terminales tienen como minimo `([M/2]-1)` elementos y como maximo `M-1` elementos.
+- Los nodos que no son terminales ni raíz tienen como minimo `[M/2]` descendientes.
+- Todos los nodos terminales se encuentran al mismo nivel.
+- Los nodos terminales representan un conjunto de datos y son enlazados entre ellos.
+
+
+</details>
+
 Responda detalladamente:
 
-<details> <summary> a) ¿Cómo accede a la información para buscar al alumno con DNI 23.333.333? </summary>
+<details> <summary> a) ¿Cómo accede a la información para buscar al alumno con DNI 23.333.333? </summary><blockquote>
 <br/>
-dsd
+Se accede de forma directa (indice).
 </details>
 
-<details> <summary> b) ¿Cómo accede a la información para buscar al alumno José Perez?</summary>
+<details> <summary> b) ¿Cómo accede a la información para buscar al alumno José Perez?</summary><blockquote>
 <br/>
-dsd
+Se accese de forma secuencial ya que no es una clave.
 </details>
 
-<details> <summary> c) Indique cuáles son las ventajas que ofrece este tipo de árbol para el caso de la búsqueda planteada en el inciso b.</summary>
+<details> <summary> c) Indique cuáles son las ventajas que ofrece este tipo de árbol para el caso de la búsqueda planteada en el inciso b.</summary><blockquote>
 <br/>
-dsd
+Realiza búsquedas aleatorias rápidas de información, en conjunto con acceso secuencial eficiente.
 </details>
 
 `3)` Dado el siguiente algoritmo de búsqueda en un árbol B:
@@ -117,58 +146,152 @@ begin
         buscar := false; {clave no encontrada}
     else
         posicionarYLeerNodo(A, nodo, NRR);
-    if (claveEncontrada(A, nodo, clave, pos)) then begin
-        NRR_encontrado := NRR; {NRR actual)}
-        pos_encontrada := pos;     {posición dentro del array}
+    if (claveEncontrada(A, nodo, clave, pos)) then
+        NRR_encontrado := NRR; {NRR actual)
+        pos_encontrada := pos; {posición dentro del array}
     end
     else
-        buscar(nodo.hijo[pos], clave, NRR_encontrado, pos_encontrada)
+    buscar(nodo.hijo[pos], clave, NRR_encontrado, pos_encontrada)
 end;
 ```
 
+
 Asuma que para la primera llamada, el parámetro NRR contiene la posición de la raíz del árbol. Responda detalladamente:
 
-<details> <summary> a) <samp>PosicionarYLeerNodo():</samp> Indique qué hace y la forma en que deben ser enviados los parámetros (valor o referencia).</summary>
+<details> <summary> a) <b>PosicionarYLeerNodo(A,nodo,NRR):</b> Indique qué hace y la forma en que deben ser enviados los parámetros (valor o referencia).</summary><blockquote>
 <br/>
-dsd
+Posiciona al registro que corresponde a posRaiz pasado como parametro y retorna los elementos.posRaiz seria el indice del registro en el archivo
+
+- `A` es por referencia ya que es un archivo (se supone, porque no esta en ningun lado declarado)
+- `nodo` es por referencia ya que lo ¿modifico?
+- `NRR` es por valor ya que la posición no la modifico
+
 </details>
 
-<details> <summary> b) <samp>claveEncontrada():</samp> Indique qué hace y la forma en que deben ser enviados los parámetros (valor o referencia). ¿Cómo lo implementaría? </summary>
+<details> <summary> b) <b>claveEncontrada(A,nodo,clave,pos):</b> Indique qué hace y la forma en que deben ser enviados los parámetros (valor o referencia). ¿Cómo lo implementaría? </summary><blockquote>
 <br/>
-dsd
+Retorna true si el elemento se encuentra en el array de claves
+
+- `A` por referencia
+- `nodo` por valor
+- `clave` por valor ya que no la puedo modificar porque es unica
+- `pos` por valor ya que solo la uso como dato
+
 </details>
 
-<details> <summary> c) ¿Existe algún error en este código? En caso afirmativo, modifique lo que considere necesario.</summary>
+<details> <summary> c) ¿Existe algún error en este código? En caso afirmativo, modifique lo que considere necesario.</summary><blockquote>
 <br/>
-dsd
+eeeeeeeeeeee
+literalmente cambie todo el codigo, los parametros estaban mal definidos, la funcion no retornaba un tipo de dato, habian variables que no estaban declaradas etc.
+
+```Pas
+//No entiendo de donde sale la variable "nodo" ya que tendria que ser un parametro
+function buscar(posRaiz, clave, posRaiz_Actual,pos_encontrada:Integer):boolean;
+var
+    pos:integer;
+begin
+    if (nodo = null) then
+        buscar := false {clave no encontrada}
+    else
+        PosicionarYLeerNodo(A, nodo, posRaiz);
+    if (claveEncontrada(A, nodo, clave, pos)) then begin
+        posRaiz_Actual := posRaiz; {posRaiz actual)}
+        pos_encontrada := pos;     {posición dentro del array}
+    end
+    else
+        buscar(nodo.hijo[pos], clave, posRaiz_Actual, pos_encontrada)
+end;
+```
+
 </details>
 
 `4)` Defina los siguientes conceptos:
 
 
-<details> <summary> Overflow</summary>
+<details> <summary> Overflow</summary><blockquote>
 <br/>
-dsd
+
+Significa que en el nodo ya no hay capacidad disponible para almacenar un nuevo elemento de datos.
+
+Cuando ocurre el overflow, es proceso es el siguiente:
+
+- Se crea un nuevo nodo.
+- La primera mitad de las clases se mantiene en el nodo con overflow.
+- La segunda mitad de las clases se traslada al nuevo nodo.
+- La menor de las claves de la segunda mitad se promociona al nodo padre
+
 </details>
 
-<details> <summary> Underflow</summary>
+<details> <summary> Underflow</summary><blockquote>
 <br/>
-dsd
+
+Significa que en el nodo tiene menos del minimo de la capacidad necesaria para almacenar un nuevo elemento de datos.
+
+Cuando ocurre el underflow, es proceso es el siguiente:
+
+- Primero se intenta **redistribuir** con un hermano adyacente. 
+
+- Si la distribución no es posible, entonces se debe **fusionar** con el hermano adyacente.
+
+`Nodos Hermanos:` Aquellos nodos que tienen el mismo nodo padre.
+
+`Nodos adyacentes hermanos:` Aquellos nodos que, siendo hermanos, son además dependientes de punteros consecutivos del padre.
+
+
+
+<details> <summary>📖 Politicas</summary><blockquote>
+<br/>
+
+### `Políticas para la resolución de underflow`
+
+- #### `Política izquierda:`
+
+Se intenta distribuir con el hermano adyacente izquierdo, si no es posible, se fusiona con hermano adyacente izquierdo.
+
+- #### `Política derecha:`
+
+se intenta redistribuir con el hermano adyacente derecho, si no es posible, se fusiona con hermano adyacente derecho
+
+- #### `Política izquierda o derecha:`
+
+Se intenta redistribuir con el hermano adyacente izquierdo, si no es posible, se intenta con el hermano adyacente derecho, si tampoco es posible, se fusiona con hermano adyacente izquierdo.
+
+- #### `Política derecha o izquierda:`
+
+Se intenta redistribuir con el hermano adyacente derecho, si no es posible, se intenta con el hermano adyacente izquierdo, si tampoco es posible, se fusiona con hermano adyacente derecho.
+
+- #### `Casos especiales:`
+
+En cualquier política si se tratase de un nodo hoja de un extremo del árbol debe intentarse redistribuir con el hermano adyacente que el mismo posea.
+
+
+- #### `Aclaración:`
+
+- En caso de underflow lo primero que se intenta `SIEMPRE` es redistribuir y el hermano adyacente se encuentra en condiciones de ceder elementos si al hacerlo no se produce underflow en el.
+- En caso de overflow `SIEMPRE` se genera un nuevo nodo. Las claves se distribuyen
+equitativamente entre el nodo desbordado y el nuevo.
+
+```
+En el caso de órdenes impares se debe promocionar la clave o la copia 
+(en árbol B+) que se encuentra en la posición del medio.
+```
 </details>
 
-<details> <summary> Redistribución</summary>
-<br/>
-dsd
 </details>
 
-<details> <summary> Fusión o concatenación </summary>
+<details> <summary> Redistribución</summary><blockquote>
 <br/>
-dsd
+La redistribución es el proceso mediante el cual se trata de dejar a cada nodo lo más equitativamente cargado posible.
 </details>
 
-<details> <summary> En los dos últimos casos, ¿cuándo se aplica cada uno? </summary>
+<details> <summary> Fusión o concatenación </summary><blockquote>
 <br/>
-dsd
+Ocurre cuando un nodo se encuentra en `Underflow`, si el nodo adyacente hermano tiene el maximo de elementos (a preguntar)
+</details>
+
+<details> <summary> En los dos últimos casos, ¿cuándo se aplica cada uno? </summary><blockquote>
+<br/>
+A preguntar
 </details>
 
 
@@ -189,7 +312,7 @@ en entrar, primero en salir).
 
 <details>
 
-<summary>📖 Resolución</summary>
+<summary>📖 Resolución</summary><blockquote>
 <br/>
 
 </details>
@@ -198,7 +321,7 @@ en entrar, primero en salir).
 
 <details>
 
-<summary>📖 Resolución</summary>
+<summary>📖 Resolución</summary><blockquote>
 <br/>
 
 </details>
@@ -212,7 +335,7 @@ Política de resolución de underflows: derecha.
 
 <details>
 
-<summary>📖 Resolución</summary>
+<summary>📖 Resolución</summary><blockquote>
 <br/>
 
 </details>
@@ -225,7 +348,7 @@ Política de resolución de underflows: derecha o izquierda.
 
 <details>
 
-<summary>📖 Resolución</summary>
+<summary>📖 Resolución</summary><blockquote>
 <br/>
 
 </details>
@@ -241,21 +364,21 @@ Política de resolución de underflows: derecha.
 
 <details>
 
-<summary>Dibuje el árbol resultante</summary>
+<summary>Dibuje el árbol resultante</summary><blockquote>
 <br/>
 
 </details>
 
 <details>
 
-<summary>Explique las decisiones tomadas</summary>
+<summary>Explique las decisiones tomadas</summary><blockquote>
 <br/>
 
 </details>
 
 <details>
 
-<summary>Escriba las lecturas y escrituras</summary>
+<summary>Escriba las lecturas y escrituras</summary><blockquote>
 <br/>
 
 </details>
@@ -297,7 +420,7 @@ Política de resolución de underflows: derecha
 
 <details>
 
-<summary>📖 Resolución</summary>
+<summary>📖 Resolución</summary><blockquote>
 <br/>
 
 </details>
@@ -324,7 +447,7 @@ Política de resolución de underflows: derecha o izquierda.
 
 <details>
 
-<summary>📖 Resolución</summary>
+<summary>📖 Resolución</summary><blockquote>
 <br/>
 
 </details>
@@ -338,7 +461,7 @@ Política de resolución de underflows: izquierda.
 
 <details>
 
-<summary>📖 Resolución</summary>
+<summary>📖 Resolución</summary><blockquote>
 <br/>
 
 </details>
@@ -350,7 +473,7 @@ Política de resolución de underflows: izquierda.
 
 <details>
 
-<summary>📖 Resolución</summary>
+<summary>📖 Resolución</summary><blockquote>
 <br/>
 
 </details>
@@ -359,21 +482,21 @@ Política de resolución de underflows: izquierda.
 
 <details>
 
-<summary>a) Dibuje el árbol resultante.</summary>
+<summary>a) Dibuje el árbol resultante.</summary><blockquote>
 <br/>
 
 </details>
 
 <details>
 
-<summary>b) Explique brevemente las decisiones tomadas.</summary>
+<summary>b) Explique brevemente las decisiones tomadas.</summary><blockquote>
 <br/>
 
 </details>
 
 <details>
 
-<summary>c) Escriba las lecturas y escrituras</summary>
+<summary>c) Escriba las lecturas y escrituras</summary><blockquote>
 <br/>
 
 </details>
@@ -405,7 +528,7 @@ Operaciones: +4, +44, -94, -104
 
 <details>
 
-<summary>📖 Resolución</summary>
+<summary>📖 Resolución</summary><blockquote>
 <br/>
 
 </details>
@@ -416,21 +539,21 @@ dada:
 
 <details>
 
-<summary>a) Dibuje el árbol resultante</summary>
+<summary>a) Dibuje el árbol resultante</summary><blockquote>
 <br/>
 
 </details>
 
 <details>
 
-<summary>b) Explique detalladamente las decisiones tomadas</summary>
+<summary>b) Explique detalladamente las decisiones tomadas</summary><blockquote>
 <br/>
 
 </details>
 
 <details>
 
-<summary>c) Escriba las lecturas y escrituras</summary>
+<summary>c) Escriba las lecturas y escrituras</summary><blockquote>
 <br/>
 
 </details>
@@ -455,21 +578,21 @@ Operaciones: +165, +260, +800, -110,
 
 <details>
 
-<summary>a) Dibuje el árbol resultante</summary>
+<summary>a) Dibuje el árbol resultante</summary><blockquote>
 <br/>
 
 </details>
 
 <details>
 
-<summary>b) Explique detalladamente las decisiones tomadas</summary>
+<summary>b) Explique detalladamente las decisiones tomadas</summary><blockquote>
 <br/>
 
 </details>
 
 <details>
 
-<summary>c) Escriba las lecturas y escrituras</summary>
+<summary>c) Escriba las lecturas y escrituras</summary><blockquote>
 <br/>
 
 </details>
