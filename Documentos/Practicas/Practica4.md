@@ -374,6 +374,16 @@ Política de resolución de underflows: derecha.
 <summary>📖 Resolución</summary><blockquote>
 <br/>
 
+- `+5` se produce overflow en el `nodo 0`, subo el 32, creo otro nodo con el 50 y en el nodo actual dejo el 5 y 22.
+- `+9` Como tengo lugar, lo agrego normal en el `nodo 0`
+- `+80` se produce overflow en el `nodo 1`, subo el 80, creo otro nodo con el 92 y en el nodo actual dejo el 77 y 79
+- `+51` Lo agrego normal
+- `-50` Lo borro normal ya que no tengo underflow
+- `-92` Lo borro pero tengo underflow, ya que el nodo me queda vacio, utilizamos la `politica de derecha` pero como el `nodo 4` es un nodo de los extremos, se intenta redistribuir con su hermano adyacente izquierdo. Y distribuimos normal ya que el `nodo 1` tiene mas del minimo de elementos necesarios.
+
+
+![6_recorte](https://user-images.githubusercontent.com/55964635/168481332-2883a802-5172-41f4-88b2-bde4cca0e71f.jpg)
+
 </details>
 
 `7)` Dado el siguiente árbol B de orden 6, mostrar como quedaría el mismo luego de realizar las siguientes operaciones: +15, +71, +3, +48, -56, -71.
@@ -382,10 +392,18 @@ Política de resolución de underflows: derecha o izquierda.
 
 `0: (34) (56) (78) (100) (176)`
 
+
 <details>
 
 <summary>📖 Resolución</summary><blockquote>
 <br/>
+
+### +15,+71,+3,+48
+![Documento_2022-05-15_134025](https://user-images.githubusercontent.com/55964635/168484085-03a6b9ab-da43-4d13-be0f-2a11739509cc.jpg)
+
+### -56, -71
+
+![restas](https://user-images.githubusercontent.com/55964635/168484751-215b6eab-55dd-46c5-a76b-3982fbcf6d0c.jpg)
 
 </details>
 
@@ -395,6 +413,16 @@ Política de resolución de underflows: derecha.
 
                             2: 0 (315) 1 (485) 4 (547) 5 (639) 3
     0: (148)(223)   1: (333)(390)(442)(454)     4: (508)(511)   5: (614)(633)   3: (789)(915)
+
+
+<details>
+
+<summary>📖 Resolución</summary><blockquote>
+<br/>
+
+
+
+</details>
 
 `9)` Dado un árbol B de orden 5  y con política izquierda, para cada operación dada:
 
