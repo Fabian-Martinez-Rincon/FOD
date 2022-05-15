@@ -420,7 +420,21 @@ Política de resolución de underflows: derecha.
 <summary>📖 Resolución</summary><blockquote>
 <br/>
 
+### +450
 
+![+450](https://user-images.githubusercontent.com/55964635/168486597-0cbbdcec-7561-4e20-8a1f-76bb8aea3666.jpg)
+
+### -485
+
+![-485](https://user-images.githubusercontent.com/55964635/168486899-d4e463cf-d86a-49ab-87b0-e27ad07535b2.jpg)
+
+### -511
+
+![-511](https://user-images.githubusercontent.com/55964635/168487230-12dad83a-65c0-42b3-9211-7451ef0be3b0.jpg)
+
+### -614
+
+![-614](https://user-images.githubusercontent.com/55964635/168488188-0a7ad863-3b57-4b22-a6cb-12d88f8df89e.jpg)
 
 </details>
 
