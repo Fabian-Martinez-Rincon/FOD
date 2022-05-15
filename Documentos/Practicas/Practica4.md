@@ -308,23 +308,40 @@ en entrar, primero en salir).
 
 `5)` Dado el siguiente árbol B de orden 5, mostrar como quedaría el mismo luego de realizar las siguientes operaciones: +320, -390, -400, -533. Justificar detalladamente cada operación indicando lecturas y escrituras en orden de ocurrencia. Para la resolución de underflow debe utilizar `política a izquierda`. Graficar cada operación por separado.
 
-`2: 0 (220) 1 (390) 4 (455) 5 (541) 3`
+```
+2: 0 (220) 1 (390) 4 (455) 5 (541) 3
 
-<details>
+0: (10)(150) 1: (225)(241)(331)(360) 4: (400)(407) 5: (508)(533) 3: (690)(823)
+
+```
+
+<details open>
 
 <summary>📖 Resolución</summary><blockquote>
-<br/>
+
+#### Esquema
+
+![image](https://user-images.githubusercontent.com/55964635/168456796-9216c748-3cc2-4ac1-82f9-100d25fcfa2d.png)
+
+#### +320
+El elemento se inserta en el nodo 1 entre los numeros "241 y 331" como ya no tiene espacio disponible, ocurre un overflow. Lo que hacemos es mantener los elementos que se encuentran a la izquierda, subir el 320 y crear otro nodo con los elementos a la derecha de donde trendria que haberse insertado el 320.
+
+Cuando subo el 320, tambien tengo overflow en el nodo 2, tengo que subir el elemento que se encuentra en el medio que seria "390" y creo otro nodo con los elementos que se encontraban a la derecha del 320.
+
+![1](https://user-images.githubusercontent.com/55964635/168476748-f387d459-0223-48d0-acef-cb433c64f31a.jpg)
+
+#### -390
+
+Se remplaza por el menor elemento del subArbol derecho (en este caso es el 400). No tenemos underflow en la hoja ya que tiene la minima cantidad de elementos.
+
+![resta](https://user-images.githubusercontent.com/55964635/168477005-a58dac78-d3e6-4ac2-9190-491e62066d1e.jpg)
+
 
 </details>
 
-`0: (10)(150) 1: (225)(241)(331)(360) 4: (400)(407) 5: (508)(533) 3: (690)(823)`
 
-<details>
 
-<summary>📖 Resolución</summary><blockquote>
-<br/>
 
-</details>
 
 `6)` Dado el siguiente árbol B de orden 4, mostrar cómo quedaría el mismo luego de realizar las siguientes operaciones: +5, +9, +80, +51, -50, -92.
 
