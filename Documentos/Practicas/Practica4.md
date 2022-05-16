@@ -440,24 +440,50 @@ Política de resolución de underflows: derecha.
 
 `9)` Dado un árbol B de orden 5  y con política izquierda, para cada operación dada:
 
-<details>
+<details >
 
 <summary>Dibuje el árbol resultante</summary><blockquote>
 <br/>
 
+
+
+![ultima](https://user-images.githubusercontent.com/55964635/168491198-7be1977b-413c-4b27-9a6e-ddab3db437ce.jpg)
+
 </details>
 
-<details>
+<details >
 
 <summary>Explique las decisiones tomadas</summary><blockquote>
 <br/>
 
+- Primero armamos el esquema
+
+![Esquema](https://user-images.githubusercontent.com/55964635/168490362-889514df-45cb-4b47-bbbf-17532b651571.jpg)
+
+- `-76` Lo remplazamos por el elemento minimo del hijo derecho que en este caso es el 100.
+
+![-76](https://user-images.githubusercontent.com/55964635/168490677-be293ac9-c63d-49a7-b4e4-8835e6224781.jpg)
+
+- `-400` le damos de baja, el nodo queda con menor cantidad de elementos de la permitida. Intentamos distribuir con el hermano adyacente izquierdo pero tiene la minima cantidad de elementos. Por ultimo solo nos queda concatenar nodos. (aca tengo que bajar el 300 pero no sabria como es la definicion correcta)
+- `+900` Lo agrego al nodo 3 
+- `+12` Como el nodo 0 se encuentra lleno (tengo overflow), subo el elemento que se encuentra en el medio que seria el 45 y creo otro nodo con los elementos a la derecha de este.
+
+
+![ultima](https://user-images.githubusercontent.com/55964635/168491198-7be1977b-413c-4b27-9a6e-ddab3db437ce.jpg)
+
+
 </details>
+
+
 
 <details>
 
 <summary>Escriba las lecturas y escrituras</summary><blockquote>
 <br/>
+- `-76` L/E : L2,L4,E4,E2
+- `-400` L/E : L2, L1, E1, L4,E4
+- `+900` L/E : L2, L3, E3
+- `+12` L/E: L2, no entendi esta cosa
 
 </details>
 
@@ -475,11 +501,50 @@ Operaciones: -76, -400, +900, +12
 
 Política de resolución de underflows: izquierda o derecha.
 
+<details >
+
+<summary>📖 Resolución</summary><blockquote>
+<br/>
+
+Em lugar del (6) va el (5) :0
+
+![primeraParte](https://user-images.githubusercontent.com/55964635/168493198-3a9f29e3-f2f3-48a7-bac2-2208a6e48069.jpg)
+
+![segundaParte](https://user-images.githubusercontent.com/55964635/168493833-e6ddf843-507d-4410-a24e-ed8541a7fb2e.jpg)
+
+![3ra](https://user-images.githubusercontent.com/55964635/168494605-9bd7f308-6f6d-41f3-a48d-2f9ebf87dd70.jpg)
+
+![4ta](https://user-images.githubusercontent.com/55964635/168494776-232400c7-5d05-4d22-8715-6cb971704f8c.jpg)
+
+![5ta](https://user-images.githubusercontent.com/55964635/168495245-3d398279-87d3-4477-a50d-ed2cb2b8c33b.jpg)
+
+![6ta](https://user-images.githubusercontent.com/55964635/168495438-087478e9-0ee0-40ab-b4bd-1db2146f7e5f.jpg)
+
+![7ma](https://user-images.githubusercontent.com/55964635/168495606-cdff8d8b-cf22-41ca-9eca-e44f4585d3b7.jpg)
+
+</details>
+
+
+
 `11)` Dadas las siguientes operaciones, mostrar la construcción paso a paso de un árbol B de orden 5:
 
 Política de resolución de underflows: izquierda.
 
 `+80, +50, +70, +120, +23, +52, +59, +65, +30, +40, +45, +31, +34, +38, +60, +63, +64, -23, -30, -31, -40, -45, -38.`
+
+
+
+<details>
+<summary>📖 Resolución</summary><blockquote>
+<br/>
+
+![1](https://user-images.githubusercontent.com/55964635/168496450-ad852502-61ee-4d5e-923f-2789f73e4857.jpg)
+
+![2](https://user-images.githubusercontent.com/55964635/168497245-3c086957-40e5-4cea-a8f6-d55a239c010b.jpg)
+
+![3](https://user-images.githubusercontent.com/55964635/168497401-982e9aad-f9b2-415f-a1e9-e84f33649f7e.jpg)
+
+</details>
 
 `12)` Dado el siguiente árbol B de orden 6, mostrar como quedaría el mismo luego de realizar
 las siguientes operaciones: +300, +577, -586, -570, -380, -460.
@@ -492,6 +557,14 @@ Política de resolución de underflows: izquierda o derecha
     1: (222)(256)(358)(380)(423)     3: (703)(725)
     4: (505)(522)                    6: (789)(915)(1000)
     
+
+<details>
+
+<summary>📖 Resolución</summary><blockquote>
+<br/>
+
+</details>
+
 `13)` Dada las siguientes operaciones, mostrar cómo se construye el árbol B de orden 4: +65, +89, +23, +45, +20, +96, +10, +55, -23, +110, +50, -10, +25, -50, -45, +120, +130, +70, +75, +73, +100, -120, -110.
 
 Política de resolución de underflows: derecha
