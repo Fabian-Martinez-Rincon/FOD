@@ -534,7 +534,7 @@ Política de resolución de underflows: izquierda.
 
 
 
-<details>
+<details open>
 <summary>📖 Resolución</summary><blockquote>
 <br/>
 
@@ -542,7 +542,15 @@ Política de resolución de underflows: izquierda.
 
 ![2](https://user-images.githubusercontent.com/55964635/168497245-3c086957-40e5-4cea-a8f6-d55a239c010b.jpg)
 
-![3](https://user-images.githubusercontent.com/55964635/168497401-982e9aad-f9b2-415f-a1e9-e84f33649f7e.jpg)
+![3](https://user-images.githubusercontent.com/55964635/168721529-2efd88b4-700d-4714-904c-ff40af292f0b.jpg)
+
+![4](https://user-images.githubusercontent.com/55964635/168723236-7ba95fc7-1bec-4027-9a16-832263ba4152.jpg)
+
+![5](https://user-images.githubusercontent.com/55964635/168724496-e9b9b73d-e196-4ff2-97b8-1fae95ecf229.jpg)
+
+![6](https://user-images.githubusercontent.com/55964635/168727731-f8ae2dff-613d-42cb-b16f-a446c1c843ee.jpg)
+
+No sabria como restar el `-38`
 
 </details>
 
@@ -589,6 +597,13 @@ Política de resolución de underflows: derecha.
 
                      2: 0 (66) 1
     0: (23)(45) 1                   1: (66) (67) (89)
+
+<details>
+
+<summary>📖 Resolución</summary><blockquote>
+<br/>
+
+</details>
 
 `16)` Dada las siguientes operaciones, mostrar la construcción paso a paso de un árbol B+ de orden 4:
 
@@ -762,3 +777,4 @@ Operaciones: +250, -300, -40
 - nodo 9: 4 h(210)(220)(230)(240)->1
 - nodo 1: 2 h(400)(500)-> -1
 ```
+
