@@ -78,12 +78,17 @@ type
         legajo:integer;
         anio:integer;
     end;
+    clave = record
+        dni:integer;
+        nrr:integer;
+    end;
     nodo = record
         cant_claves:integer;
-        claves: array[1..M-1] of alumnos;
+        claves: array[1..M-1] of clave;
         hijos:array[1..M] of Integer;
     end;
     arbol = file of nodo;
+    archivo = file of alumnos;
 var
     arbolB:arbol;
 begin
