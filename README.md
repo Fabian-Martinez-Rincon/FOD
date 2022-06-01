@@ -47,7 +47,7 @@
 
 ### A tener en cuenta para el parcial:
 
-#### Arboles 🌳
+#### Arboles B🌳
 
 
 - Chequear de que no falta ningun nodo, en caso de que falte algun nodo, lo agrego a mi pila de NL
@@ -58,4 +58,12 @@
   - Cuando un nodo es liberado, lo guardo en una pila `EJ: nl:3`
 - Explicar el proceso
 - Hacer el grafico
-  - Cuando tengo overflow, siempre tengo que crear un nodo y promocionar otro (en caso de que no tenga un ningun nodo en la pila) 
+  - Cuando tengo overflow, siempre tengo que crear un nodo y promocionar otro, esta operación se llama `división y promoción :O` (en caso de que no tenga un ningun nodo en la pila) 
+  - Pierdo un nivel del arbol cuando tengo que fusionar sus dos unicos hijos.
+  - O cuando el andeflow se propaga a la raiz
+  - Cada vez que tengo que fusionar 
+
+#### Arboles B+🌳
+
+- Lo mismo que con los arboles B, solo que sus elementos se encuentrar en las raises
+- Cuando quiero eliminar un elemento `x` y no se encuentra en las hojas
