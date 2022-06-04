@@ -15,17 +15,9 @@ Indice
   - [Un_archivo_que_esta_Desordenado](#un_archivo_que_esta_desordenado)
   - [Un_archivo_que_esta_Ordenado](#un_archivo_que_esta_ordenado)
 - [Actualizar](#actualizar)
-  - [Un_Archivo_Con_una_constante](#un_archivo_con_una_constante)
-  - [Un_Archivo_desde_otro_archivo](#un_archivo_desde_otro_archivo)
-  - [Un_Archivo_desde_dos_archivos](#un_archivo_desde_dos_archivos)
-  - [Un_Archivo_desde_n_archivos](#un_archivo_desde_n_archivos)
 - [Agregar](#agregar)
-  - [Datos_a_un_archivo_Desde_teclado](#datos_a_un_archivo_desde_teclado)
 - [Corte_De_Control](#corte_de_control)
 - [Merge](#merge)
-  - [Con_3_Archivos](#con_3_archivos)
-  - [Con_3_Archivos_Con_Repetición](#con_3_archivos_con_repetición)
-  - [Con_N_Archivos_Con_Repetición](#con_n_archivos_con_repetición)
 - [Baja](#baja)
   - [Un_Dato_Sabiendo_Que_Existe](#un_dato_sabiendo_que_existe)
   - [Un_Dato_Sin_Saber_Si_Existe](#un_dato_sin_saber_si_existe)
@@ -39,6 +31,12 @@ Indice
 - [Alta](#alta)
   - [Un_Registro_Ingresado_Desde_Teclado](#un_registro_ingresado_desde_teclado)
 
+- [Codigos que no usamos](#Codigos_que_no_usamos)
+    - [Un_Archivo_desde_dos_archivos](#un_archivo_desde_dos_archivos)
+    - [Un_Archivo_desde_tres_archivos](#un_archivo_desde_tres_archivos)
+    - [Un_Archivo_desde_otro_archivo](#un_archivo_desde_otro_archivo)
+    - [Con_3_Archivos](#con_3_archivos)
+    - [Con_3_Archivos_Con_Repetición](#con_3_archivos_con_repetición)
 
 Declarar
 ========
@@ -203,9 +201,6 @@ end;
 Actualizar
 ==========
 
-Un_Archivo_Con_una_constante
-----------------------------
-
 ```Pas
 Procedure actualizar(Var archx:archivo); 
 var 
@@ -223,149 +218,8 @@ begin
 end;
 ```
 
-Un_Archivo_desde_otro_archivo
------------------------------
-```Pas
-procedure leer(var d:detalle;var datox:registro);
-begin
-    if (not eof(d))then 
-        read(d,datox)
-    else 
-        datox.codigo := valoralto;
-end;
-procedure actualizar(var m:maestro;var d:detalle);
-var
-    datoM,datoD:registro;
-begin
-    assign (m,'maestro.data'); reset(m);
-    assign (d,'detalle.data'); reset(d);
-    leer(d,datoD);  
-    while (datoD.codigo <> valoralto) do begin
-        read(m, datoM);
-        while (datoM.codigo <> datoD.codigo) do
-            read (m,datoM);
-        while (datoM.codigo = datoD.codigo) do 
-        begin
-            datoM.cant := datoM.cant - datoD.cv;        
-	        leer(det1,datoD);          
-        end;
-        seek (m,filepos(m)-1);
-        write(m,datoM);
-    end;
-End;
-```
-
-Un_Archivo_desde_dos_archivos
------------------------------
-
-```Pas
-procedure leer (var archivo: detalle; var datox:detalleR);
-begin
-    if (not eof(archivo))then 
-        read (archivo,datox)
-    else 
-        datox.nombre := valoralto;
-end;
-//__________________________________________
-procedure minimo (var r1,r2:detalleR;var d1,d2:detalle; var min:detalleR);
-begin
-    if (r1.nombre<=r2.nombre)  then 
-    begin
-        min := r1;  leer(d1,r1)
-    end
-    else 
-    begin
-        min := r2; leer(d2,r2)
-    end
-end;
-//_______________________________________________________
-procedure actualizar(var m:maestro;var d1,d2:detalle);
-Var   
-    datox: maestroR;  
-    min,r1,r2:detalleR; 
-begin
-    assign (m, 'maestro.data');    reset (m); 
-    assign (d1, 'detalle1.data');  reset (d1);  leer(d1, r1); 
-    assign (d2, 'detalle2.data');  reset (d2);  leer(d2, r2); 
-    minimo(r1, r2, d1, d2,min);
-    while (min.nombre <> valoralto) do  
-    begin
-        read(m,datox);
-        while (datox.nombre <> min.nombre) do read(m,datox);
-        while (datox.nombre = min.nombre ) do 
-        begin
-            datox.cantidad:=datox.cantidad + min.cantidad;
-            minimo(r1, r2, d1, d2,min);
-        end;
-        seek (m, filepos(m)-1);
-        write(m,datox);
-    end;
-    Close(m); Close(d1); Close(d2);
-end;
-```
-
-Un_Archivo_desde_n_archivos
------------------------------
-
-```Pas
-procedure minimo (var r1,r2,r3:registroR;var d1,d2,d3:detalle; var min:registroR);
-begin
-    if (r1.codigo<=r2.codigo) and (r1.codigo<=r3.codigo) then 
-    begin
-        min := r1;  leer(d1,r1)
-    end
-    else if (r2.codigo<=r3.codigo) then 
-    begin
-        min := r2; leer(d2,r2)
-    end
-    else 
-    begin
-        min := r3;leer(d3,r3)
-    end;
-end;
-//_______________________________________________________
-procedure leer (var archivo: detalle; var datox:registroR);
-begin
-    if (not eof(archivo))then 
-        read (archivo,datox)
-    else 
-        datox.codigo := valoralto;
-end;
-//_______________________________________________________
-procedure actualizar(var m:maestro;var d1,d2,d3:detalle);
-Var   
-    datox: maestroR;  
-    min, r1, r2,r3: registroR;
-    m: maestro;   
-    d1,d2,d3: detalle;
-begin
-    assign (m, 'maestro.data');    reset (m); 
-    assign (d1, 'detalle1.data');  reset (d1);  leer(d1, r1); 
-    assign (d2, 'detalle2.data');  reset (d2);  leer(d2, r2); 
-    assign (d3, 'detalle3.data');  reset (d3);  leer(d3, r3);
-    minimo(r1, r2,r3,d1,d2,d3,min);
-    while (min.codigo <> valoralto) do  
-    begin
-        read(m,datox);
-        while (datox.codigo <> min.codigo) do 
-            read(m,datox);
-        while (datox.codigo = min.codigo ) do 
-        begin
-            datox.cant:=datox.cant - min.cantvendida;
-            minimo(r1,r2,r3,d1,d2,d3,min);
-        end;
-        seek (m, filepos(m)-1);
-        write(m,datox);
-    end;
-end;
-```
-
-
 Agregar
 =============
-
-Datos_a_un_archivo_Desde_teclado
---------------------------------
 
 ```Pas
 Procedure Agregar(var log:archivo); 
@@ -386,101 +240,44 @@ end;
 
 Corte_De_Control
 ================
+
 ```Pas
-procedure leer( var archivo: detalle; var dato: registroD);
-begin
-    if (not(EOF(archivo))) then
-        read (archivo, dato)
-    else
-        dato.cod := valoralto;
-end;
-procedure CorteDeControl(var m:maestro; var d:detalle);
-var
-    datoM: registroM;
-    datoD: registroD;
-    total: integer; actual: integer;
-begin
-    assign(m, 'maestro'); reset(m); read(m, datoM);
-    assign(d, 'detalle'); reset(d); leer(d, datoD);
-    while (datoD.cod <> valoralto) do begin
-        actual := datoD.cod;
-        total := 0;
-        while (actual = datoD.cod) do begin
-            total := total + datoD.cant_vendida;
-            leer(d, datoD);
-        end;
-        while (datoM.cod <> actual) do
-            read (m, datoM);
-        datoM.cant := datoM.cant - total;
-        seek(m, filepos(m)-1);
-        write(m, datoM);
-        if (not(EOF(m))) then
-            read(m, datoM);
+procedure Un_Archivo_desde_otro_archivo(var m,d:archivo);
+    procedure Leer(var d:archivo;var dato:Integer);
+    begin
+        if (not eof(d)) then
+            Read(d,dato)
+        else
+            dato:=vA;
     end;
-    close(d);
-    close(m);
+var
+    total,datoD,datoM:integer;
+begin
+    Reset(m);
+    Reset(d);
+    Leer(d,datoD);
+    while datoD <> vA do
+    begin
+        total:=0;
+        Read(m,datoM);
+        while (datoM <> datoD) and (datoD <> vA) do
+            Read(m,datoM);
+        while datoM = datoD do
+        begin
+            total:=total+datoD;
+            Leer(d,datoD);  
+        end;
+        Seek(m,FilePos(m)-1);
+        Write(m,total);
+    end;
+    Close(m);
+    Close(d);
 end;
 ```
+
 Merge
 =====
 
-Con_3_Archivos
----------------
-```Pas
-procedure merge(var m:maestro;var d1,d2,d3:archivo);
-//_______________________________________________________
-procedure leer (var archivo:detalle; var dato:alumno);
-begin
-    if (not eof( archivo ))then 
-        read (archivo, dato)
-    else 
-        dato.nombre := valoralto;
-end;
-//_______________________________________________________
-begin
-    assign (d1, 'd1.data'); reset (d1); leer(d1, regd1); 
-    assign (d2, 'd2.data'); reset (d2); leer(d2, regd2);
-    assign (d3, 'd3.data'); reset (d3); leer(d3, regd3);
-    assign (maestro, 'maestro'); rewrite (maestro);
-    minimo(regd1, regd2, regd3, min);
-    while (min.nombre <> valoralto) do
-    begin
-        write (maestro,min);
-        minimo(regd1,regd2,regd3,min);
-    end;
-    Close(d1); Close(d2); Close(d3);
-    Close(maestro);
-end;
-```
-Con_3_Archivos_Con_Repetición
------------------------------
-```Pas
-procedure merge(var m:maestro;var d1,d2,d3:detalle);
-var 
-    min, r1, r2, r3: detalleR;
-    datoM: maestroR;
-begin
-    assign (d1, 'd1.data'); reset (d1); leer (d1, r1);
-    assign (d2, 'd2.data'); reset (d2); leer (d2, r2);  
-    assign (d3, 'd3.data'); reset (d3); leer (d3, r3);
-    assign (m, 'maestro.data'); rewrite (m);
-    minimo (r1, r2, r3,min);
-    while (min.codigo <> valoralto) do 
-    begin
-        datoM.codigo := min.codigo;
-        datoM.total := 0;
-        while (datoM.codigo = min.codigo ) do begin
-            datoM.total := datoM.total+ min.montoVenta;
-            minimo (r1, r2, r3, min);
-        end;
-        write(m, datoM);
-    end;
-    close(d1);close(d2);close(d3);
-    close(m);
-End;
-```
-Con_N_Archivos_Con_Repetición
------------------------------
 ```Pas
 vdetalle=array[1..100] of file of detalleR;
 vdetalleR=array[1..100] of detalleR;
@@ -809,4 +606,238 @@ begin
         end;
     Close(m);
 end;
+```
+
+Codigos_que_no_usamos
+---------------------
+
+Un_Archivo_desde_dos_archivos
+-----------------------------
+
+```Pas
+procedure leer (var archivo: detalle; var datox:detalleR);
+begin
+    if (not eof(archivo))then 
+        read (archivo,datox)
+    else 
+        datox.nombre := valoralto;
+end;
+//__________________________________________
+procedure minimo (var r1,r2:detalleR;var d1,d2:detalle; var min:detalleR);
+begin
+    if (r1.nombre<=r2.nombre)  then 
+    begin
+        min := r1;  leer(d1,r1)
+    end
+    else 
+    begin
+        min := r2; leer(d2,r2)
+    end
+end;
+//_______________________________________________________
+procedure actualizar(var m:maestro;var d1,d2:detalle);
+Var   
+    datox: maestroR;  
+    min,r1,r2:detalleR; 
+begin
+    assign (m, 'maestro.data');    reset (m); 
+    assign (d1, 'detalle1.data');  reset (d1);  leer(d1, r1); 
+    assign (d2, 'detalle2.data');  reset (d2);  leer(d2, r2); 
+    minimo(r1, r2, d1, d2,min);
+    while (min.nombre <> valoralto) do  
+    begin
+        read(m,datox);
+        while (datox.nombre <> min.nombre) do read(m,datox);
+        while (datox.nombre = min.nombre ) do 
+        begin
+            datox.cantidad:=datox.cantidad + min.cantidad;
+            minimo(r1, r2, d1, d2,min);
+        end;
+        seek (m, filepos(m)-1);
+        write(m,datox);
+    end;
+    Close(m); Close(d1); Close(d2);
+end;
+```
+
+Un_Archivo_desde_tres_archivos
+-----------------------------
+
+```Pas
+procedure minimo (var r1,r2,r3:registroR;var d1,d2,d3:detalle; var min:registroR);
+begin
+    if (r1.codigo<=r2.codigo) and (r1.codigo<=r3.codigo) then 
+    begin
+        min := r1;  leer(d1,r1)
+    end
+    else if (r2.codigo<=r3.codigo) then 
+    begin
+        min := r2; leer(d2,r2)
+    end
+    else 
+    begin
+        min := r3;leer(d3,r3)
+    end;
+end;
+//_______________________________________________________
+procedure leer (var archivo: detalle; var datox:registroR);
+begin
+    if (not eof(archivo))then 
+        read (archivo,datox)
+    else 
+        datox.codigo := valoralto;
+end;
+//_______________________________________________________
+procedure actualizar(var m:maestro;var d1,d2,d3:detalle);
+Var   
+    datox: maestroR;  
+    min, r1, r2,r3: registroR;
+    m: maestro;   
+    d1,d2,d3: detalle;
+begin
+    assign (m, 'maestro.data');    reset (m); 
+    assign (d1, 'detalle1.data');  reset (d1);  leer(d1, r1); 
+    assign (d2, 'detalle2.data');  reset (d2);  leer(d2, r2); 
+    assign (d3, 'detalle3.data');  reset (d3);  leer(d3, r3);
+    minimo(r1, r2,r3,d1,d2,d3,min);
+    while (min.codigo <> valoralto) do  
+    begin
+        read(m,datox);
+        while (datox.codigo <> min.codigo) do 
+            read(m,datox);
+        while (datox.codigo = min.codigo ) do 
+        begin
+            datox.cant:=datox.cant - min.cantvendida;
+            minimo(r1,r2,r3,d1,d2,d3,min);
+        end;
+        seek (m, filepos(m)-1);
+        write(m,datox);
+    end;
+end;
+```
+
+Un_Archivo_desde_otro_archivo
+-----------------------------
+```Pas
+procedure leer(var d:detalle;var datox:registro);
+begin
+    if (not eof(d))then 
+        read(d,datox)
+    else 
+        datox.codigo := valoralto;
+end;
+procedure actualizar(var m:maestro;var d:detalle);
+var
+    datoM,datoD:registro;
+begin
+    assign (m,'maestro.data'); reset(m);
+    assign (d,'detalle.data'); reset(d);
+    leer(d,datoD);  
+    while (datoD.codigo <> valoralto) do begin
+        read(m, datoM);
+        while (datoM.codigo <> datoD.codigo) do
+            read (m,datoM);
+        while (datoM.codigo = datoD.codigo) do 
+        begin
+            datoM.cant := datoM.cant - datoD.cv;        
+	        leer(det1,datoD);          
+        end;
+        seek (m,filepos(m)-1);
+        write(m,datoM);
+    end;
+End;
+```
+
+Corte_de_control
+----------------
+```Pas
+procedure leer( var archivo: detalle; var dato: registroD);
+begin
+    if (not(EOF(archivo))) then
+        read (archivo, dato)
+    else
+        dato.cod := valoralto;
+end;
+procedure CorteDeControl(var m:maestro; var d:detalle);
+var
+    datoM: registroM;
+    datoD: registroD;
+    total: integer; actual: integer;
+begin
+    assign(m, 'maestro'); reset(m); read(m, datoM);
+    assign(d, 'detalle'); reset(d); leer(d, datoD);
+    while (datoD.cod <> valoralto) do begin
+        actual := datoD.cod;
+        total := 0;
+        while (actual = datoD.cod) do begin
+            total := total + datoD.cant_vendida;
+            leer(d, datoD);
+        end;
+        while (datoM.cod <> actual) do
+            read (m, datoM);
+        datoM.cant := datoM.cant - total;
+        seek(m, filepos(m)-1);
+        write(m, datoM);
+        if (not(EOF(m))) then
+            read(m, datoM);
+    end;
+    close(d);
+    close(m);
+end;
+```
+
+Con_3_Archivos
+---------------
+```Pas
+procedure merge(var m:maestro;var d1,d2,d3:archivo);
+//_______________________________________________________
+procedure leer (var archivo:detalle; var dato:alumno);
+begin
+    if (not eof( archivo ))then 
+        read (archivo, dato)
+    else 
+        dato.nombre := valoralto;
+end;
+//_______________________________________________________
+begin
+    assign (d1, 'd1.data'); reset (d1); leer(d1, regd1); 
+    assign (d2, 'd2.data'); reset (d2); leer(d2, regd2);
+    assign (d3, 'd3.data'); reset (d3); leer(d3, regd3);
+    assign (maestro, 'maestro'); rewrite (maestro);
+    minimo(regd1, regd2, regd3, min);
+    while (min.nombre <> valoralto) do
+    begin
+        write (maestro,min);
+        minimo(regd1,regd2,regd3,min);
+    end;
+    Close(d1); Close(d2); Close(d3);
+    Close(maestro);
+end;
+```
+Con_3_Archivos_Con_Repetición
+-----------------------------
+```Pas
+procedure merge(var m:maestro;var d1,d2,d3:detalle);
+var 
+    min, r1, r2, r3: detalleR;
+    datoM: maestroR;
+begin
+    assign (d1, 'd1.data'); reset (d1); leer (d1, r1);
+    assign (d2, 'd2.data'); reset (d2); leer (d2, r2);  
+    assign (d3, 'd3.data'); reset (d3); leer (d3, r3);
+    assign (m, 'maestro.data'); rewrite (m);
+    minimo (r1, r2, r3,min);
+    while (min.codigo <> valoralto) do 
+    begin
+        datoM.codigo := min.codigo;
+        datoM.total := 0;
+        while (datoM.codigo = min.codigo ) do begin
+            datoM.total := datoM.total+ min.montoVenta;
+            minimo (r1, r2, r3, min);
+        end;
+        write(m, datoM);
+    end;
+    close(d1);close(d2);close(d3);
+    close(m);
+End;
 ```

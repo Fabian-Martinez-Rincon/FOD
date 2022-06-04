@@ -1,8 +1,12 @@
 program cosa;
+uses Crt;
 const
     vA = 9999;
+    dimF = 2;
 type
     archivo = file of integer;
+    vector = array [1..dimF] of archivo; //Vector para procesar N detalles
+    vectorDatos = array [1..dimF] of integer; //Los datos de los detalles
 procedure Un_Archivo_Desde_un_Texto(var m:archivo;var txt:text);
 var
     dato:integer;
@@ -17,12 +21,10 @@ begin
     Close(m);
     Close(txt);
 end;
-procedure Un_Texto_Desde_un_Archivo(var txt:Text);
+procedure Un_Texto_Desde_un_Archivo(var txt:Text;var m:archivo);
 var
-    m:archivo;
     dato:Integer;
 begin
-    Assign(m,'maestro.data');
     Reset(m);
     Rewrite(txt);
     while not eof (m) do
@@ -41,11 +43,11 @@ begin
     while not eof(m) do
     begin
         read(m,dato);
-        Writeln(dato);
+        Write(dato,' ');
     end;
     Close(m);
 end;
-procedure Un_archivo_que_esta_Ordenado(var m:archivo);
+procedure Un_archivo_que_esta_Ordenado(var m:archivo;var txt:Text);
     procedure Leer(var m:archivo;var dato:integer);
     begin
         if (not eof(m)) then
@@ -55,10 +57,9 @@ procedure Un_archivo_que_esta_Ordenado(var m:archivo);
     end;
 var
     dato:integer;
-    txt:Text;
     actual,total:integer;
 begin
-    Assign(txt,'texto3.txt');
+    
     Rewrite(txt);
     Reset(m);
     Leer(m,dato);  
@@ -72,6 +73,7 @@ begin
             Leer(m,dato);    
         end;
         Writeln(txt,'El nro: ',actual,' se repitio: ',total);
+        Writeln('El nro: ',actual,' se repitio: ',total);
     end;                            
     close(m);
     close(txt);                                                                                                                                  
@@ -99,7 +101,7 @@ procedure Un_Archivo_desde_otro_archivo(var m,d:archivo);
             dato:=vA;
     end;
 var
-    actual,total,datoD,datoM:integer;
+    total,datoD,datoM:integer;
 begin
     Reset(m);
     Reset(d);
@@ -108,7 +110,7 @@ begin
     begin
         total:=0;
         Read(m,datoM);
-        while datoM <> datoD do
+        while (datoM <> datoD) and (datoD <> vA) do
             Read(m,datoM);
         while datoM = datoD do
         begin
@@ -117,35 +119,68 @@ begin
         end;
         Seek(m,FilePos(m)-1);
         Write(m,total);
-        Write('Cosa');
     end;
     Close(m);
     Close(d);
+end;
+procedure Datos_a_un_archivo_Desde_teclado(var m:archivo);
+var
+    dato:integer;
+begin
+    Reset(m);
+    Seek(m,FileSize(m));
+    ReadLn(dato);
+    while (dato <> 0) do
+    begin
+        Write(m,dato);
+        ReadLn(dato);
+    end;
+    Close(m);
 end;
 var
     m:archivo;
     txt:Text;
     d:archivo;
 begin
+    ClrScr;
     //Crear
     Assign(m,'maestro.data');
-    Assign(txt,'nrosSinRepe.txt');
+    Assign(txt,'maestro.txt');
     Un_Archivo_Desde_un_Texto(m,txt);
     
     Assign(d,'detalle.data');
-    Assign(txt,'texto.txt');
+    Assign(txt,'detalle.txt');
     Un_Archivo_Desde_un_Texto(d,txt);
 
-    Assign(txt,'texto2.txt');
-    Un_Texto_Desde_un_Archivo(txt);
+    Assign(txt,'maestroResultado.txt');
+    Un_Texto_Desde_un_Archivo(txt,m);
+
     //Imprimir
-    Un_archivo_que_esta_Desordenado(m);
-    Un_archivo_que_esta_Ordenado(m);
+    writeln('_____IMPRIMIR_____');
+    Writeln('Un_archivo_que_esta_Desordenado DETALLE');
+    Un_archivo_que_esta_Desordenado(d);
+    WriteLn;
+    Writeln('Un_archivo_que_esta_Ordenado DETALLE');
+    Assign(txt,'detalleOrdenado.txt');
+    Un_archivo_que_esta_Ordenado(d,txt);
+    
+    
     //Actualizar 
-    Un_Archivo_Con_una_constante(m);
+    writeln('_____ACTUALIZAR_____');
+    Writeln('Un_Archivo_Con_una_constante MAESTRO');
+    //Un_Archivo_Con_una_constante(m); //Se modifica el maestro
+    Un_archivo_que_esta_Desordenado(m);
+    WriteLn;
+    Writeln('Un_Archivo_Con_una_constante MAESTRO');
     Un_Archivo_desde_otro_archivo(m,d);
-    //Imprimir
     Un_archivo_que_esta_Desordenado(m);
     
+    //Agregar
+    WriteLn;
+    Writeln('_____AGREGAR_____');
+    Datos_a_un_archivo_Desde_teclado(m);
+    Un_archivo_que_esta_Desordenado(m);
+    //Corte de Control
+    WriteLn;
     
 end.
