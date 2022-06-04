@@ -1,0 +1,139 @@
+Una empresa de productos de limpieza posee un archivo conteniendo información sobre los productos que tiene a la venta al público. 
+De cada producto se registra: código de producto, precio, stock actual y stock mínimo. 
+Diariamente se efectúan envíos a cada uno de las 2 sucursales que posee. 
+Para esto, cada sucursal envía un archivo con los pedidos de los productos que necesita cada sucursal.
+ Cada pedido contiene código de producto, fecha y cantidad pedida. 
+Se pide realizar el proceso de actualización del archivo maestro con los dos archivos detalle, obteniendo un informe en pantalla de aquellos productos que quedaron
+debajo del stock mínimo y de aquellos pedidos que no pudieron satisfacerse totalmente, informando: la sucursal, el producto y la cantidad que no pudo ser enviada
+(diferencia entre lo que pidió y lo que se tiene en stock) .
+
+
+
+NOTA 1: Todos los archivos están ordenados por código de producto y el archivo maestro debe ser recorrido sólo una vez y en forma simultánea con los detalle. 
+
+NOTA 2: En los archivos detalle puede no aparecer algún producto del maestro. Además, tenga en cuenta que puede aparecer el mismo producto en varios detalles.
+Sin embargo, en un mismo detalle cada producto aparece a lo sumo una vez.
+
+
+Arboles
+Dado un árbol B de orden 4 y con política izquierda o derecha, para cada operación dada:
+
+         a. Dibuje el árbol resultante
+
+         b. Explique brevemente las decisiones tomadas
+
+        c. Escriba las lecturas y escrituras siguiendo el orden de ejecución
+
+       Operaciones: +6, +58, -40, -75
+
+                                                                      7: i 2(75)6
+
+                                                          2: i 0(40)1(60)5 6: i 3(100)4
+
+                                     0: h(4)(13)(23) 1: h(41)(45)(59) 5: h(62) 3: h(80) 4: h(145)
+
+orden 4	-> min=(4/2)-1= 1
+	   max= 3
+
++6 -> leo 7, baja y lee a 2 y baja y lee a 0,escribe a 0, produce overflow en 0
+	0 -> 4 6 13 23
+	    (N0)(N2)(N8)
+	se escribe el nodo 0, 2 y se crea el 8
+	
+								 7: i, 2(75)6
+
+                                                   2: i, 0(13)8(40)1(60)5   6: i, 3(100)4
+
+                                     0: h, (4)(6) 8: h, (23) 1: h, (41)(45)(59) 5: h, (62) 3: h, (80) 4: h, (145)
+
++58-> leo 7, bajo y leo 2, bajo y leo 1, se produce overflow en 1
+	1-> 41 45 58 59
+	    (N1)(N2)(N9)
+	se escribe el nodo 1 y 2 , y se crea y escribe el nodo 9, se produce oveflow en 2
+	2-> 13 40 58 60 
+	    (N2)(N7)(N10)
+	se escribe el nodo 2 y 7m, se cre y escribe le nodo 10
+						 7: i, 2(58)10(75)6
+					
+			2: i, 0(13)8(40)1	  10: i, 9(60)5 	6: i, 3(100)4
+		
+			0: h, (4)(6)   		9: h, (59)		3: h, (80) 
+			8: h, (23)		5: h, (62)		4: h, (145)
+			1: h, (41)(45) 
+
+-40-> leo 7, bajo y leo 2, encuentro el 40 y bajo por su hoja derecha para rremplazar con el menor de esta,
+	reemplazo 40 por 41 y elimino el 40 en la hoja
+
+				7: i, 2(58)10(75)6
+					
+			2: i, 0(13)8(41)1	  10: i, 9(60)5 	6: i, 3(100)4
+		
+			0: h, (4)(6)   		9: h, (59)		3: h, (80) 
+			8: h, (23)		5: h, (62)		4: h, (145)
+			1: h, (45) 
+
+-75-> leo 7 y encuentro el 75, bajo por el hijo derecho a buscar la hoja mas chica para intercambiarlo, bajo y leo el nodo 6
+	bajo y leo el nodo 3 y escribo este para intercambiar el 75 con el 80, elimino el 75(ahora en el nodo 3), se produce undeflow
+	y se eliminan y escriben los nodos 3 y 4 y finalmente se escribe el nodo 6
+	under 3-> sin elementos-> el 4 no tiene para redistribuir entonces se fusiona con 6 y 4, se gurdan en 3
+
+						7: i, 2(58)10(80)6
+					
+			2: i, 0(13)8(41)1	  10: i, 9(60)5 	 6: i,
+		
+			0: h, (4)(6)   		9: h, (59)		 3: h, (100)(145)
+			8: h, (23)		5: h, (62)		 
+			1: h, (45) 
+	
+	nodo 6 queda en under y se aplica fusion con 10
+	10-> 60 80 
+	     (N10)
+	se escribe nodo 10,  7
+						7: i, 2(58)10 
+					
+			2: i, 0(13)8(41)1	  10: i, 9(60)5(80)3	  
+			0: h, (4)(6)   		9: h, (59)		  
+			8: h, (23)		5: h, (62)		 
+			1: h, (45) 		3: h, (100)(145)
+
+
+Hashing
+Dado el archivo dispersado a continuación, grafique los estados sucesivos e indique lecturas y escrituras para las siguientes operaciones:  + 26, + 23 , -37 , -78
+
+Técnica de resolución de colisiones: Saturación progresiva
+f(x) = x MOD 11
+
+Dirección	Clave	Clave
+
+0		66
+
+
+1		67	78
+
+2		11
+
+
+3		47	58
+
+4		48	37
+
+5		60
+
+
+6
+
+
+
+7		18
+
+
+8		41	
+
+9		64
+
+
+10
+
+
+
+

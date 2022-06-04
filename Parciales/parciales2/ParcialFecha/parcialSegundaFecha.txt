@@ -1,0 +1,178 @@
+Suponga que cuenta con un archivo con información acerca de las ventas de diferentes eventos de un teatro de la ciudad de  La Plata.
+Dicho archivo tiene la siguiente estructura: nombreEvento, fechaFuncion , SectorFuncion(General, platea, etc),  y cantidadEntradasVendidas por sector.
+Además se conoce que la información del archivo está ordenada primero por nombreEvento y luego por fechaFuncion.
+
+Escriba un programa (Programa principal, estructuras y módulos) que dado el archivo descripto, realice  un informe por pantalla con el siguiente formato:
+
+
+CANTIDAD DE ENTRADAS VENDIDAS  POR FUNCIÓN Y POR EVENTO
+
+
+NOMBRE Evento 1
+
+Fecha función 1
+
+Sector 1                                 Cantidad Vendida
+
+
+Sector N                                 Cantidad Vendida
+
+----------------------------------------------------------------------------------------------
+
+            Cantidad Total de Entradas Vendidas por función 1
+
+Fecha función N
+
+Sector 1                                 Cantidad Vendida
+
+
+Sector N                                 Cantidad Vendida
+
+----------------------------------------------------------------------------------------------
+
+            Cantidad Total de Entradas Vendidas por función N 
+
+-------------------------------------------------------------------------------------------------------         
+
+Cantidad total Vendida por evento 1
+
+……...
+
+……...
+
+……..
+
+
+NOMBRE Evento N
+
+Fecha función 1
+
+Sector 1                                 Cantidad Vendida
+
+
+Sector N                                 Cantidad Vendida
+
+----------------------------------------------------------------------------------------------
+
+            Cantidad Total de Entradas Vendidas por función 1
+
+Fecha función N
+
+Sector 1                                 Cantidad Vendida
+
+
+Sector N                                 Cantidad Vendida
+
+----------------------------------------------------------------------------------------------
+
+            Cantidad Total de Entradas Vendidas por función N 
+
+-------------------------------------------------------------------------------------------------------         
+
+Cantidad total Vendida por evento N
+
+
+
+
+
+
+
+
+
+
+
+
+Dado un árbol B+ de orden 4  y con política izquierda, para cada operación dada:
+
+a. Dibuje el árbol resultante.
+
+b. Explique brevemente las decisiones tomadas.
+
+c. Escriba las lecturas y escrituras,
+
+
+ 
+
+Operaciones: +5, +20, -9, -67
+
+                                  nodo 7: 1 i 2(43)6
+
+                                  nodo 2: 2 i 0(9)1(19)3
+
+                                 nodo 6: 1 i 4(67)5
+
+                                 nodo 0: 3 h(3)(6)(7)->1
+
+                                 nodo 1: 2 h(12)(14)->3
+
+                                nodo 3: 2 h(19)(22)->4
+
+                                nodo 4: 2 h(52)(58)->5
+
+                                nodo 5: 1 h(67)->-1
+
+
+
+
+/*********************************************
+Hashing
+
+
+Dado el archivo dispersado a continuación, grafique los estados sucesivos, indique lecturas y escrituras y calcule la densidad de empaquetamiento para las siguientes operaciones: +45, +36, -33, -30
+
+       Técnica de resolución de colisiones: Saturación progresiva.
+f(x) = x MOD 11
+
+
+Dirección
+
+Clave
+
+0
+
+      33
+
+1
+
+      12
+
+2
+
+      46
+
+3
+
+     
+
+4
+
+      26
+
+5
+
+     
+
+6
+
+
+7
+
+      
+
+8
+
+       30
+
+9
+
+      
+
+10
+
+        87
+
+
+
+
+
+

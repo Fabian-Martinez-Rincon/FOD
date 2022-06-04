@@ -1,0 +1,119 @@
+ARCHIVOS 
+{Se desea modelar un sistema para manejar las ventas realizadas en una casa de productos informáticos. La casa cuenta con 3 sucursales y una casa matriz.
+ Todas las semanas la casa matriz recibe un archivo binario de cada sucursal con el detalle de las ventas realizadas.
+ Cada archivo cuenta con la siguiente información: cod_producto,nombre, descripción, cantidad_vendida y fecha_venta.
+ Cada producto en los detalles puede no aparecer o aparecer en una o varias ventas y todos los archivos están ordenados por cod_producto.
+
+Escriba un programa (Programa principal, estructuras y módulos) que dados los archivos detalle de cada sucursal,
+genere un nuevo archivo binario llamado ventas.dat con la suma de ventas de cada producto en todas las sucursales.
+El formato del nuevo archivo debe ser: cod_producto, nombre, descripción y cantidad_total_vendida.
+
+Nota: los archivos deben recorrerse solo una vez.
+
+}
+ARBOLES
+
+Dado un árbol B+ de orden 4  y con política izquierda o derecha, para cada operación dada:
+
+a. Dibuje el árbol resultante.
+
+b. Explique brevemente las decisiones tomadas.
+
+c. Escriba las lecturas y escrituras,
+
+
+Operaciones: +15, +45, -30, -70
+
+
+				nodo 7: 1 i 2(70)6
+
+	nodo 2: 2 i 0(30)1(50)3					nodo 6: 1 i 4(90)5
+
+nodo 0: 3 h(5)(10)(20)->1	nodo 1: 3 h(30)(35)(40)->3	nodo 3: 1 h(60)->4	nodo 4: 2 h(70)->5	nodo 5: 2 h(90)->-1
+
+
+
++15: L7, L2,L0, E0, E8, E2 ;
+
+Se genera OVERFLOW en el nodo cero. Se crea el nodo 8; 
+
+Valores a redistribuir:  5, 10, 15, 20
+
+nodo0:  (5)(10) -> 8, se asciende una copia del 15 al dos, nodo 8: (15)(20)->1
+
+
+
+
+				nodo 7: 1 i 2(70)6
+
+				nodo 2: 3 i 0(15)8(30)1(50)3						nodo 6: 1 i 4(90)5
+
+nodo 0: 2 h(5)(10)->8	nodo 8: 2h (15)(20)->1	nodo 1: 3 h(30)(35)(40)->3	nodo 3: 1 h(60)->4	nodo 4: 2 h(70)->5	nodo 5: 2 h(90)->-1
+
+
+HASSHING 
+
+Dado el archivo dispersado a continuación, grafique los estados sucesivos, indique lecturas y escrituras y calcule la densidad de empaquetamiento para
+las siguientes operaciones: +31, +64, -30, -12
+
+DE = 2/11 = 0.18 
+
+Técnica de resolución de colisiones: Saturación progresiva.
+f(x) = x MOD 11
+
+Dirección	Clave
+
+0
+
+1    		12
+
+2
+
+3		14
+
+4
+
+5		49
+
+6
+
+7		29
+
+8		30
+
+9		20
+
+10
+
+Dado el archivo dispersado a continuación, grafique los estados sucesivos, indique lecturas y escrituras y calcule la densidad de empaquetamiento para
+las siguientes operaciones: +31, +64, -30, -12
+
+ 
+
+Técnica de resolución de colisiones: Saturación progresiva.
+f(x) = x MOD 11
+
+Dirección	Clave
+
+0
+
+1    		12
+
+2
+
+3		14
+
+4
+
+5		49
+
+6
+
+7		29
+
+8		30
+
+9		20
+
+10
+
