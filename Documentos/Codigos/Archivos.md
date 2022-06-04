@@ -32,11 +32,6 @@ Indice
   - [Un_Registro_Ingresado_Desde_Teclado](#un_registro_ingresado_desde_teclado)
 
 - [Codigos que no usamos](#Codigos_que_no_usamos)
-    - [Un_Archivo_desde_dos_archivos](#un_archivo_desde_dos_archivos)
-    - [Un_Archivo_desde_tres_archivos](#un_archivo_desde_tres_archivos)
-    - [Un_Archivo_desde_otro_archivo](#un_archivo_desde_otro_archivo)
-    - [Con_3_Archivos](#con_3_archivos)
-    - [Con_3_Archivos_Con_Repetición](#con_3_archivos_con_repetición)
 
 Declarar
 ========
@@ -105,12 +100,10 @@ Un_Archivo_Desde_un_Texto
 -------------------------
 
 ```Pas
-procedure Crear(var m:archivo);
+procedure Crear(var m:archivo;var txt:text);
 var
-	txt: text;
 	dato: registroM;
 begin
-	assign(txt,'archivo.txt');
     reset(txt);
     rewrite(m);
 	while(not eof(txt))do begin
@@ -126,12 +119,10 @@ end;
 Un_Texto_Desde_un_Archivo
 -------------------------
 ```Pas
-procedure CrearTXT(var m: archivoM);
+procedure CrearTXT(var m: archivoM;var txt:text);
 var
-	txt:text;
 	dato: registroM;
 begin
-	assign(txt,'texto.txt');
 	rewrite(txt);
 	reset(m);
 	while not eof(m)do 
@@ -222,19 +213,19 @@ Agregar
 =============
 
 ```Pas
-Procedure Agregar(var log:archivo); 
+Procedure Agregar(var m:archivo); 
 var 
     nro: integer;
 begin
-    reset(log); 
-    seek(log,filesize(log)); 
+    reset(m); 
+    seek(m,filesize(m)); 
     read(nro); 
     while (nro <> 10) do 
     begin
-        write(log,nro);     
+        write(m,nro);     
         read(nro) 
     end;
-    close(log);
+    close(m);
 end;
 ```
 
