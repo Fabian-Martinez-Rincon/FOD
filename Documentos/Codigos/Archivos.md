@@ -4,11 +4,11 @@ Indice
 =================
 
 <!--ts-->
-- [Indice](#indice)
+
 - [Declarar](#declarar)
 - [Crear](#crear)
   - [Un_Archivo_Desde_Teclado](#un_archivo_desde_teclado)
-  - [Un_Archivo_Desde_Teclado2](#un_archivo_desde_teclado2)
+  - [Un_Archivo_Desde_Teclado_ConRegistros](#un_archivo_desde_teclado_conregistros)
   - [Un_Archivo_Desde_un_Texto](#un_archivo_desde_un_texto)
   - [Un_Texto_Desde_un_Archivo](#un_texto_desde_un_archivo)
 - [Imprimir](#imprimir)
@@ -33,7 +33,7 @@ Indice
   - [Un_Dato_Ingresado_Desde_Teclado2](#un_dato_ingresado_desde_teclado2)
   - [De_Datos_desde_un_archivo](#de_datos_desde_un_archivo)
   - [Un_Dato_Ingresado_Desde_Teclado3](#un_dato_ingresado_desde_teclado3)
-- [Baja_Fisica](#baja_fisica)
+- [Baja_Fisica](#baja_fisica)           
   - [Con_Archivo_Auxiliar](#con_archivo_auxiliar)
   - [Con_Datos_Desde_Teclado](#con_datos_desde_teclado)
 - [Alta](#alta)
@@ -44,14 +44,15 @@ Declarar
 ========
 ```Pas
 type 
-    numero = file of integer;    
+    archivo = file of integer;    
 Var 
-    arch_num: numero;
+    m: archivo;
 begin
-    assign (arch_num, 'pepe.dat');
+    assign (m, 'maestro.data');
 End.
 ```
 
+## Se asume que los assing(archivo, 'nombre') se encuentran fuera del modulo
 
 Crear
 =====
@@ -60,48 +61,45 @@ Un_Archivo_Desde_Teclado
 ------------------------
 
 ```Pas
-procedure Crear(var archx:archivo);
+procedure Crear(var m:archivo);
 var
-    datox:integer;
+    dato:integer;
 begin
-    assign(archx,'Archivo.data');
-    rewrite(archx); 
-    read(datox); 
-    while (datox <> 0) do 
+    rewrite(m); 
+    read(dato); 
+    while (dato <> 0) do 
     begin
-        write(archx,datox); 
-        read(datox);
+        write(m,dato); 
+        read(dato);
     end;
-    close(archx);  
+    close(m);  
 end;
 ```
 
-Un_Archivo_Desde_Teclado2
---------------
+Un_Archivo_Desde_Teclado_ConRegistros
+-------------------------------------
 
 ```Pas
-procedure Crear2(var archx:archDet);
-//________________________________________
-procedure leer(var datox:registroA);
-	begin
-	write('Numero de usuario: '); readln(datox.nro);
-	if datox.nro <> valoralto then begin
-		write('Destinatario: '); readln(datox.cuentaDestino);
-		write('Mensaje: '); readln(datox.cuerpoMensaje);
+procedure leerRegistro(var dato:registro);
+begin
+	write('Numero de usuario: '); readln(dato.nro);
+	if dato.nro <> vA then begin
+		write('Destinatario: '); readln(dato.cuentaDestino);
+		write('Mensaje: '); readln(dato.cuerpoMensaje);
 	end;
 end;
 //________________________________________
+procedure Crear(var m:archivo);
 var
-	datox: registroA;
+	dato: registro;
 begin
-	assign(archx,'archivo.data');
-	rewrite(archx);
-	leer(datox);
-	while(datox.nro <> valoralto)do begin
-		write(archx,datox);
-		leer(datox);
+	rewrite(m);
+	leerRegistro(dato);
+	while(dato.nro <> vA)do begin
+		write(m,dato);
+		leerRegistro(dato);
 	end;
-	close(archx);
+	close(m);
 end;
 ```
 
@@ -109,39 +107,43 @@ Un_Archivo_Desde_un_Texto
 -------------------------
 
 ```Pas
-procedure Crear(var archx:archivo);
+procedure Crear(var m:archivo);
 var
-	carga: text;
-	datox: registroA;
+	txt: text;
+	dato: registroM;
 begin
-	assign(archx,'archivo.data');
-	assign(carga,'archivo.txt');
-	rewrite(archx); reset(carga);
-	while(not eof(carga))do begin
-	    with datox do readln(carga, color);
-	    write(archx,datox);
+	assign(txt,'archivo.txt');
+    reset(txt);
+    rewrite(m);
+	while(not eof(txt))do begin
+	    with dato do 
+            read(txt, color);
+	    write(m,dato);
 	end;
-	close(archx); close(carga);
+	close(m); 
+    close(txt);
 end;
 ```
 
 Un_Texto_Desde_un_Archivo
 -------------------------
 ```Pas
-procedure CrearTXT(var archx: archivox);
+procedure CrearTXT(var m: archivoM);
 var
-	carga:text;
-	datox: registrox;
+	txt:text;
+	dato: registroM;
 begin
-	assign(carga,'archivoDetDia.txt');
-	rewrite(carga);
-	reset(archx);
-	while not eof(archx)do begin
-		read(archx,datox);
-		with datox do 
-            writeln(carga,nroUsuario,' ',cantMailsEnviados);
+	assign(txt,'texto.txt');
+	rewrite(txt);
+	reset(m);
+	while not eof(m)do 
+    begin
+		read(m,dato);
+		with dato do 
+            writeln(txt,nroUsuario,' ',cantMailsEnviados);
 	end;
-	close(archx); close(carga);
+	close(m); 
+    close(txt);
 end;
 ```
 
@@ -152,49 +154,49 @@ Un_archivo_que_esta_Desordenado
 -------------------------------
 
 ```Pas
-Procedure imprimir(var archx:archivo);
+Procedure imprimir(var m:archivo);
 var  
-    datox:integer;  
+    dato:integer;  
 begin
-    reset(archx); 
-    while not eof(archx) do 
+    reset(m); 
+    while not eof(m) do 
     begin
-        read(archx, datox );
-        write(datox);           
+        read(m, dato );
+        write(dato);           
     end;
-    close(log);
+    close(m);
 end;
 ```
 
 Un_archivo_que_esta_Ordenado
 ----------------------------
 ```Pas
-procedure leer(var archx:archivo; var aux:Integer);
+procedure leer(var m:archivo; var dato:Integer);
 begin
-    if(not eof(archx))then 
-		read(archx,aux)
+    if(not eof(m))then 
+		read(m,dato)
     else 
-		aux:=valorAlto;
+		dato:=vA;
 end;
 //__________________________________________
-procedure imprimirOrd(var archx:archivo);
+procedure imprimirOrd(var m:archivo);
 var
-	datox,actual:Integer;
+	dato,actual:Integer;
     total:Integer;
 begin
-	reset(archx);
-	leer(archx,datox);
-	while (datox <> valoralto) do begin
-		actual:= datox;
+	reset(m);
+	leer(m,dato);
+	while (dato <> valoralto) do begin
+		actual:= dato;
         total:=0;
-		while(actual = datox)do 
+		while(actual = dato)do 
         begin
-            total:=total+datox;
-            leer(archx,datox);
+            total:=total+dato;
+            leer(m,dato);
 		end;
         writeln('El total de ',actual,' es : ', total);
 	end;
-	close(archx);
+	close(m);
 end;
 ```
 

@@ -1,0 +1,9 @@
+El nro: 1 se repitio: 1
+El nro: 2 se repitio: 1
+El nro: 3 se repitio: 1
+El nro: 4 se repitio: 1
+El nro: 5 se repitio: 1
+El nro: 6 se repitio: 1
+El nro: 7 se repitio: 1
+El nro: 8 se repitio: 1
+El nro: 9 se repitio: 1
