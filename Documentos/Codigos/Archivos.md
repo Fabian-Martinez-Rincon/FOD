@@ -4,39 +4,40 @@ Indice
 =================
 
 <!--ts-->
-*  [Crear](#Crear)
-   *  [Un archivo desde Teclado](#Un_Archivo_Desde_Teclado)
-   *  [Un archivo desde Teclado 2](#Un_Archivo_Desde_Teclado2)
-   *  [Un archivo desde un Texto](#Un_Archivo_Desde_un_Texto)
-   *  [Un Texto desde un archivo](#Un_Texto_Desde_un_Archivo)
-*  [Imprimir](#Imprimir)
-   * [Un archivo que esta Desordenado](#Un_archivo_que_esta_Desordenado)
-   * [Un archivo que esta Ordenado](#Un_archivo_que_esta_Ordenado)
-*  [Actualizar](#Actualizar)
-   * [Un Archivo Con una constante](#Un_Archivo_Con_una_constante)
-   * [Un Archivo desde otro archivo](#Un_Archivo_desde_otro_archivo)
-   * [Un Archivo desde dos archivos](#Un_Archivo_desde_dos_archivos)
-   * [Un Archivo desde N archivos](#Un_Archivo_desde_N_archivos)
-   * [Un Dato desde Teclado](#Un_Dato_desde_Teclado)
-*  [Agregar](#Agregar)
-   * [Datos a un archivo Desde teclado](#Datos_a_un_archivo_Desde_teclado)
-*  [Corte De Control](#Corte_De_Control)
-*  [Merge](#Merge)
-   *  [De 3 Archivos](#Mege_3_Archivos)
-   *  [De 3 Archivos Con Repetición](#Merge_3_Archivos_Con_Repetición)
-   *  [De N Archivos Con Repetición](#Merge_N_Archivos_Con_Repetición)
-*  [Baja Logica](#Baja)
-   * [Un Dato Sabiendo Que Existe](#Un_Dato_Sabiendo_QueExiste)
-   * [Un Dato Sin Saber Si Existe](#Un_Dato_Sin_Saber_Si_Existe)
-   * [Un Dato Ingresado Desde Teclado](#Un_Dato_Ingresado_Desde_Teclado)
-   * [Un Dato Ingresado Desde Teclado 2](#Un_Dato_Ingresado_Desde_Teclado2)
-   * [Un Dato Ingresado Desde Teclado 3](#Un_Dato_Ingresado_Desde_Teclado3)
-   * [De Datos desde un archivo](#De_Datos_desde_un_archivo)
-*  [Baja Fisica]()
-   * [Con Archivo Auxiliar](#Con_Archivo_Auxiliar)
-   * [Con Datos Desde Teclado](#Con_Datos_Desde_Teclado)
-*  [Alta](#Alta)
-   * [Un Dato Ingresado Desde Teclado](#Un_Registro_Ingresado_Desde_Teclado)
+- [Indice](#indice)
+- [Declarar](#declarar)
+- [Crear](#crear)
+  - [Un_Archivo_Desde_Teclado](#un_archivo_desde_teclado)
+  - [Un_Archivo_Desde_Teclado2](#un_archivo_desde_teclado2)
+  - [Un_Archivo_Desde_un_Texto](#un_archivo_desde_un_texto)
+  - [Un_Texto_Desde_un_Archivo](#un_texto_desde_un_archivo)
+- [Imprimir](#imprimir)
+  - [Un_archivo_que_esta_Desordenado](#un_archivo_que_esta_desordenado)
+  - [Un_archivo_que_esta_Ordenado](#un_archivo_que_esta_ordenado)
+- [Actualizar](#actualizar)
+  - [Un_Archivo_Con_una_constante](#un_archivo_con_una_constante)
+  - [Un_Archivo_desde_otro_archivo](#un_archivo_desde_otro_archivo)
+  - [Un_Archivo_desde_dos_archivos](#un_archivo_desde_dos_archivos)
+  - [Un_Archivo_desde_n_archivos](#un_archivo_desde_n_archivos)
+- [Agregar](#agregar)
+  - [Datos_a_un_archivo_Desde_teclado](#datos_a_un_archivo_desde_teclado)
+- [Corte_De_Control](#corte_de_control)
+- [Merge](#merge)
+  - [Con_3_Archivos](#con_3_archivos)
+  - [Con_3_Archivos_Con_Repetición](#con_3_archivos_con_repetición)
+  - [Con_N_Archivos_Con_Repetición](#con_n_archivos_con_repetición)
+- [Baja](#baja)
+  - [Un_Dato_Sabiendo_Que_Existe](#un_dato_sabiendo_que_existe)
+  - [Un_Dato_Sin_Saber_Si_Existe](#un_dato_sin_saber_si_existe)
+  - [Un_Dato_Ingresado_Desde_Teclado](#un_dato_ingresado_desde_teclado)
+  - [Un_Dato_Ingresado_Desde_Teclado2](#un_dato_ingresado_desde_teclado2)
+  - [De_Datos_desde_un_archivo](#de_datos_desde_un_archivo)
+  - [Un_Dato_Ingresado_Desde_Teclado3](#un_dato_ingresado_desde_teclado3)
+- [Baja_Fisica](#baja_fisica)
+  - [Con_Archivo_Auxiliar](#con_archivo_auxiliar)
+  - [Con_Datos_Desde_Teclado](#con_datos_desde_teclado)
+- [Alta](#alta)
+  - [Un_Registro_Ingresado_Desde_Teclado](#un_registro_ingresado_desde_teclado)
 
 
 Declarar
@@ -72,10 +73,10 @@ begin
         read(datox);
     end;
     close(archx);  
-end. 
+end;
 ```
 
-Desde_Teclado2
+Un_Archivo_Desde_Teclado2
 --------------
 
 ```Pas
@@ -168,33 +169,30 @@ end;
 Un_archivo_que_esta_Ordenado
 ----------------------------
 ```Pas
-procedure leer(var archx:archivo; var aux:archivoR);
+procedure leer(var archx:archivo; var aux:Integer);
 begin
     if(not eof(archx))then 
 		read(archx,aux)
     else 
-		aux.codigo:=valorAlto;
+		aux:=valorAlto;
 end;
 //__________________________________________
-procedure imprimir(var archx:archivo);
+procedure imprimirOrd(var archx:archivo);
 var
-	datox,actual:archivoR;
+	datox,actual:Integer;
     total:Integer;
 begin
-	assign(archx,'maestro.data');
 	reset(archx);
 	leer(archx,datox);
-	while (datox.codigo <> valoralto) do begin
+	while (datox <> valoralto) do begin
 		actual:= datox;
         total:=0;
-        WriteLn('___________');
-		writeln('Codigo de Provincia: ', actual.codigo);
-		while(actual.codigo = datox.codigo)do 
+		while(actual = datox)do 
         begin
-            total:=total+datox.votos;
+            total:=total+datox;
             leer(archx,datox);
 		end;
-        writeln('Total de votos provinciales: ', total);
+        writeln('El total de ',actual,' es : ', total);
 	end;
 	close(archx);
 end;
@@ -373,7 +371,7 @@ var
     nro: integer;
 begin
     reset(log); 
-    seek(log,filesize(nro)); 
+    seek(log,filesize(log)); 
     read(nro); 
     while (nro <> 10) do 
     begin

@@ -3,7 +3,7 @@
 
 <table>
 <tr>
-<td> Codigos </td> <td> Practicas </td><td> Teoria </td>
+<td> Codigos </td> <td> Practicas </td><td> Teoria </td><td> Parciales </td>
 </tr>
 <tr>
 <td>
@@ -34,6 +34,12 @@
 
 </td>
 
+<td>
+
+- [Archivos 📁](/Documentos/ParArchivos.md)
+
+
+</td>
 
 
 </tr>
@@ -42,6 +48,8 @@
 
 
 </div>
+
+
 
 - [Codigos](/Documentos/Codigos.md)
 
