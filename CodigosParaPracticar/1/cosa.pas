@@ -248,6 +248,10 @@ begin
     end;
     close(m);
 end;
+procedure Un_Dato_Ingresado_Desde_Teclado(var m:archivo);
+begin
+
+end;
 var
     m,d:archivo;
     txt:Text;
@@ -305,5 +309,9 @@ begin
         nro_baja:=8;
         Un_Dato_Sin_Saber_Si_Existe(m,nro_baja);
         Un_archivo_que_esta_Desordenado(m);
+        
+        Un_Dato_Ingresado_Desde_Teclado(m);
+        Un_archivo_que_esta_Desordenado(m);
+        
     
 end.

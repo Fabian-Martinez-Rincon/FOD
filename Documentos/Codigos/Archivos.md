@@ -270,6 +270,27 @@ Merge
 =====
 
 ```Pas
+// Cuando tenemos un archivo que esta ordenado por mas de una condición
+procedure minimo(var vd:vector_archivo; var vdr:vector_datos;var min:registro);
+var
+    i,minPos:integer;
+begin
+    min.cod:=9999;
+    min.fecha:=22221231;
+    for i:=1 to dimF do begin
+        if (vdr[i].cod < min.cod) then begin
+            if (vdr[i].fecha < min.fecha) then begin
+                min:=vdr[i];
+                minPos:=i;
+            end;
+        end;
+    end;
+    if (min.cod <> valoralto) then
+        leer(vr[minPos],vdr[minPos]);
+end;
+```
+
+```Pas
 type
     archivo = file of integer;
     vector_archivo = array [1..dimF] of archivo; //Vector para procesar N detalles
