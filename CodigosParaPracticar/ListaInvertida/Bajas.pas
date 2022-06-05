@@ -1,9 +1,23 @@
-program Bajas;
+program BajaFisica;
 uses Crt;
 const
     vA = 9999;
 type
     archivo = file of integer;
+procedure Crear(var m:archivo);
+var
+    dato:integer;
+begin
+    Rewrite(m);
+    Write(m,0); //Agregamos el 0 a la cabecera 
+    ReadLn(dato);
+    while dato <> 0 do
+    begin
+        Write(m,dato);
+        ReadLn(dato);  
+    end;
+    Close(m);
+end;
 procedure Imprimir(var m:archivo);
 var
     dato:Integer;
@@ -23,7 +37,27 @@ begin
     else
         dato:=vA;
 end;
-
+procedure BajaFisica(var m,n:archivo; nro:Integer);
+var
+    dato:integer;
+begin
+    Reset(m);
+    Rewrite(n);
+    Leer(m,dato);
+    while (dato <> vA)and (dato <> nro) do 
+    begin
+        write(n,dato); 
+        Leer(m,dato);
+    end;
+    Leer(m,dato);
+    while (dato <> vA) and (dato <> nro) do 
+    begin
+        write(n,dato); 
+        Leer(m,dato);
+    end;
+    Close(m);
+    Close(n);
+end;
 procedure Lista_Invertida(var m:archivo;var borrar:Integer);
 var
     cabecera:integer;
@@ -44,7 +78,7 @@ begin
     end;
     Close(m);
 end;
-procedure Copiar(var m,m2:archivo); //Este modulo es solo para poder borrar y no modificar el original
+procedure Copiar(var m,m2:archivo);
 var
     dato:integer;
 begin
@@ -60,15 +94,23 @@ begin
     Close(m2);
 end;
 var
-    m,m2:archivo;
+    n,m,m2:archivo;
     borrar:Integer;
 begin
     //Usamos la lista invertida desde la creacion
     ClrScr;
     Assign(m,'maestro.data');
+    //Crear(m);
     Imprimir(m);
+    Assign(n,'nuevo.data');
+    BajaFisica(m,n,6); //Para probar una baja fisica
+    Writeln;
+    Imprimir(n);
+    WriteLn;
+
     Assign(m2,'maestro2.data');
     Copiar(m,m2);
+
     repeat      //Bajas logicas con la lista invertida
         WriteLn();
         WriteLn('Ingrese un nro: ');
