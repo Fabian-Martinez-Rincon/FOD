@@ -270,56 +270,81 @@ Merge
 =====
 
 ```Pas
-vdetalle=array[1..100] of file of detalleR;
-vdetalleR=array[1..100] of detalleR;
-//_______________________________________________________
-procedure leer (var archivo:detalle; var dato:detalleR);
-begin
-    if (not eof( archivo ))then 
-        read (archivo, dato)
-    else 
-        dato.codigo := valoralto;
-end;
-//_______________________________________________________
-procedure minimo (var vdr: vdetalleR; var min:detalleR; var vd:vdetalle);
-    var i: integer;
+type
+    archivo = file of integer;
+    vector_archivo = array [1..dimF] of archivo; //Vector para procesar N detalles
+    vector_datos = array [1..dimF] of integer; //Los datos de los detalles
+    
+procedure merge(var m:archivo;var vd:vector_archivo;var vdr:vector_datos);
+    procedure leer(var d:archivo;var dato:integer);
     begin
-      { busco el mínimo elemento del 
-        vector vdr en el campo codigo,
-        supongamos que es el índice i }
-      min = vdr[i];
-      leer( vd[i], vdr[i];
-    end; 
-//_______________________________________________________
-procedure merge(var m:maestro; var vd:vdetalle;var vdr:vdetalleR);
-var 
-    min: detalleR;
-    dato: maestroR;
-    i,n: integer;
-begin
-    Read(n)
-    for i:= 1 to n do 
-    begin
-        assign (vd[i], 'det'+i); 
-        { ojo lo anterior es incompatible en tipos}    
-        reset( vd[i] );
-        leer( vd[i], vdr[i] );
+        if not eof(d)then
+            read(d,dato)
+        else
+            dato:=vA;
     end;
-    assign (m, 'maestro'); rewrite (m);
-    minimo (vdr, min, vd);
-    while (min.codigo <> valoralto) do 
+    procedure minimo(var vd:vector_archivo; var vdr:vector_datos;var min:integer);
+    var
+        i,minPos:Integer;
     begin
-        dato.codigo := min.codigo;
-        dato.total := 0;
-        while (dato.codigo = min.codigo ) do 
+        min:=9999;
+        for i:=1 to dimF do
         begin
-            dato.total := dato.total+ 
-            min.montoVenta;
-            minimo (regd1, regd2, regd3, min);
+            if (vdr[i] < min) then
+            begin
+                min:=vdr[i];
+                minPos:=i;
+            end;
         end;
-        write(m, dato);
-    end;    
-end.
+        //Para avanzar en el archivo leido y que no quede en bucle
+        if (min <> vA) then 
+            Leer(vd[minPos],vdr[minPos]);
+    end;
+    procedure ResetDetalles(var vd:vector_archivo;var vdr:vector_datos);
+    var
+        i:integer;
+        istr:String[1];
+    begin
+        for i:=1 to dimF do
+        begin
+            Str(i,istr);
+            Assign(vd[i],'detalle' + istr);
+            Reset(vd[i]);
+            Leer(vd[i],vdr[i]);
+        end;
+    end;
+    procedure CloseDetalles (var vd:vector_archivo);
+    var
+        i:integer;
+    begin
+        for i:=1 to dimF do
+        begin
+            Close(vd[i]);
+        end;
+    end;
+var
+    dato:integer;
+    min:integer;
+begin
+    Reset(m);
+    ResetDetalles(vd,vdr);
+    minimo(vd,vdr,min);
+    while min <> vA do
+    begin
+        read(m,dato);
+        while (dato <> min) do
+            read(m,dato);
+        while dato = min do
+        begin
+            dato:=dato+min;
+            minimo(vd,vdr,min);
+        end;
+        Seek(m,FilePos(m)-1);
+        Write(m,dato);
+    end;
+    Close(m);
+    CloseDetalles(vd);
+end;
 ```
 Baja
 ====
@@ -345,31 +370,27 @@ end.
 Un_Dato_Sin_Saber_Si_Existe
 ---------------------------
 ```Pas
-procedure leer (var archivo:maestro; var dato:empleado);
-begin
-    if (not eof( archivo ))then 
-        read (archivo, dato)
-    else 
-        dato.codigo := valoralto;
-end;
-procedure bajaLogica(var x:maestro);
-var
-    datox:empleado;
-begin 
-	assign(x, 'maestro.data');
-	reset(x);
-	leer(x, datox);
-    while datox.codigo <> valorAlto do
+procedure Un_Dato_Sin_Saber_Si_Existe(var m:archivo;nro_baja:Integer);
+    procedure Leer(var m:archivo;var dato:integer);
     begin
-        if (datox.dni<800) then
-        begin
-            datox.apellido:='*'+datox.apellido;
-            seek(x, filepos(x)-1);
-            write(x, datox);
-        end;
-        leer(x, datox);        
+        if not eof(m) then 
+            read(m,dato)
+        else
+            dato:=vA;
     end;
-	close(x);
+var
+    dato:integer;
+begin
+    reset(m);
+    Leer(m,dato);
+    while (dato <> vA) and (dato <> nro_baja) do Leer(m,dato);
+    if dato <> vA then
+    begin
+        Seek(m,FilePos(m)-1);
+        dato:=-1;
+        Write(m,dato);
+    end;
+    close(m);
 end;
 ```
 
@@ -381,8 +402,7 @@ var
     datox:empleado;
     ultimoR:empleado;
     nro:integer;
-begin 
-	assign(x, 'archivo.data');
+begin
 	reset(x);
     Seek(x,FileSize(x)-1); {Guardo el ultimo Registro}
 	leer(x,datox);
@@ -831,4 +851,35 @@ begin
     close(d1);close(d2);close(d3);
     close(m);
 End;
+```
+
+Un_Dato_Sin_Saber_Si_Existe
+---------------------------
+```Pas
+procedure leer (var archivo:maestro; var dato:empleado);
+begin
+    if (not eof( archivo ))then 
+        read (archivo, dato)
+    else 
+        dato.codigo := valoralto;
+end;
+procedure bajaLogica(var x:maestro);
+var
+    datox:empleado;
+begin 
+	assign(x, 'maestro.data');
+	reset(x);
+	leer(x, datox);
+    while datox.codigo <> valorAlto do
+    begin
+        if (datox.dni<800) then
+        begin
+            datox.apellido:='*'+datox.apellido;
+            seek(x, filepos(x)-1);
+            write(x, datox);
+        end;
+        leer(x, datox);        
+    end;
+	close(x);
+end;
 ```

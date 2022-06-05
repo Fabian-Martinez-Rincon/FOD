@@ -5,8 +5,8 @@ const
     dimF = 2;
 type
     archivo = file of integer;
-    vector = array [1..dimF] of archivo; //Vector para procesar N detalles
-    vectorDatos = array [1..dimF] of integer; //Los datos de los detalles
+    vector_archivo = array [1..dimF] of archivo; //Vector para procesar N detalles
+    vector_datos = array [1..dimF] of integer; //Los datos de los detalles
 procedure Un_Archivo_Desde_un_Texto(var m:archivo;var txt:text);
 var
     dato:integer;
@@ -92,7 +92,7 @@ begin
     end;
     Close(m);
 end;
-procedure Un_Archivo_desde_otro_archivo(var m,d:archivo);
+procedure Corte_de_control(var m,d:archivo);
     procedure Leer(var d:archivo;var dato:Integer);
     begin
         if (not eof(d)) then
@@ -137,50 +137,173 @@ begin
     end;
     Close(m);
 end;
+procedure merge(var m:archivo;var vd:vector_archivo;var vdr:vector_datos);
+    procedure leer(var d:archivo;var dato:integer);
+    begin
+        if not eof(d)then
+            read(d,dato)
+        else
+            dato:=vA;
+    end;
+    procedure minimo(var vd:vector_archivo; var vdr:vector_datos;var min:integer);
+    var
+        i,minPos:Integer;
+    begin
+        min:=9999;
+        for i:=1 to dimF do
+        begin
+            if (vdr[i] < min) then
+            begin
+                min:=vdr[i];
+                minPos:=i;
+            end;
+        end;
+        //Para avanzar en el archivo leido y que no quede en bucle
+        if (min <> vA) then 
+            Leer(vd[minPos],vdr[minPos]);
+    end;
+    procedure ResetDetalles(var vd:vector_archivo;var vdr:vector_datos);
+    var
+        i:integer;
+        istr:String[1];
+    begin
+        for i:=1 to dimF do
+        begin
+            Str(i,istr);
+            Assign(vd[i],'detalle' + istr);
+            Reset(vd[i]);
+            Leer(vd[i],vdr[i]);
+        end;
+    end;
+    procedure CloseDetalles (var vd:vector_archivo);
+    var
+        i:integer;
+    begin
+        for i:=1 to dimF do
+        begin
+            Close(vd[i]);
+        end;
+    end;
 var
-    m:archivo;
+    dato:integer;
+    min:integer;
+begin
+    Reset(m);
+    ResetDetalles(vd,vdr);
+    minimo(vd,vdr,min);
+    while min <> vA do
+    begin
+        read(m,dato);
+        while (dato <> min) do
+            read(m,dato);
+        while dato = min do
+        begin
+            dato:=dato+min;
+            minimo(vd,vdr,min);
+        end;
+        Seek(m,FilePos(m)-1);
+        Write(m,dato);
+    end;
+    Close(m);
+    CloseDetalles(vd);
+end;
+procedure Un_Dato_Sabiendo_Que_Existe(var m:archivo;nro_baja:Integer);
+    procedure Leer(var m:archivo;var dato:Integer);
+    begin
+        if not eof (m) then
+            Read(m,dato)
+        else 
+            dato:=vA;
+    end;
+var
+    dato:integer;
+begin
+    Reset(m);
+    leer(m,dato);
+    while dato <> nro_baja do Read(m,dato);
+    dato:=-1;
+    Seek(m,FilePos(m)-1);
+    Write(m,dato);
+    Close(m);
+end;
+procedure Un_Dato_Sin_Saber_Si_Existe(var m:archivo;nro_baja:Integer);
+    procedure Leer(var m:archivo;var dato:integer);
+    begin
+        if not eof(m) then 
+            read(m,dato)
+        else
+            dato:=vA;
+    end;
+var
+    dato:integer;
+begin
+    reset(m);
+    Leer(m,dato);
+    while (dato <> vA) and (dato <> nro_baja) do Leer(m,dato);
+    if dato <> vA then
+    begin
+        Seek(m,FilePos(m)-1);
+        dato:=-1;
+        Write(m,dato);
+    end;
+    close(m);
+end;
+var
+    m,d:archivo;
     txt:Text;
-    d:archivo;
+    vd:vector_archivo; //Vector con los archivos detalles
+    vdr:vector_datos;  //Vector con los datos para leer cada archivo
+    nro_baja:Integer;
 begin
     ClrScr;
     //Crear
-    Assign(m,'maestro.data');
-    Assign(txt,'maestro.txt');
-    Un_Archivo_Desde_un_Texto(m,txt);
-    
-    Assign(d,'detalle.data');
-    Assign(txt,'detalle.txt');
-    Un_Archivo_Desde_un_Texto(d,txt);
+        Assign(m,'maestro.data');
+        Assign(txt,'maestro.txt');
+        Un_Archivo_Desde_un_Texto(m,txt);
+        
+        Assign(d,'detalle.data');
+        Assign(txt,'detalle.txt');
+        Un_Archivo_Desde_un_Texto(d,txt);
 
-    Assign(txt,'maestroResultado.txt');
-    Un_Texto_Desde_un_Archivo(txt,m);
+        Assign(txt,'maestroResultado.txt');
+        Un_Texto_Desde_un_Archivo(txt,m);
 
     //Imprimir
-    writeln('_____IMPRIMIR_____');
-    Writeln('Un_archivo_que_esta_Desordenado DETALLE');
-    Un_archivo_que_esta_Desordenado(d);
-    WriteLn;
-    Writeln('Un_archivo_que_esta_Ordenado DETALLE');
-    Assign(txt,'detalleOrdenado.txt');
-    Un_archivo_que_esta_Ordenado(d,txt);
+        writeln('_____IMPRIMIR_____');
+        Writeln('Un_archivo_que_esta_Desordenado DETALLE');
+        Un_archivo_que_esta_Desordenado(d);
+        WriteLn;
+        Writeln('Un_archivo_que_esta_Ordenado DETALLE');
+        Assign(txt,'detalleOrdenado.txt');
+        Un_archivo_que_esta_Ordenado(d,txt);
     
     
     //Actualizar 
-    writeln('_____ACTUALIZAR_____');
-    Writeln('Un_Archivo_Con_una_constante MAESTRO');
-    //Un_Archivo_Con_una_constante(m); //Se modifica el maestro
-    Un_archivo_que_esta_Desordenado(m);
-    WriteLn;
-    Writeln('Un_Archivo_Con_una_constante MAESTRO');
-    Un_Archivo_desde_otro_archivo(m,d);
-    Un_archivo_que_esta_Desordenado(m);
+        writeln('_____ACTUALIZAR_____');
+        Writeln('Un_Archivo_Con_una_constante MAESTRO');
+        //Un_Archivo_Con_una_constante(m); //Se modifica el maestro
+        Un_archivo_que_esta_Desordenado(m);
     
     //Agregar
-    WriteLn;
-    Writeln('_____AGREGAR_____');
-    Datos_a_un_archivo_Desde_teclado(m);
-    Un_archivo_que_esta_Desordenado(m);
-    //Corte de Control
-    WriteLn;
+        WriteLn;
+        Writeln('_____AGREGAR_____');
+        //Datos_a_un_archivo_Desde_teclado(m);
+        Un_archivo_que_esta_Desordenado(m);
+        //Corte de Control
+        WriteLn;
+        //Corte_de_control(m,d);
+        //Merge
+        //merge(m,vd,vdr);
+
+    //Bajas
+        WriteLn;
+        Writeln('_____BAJAS_____');
+        nro_baja:=5;
+        Un_Dato_Sabiendo_Que_Existe(m,nro_baja);
+        Un_archivo_que_esta_Desordenado(m);
+        writeln;
+        nro_baja:=8;
+        Un_Dato_Sin_Saber_Si_Existe(m,nro_baja);
+        Un_archivo_que_esta_Desordenado(m);
     
 end.
