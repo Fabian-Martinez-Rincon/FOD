@@ -1,0 +1,17 @@
+
+procedure cargarDesdeTexto(var a:archivo);   //PROBAR
+var
+	reg:tipoDelRegistro; carga:Text;
+begin
+		  assign(carga,'carga.txt');
+                  reset(carga);
+                  rewrite(a);
+                  while not(eof(carga)) do begin
+                        readln(carga, reg.cod, reg.precio, reg.nombre); 		//intercambiables (EL ULTIMO ES STRING)
+                        writeln(reg.cod, ' ',reg.precio,' ',reg.nombre);		//IMPRIME EN PANTALLA LO QUE CARGO EN EL REG
+                        readln(carga,reg.stockDisp,reg.stockMin,reg.desc);		//intercambiables (EL ULTIMO ES STRING)
+                        writeln(reg.stockDisp,' ',reg.stockMin,' ',reg.desc);		//IMPRIME EN PANTALLA LO QUE CARGO EN EL REG
+                        write(a,reg);
+                  end;
+                  close(a); close(carga);
+end;

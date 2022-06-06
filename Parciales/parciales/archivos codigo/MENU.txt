@@ -1,0 +1,21 @@
+Repeat
+   writeln('|| MENU ||');
+   writeln('1) Crear maestro a partir de txt');
+   writeln('2) Crear detalle a partir de txt');
+   writeln('3) Generar reporte Maestro');
+   writeln('4) Generar reporte Detalle');
+   writeln('5) Actualizar Maestro');
+   writeln('6) Lista de alumnos con >4 cursadas');
+   writeln('7) Cerrar');
+   readln(opcion);
+   case opcion of
+
+   1: crearMaestro(mae);
+   2: crearDetalle(det);
+   3: reporteMaestro(mae);
+   4: reporteDetalle(det);
+   5: actualizarMaestro(mae,det);
+   6: listarAlumnos(mae);
+   end;
+
+   Until(opcion=7);

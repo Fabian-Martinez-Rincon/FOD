@@ -1,0 +1,51 @@
+
+procedure minimo(var aRegD:arrayRegD; var aDet:arrayDetalle; var min:pedido; var posMin:integer); //POSMIN ES LA POSICION DEL MINIMO EN LOS ARREGLOS
+var	
+   i:integer;   codMin:integer;						//MINIMO VECTOR DETALLES
+begin
+     codMin:=99999;
+     for i:=1 to dimF do                              //busco entre los N detalles
+               if(aRegD[i].cod<codMin) then begin  //cual tiene el cod mas chikito
+                      codMin:=aRegD[i].cod;        //y me guardo el indice(en este caso representa su sucursal)
+                      posMin:=i;
+                      end;
+     min:=aRegD[posMin];                         //guardo el registro minimo
+     leer(aDet[posMin],aRegD[posMin]);         //lo leo para ya devolverlo
+
+end;
+
+
+procedure minimo (var r1,r2,r3: tipoReg; var min:tipoReg); //MINIMO N DETALLES
+begin
+
+	if (r1.cod<=r2.cod) and (r1.cod<=r3.cod) then begin
+		min := r1; 
+		leer(det1,r1)
+	end
+
+	else if (r2.cod<=r3.cod) then begin
+		min := r2; 
+		leer(det2,r2)
+	end
+	else begin
+		min := r3;
+		leer(det3,r3)
+	end;
+end;
+
+
+procedure minimo(var aDet:arrayDetalle; var aReg:arrayRegistrosD; var min:sesion); //MINIMO CON DOS CONDICIONES
+var
+   i:integer; codMin:integer; posMin:integer; fechaMin:integer;
+begin
+     codMin:=9999;  fechaMin:=9999;
+     for i:=1 to dimF do begin
+              if(aReg[i].cod<=codMin) and (aReg[i].fecha<fechaMin) then begin   //el minimo controla tanto el codigo COMO LA FECHA
+                                     codMin:=aReg[i].cod;
+                                     posMin:=i;
+                                     fechaMin:=aReg[i].fecha;
+              end;
+     end;
+     min:=aReg[posMin];
+     leer(aDet[posMin],aReg[posMin]);
+end;

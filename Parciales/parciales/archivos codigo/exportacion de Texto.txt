@@ -1,0 +1,34 @@
+
+procedure exportarATexto(var a:archivo);	//PROBAR
+var
+	reg:tipoDelRegistro; export:Text;
+begin
+                   reset(a);
+                   assign(export,'electro.txt');
+                   rewrite(export);
+                   while not(eof(a)) do begin
+                         read(a,reg); 		//FIJARME SI NECESITO CAMBIARLO POR UN LEER
+                         writeln(export,reg.cod, ' ', reg.precio, ' ', reg.nombre);		//ESCRIBE EN EL TXT SEPARADO POR UN ESPACIO(ULTIMO STRING);
+                         writeln(export,reg.stockDisp, ' ', reg.stockMin, ' ', reg.desc);	//ESCRIBE EN EL TXT SEPARADO POR UN ESPACIO(ULTIMO STRING);
+                   end;
+                   close(a); close(export);
+end;
+
+
+procedure exportarTextoCondicion(var a:archivo);
+var
+	reg:tipoRegistro; texto:Text;
+begin
+                   reset(a);
+                   assign(texto,'SinStock.txt');
+                   rewrite(texto);
+                   while not(eof(a)) do begin //PROBAR SI NECESITA UN LEER
+                                           read(a,reg);
+                                           if(reg.stockDisp=0) then begin  //CONDICION PARA ESCRIBIR
+                                                               writeln(texto, reg.cod, ' ', reg.precio,' ', reg.nombre);
+                                                               writeln(texto, reg.stockDisp,' ', reg.stockMin,' ', reg.desc);
+                                           end;
+                   end;
+                   close(a); close(texto);
+end;
+	

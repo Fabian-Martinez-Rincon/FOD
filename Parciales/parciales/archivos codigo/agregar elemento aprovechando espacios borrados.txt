@@ -1,0 +1,21 @@
+procedure agregarNovela(var a:archivo);
+var
+   reg,regNuevo:novela;
+begin
+   reset(a);
+   read(a,reg);
+   ingresarNovela(regNuevo);
+   if(reg.cod<0) then begin
+                 seek(a,(reg.cod*-1)); //voy a la pos indicada por la cabecera
+                 read(a,reg); //lo leo para tomar el siguiente de la lista
+                 seek(a,filePos(a)-1);
+                 write(a,regNuevo);
+                 seek(a,0);
+                 write(a,reg); //vuelvo a la cabeza y almaceno el siguiente de la lista
+                 end
+    else  begin
+                 seek(a,fileSize(a));
+                 write(a,regNuevo);
+                 end;
+    close(a);
+end;

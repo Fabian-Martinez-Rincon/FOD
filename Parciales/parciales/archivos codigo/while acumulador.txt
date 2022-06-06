@@ -1,0 +1,32 @@
+
+procedure acumuladorWhiles (var mae:archivo);  //ACUMULO REGISTROS PARA IMPRIMIR EL TOTAL DE LOS CAMPOS
+Var
+   mesAct,anioAct,mesTotal,anioTotal,clienteAct,ventasTotales:integer;  regm:venta;
+Begin
+    assign(mae,'E6P2maestro');
+    reset(mae);
+    leer(mae,regm); ventasTotales:=0;
+    while(regm.cod<>valoralto) do begin
+              clienteAct:=regm.cod;
+              writeln('Resumen cliente ',regm.cod, ': ',regm.nombre, ' ',regm.apellido);
+              while(regm.cod=clienteAct) do begin
+                                         anioTotal:=0; anioAct:=regm.anio;
+                                         while(regm.cod=clienteAct) and (anioAct=regm.anio) do begin
+                                                                    mesTotal:=0; mesAct:=regm.mes;
+                                                                    while(regm.cod=clienteAct) and (anioAct=regm.anio)and(regm.mes=mesAct) do begin
+                                                                                               mesTotal:=mesTotal+regm.monto;
+                                                                                               leer(mae,regm);
+                                                                    end;
+                                                                    writeln('El monto del mes ', mesAct,' es de ',mesTotal);
+                                                                    anioTotal:=anioTotal+mesTotal;
+                                         end;
+                                         ventasTotales:=ventasTotales+anioTotal;
+                                         writeln('Cliente ',regm.cod,': El monto del anio ', anioAct,'es de ',anioTotal);
+              end;
+              writeln('---------------------------------');
+   end;
+   writeln();
+   writeln('La venta total de las ventas de la empresa es de ',ventasTotales);
+   close(mae);
+   readln();
+End.

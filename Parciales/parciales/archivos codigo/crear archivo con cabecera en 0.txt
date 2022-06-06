@@ -1,0 +1,28 @@
+
+procedure ingresarNovela(var reg:novela);
+
+begin
+     writeln('Ingrese codigo');
+     readln(reg.cod);
+     if(reg.cod<>-1) then begin
+                     writeln('Ingrese nombre');
+                     readln(reg.nombre);
+                     writeln('Ingrese precio');
+                     readln(reg.precio);
+     end;
+end;
+
+procedure crearArchivo(var a:archivo);
+var
+   reg:novela;
+begin
+     rewrite(a);
+     reg.cod:=0;   //cabecera en 0
+     write(a,reg);
+     ingresarNovela(reg);
+     while(reg.cod<>-1) do begin
+                        write(a,reg);
+                        ingresarNovela(reg);
+     end;
+     close(a);
+end;

@@ -1,0 +1,18 @@
+
+procedure modificarElemento(var a:archivo); //PROBAR
+var
+	reg:tipoRegistro; st:string;
+begin
+                   reset(a);
+                   writeln('Ingrese el nombre del producto'); //CAMPO A BUSCAR
+                   readln(st);
+                   while not (reg.cod<>valoralto) and (reg.nombre<>st) do leer(a,reg);
+                         
+                   if(reg.nombre=st) then begin
+                                     writeln('Stock nuevo');  //CAMPO A MODIFICAR
+                                     readln(reg.stockDisp);                                     
+                                     seek(a,filePos(a)-1);
+                                     write(a,reg);
+                   end;
+                   close(a);
+end;

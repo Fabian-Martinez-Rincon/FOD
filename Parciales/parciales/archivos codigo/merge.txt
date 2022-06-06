@@ -1,0 +1,63 @@
+
+procedure compactar(var det:archivo;var mae:archivo); //PROBAR  //GUARDA FIJATE LOS TIPOS ACA
+var
+   codAux:integer;  total:real; regM:empleado; regD:empleado; //GUARDA FIJATE LOS TIPOS ACA
+begin
+   reset(det);
+   rewrite(mae);		//CREO EL MAESTRO EN BASE AL DETALLE
+   leer(det,regD);
+   read(mae,regM);
+   while(regD.cod<>valoralto) do begin
+                              codAux:=regD.cod;
+                              total:=0;
+                              while(codAux=regD.cod) do begin    //dentro de este while controlo de contar todas las comisiones del mismo vendedor
+                                                     total:=total+regD.montoTotal;
+                                                     leer(det,regD);
+                                                     end;
+                              while(regM.cod<>codAux) do         //busco el registro correspondiente a modificar en el Maestro
+                                                      read(mae,regM);
+                              regM.montoTotal:=total;        //actualizo
+                              seek(mae,filePos(mae)-1);      //acomodo puntero
+                              write(mae,regM);               //escribo
+                              writeln(regM.cod, '', regM.montoTotal, '', regM.nombre); //ESTOI ES PARA CONTROLAR NOMAS
+                              if(not(eof(mae))) then
+                                                read(mae,regM);
+                              end;
+   close(det); close(mae);
+end;
+
+
+
+procedure mergeNDetRepetido (var mae:maestro; var aDet:arrayDetalle); //CREAR MAESTRO CON VECTOR DE DETALLES
+var
+   i,codActual,fechaActual:integer; min:sesion;  aReg:arrayRegistrosD; regm:resumen;
+
+begin
+     assign(mae,'C:\Dev-Pas\var\log\E4P2maestro');
+     rewrite(mae);
+     for i:=1 to dimF do begin
+         assign(aDet[i], 'E4P2det' + IntToStr(i));
+         reset(aDet[i]);
+         leer(aDet[i], aReg[i]);
+     end;
+     minimo(aDet,aReg,min);
+     while(min.cod<>valoralto) do begin
+                          codActual:=min.cod; //salvo el codigo de usuario
+                          fechaActual:=min.fecha; //salvo la fecha
+                          regm.tiempoTotalSesion:=0;
+                          regm.cod:=codActual;
+                          regm.fecha:=fechaActual;
+                          while(min.cod=codActual)and(fechaActual=min.fecha) do begin  //mientras tenga el mismo usuario en el mismo dia, acumulO
+                                           regm.tiempoTotalSesion:=regm.tiempoTotalSesion+min.tiempoSesion;
+                                           minimo(aDet,aReg,min);
+                          end;
+                          write(mae,regm);       //y escribo en el maestro
+     end;
+     close(mae);
+     for i:=1 to dimF do
+         close(aDet[i]);
+end;
+
+
+
+

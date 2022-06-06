@@ -1,0 +1,20 @@
+
+procedure buscar(var a:archivo);	//PROBAR
+var
+	reg:tipoRegistro; st:string;
+begin
+                  reset(a);
+                  writeln('Inserte descripcion');	//SI PIDE QUE EL CAMPO A BUSCAR YA VIENE COMO PARAMETRO, SACAR ESTO PARA AFUERA
+                  readln(st);		//LEO CAMPO A COMPARAR
+
+                  while (reg.cod<>valoralto) do begin
+                        leer(a,reg);
+                        if(reg.desc=st) then begin
+                                        writeln(reg.cod, ' ',reg.precio,' ',reg.nombre);
+                                        writeln(reg.stockDisp,' ',reg.stockMin,' ',reg.desc);
+                                        end;
+                        leer(a,reg);
+                        end;
+                  close(a);
+end;
+

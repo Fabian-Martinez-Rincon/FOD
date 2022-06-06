@@ -1,0 +1,32 @@
+
+procedure reporteMaestro(var mae:maestro);		//IMPRIMIR EN TEXTO MAESTRO
+var
+   regm:alumno; reporte:Text;
+begin
+   reset(mae);
+   assign(reporte,'reporteAlumnos.txt');
+   rewrite(reporte);
+   while not(eof(mae)) do begin
+         read(mae,regm);
+         writeln(reporte,'Codigo: ',regm.cod,' | Cursadas: ',regm.cursadas,' | Finales: ',regm.materiasFinal,' | Nombre: ', regm.nombre);
+         writeln(reporte, 'Apellido: ',regm.apellido);
+         writeln('----------------------------');
+         end;
+   close(mae); close(reporte);
+end;
+
+
+procedure reporteDetalle(var det:detalle);		//IMPRIMIR EN TEXTO DETALLE
+var
+   regd:detAlumno; reporte:Text;
+begin
+   reset(det);
+   assign(reporte,'reporteDetalle.txt');
+   rewrite(reporte);
+   while not(eof(det)) do begin
+         read(det,regd);
+         writeln(reporte,'Codigo: ',regd.cod, ' | Estado del Final: ',regd.informacionFinal);
+         writeln('----------------------------');
+         end;
+   close(det); close(reporte);
+end;

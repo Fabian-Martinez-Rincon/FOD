@@ -1,0 +1,26 @@
+
+procedure agregarElemento(var a:archivo);	//PROBAR
+var
+	reg:tipodelReg;
+begin
+		   reset(a);
+                   writeln('Ingrese codigo');
+                   readln(reg.cod);
+                   while (reg.cod<>-1) do begin		//CORTE DEL CODIGO
+                         writeln('Ingrese precio');
+                         readln(reg.precio); 
+                         writeln('Ingrese nombre');
+                         readln(reg.nombre);                      
+                         writeln('Ingrese stock');
+                         readln(reg.stockDisp);                     
+                         writeln('Ingrese stock minimo');
+                         readln(reg.stockMin);                   
+                         writeln('Ingrese descripcion');
+                         readln(reg.desc);                    
+                         seek(a,fileSize(a));
+                         write(a,reg);
+                         writeln('Ingrese codigo');
+                         readln(reg.cod);
+                   end;
+                   close(archivo);
+end;

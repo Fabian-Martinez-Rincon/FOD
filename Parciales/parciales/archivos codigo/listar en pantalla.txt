@@ -1,0 +1,54 @@
+
+procedure listarConCondicion(var a:archivo);
+var
+	reg:tipoRegistro;
+begin
+                  reset(a);
+                  leer(a,reg);
+                  while (reg.cod<>valoralto) do begin
+                        if(reg.stockDisp<reg.stockMin) then begin  //CONDICION PARA IMPRIMIR
+                              writeln(reg.cod, ' ',reg.precio,' ',reg.nombre);
+                              writeln(reg.stockDisp,' ',reg.stockMin,' ',reg.desc);
+                        end;
+                        leer(a,reg);
+                  end;
+                  close(a);
+end;
+
+procedure listar(var a:archivo);
+var
+	reg:tipoRegistro;
+begin
+                  reset(a);
+                  leer(a,reg);
+                  while (reg.cod<>valoralto) do begin
+                              writeln(reg.cod, ' ',reg.precio,' ',reg.nombre);
+                              writeln(reg.stockDisp,' ',reg.stockMin,' ',reg.desc);
+                              leer(a,reg);
+                  end;
+                  close(a);
+end;
+
+
+procedure imprimir(var mae:maestro;var aDet:arrayDetalle); //IMPRIME EN PANTALLA MAESTRO Y N DETALLES
+var
+   regm:producto; regd:pedido; i:integer;
+begin
+     reset(mae);
+     for i:=1 to 4 do
+         reset(aDet[i]);
+     while(not eof(mae)) do begin
+               read(mae,regm);
+               writeln('Codigo ',regm.cod, '| Precio: ', regm.precio, ' | Stock actual: ',regm.stockActual,' | stock Minimo: ', regm.stockMinimo, ' | Descripcion: ',regm.desc);
+     end;
+     writeln();
+     for i:=1 to 4 do begin
+         while(not eof(aDet[i])) do begin
+                   read(aDet[i],regd);
+                   writeln('Codigo: ',regd.cod, ' | Cant pedida: ',regd.cant);
+         end;
+     end;
+     close(mae);
+     for i:=1 to 4 do
+         close(aDet[i]);
+end;

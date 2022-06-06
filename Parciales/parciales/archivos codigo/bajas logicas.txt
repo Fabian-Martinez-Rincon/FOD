@@ -1,0 +1,62 @@
+
+procedure bajaLogica(var mae:maestro); //BAJA LOGICA SIMPLE,FACIL PARA TODA LA FAMILIA
+var
+   reg:empleado;
+begin
+     reset(mae);
+     leer(mae,reg);
+     while(reg.nombre<>valoralto) do begin
+                                  if(reg.dni<500000) then begin
+                                                    reg.nombre:='*' + reg.nombre;
+                                                    seek(mae,filePos(mae)-1);
+                                                    write(mae,reg);
+                                  end;
+                                  leer(mae,reg);
+     end;
+     close(mae);
+end;
+
+
+procedure borrarNovela(var arch:archivo); //BAJA LOGICA CON LISTA INVERTIDA
+var reg:novela;
+    cod,aux:integer;
+begin
+    write('Ingrese el codigo de la novela que desea borrar: ');
+    readln(cod);
+    reset(arch);
+    leer(arch,reg);
+    aux := reg.cod;  // copio el valor contenido en el registro cabecera a aux. aux ahora contiene la direccion (-NRR) del ultimo elemento borrado previamente
+    while((reg.cod <> valoralto)and(cod <> reg.cod)) do leer(arch,reg);
+    if(cod = reg.cod) then begin
+        reg.cod := aux;            // copio aux a reg.cod para mantener los valores siguientes de la pila invertida
+        reg.nombre[1] := '*';
+        seek(arch,(filepos(arch)-1));
+        write(arch,reg);            // se sobreescribe el elemento que se queria borrar
+        reg.cod := filepos(arch)*(-1);               // << aca antes usaba el codigo de novela, ahora lo cambie por la posicion del registro en el archivo
+        seek(arch,0);
+        write(arch,reg);            // el registro cabecera queda con el -NRR del registro recien borrado
+        writeln('Novela borrada con exito');
+    end
+    else writeln('No se encontro ese codigo de novela');
+    writeln;
+    close(arch);
+end;
+
+
+procedure bajaLogica(var mae:maestro;var det:detalle); //BAJA LOGICA A PARTIR DE UN DETALLE
+var
+   regm:prenda; regd:codPrenda;
+begin
+     reset(det); reset(mae);
+     leer(det,regd);
+     while(regd<>valoralto) do begin
+                            while(regm.cod<>regd) and (regm.cod<>valoralto) do leer2(mae,regm); //GUARDA QUE ES UN LEER
+               if(regd=regm.cod) then begin
+                           regm.stock:=regm.stock*(-1);
+                           seek(mae,filePos(mae)-1);
+                           write(mae,regm);
+               end;
+               leer(det,regd);
+    end;
+    close(mae); close(det);
+end;

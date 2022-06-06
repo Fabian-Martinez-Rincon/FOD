@@ -1,0 +1,40 @@
+
+procedure leer(var det:archivo; var dato:empleado);	
+begin
+     if not(eof(det)) then
+        read(det,dato)
+     else
+         dato.cod:=valoralto;
+end;
+
+
+
+
+procedure leerTexto(var det:Text; var dato:empleado);
+begin
+     if not(eof(det)) then
+        readln(det,dato.cod, dato.montoTotal,dato.nombre)
+     else
+         dato.cod:=valoralto;
+end;
+
+procedure pasarABinario(var detT:Text;var det:archivo);		
+var
+   reg:empleado;
+begin
+   reset(detT);
+   rewrite(det);
+   leerTexto(detT,reg);
+   while(reg.cod<>valoralto) do begin
+                             write(det,reg);
+                             leerTexto(detT,reg);
+                             end;
+   close(det); close(detT);
+end;
+
+
+for i:=1 to dimF do begin					//FOR PARA ASIGNAR VARIOS DETALLES!!
+         assign(aDet[i], 'Parcialdet' + IntToStr(i));
+         reset(aDet[i]);
+         leer(aDet[i], aReg[i]);
+     end;

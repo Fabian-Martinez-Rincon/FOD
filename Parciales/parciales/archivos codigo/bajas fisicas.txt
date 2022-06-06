@@ -1,0 +1,55 @@
+
+procedure bajaFisica(var mae:maestro;var maeN:maestro;nom:string); //COPIA EL ARCHIVO ENTERO EXCEPTO EL CAMPO A BORRAR
+var
+   regm:prenda;
+begin
+     reset(mae);
+     readln();
+     assign(maeN,'temp');
+     rewrite(maeN);
+     while not eof(mae) do begin
+     read(mae,regm);
+             if(regm.stock<0) then
+                                 write(maeN,regm);
+    end;
+    readln();
+    close(mae);
+    close(maeN);
+    erase(mae);
+    rename(maeN,nom);
+    writeln('Listo');
+end;
+
+
+procedure compactar(var mae:maestro); //TRUNCATE PARA VARIOS ARCHIVOS
+var
+   e: especie;
+   pos, i: integer;
+begin
+   reset(mae);
+   i := 0; // contador de reg eliminados
+
+   while (filesize(mae)-i>= filepos(mae)) do begin
+        read(mae, e);
+        if (e.nombre[1]='*') then begin
+            pos:= filepos(mae)-1;
+            seek(mae, filesize(mae)-1-i);
+            read(mae,e);
+            while ((e.nombre[1]='*') and ((filesize(mae)-1-i)>pos)) do begin      // mientras sea un reg eliminado, y no se me crucen las posiciones
+                i:= i+1;
+                seek(mae, filesize(mae)-1-i);          // retrocedo en el archivo
+                read(mae,e);
+            end;
+            if (e.nombre[1]<>'*') then begin // si encontré un reg <>-1 es porque puedo intercambiarlo. si fuera la otra condicion es porque eran todos -1
+               seek(mae, pos); // sobreescribo en la pos del que quiero borrar
+               write(mae, e);
+            end;
+            i:= i +1;
+
+        end;
+   end;
+   writeln('borrados ',i);
+   seek(mae, filesize(mae)-i);
+   truncate(mae);
+   close(mae);
+end;
