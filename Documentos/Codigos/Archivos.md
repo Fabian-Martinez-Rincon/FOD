@@ -11,6 +11,7 @@ Indice
   - [Un_Archivo_Desde_Teclado_ConRegistros](#un_archivo_desde_teclado_conregistros)
   - [Un_Archivo_Desde_un_Texto](#un_archivo_desde_un_texto)
   - [Un_Texto_Desde_un_Archivo](#un_texto_desde_un_archivo)
+  - [Programa Completo](/CodigosParaPracticar/2Parcial_Practicando/)
 - [Imprimir](#imprimir)
   - [Un_archivo_que_esta_Desordenado](#un_archivo_que_esta_desordenado)
   - [Un_archivo_que_esta_Ordenado](#un_archivo_que_esta_ordenado)
