@@ -34,6 +34,8 @@
 
 # Parciales de archivos
 
+---
+
 ### Merge, corte de control
 
 Una empresa de productos de limpieza posee un archivo conteniendo información sobre los productos que tiene a la venta al público. 
@@ -51,9 +53,10 @@ NOTA 1: Todos los archivos están ordenados por código de producto y el archivo
 NOTA 2: En los archivos detalle puede no aparecer algún producto del maestro. Además, tenga en cuenta que puede aparecer el mismo producto en varios detalles.
 Sin embargo, en un mismo detalle cada producto aparece a lo sumo una vez.
 
+<details><summary>📘 Codigo</summary>
 
 ```pascal
-program main2;
+program Parcial;
 const 
     CANTIDAD = 2;
     VALOR_ALTO = 9999;
@@ -137,7 +140,7 @@ begin
     while min.codigo <> VALOR_ALTO do
     begin
         LeerM(m,datoM);
-        while datoM.codigo < min.codigo do //Puede no existir
+        while datoM.codigo <> min.codigo do //Puede no existir
             LeerM(m,datoM);
         cant_total:=0;
         while datoM.codigo = min.codigo do
@@ -174,6 +177,10 @@ begin
 end.
 ```
 
+</details>
+
+---
+
 ### Lista invertida
 
 Se dispone de un archivo que contiene información de jugadores de futbol.
@@ -197,9 +204,9 @@ Type
 
 Se solicita implementar los siguientes módulos:
 
-- Abre el archivo y agrega un jugador,el mismo se recibe como parámetroydebe utilizar la política descripta anteriormente para recuperación de espacio
+- Abre el archivo y agrega un jugador, el mismo se recibe como parámetro y debe utilizar la política descripta anteriormente para recuperación de espacio
 
-- Abre el archivo y elimina el jugador con el dni recibido como parámetro(si existe),manteniendo la política descripta anteriormente
+- Abre el archivo y elimina el jugador con el dni recibido como parámetro(si existe), manteniendo la política descripta anteriormente
 
 ```pas
 program Parcial;
@@ -245,6 +252,8 @@ begin
 end;
 ```
 
+---
+
 ### Merge, corte control
 
 Una cadena de restaurantes posee un archivo de productos que a la venta,de cada producto se registra : código de producto, nombre, descripción, código de barras, categoría de producto, stock actual y stock mínimo. Diariamente el depósito debe efectuar envíos acada uno de los tres restaurantes que se encuentran en la ciudad de Laprida. Para esto,cada restaurante envia un archivo por mail con los pedidos de productos. Cada pedido contiene:código de producto,cantidad pedida y una breve descripción del producto.
@@ -254,6 +263,8 @@ Se pide realizar el proceso de actualización del archivo maestro con los tres a
 Además,informar aquellos pedidos que no pudieron satisfacerse totalmente por falta de stock,indicando la diferencia que no pudo ser enviada a cada restaurante. Si el stock no es suficiente para satisfacer un pedido en su totalidad, entonces el mismo debe satisfacerse con la cantidad que se disponga.
 
 Nota: Todos los archivos están ordenados por código de producto
+
+<details><summary>📘 Codigo</summary>
 
 ```pas
 program Parcial;
@@ -386,6 +397,10 @@ begin
     Merge(m,vd,vdd);
 end;
 ```
+
+</details>
+
+---
 
 ### Corte de Control
 

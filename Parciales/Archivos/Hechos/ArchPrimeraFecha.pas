@@ -94,12 +94,10 @@ var
 	cod_actual, tot_stk_min, no_enviada, nro_suc: integer;
 begin
 	tot_stk_min := 0;
-	reset(ar_mae);
-	reset(ar_det1);	//abro detalle1 y depues lo leo
-	leer(ar_det1, det1);
-	reset(ar_det2);	//abro detalle2 y despues lo leo
-	leer(ar_det2; det2);
-	read(ar_mae, reg_mae);
+	reset(ar_mae);       reset(ar_det1);	//abro detalle1 y depues lo leo
+	leer(ar_det1, det1); reset(ar_det2);	//abro detalle2 y despues lo leo
+	leer(ar_det2; det2); read(ar_mae, reg_mae);
+	
 	minimo(ar_det1, ar_det2, det_min, nro_suc, det1, det2);	//devuelve valor_alto si no hay elementos
 	while(det_min.cod <> valor_alto)do begin
 		cod_actual:= det_min.cod;
