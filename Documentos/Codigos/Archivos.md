@@ -552,49 +552,39 @@ begin
 end;
 ```
 
-Con_Datos_Desde_Teclado
------------------------
+Compactar
+---------
+
+[Programa completo](/Compactar/)
 
 ```Pas
-procedure BuscarUltimo(var m:maestro;var ultimo:ave; var posUlt:Integer);
-begin
-    Seek(m,posUlt); //Nos vamos moviendo para atras
-    Read(m,ultimo);
-    while ultimo.codigo = -1 do //Busco el ultimo registro no borrado
-    begin
-        Seek(m,posUlt-1);   //Voy al anterior
-        posUlt:=FilePos(m); //Guardo el anterior
-        Read(m,ultimo);     //Continuo leyendo normal
-    end;
-end;
-//_________________________________________
-procedure BajaFisica(var m:maestro);
+procedure compactar(var a:archivo;n:integer);
 var
-    datox,ultimo:ave;
-    pos,posUlt:integer;
+    pos:integer;
+    dato:cosa;
 begin
-    Assign(m,'maestro.data');
-    Reset(m);
-    Leer(m,datox);
-    //Me quedo con la ultima posicion en la que tengo un registro
-    //ya que es mas facil manejar el corte del archivo
-    posUlt:=FilePos(m)-1; 
-    while (datox.codigo <> valorAlto) and (FilePos(m) <= posUlt) do
-    begin
-        pos:=FilePos(m);
-        if (datox.codigo = -1) then
-        begin
-            BuscarUltimo(m,ultimo,posUlt);
-            posUlt:=posUlt-1;               //Decremento mi posUlt ya que encontre el eliminado
-            Seek(m,pos-1); Write(m,ultimo); //remplazo el dato
+    reset(a);
+    Leer(a,dato);
+    while (dato.codigo <> VA) do begin
+        if (dato.codigo=n) then begin  
+            pos:= (filePos(a)-1); // pos 0
+            seek(a,fileSize(a)-1);  
+            read(a,dato);           //me quedo con el elemento al final del archivo
+            while (dato.codigo = n) do begin
+                seek(a,fileSize(a)-1);
+                truncate(a);
+                seek(a,fileSize(a)-1);
+                read(a,dato);
+            end;
+            seek(a,pos);
+            write(a,dato);
+            seek(a,fileSize(a)-1);
+            truncate(a);
+            seek(a,pos);
         end;
-        Leer(m,datox);
+        Leer(a,dato);
     end;
-    Seek(m,posUlt+1); //Voy a la ultima posicion que seria EOF ya que antes esta en la anteultima
-    //Para trabajar con solo los registros
-    //Trunca un fichero en la posición actual. Dicha posición actual se convierte en el fin de fichero (EOF).
-    Truncate(m);
-    Close(m);
+    close(a);
 end;
 ```
 
