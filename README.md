@@ -405,6 +405,9 @@ end;
 
 ![image](https://user-images.githubusercontent.com/55964635/175982889-28b6814a-ff23-4972-a413-6bace4e0182a.png)
 
+
+<details><summary>📘 Codigo</summary>
+
 ```Pas
 program primeraFecha;
 const
@@ -433,13 +436,6 @@ procedure LeerD(var d:detalle;var dato:carrera);
 begin
     if not eof (d) then
         Read(d,dato);
-    else
-        dato.dni:=VA;
-end;
-procedure LeerM(var m:maestro;var dato:registroM);
-begin
-    if not eof (m) then
-        Read(m,dato);
     else
         dato.dni:=VA;
 end;
@@ -513,3 +509,83 @@ begin
     merge(m,vd,vdr);
 end.
 ```
+
+</details>
+
+![image](https://user-images.githubusercontent.com/55964635/176000672-e84f9fa7-3e0c-416e-a7e7-4847a51740e2.png)
+
+<details><summary>📘 Codigo</summary>
+
+```pas
+type
+    persona = record
+        DNI:integer;
+        nombre:string;
+        apellido:string;
+        sueldo:real;
+    end;
+    tArchivo = file of persona;
+```
+
+```pas
+procedure crear(var arch: tArchivo; var info:TEXT);
+var
+    dato:persona;
+begin
+    Rewrite(arch); Reset(info);
+    while not eof(info) begin
+        Read(info,dato);
+        write(arch,dato);
+    end;
+    Close(arch); Close(info);
+end;
+
+//_____________________________
+procedure agregar(var arch: tArchivo; p:persona);
+var
+    cabecera:persona;
+    dato:persona;
+begin
+    Reset(arch);
+    Leer(arch,cabecera);
+    if (cabecera.DNI = 0); //Lo agrega al ginal
+    begin
+        Seek(arch,fileZise(arch));
+        write(arch,p);
+    end
+    else
+        begin
+            Seek(arch,(cabecera.DNI*-1));
+            Leer(arch,dato)
+            Seek(a,filePos(arch)-1);   
+            write(arch,p);
+            Seek(arch,0);
+            write(arch,dato);
+        end;
+    Close(arch);
+end;
+
+procedure eliminar(var arch:tArchivo:DNI:integer);
+var
+    dato:persona;
+    cabecera:persona;
+begin
+    Reset(arch);
+    Leer(arch,cabecera)
+    Leer(arch,dato)
+    while (dato.DNI <> DNI) and (dato.DNI <> VA) do
+        Leer(arch,dato)
+    if (dato.DNI = DNI) then 
+    begin
+        Seek(arch,filePos(arch)-1);
+        Leer(a,cabecera);
+        cabecera.DNI:= (seek(arch, filePos(arch)-1))*-1;
+        Seek(arch,0);
+        write(arch,cabecera);
+    end;
+    Close(arch);
+end;
+```
+
+
+</details>

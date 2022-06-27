@@ -17,7 +17,9 @@ Indice
 - [Actualizar](#actualizar)
 - [Agregar](#agregar) 
 - [Corte_De_Control](#corte_de_control) 
-- [Merge](#merge)
+- [Merge (N Detalles)](#merge)
+    - [Crear Maestro](#Crear_Maestro)
+    - [Actualizar Maestro](#Actualizar_Maestro)
 - [Baja](#baja)
   - [Un_Dato_Sabiendo_Que_Existe](#un_dato_sabiendo_que_existe)
   - [Un_Dato_Sin_Saber_Si_Existe](#un_dato_sin_saber_si_existe)
@@ -269,8 +271,18 @@ end;
 Merge
 =====
 
+### Declarar
+
+ ```pas
+ type
+    archivo = file of integer;
+    vector_archivo = array [1..dimF] of archivo; //Vector para procesar N detalles
+    vector_datos = array [1..dimF] of integer; //Los datos de los detalles
+ ```
+
+### Cuando tenemos un archivo que esta ordenado por mas de una condición
+
 ```Pas
-// Cuando tenemos un archivo que esta ordenado por mas de una condición
 procedure minimo(var vd:vector_archivo; var vdr:vector_datos;var min:registro);
 var
     i,minPos:integer;
@@ -290,83 +302,63 @@ begin
 end;
 ```
 
-```Pas
-type
-    archivo = file of integer;
-    vector_archivo = array [1..dimF] of archivo; //Vector para procesar N detalles
-    vector_datos = array [1..dimF] of integer; //Los datos de los detalles
-    
-procedure merge(var m:archivo;var vd:vector_archivo;var vdr:vector_datos);
-    procedure leer(var d:archivo;var dato:integer);
-    begin
-        if not eof(d)then
-            read(d,dato)
-        else
-            dato:=vA;
-    end;
-    procedure minimo(var vd:vector_archivo; var vdr:vector_datos;var min:integer);
-    var
-        i,minPos:Integer;
-    begin
-        min:=9999;
-        for i:=1 to dimF do
-        begin
-            if (vdr[i] < min) then
-            begin
-                min:=vdr[i];
-                minPos:=i;
-            end;
-        end;
-        //Para avanzar en el archivo leido y que no quede en bucle
-        if (min <> vA) then 
-            Leer(vd[minPos],vdr[minPos]);
-    end;
-    procedure ResetDetalles(var vd:vector_archivo;var vdr:vector_datos);
-    var
-        i:integer;
-        istr:String[1];
-    begin
-        for i:=1 to dimF do
-        begin
-            Str(i,istr);
-            Assign(vd[i],'detalle' + istr);
-            Reset(vd[i]);
-            Leer(vd[i],vdr[i]);
-        end;
-    end;
-    procedure CloseDetalles (var vd:vector_archivo);
-    var
-        i:integer;
-    begin
-        for i:=1 to dimF do
-        begin
-            Close(vd[i]);
-        end;
-    end;
+Crear_Maestro
+-------------
+
+```pascal
+procedure merge(var m:maestro;var vd:vector_detalle;var vdr:vector_detalle_registro);
 var
-    dato:integer;
-    min:integer;
+    min:carrera;
+    datoM:registroM;
+    actual:carrera;
+begin
+    Rewrite(m); ResetDetalles(vd,vdr);
+    minimo(vd,vdr,min);
+    while (min.dni <> VA) do
+    begin
+        actual:=min;
+        while actual.dni = min.dni do
+        begin
+            datoM.kms_total:= datoM.kms_total + min.kms;
+            datoM.ganadas:= datoM.ganadas + min.ganoSiNo;
+            minimo(vd,vdr,min);
+        end;
+        write(m,datoM);
+    end;
+    Close(m); CloseDetalle(vd);
+end;
+```
+
+Actualizar_Maestro
+------------------
+
+```Pas
+procedure merge(var m:archivo;var vd:vector_archivo;var vdr:vector_datos);
+var
+    datoM:registro;
+    min:registro;
 begin
     Reset(m);
     ResetDetalles(vd,vdr);
     minimo(vd,vdr,min);
-    while min <> vA do
+    while min.codigo <> vA do
     begin
-        read(m,dato);
-        while (dato <> min) do
-            read(m,dato);
-        while dato = min do
+        LeerM(m,datoM);
+        while (datoM.codigo <> min.codigo) do
+            LeerM(m,datoM);
+        while datoM.codigo = min.codigo do
         begin
-            dato:=dato+min;
+            datoM.cantidad:=datoM.cantidad+min.cantidad;
             minimo(vd,vdr,min);
         end;
         Seek(m,FilePos(m)-1);
-        Write(m,dato);
+        Write(m,datoM);
     end;
     Close(m);
     CloseDetalles(vd);
 end;
 ```
+
 Baja
 ====
 
