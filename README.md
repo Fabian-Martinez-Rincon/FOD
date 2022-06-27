@@ -187,7 +187,7 @@ Se dispone de un archivo que contiene información de jugadores de futbol.
 
 Se sabe que el archivo utiliza la técnica de lista invertida para aprovechamiento de espacio.Es decir,las bajas se realizan apilando registros borradosylas altas reutilizando registros borrados.El registro en la posición0del archivo se usa como cabecera de la pila de registros borrados.El campo de enlace es el campo dni.
 
-Nota: El valor0en el campo dni significa que no existen registros borrados,yel valor -N indica que el próximo registroareutilizar es elN,siendo éste un número relativo de registro válido.
+Nota: El valor 0 en el campo dni significa que no existen registros borrados, y el valor -N indica que el próximo registro a reutilizar es el N, siendo éste un número relativo de registro válido.
 
 ```pas
 const
@@ -402,78 +402,114 @@ end;
 
 ---
 
-### Corte de Control
 
-Suponga que cuenta con un archivo con información acerca de las ventas de diferentes eventos de un teatro de la ciudad de  La Plata.
-Dicho archivo tiene la siguiente estructura: nombreEvento, fechaFuncion , SectorFuncion(General, platea, etc),  y cantidadEntradasVendidas por sector.
-Además se conoce que la información del archivo está ordenada primero por nombreEvento y luego por fechaFuncion.
+![image](https://user-images.githubusercontent.com/55964635/175982889-28b6814a-ff23-4972-a413-6bace4e0182a.png)
 
-Escriba un programa (Programa principal, estructuras y módulos) que dado el archivo descripto, realice  un informe por pantalla con el siguiente formato:
+```Pas
+program primeraFecha;
+const
+    CANTIDAD = 5;
+    VA = 9999;
+type
+    carrera = record
+        dni:integer;
+        apellido:string;
+        nombre:string;
+        kms:integer;
+        ganoSiNo:integer;
+    end;
+    detalle = file of carrera;
+    registroM = record
+        dni:integer;
+        apellido:string;
+        kms_total:integer;
+        ganadas:integer;
+    end;
+    maestro = file of registroM;
+    vector_detalle = array [1..CANTIDAD] of detalle;
+    vector_detalle_registro = array [1..CANTIDAD] of carrera;
 
----
+procedure LeerD(var d:detalle;var dato:carrera);
+begin
+    if not eof (d) then
+        Read(d,dato);
+    else
+        dato.dni:=VA;
+end;
+procedure LeerM(var m:maestro;var dato:registroM);
+begin
+    if not eof (m) then
+        Read(m,dato);
+    else
+        dato.dni:=VA;
+end;
 
-CANTIDAD DE ENTRADAS VENDIDAS  POR FUNCIÓN Y POR EVENTO
+procedure ResetDetalles(var vd:vector_detalle;var vdr:vector_detalle_registro);
+var
+    i:integer;
+    iStr:string;
+    dato:carrera;
+begin
+    for i:=1 to CANTIDAD do
+    begin
+        Str(i,iStr);
+        Assign(vd[i],'detalle' + iStr);
+        Reset(vd[i]);
+        LeerD(vd[i],vdr[i]);
+    end;
+end.
+procedure CloseDetalles(var vd:vector_detalle);
+var
+    i:integer;
+begin
+    for i:=1 to CANTIDAD do
+        Close(vd[i]);
+end;
+procedure minimo(var vd:vector_detalle;var vdr:vector_detalle_registro;var min:carrera);
+var
+    i:integer;
+    pos:integer;
+begin
+    min.dni:=VA;
+    for i:=1 to CANTIDAD do
+    begin
+        if (vdr[i].dni < min.dni) then
+        begin
+            min:=vdr[i];
+            pos:=i;
+        end;
+    end;
+    if min.dni <> VA then
+        LeerD(vd[pos],vdr[pos]);
+end;
 
-
-NOMBRE Evento 1
-
-Fecha función 1
-
-Sector 1                                 Cantidad Vendida
-
-
-Sector N                                 Cantidad Vendida
-
-----------------------------------------------------------------------------------------------
-
-            Cantidad Total de Entradas Vendidas por función 1
-
-Fecha función N
-
-Sector 1                                 Cantidad Vendida
-
-
-Sector N                                 Cantidad Vendida
-
-----------------------------------------------------------------------------------------------
-
-            Cantidad Total de Entradas Vendidas por función N 
-
--------------------------------------------------------------------------------------------------------         
-
-Cantidad total Vendida por evento 1
-
-……...
-
-……...
-
-……..
-
-
-NOMBRE Evento N
-
-Fecha función 1
-
-Sector 1                                 Cantidad Vendida
-
-
-Sector N                                 Cantidad Vendida
-
-----------------------------------------------------------------------------------------------
-
-            Cantidad Total de Entradas Vendidas por función 1
-
-Fecha función N
-
-Sector 1                                 Cantidad Vendida
-
-
-Sector N                                 Cantidad Vendida
-
-----------------------------------------------------------------------------------------------
-
-            Cantidad Total de Entradas Vendidas por función N 
-
--------------------------------------------------------------------------------------------------------         
-
-Cantidad total Vendida por evento N
+procedure merge(var m:maestro;var vd:vector_detalle;var vdr:vector_detalle_registro);
+var
+    min:carrera;
+    datoM:registroM;
+    actual:carrera;
+begin
+    Rewrite(m); ResetDetalles(vd,vdr);
+    minimo(vd,vdr,min);
+    while (min.dni <> VA) do
+    begin
+        actual:=min;
+        while actual.dni = min.dni do
+        begin
+            datoM.kms_total:= datoM.kms_total + min.kms;
+            datoM.ganadas:= datoM.ganadas + min.ganoSiNo;
+            minimo(vd,vdr,min);
+        end;
+        write(m,datoM);
+    end;
+    Close(m); CloseDetalle(vd);
+end;
+var
+    m:maestro;
+    vd:vector_detalle;
+    vdr:vector_detalle_registro;
+begin
+    Assign(m,'maestro.data');
+    merge(m,vd,vdr);
+end.
+```
