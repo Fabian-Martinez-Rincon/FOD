@@ -589,3 +589,21 @@ end;
 
 
 </details>
+
+
+![image](https://user-images.githubusercontent.com/55964635/176021332-be5b11a7-2ca2-4d1d-b828-e3f9247a397d.png)
+
+```Pascal
+type
+    registroM = record
+        cod_prenda:integer;
+        descripcion:string;
+        colores:string;
+        tipo_prenda:string;
+        stock:integer;
+        precio_unitario:real;
+    end;
+    registroM = record
+        cod_prenda:integer;
+    end;
+```
