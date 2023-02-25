@@ -9,8 +9,6 @@
 - [Vectores 📚](/Documentos/Codigos/Vectores.md)
 - [Arboles 🌳](/Documentos/Codigos/Arboles.md)
 - [Archivos 📁](/Documentos/Codigos/Archivos.md)
-- [Indices 👈🏼](/Documentos/Codigos/Indices.md)
-- [Hashing #️⃣](/Documentos/Codigos/Hashing.md)
 
 </td><td>
  
