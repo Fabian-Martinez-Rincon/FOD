@@ -2,7 +2,7 @@
 </h1>
 
 
-<table><tr><td> Codigos </td> <td> Practicas </td><td> Teoria </td><td> Parciales </td></tr>
+<table><tr><td> Codigos </td> <td> Practicas </td><td> Parciales </td></tr>
 <tr><td>
  
 - [Listas 🧾](/Documentos/Codigos/Listas.md)
@@ -17,12 +17,6 @@
 - [Practica 3](/Documentos/Practicas/Practica3.md)
 - [Practica 4](/Documentos/Practicas/Practica4.md)
  
-</td><td>
-
-- [Archivos 📁](/Documentos/Teoria/Archivos.md)
-- [Arboles 🌳](/Documentos/Teoria/Arboles.md)
-- [Hashing #️⃣](/Documentos/Teoria/Hashing.md)
-
 </td><td>
 
 - [Archivos 📁](/Documentos/ParArchivos.md)
