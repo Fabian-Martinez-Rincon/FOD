@@ -1,6 +1,7 @@
 <h1 align="center"><img src="https://media.giphy.com/media/sXD7snjkFWKaWzNt9D/giphy.gif" height="38" /> FOD </a>
 </h1>
 
+- [Resumen teorico](https://inakilapeyre.notion.site/inakilapeyre/Fundamentos-de-Organizaci-n-de-Datos-b2375e1e8e2c441693bb98c470261c69)
 
 <table><tr><td> Codigos </td> <td> Practicas </td><td> Parciales </td></tr>
 <tr><td>
