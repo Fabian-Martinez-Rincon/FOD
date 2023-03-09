@@ -1,28 +1,26 @@
 <h1 align="center"><img src="https://media.giphy.com/media/sXD7snjkFWKaWzNt9D/giphy.gif" height="38" /> FOD </a>
 </h1>
 
+<div align='center'>
+<img src='https://media.giphy.com/media/N3yLGQ1oMYfGU/giphy.gif'>
+</div>
+
+<img src= 'https://i.gifer.com/origin/8c/8cd3f1898255c045143e1da97fbabf10_w200.gif' height="20" width="100%">
+
 - [Resumen teorico](https://inakilapeyre.notion.site/inakilapeyre/Fundamentos-de-Organizaci-n-de-Datos-b2375e1e8e2c441693bb98c470261c69)
-
-<table><tr><td> Codigos </td> <td> Practicas </td><td> Parciales </td></tr>
-<tr><td>
- 
-- [Listas 🧾](/Documentos/Codigos/Listas.md)
-- [Vectores 📚](/Documentos/Codigos/Vectores.md)
-- [Arboles 🌳](/Documentos/Codigos/Arboles.md)
-- [Archivos 📁](/Documentos/Codigos/Archivos.md)
-
-</td><td>
- 
+- [🧾 Listas](/Documentos/Codigos/Listas.md)
+- [📚 Vectores](/Documentos/Codigos/Vectores.md)
+- [🌳 Arboles](/Documentos/Codigos/Arboles.md)
+- [📁 Archivos](/Documentos/Codigos/Archivos.md)
+- [📁 Archivos Parcial](/Documentos/ParArchivos.md)
 - [Practica 1](/Documentos/Practicas/Practica1Nueva.md)
 - [Practica 2](/Documentos/Practicas/Practica2.md)
 - [Practica 3](/Documentos/Practicas/Practica3.md)
 - [Practica 4](/Documentos/Practicas/Practica4.md)
- 
-</td><td>
 
-- [Archivos 📁](/Documentos/ParArchivos.md)
 </td></tr></table>
 
+<img src= 'https://i.gifer.com/origin/8c/8cd3f1898255c045143e1da97fbabf10_w200.gif' height="20" width="100%">
 
 
 # Parciales de archivos
