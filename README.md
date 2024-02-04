@@ -1107,6 +1107,8 @@ La estructura intermedia resultante se denomina árbol B+ e incorpora las caract
 
 </table>
 
+> Es esta última propiedad la que establece la principal diferencia entre un árbol B y un árbol B+. Para poder realizar acceso secuencial ordenado a todos los registros del archivo, es necesario que cada elemento (clave asociada a un registro de datos) aparezca almacenado en un nodo terminal. Así, los árboles B+ diferencian los elementos que constituyen datos de aquellos que son separadores
+
 Un Arbol B+ 
 
 - [ ] a. Siempre tiene más claves que un árbol B, para el mismo archivo de datos 
