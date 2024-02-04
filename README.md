@@ -53,7 +53,7 @@
 > [!IMPORTANT]  
 > Siempre se selecciona UNA SOLA respuesta
 
-<table><tr><td>Registro de Longitud Fija</td><td>Registro de Longitud Variable</td></tr>
+<table><tr><th>Registro de Longitud Fija</th><th>Registro de Longitud Variable</th></tr>
 
 <tr><td>
 
@@ -134,5 +134,51 @@ Un archivo con registro de longitud fija
 La respuesta correcta es: Ninguna de las anteriores 
 
 No es puede tener registros del mismo tamaño, es DEBE tener registros del mismo tamaño (Estricto)
+
+</details>
+
+---
+
+<table>
+<tr>
+<th>Maestro</th>
+<th>Detalle</th>
+
+</tr>
+<tr>
+<td>
+Archivo que resume información sobre un dominio de problema específico. 
+
+Ejemplo: el archivo de productos de una empresa que contiene el stock actual de cada producto.
+</td>
+<td>
+
+Archivo que contiene novedades o movimientos realizados sobre la información almacenada en el maestro. 
+
+Ejemplo: el archivo con todas las ventas de los productos de la empresa realizadas en un
+</td>
+</tr>
+
+</table>
+
+Para realizar un algoritmo de actualización maestro-detalle 
+
+- [ ] a. Se requiere al menos 2 archivos. 
+- [ ] b. Se requiere que los archivos estén ordenados 
+- [ ] c. Se requiere que los archivos estén desordenados 
+- [ ] d. Se requiere que al menos uno de los archivos esté ordenado 
+- [ ] e. Se requiere que los archivos tengan la misma estructura 
+- [ ] f. Algunas de las anteriores 
+- [ ] g. Ninguna de las anteriores 
+
+ 
+<details><summary>👀 Respuesta</summary>
+
+La respuesta correcta es: Se requiere al menos 2 archivos. 
+
+> El contenido de un archivo será modificado por el contenido de otro 
+archivo.
+
+
 
 </details>
