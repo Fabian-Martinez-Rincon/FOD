@@ -46,6 +46,8 @@
 > [!NOTE]  
 > Es un recopilatorio de preguntas que estan marcadas por la catedra
 
+## Temario de Preguntas
+
 - [Archivos](#archivos)
 - [Indices](#indices)
 - [Arboles](#arboles)
