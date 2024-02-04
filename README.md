@@ -930,6 +930,26 @@ En un índice secundario
 <details><summary>👀 Respuesta</summary>
 ninguna de las anteriores son validas
 
-En comparacíon nunca es mas rapido que un indice primario ya que se requieren dos accesos desde un indice secundario, mientras que desde un indice primario solo se requiere uno
+> En comparacíon nunca es mas rapido que un indice primario ya que se requieren dos accesos desde un indice secundario, mientras que desde un indice primario solo se requiere uno
 
 </details>
+
+---
+
+Sea un problema donde un indice correspondiente a una clave unívoca se implementa como un arbol balanceado. 
+
+- [ ] a. el archivo de datos debe ser de registros de longitud fija 
+- [ ] b. el archivo de datos puede ser de registros de longitud variable 
+- [ ] c. el archivo de datos no puede admitir bajas con recuperación de espacio 
+- [ ] d. las opciones a y b son correctas 
+- [ ] e. las opciones a y c son correctas 
+- [ ] f. las opciones b y c son correctas 
+- [ ] g. ninguna opción es correcta 
+
+<details><summary>👀 Respuesta</summary>
+el archivo de datos puede ser de registros de longitud variable
+
+> El archivo de datos puede tener cualquier tipo de registros, no importa
+</details>
+
+---
