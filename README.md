@@ -312,3 +312,204 @@ Ninguna de las anteriores
 
 > Es ninguna porque no existe recuperación de espacio con altas, es reasignación de espacio
 </details>
+
+---
+
+El proceso de baja lógica
+
+- [ ] a. Esta diseñado para borrar un registro de un archivo 
+- [ ] b. Necesita que el archivo este ordenado 
+- [ ] c. Necesita que el archivo este desordenado 
+- [ ] d. Se aplica solamente a archivos con registros con longitud fija 
+- [ ] e. Se aplica solamente a archivos con registros con longitud variable 
+- [ ] f. Todas las anteriores 
+- [ ] g. Alguna de las anteriores
+
+<details><summary>👀 Respuesta</summary>
+Esta diseñado para borrar un registro de un archivo
+</details>
+
+---
+
+Mientras que con registros de longitud fija los elementos a eliminar e insertar son del mismo tamaño, utilizando registros de longitud variable esta precondición no está presente. Para insertar un elemento no basta con disponer de lugar; es necesario, además, que el lugar sea del tamaño suficiente
+
+El proceso de inserción debe localizar el lugar dentro del archivo más  adecuado al nuevo elemento. Existen tres formas genéricas para la  selección de este espacio:
+
+<table>
+  <tr>
+    <th>Primer ajuste</th>
+    <th>Mejor ajuste</th>
+    <th>Peor ajuste</th>
+  </tr>
+  <tr>
+    <td>Consiste en seleccionar el primer espacio disponible donde quepa el registro a insertar.</td>
+    <td>Consiste en seleccionar el espacio más adecuado para el registro. Se considera el espacio más adecuado como aquel de menor tamaño donde quepa el registro.</td>
+    <td>Consiste en seleccionar el espacio de mayor tamaño, asignando para el registro solo los bytes necesarios</td>
+  </tr>
+</table>
+
+La tecnica de primer ajuste 
+
+- [ ] a. asigna un registro nuevo (alta) en un la posición que quepa de tamaño menor 
+- [ ] b. asigna un registro nuevo (alta) en un la posición que quepa de tamaño mayor 
+- [ ] c. asigna el registro al final del archivo si no hay lugar en posiciones intermedias 
+- [ ] d. Todas las anteriores son correctas 
+- [ ] e. Algunas de las respuestas anteriores son correctas 
+- [ ] f. Ninguna de las respuestas anteriores son validas 
+
+
+<details><summary>👀 Respuesta</summary>
+Asigna el registro al final del archivo si no hay lugar en posiciones intermedias
+</details>
+
+---
+
+La técnica de altas reutilizando espacio borrado, conocida como mejor ajuste, en archivos de longitud fija: 
+
+- [ ] a. asigna al registro en el primer espacio que encuentra donde quepa 
+- [ ] b. asigna el registro en el espacio donde quepa, de tamaño menor 
+- [ ] c. asigna el registro en el espacio donde quepa, de tamaño mayor 
+- [ ] d. algunas de las anteriores 
+- [ ] e. Ninguna de las anteriores 
+
+<details><summary>👀 Respuesta</summary>
+Ninguna de las anteriores
+
+> Las tecnicas de **Ajustes** solo se dan en archivos de longitud variable
+</details>
+
+---
+
+> [!CAUTION]
+> No tengo mucha idea sobre la justificación
+
+Dado un archivo con registros de longitud fija. Suponga que tiene un indice correspondiente a una clave univoca. 
+
+Suponga que se crea un arbol de orden 200 para almacenar ese indice univoca. Si archivo y el arbol generado tuvieran 300 elementos insertados entonces: 
+
+- a. si se creara un arbol b tendria la misma altura que crear un arbol b* 
+- b. si se creara un arbol b tendria mayor altura que un arbol b* 
+- c. si se creara un arbol b tendria menor altura que un arbol b* 
+- d. no tengo datos suficientes para contestar la pregunta 
+
+<details><summary>👀 Respuesta</summary>
+si se creara un arbol b tendria la misma altura que crear un arbol b* 
+</details>
+
+
+---
+
+> [!CAUTION]
+> Dudas sobre la respuesta dada
+
+Una clave permite
+
+- [ ] a. identificar un elemento particular dentro de un archivo 
+- [ ] b. reconocer un conjunto de elementos con igual valor 
+- [ ] c. ordenar logicamente al archivo por los atributos que la componen 
+- [ ] d. todas las anteriores son validas 
+- [ ] e. algunas de las anteriores son validas 
+- [ ] f. ninguna de las anteriores es valida 
+
+<details><summary>👀 Respuesta</summary>
+algunas de las anteriores son valida
+
+> La **a** sabes que es, pero con las otras dos tengo dudas
+</details>
+
+---
+
+El acceso promedio para recuperar un dato en un archivo desordenado
+
+- [ ] a. Tiene orden lineal. 
+- [ ] b. Tiene orden logarítmico. 
+- [ ] c. Tiene orden constante (uno). 
+- [ ] d. Las opciones a y b son correctas. 
+- [ ] e. Ninguna opción es correcta. 
+
+<details><summary>👀 Respuesta</summary>
+Tiene orden lineal.
+</details>
+
+---
+
+El concepto de framentación externa en un archivo
+
+- [ ] a. Se da solo en registros de longitud fija 
+- [ ] b. Se da solo en registros de longitud variable 
+- [ ] c. Se da en archivos ordenados de longitud variable 
+- [ ] d. Se debe analizar solamente en archivos ordenados de longitud fija 
+- [ ] e. Algunas de las anteriores 
+- [ ] f. Ninguna de las anteriores 
+
+<details><summary>👀 Respuesta</summary>
+Se da solo en registros de longitud variable
+</details>
+
+---
+
+El proceso de alta de registro por ajuste optimo
+
+- [ ] a. Se puede realizar con registros de longitud fija 
+- [ ] b. Se debe realizar con registros de longitud fija 
+- [ ] c. Se puede realizar con registros de longitud variable 
+- [ ] d. Se debe realizar con registros de longitud variable 
+- [ ] e. Ninguna de las anteriores 
+
+<details><summary>👀 Respuesta</summary>
+Ninguna de las anteriores
+
+> No existe el ajusto optimo, troleado :,(
+</details>
+
+---
+
+En el caso de realizar una alta de un registro
+
+- [ ] a. se reaprovecha algún espacio de registro dado de baja previamente 
+- [ ] b. se puede reaprovechar algún espacio de registro dado de baja previamente 
+- [ ] c. se debe reaprovechar si los registros son de longitud fija 
+- [ ] d. se debe reaprovechar si los registros son de longitud variable 
+- [ ] e. algunas de las anteriores son correctas 
+- [ ] f. ninguna de las anteriores son correctas
+
+<details><summary>👀 Respuesta</summary>
+se puede reaprovechar algún espacio de registro dado de baja previamente 
+</details>
+
+---
+
+La tecnica de primer ajuste
+
+- [ ] a. permite borrar elementos de un archivo que contiene registros de longitud fija 
+- [ ] b. permite borrar elementos de un archivo que contiene registros de longitud variable 
+- [ ] c. permite hacer baja logica 
+- [ ] d. permite hacer baja fisica 
+- [ ] e. Algunas de las respuestas anteriores son correctas 
+- [ ] f. Ninguna de las respuestas anteriores son validas
+
+<details><summary>👀 Respuesta</summary>
+Ninguna de las respuestas anteriores son validas
+
+> LAS TECNICAS SON DE ALTAS NO DE BAJAS!!!!!!!!
+</details>
+
+---
+
+La tecnica de mejor ajuste
+
+- [ ] a. permite borrar elementos de un archivo que contiene registros de longitud fija 
+- [ ] b. permite borrar elementos de un archivo que contiene registros de longitud variable 
+- [ ] c. permite hacer baja logica 
+- [ ] d. permite hacer baja fisica 
+- [ ] e. Algunas de las respuestas anteriores son correctas 
+- [ ] f. Ninguna de las respuestas anteriores son validas
+
+<details><summary>👀 Respuesta</summary>
+Ninguna de las respuestas anteriores son validas
+
+> LAS TECNICAS SON DE ALTAS NO DE BAJAS!!!!!!!!
+
+![image](https://github.com/Fabian-Martinez-Rincon/Fabian-Martinez-Rincon/assets/55964635/067569cb-254f-4e1f-9077-001fc7601638)
+
+</details>
