@@ -47,13 +47,28 @@
 
 ## Archivos
 
+<table><tr><td>Registro de Longitud Fija</td><td>Registro de Longitud Variable</td></tr>
+
+<tr><td></td><td></td></tr>
+</table>
+
 
 Un archivo con registro de longitud variable
 
-- [x] a. Puede estar ordenado por algun criterio 
-- [x] b. Debe estar ordenado por algun criterio 
-- [x] c. Nunca puede ordenarse por algun criterio 
+- [ ] a. Puede estar ordenado por algun criterio 
+- [ ] b. Debe estar ordenado por algun criterio 
+- [ ] c. Nunca puede ordenarse por algun criterio 
 - [ ] d. Puede tener un carácter delimitador, por ejemplo & 
 - [ ] e. Algunas de las anteriores 
 - [ ] f. Ninguna de las anteriores 
+
+<details><summary>👀 Respuesta</summary>
+
+Algunas de las anteriores
+
+> [!NOTE]  
+> Es un recopilatorio de preguntas que estan marcadas por la catedra
+
+
+</details>
 
