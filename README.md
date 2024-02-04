@@ -49,7 +49,26 @@
 
 <table><tr><td>Registro de Longitud Fija</td><td>Registro de Longitud Variable</td></tr>
 
-<tr><td></td><td></td></tr>
+<tr><td>
+
+- Información siempre homogénea
+    - Enteros (2bytes)
+    - Caracteres (1bytes)
+    - Registro (Suma de los campos)
+- Altas y Bajas más comodas
+- Desperdicio de espacio (en grandes cantidades)
+- Lectura y Escritura más rápida
+
+</td><td>
+
+- Marca de fin del archivo (EOF)
+- Cada campo debe descomponerse 
+    - caracter x caracter
+    - cifra x cifra
+- Delimitador para Campos # y Registros @ 
+- Lectura y Escritura más lenta (de a un caracter)
+
+</td></tr>
 </table>
 
 
