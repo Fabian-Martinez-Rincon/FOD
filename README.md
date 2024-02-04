@@ -1054,7 +1054,17 @@ ninguna de las anteriores
 - H : Altura del árbol
 
 > La eficiencia de búsqueda en un árbol B consiste en contar los 
-accesos al archivo de datos, que se requieren para localizar un elemento o para determinar que el elemento no se encuen
+accesos al archivo de datos, que se requieren para localizar un elemento o para determinar que el elemento no se encuen
+
+### Propiedades que comparten los 3 tipos de arboles
+
+> [!WARNING]  
+> En Arboles B se habla sobre descendientes directos mientras que en B* y B+ se habla sobre descendientes (SOLO)
+
+- **1)** Cada nodo del árbol puede contener, como máximo, M descendientes y M-1 elementos.
+- **2)** La raíz no posee descendientes directos o tiene al menos dos.
+- **3)** Un nodo con x descendientes directos contiene x-1 elementos.
+- **6)** Todos los nodos terminales se encuentran al mismo nivel.
 
 <table>
 <tr><th>Árboles B</th><th>Árboles B* (Variante del B)</th><th>Árboles B+</th></tr>
@@ -1074,32 +1084,22 @@ La estructura intermedia resultante se denomina árbol B+ e incorpora las caract
 <tr>
 <td>
 
-- **1)** Cada nodo del árbol puede contener, como máximo, M descendientes y M-1 elementos.
-- **2)** La raíz no posee descendientes directos o tiene al menos dos.
-- **3)** Un nodo con x descendientes directos contiene x-1 elementos.
+
 - **4)** Los nodos terminales (hojas) tienen, como mínimo, [M/2] – 1 elementos, y como máximo, M-1 elementos.
 - **5)** Los nodos que no son terminales ni raíz tienen, como mínimo, [M / 2] elementos.
-- **6)** Todos los nodos terminales se encuentran al mismo nivel.
+
 
 </td>
 <td>
 
-- **1)** Cada nodo del árbol puede contener, como máximo, M descendientes y M-1 elementos.
-- **2)** La raíz no posee descendientes o tiene al menos dos.
-- **3)** Un nodo con x descendientes contiene x-1 elementos.
 - **4)** Los nodos terminales tienen, como mínimo, [(2M-1)/3] -1 elementos, y como máximo, M-1 elementos.
 - **5)** Los nodos que no son terminales ni raíz tienen, como mínimo, [(2M-1) / 3] descendientes.
-- **6)** Todos los nodos terminales se encuentran al mismo nivel.
 
 </td>
 <td>
 
-- **1)** Cada nodo del árbol puede contener, como máximo, M descendientes y M-1 elementos.
-- **2)** La raíz no posee descendientes o tiene al menos dos.
-- **3)** Un nodo con x descendientes contiene x-1 elementos.
 - **4)** Los nodos terminales tienen, como mínimo, ([M/2] – 1) elementos, y como máximo, M-1 elementos.
 - **5)** Los nodos que no son terminales ni raíz tienen, como mínimo, [M/2] descendientes.
-- **6)** Todos los nodos terminales se encuentran al mismo nivel.
 - **7)** Los nodos terminales representan un conjunto de datos y son enlazados entre ellos.
 
 </td>
