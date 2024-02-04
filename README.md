@@ -35,7 +35,7 @@
 # Finales 
 
 > [!NOTE]  
-> Las preguntas estan marcadas por la catedra
+> Es un recopilatorio de preguntas que estan marcadas por la catedra
 
 - [Archivos]()
 - [Indices]()
