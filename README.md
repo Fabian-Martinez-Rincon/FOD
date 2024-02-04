@@ -1109,6 +1109,7 @@ La estructura intermedia resultante se denomina árbol B+ e incorpora las caract
 
 > Es esta última propiedad la que establece la principal diferencia entre un árbol B y un árbol B+. Para poder realizar acceso secuencial ordenado a todos los registros del archivo, es necesario que cada elemento (clave asociada a un registro de datos) aparezca almacenado en un nodo terminal. Así, los árboles B+ diferencian los elementos que constituyen datos de aquellos que son separadores
 
+
 Un Arbol B+ 
 
 - [ ] a. Siempre tiene más claves que un árbol B, para el mismo archivo de datos 
@@ -1122,3 +1123,20 @@ Un Arbol B+
 <details><summary>👀 Respuesta</summary>
 Ninguna de las anteriores
 </details>
+
+---
+
+> [!NOTE]
+> EL PREFIJO SIMPLE ES SOLO DEL B+
+
+El agregado de la opción prefijos simples a un árbol B+ intenta 
+aprovechar mejor el uso de espacio físico
+
+Un árbol B+ de prefijos simples es un árbol B+ donde los separadores están representados por la mínima expresión posible de la clave, que permita decidir si la búsqueda se realiza hacia la izquierda o hacia la derecha.
+
+| Arbol B+ | Arbol B+ de prefijos simples |
+| ![image](https://github.com/Fabian-Martinez-Rincon/Fabian-Martinez-Rincon/assets/55964635/eb40a046-7ed1-4a72-a5ac-f4e3587cf20a) | ![image](https://github.com/Fabian-Martinez-Rincon/Fabian-Martinez-Rincon/assets/55964635/3c44cefd-1bcd-4b3a-90ea-1f4c202b0293) |
+
+---
+
+Suponga que el nodo terminal de un arbol B+ de prefijos simples de orden 7 tiene las claves 
