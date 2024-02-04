@@ -31,6 +31,9 @@
 
 <img src= 'https://i.gifer.com/origin/8c/8cd3f1898255c045143e1da97fbabf10_w200.gif' height="20" width="100%">
 
+> [!IMPORTANT]  
+> Las justificaciones son en base a mi criterio y tratando de reforsar con el libro (Puede haber errores)
+
 
 # Finales 
 
@@ -51,6 +54,7 @@
 
 <tr><td>
 
+- Marca de fin del archivo (EOF)
 - Información siempre homogénea
     - Enteros (2bytes)
     - Caracteres (1bytes)
@@ -86,7 +90,7 @@ Un archivo con registro de longitud variable
 Algunas de las anteriores
 
 > [!NOTE]  
-> Es un recopilatorio de preguntas que estan marcadas por la catedra
+> 
 
 
 </details>
