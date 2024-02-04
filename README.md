@@ -519,3 +519,212 @@ Ninguna de las respuestas anteriores son validas
 ![image](https://github.com/Fabian-Martinez-Rincon/Fabian-Martinez-Rincon/assets/55964635/067569cb-254f-4e1f-9077-001fc7601638)
 
 </details>
+
+---
+
+El algoritmo de actualizacion maestro – detalle 
+
+- [ ] a. Solo se puede implementar si los archivos (maestro y detalles) estan ordenados 
+- [ ] b. Solo se puede implementar si el archivo maestro esta ordenado 
+- [ ] c. Solo se puede implementar si los archivos detalles estan ordenados 
+- [ ] d. Solo se puede implementar si los archivos (maestro y detalles) estan desordenados 
+- [ ] e. Todas las anteriores 
+- [ ] f. Algunas de las anteriores 
+- [ ] g. Ninguna de las anteriores 
+
+<details><summary>👀 Respuesta</summary>
+Ninguna de las anteriores
+
+> NO IMPORTA ABSOLUTAMENTE NINGUN TIPO DE ORDEN (SI ESO)
+</details>
+
+---
+
+Fragmentación interna es:
+
+- [ ] a. aquella que se produce cuando un elemento de dato se le asigna mayor espacio del necesario 
+- [ ] b. el espacio disponible entre dos registros, disponible pero no utilizado 
+- [ ] c. el espacio disponible entre dos registros, disponible y utilizado 
+- [ ] d. algunas de las anteriores defienen fragmentación interna 
+- [ ] e. ninguna de las anteriores es correcta 
+
+<details><summary>👀 Respuesta</summary>
+aquella que se produce cuando un elemento de dato se le asigna mayor espacio del necesario
+</details>
+
+---
+
+> CUALQUIER TIPO DE ARCHIVOS PUEDEN TENER CUALQUIER TIPO DE REGISTROS (Fija o Variable)
+
+Un archivo directo
+
+- [ ] a. debe contener registros de longitud fija 
+- [ ] b. debe contener registros de longitud variable 
+- [ ] c. puede contener registros de longitud fija 
+- [ ] d. puede contener registros de longitud variable 
+- [ ] e. permite que a y b sean correctas 
+- [ ] f. permite que a y c sean correctas 
+- [ ] g. permite que c y d sean correctas 
+- [ ] h. permite que b y d sean correctas 
+
+<details><summary>👀 Respuesta</summary>
+Permite que c y d sean correctas
+</details>
+
+---
+
+<table>
+<tr><th>Archivo directo</th><th>Archivo serie</th></tr><tr>
+<td>
+
+Es un archivo en el cual cualquier registro puede ser accedido sin acceder antes a otros registros, es decir, cualquier registro puede ser accedido directamente
+
+</td>
+<td>
+
+En cambio, un registro está disponible solo cuando el 
+registro predecesor fue procesado
+</td>
+</tr>
+
+</table>
+
+Un archivo directo
+
+a. permite acceso secuencial unicamente 
+b. permite acceso secuencia indizado 
+c. permite acceso directo 
+d. respeta a, b y c 
+e. no tengo datos suficientes para contestar 
+
+<details><summary>👀 Respuesta</summary>
+permite acceso directo
+</details>
+
+---
+
+Para que tenga sentido un algoritmo de corte de control 
+
+- [ ] a. El archivo no necesita estar ordenado 
+- [ ] b. El archivo puede estar ordenado 
+- [ ] c. El archivo puede estar organizado por dispersión 
+- [ ] d. El archivo debe estar organizado por dispersión 
+- [ ] e. El archivo necesita al menos un índice asociado 
+- [ ] f. Algunas de las anteriores 
+- [ ] g. Ninguna de las anteriores 
+
+<details><summary>👀 Respuesta</summary>
+Ninguna de las anteriores
+</details>
+
+---
+
+Para realizar un algoritmo de actualización maestro-detalle
+
+- [ ] a. Se requiere al menos 2 archivos. 
+- [ ] b. Se requiere que los archivos estén ordenados 
+- [ ] c. Se requiere que los archivos estén desordenados 
+- [ ] d. Se requiere que al menos uno de los archivos esté ordenado 
+- [ ] e. Se requiere que los archivos tengan la misma estructura 
+- [ ] f. Algunas de las anteriores 
+- [ ] g. Ninguna de las anteriores
+
+<details><summary>👀 Respuesta</summary>
+Se requiere al menos 2 archivos.
+</details>
+
+---
+
+El acceso promedio para recuperar un dato en un archivo desordenado: 
+
+- [ ] a. Tiene orden lineal. 
+- [ ] b. Tiene orden logarítmico. 
+- [ ] c. Tiene orden constante (uno). 
+- [ ] d. Las opciones a y b son correctas. 
+- [ ] e. Ninguna opción es correcta. 
+
+<details><summary>👀 Respuesta</summary>
+Tiene orden lineal.
+</details>
+
+---
+
+Un algoritmo de corte de control 
+
+- [ ] a. Se puede aplicar sobre un archivo con registros de longitud fija 
+- [ ] b. Se puede aplicar sobre un archivo con registros de longitud variable 
+- [ ] c. Se aplica sobre un archivo con registros de longitud fija 
+- [ ] d. Se aplica sobre un archivo con registros de longitud variable 
+- [ ] e. Todas las anteriores son correctas 
+- [ ] f. Algunas de las anteriores son correctas 
+- [ ] g. Ninguna de las anteriores son correctas 
+
+<details><summary>👀 Respuesta</summary>
+Algunas de las anteriores son correctas
+
+> Al corte de control le importa un bledo como esten los registros, solo nos importa el contenido
+</details>
+
+---
+
+El acceso promedio para recuperar un dato en un archivo desordenado:
+
+- [ ] a. Puede tener orden lineal. 
+- [ ] b. Puede tener orden logarítmico. 
+- [ ] c. Tiene orden constante (uno). 
+- [ ] d. Las opciones a y b son correctas. 
+- [ ] e. Ninguna opción es correcta. 
+
+<details><summary>👀 Respuesta</summary>
+
+Ninguna opción es correcta
+
+> NO ES **Puede tener orden lineal.** ES **Tiene orden lineal.**
+</details>
+
+---
+
+> [!CAUTION]
+> La respuesta es rara
+
+El proceso de merge de archivos
+
+- [ ] a. Requiere que todos los archivos estén ordenados 
+- [ ] b. Requiere que todos los archivos estén ordenados por el mismo criterio XXXX
+- [ ] c. Puede realizarse con los archivos ordenados 
+- [ ] d. No puede realizarse sin los archivos ordenados 
+- [ ] e. Algunas de las anteriores 
+- [ ] f. Ninguna de las anteriores 
+
+<details><summary>👀 Respuesta</summary>
+Puede realizarse con los archivos ordenados
+</details>
+
+---
+
+> [!NOTE]
+> En todas las tecnicas en caso de no haber lugar, la alta se realiza al final del archivo
+
+La tecnica de mejor ajuste
+
+- [ ] a. asigna un registro nuevo (alta) en un la posición que quepa de tamaño menor 
+- [ ] b. asigna un registro nuevo (alta) en un la posición que quepa de tamaño mayor 
+- [ ] c. asigna el registro al final del archivo si no hay lugar en posiciones intermedias 
+- [ ] d. Todas las anteriores son correctas 
+- [ ] e. Algunas de las respuestas anteriores son correctas 
+- [ ] f. Ninguna de las respuestas anteriores son validas 
+
+<details><summary>👀 Respuesta</summary>
+Algunas de las respuestas anteriores son correctas
+</details>
+
+---
+
+La tecnica de primer ajuste
+
+- [ ] a. se aplica a archivos con registro de longitud fija 
+- [ ] b. se aplica a archivos con registro de longitud variable 
+- [ ] c. se combina con la tecnica de baja fisica de datos 
+- [ ] d. Todas las anteriores son correctas 
+- [ ] e. Algunas de las respuestas anteriores son correctas 
+- [ ] f. Ninguna de las respuestas anteriores son validas 
