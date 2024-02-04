@@ -1057,14 +1057,20 @@ ninguna de las anteriores
 accesos al archivo de datos, que se requieren para localizar un elemento o para determinar que el elemento no se encuen
 
 <table>
-<tr><th>Árboles B</th><th>Árboles B*</th><th>Árboles B+</th></tr>
+<tr><th>Árboles B</th><th>Árboles B* (Variante del B)</th><th>Árboles B+</th></tr>
 <tr><td>
 
 Los árboles B son árboles multicamino con una construcción especial que permite mantenerlos balanceados a bajo costo.
 
 </td>
-<td>Cell 2</td>
-<td>Cell 3</td></tr>
+<td>
+
+Precisamente, la algorítmica que planteara Knuth define una alternativa para los casos de overflow. Así, antes de dividir y generar nuevos nodos se dispone de una variante, redistribuir también ante una saturación.
+</td>
+<td>
+
+La estructura intermedia resultante se denomina árbol B+ e incorpora las características discutidas para árboles B, además del tratamiento secuencial ordenado del archivo. Así, se podrán realizar búsquedas aleatorias rápidas de información, en conjunto con acceso secuencial eficiente.
+</td></tr>
 <tr>
 <td>
 
@@ -1076,17 +1082,29 @@ Los árboles B son árboles multicamino con una construcción especial que permi
 - **6)** Todos los nodos terminales se encuentran al mismo nivel.
 
 </td>
-<td>Cell 5</td>
-<td>Cell 6</td>
-</tr>
-<tr>
 <td>
 
-![image](https://github.com/Fabian-Martinez-Rincon/Fabian-Martinez-Rincon/assets/55964635/df4df6af-cfe5-498f-9f4e-24e38e5ba7d9)
+- **1)** Cada nodo del árbol puede contener, como máximo, M descendientes y M-1 elementos.
+- **2)** La raíz no posee descendientes o tiene al menos dos.
+- **3)** Un nodo con x descendientes contiene x-1 elementos.
+- **4)** Los nodos terminales tienen, como mínimo, [(2M-1)/3] -1 elementos, y como máximo, M-1 elementos.
+- **5)** Los nodos que no son terminales ni raíz tienen, como mínimo, [(2M-1) / 3] descendientes.
+- **6)** Todos los nodos terminales se encuentran al mismo nivel.
+
 </td>
-<td>Cell 8</td>
-<td>Cell 9</td>
+<td>
+
+- **1)** Cada nodo del árbol puede contener, como máximo, M descendientes y M-1 elementos.
+- **2)** La raíz no posee descendientes o tiene al menos dos.
+- **3)** Un nodo con x descendientes contiene x-1 elementos.
+- **4)** Los nodos terminales tienen, como mínimo, ([M/2] – 1) elementos, y como máximo, M-1 elementos.
+- **5)** Los nodos que no son terminales ni raíz tienen, como mínimo, [M/2] descendientes.
+- **6)** Todos los nodos terminales se encuentran al mismo nivel.
+- **7)** Los nodos terminales representan un conjunto de datos y son enlazados entre ellos.
+
+</td>
 </tr>
+
 </table>
 
 Un Arbol B+ 
