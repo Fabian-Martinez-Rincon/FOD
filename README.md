@@ -1012,3 +1012,93 @@ Puede implementarse con una estructura de datos lineal
 ---
 
 ## Arboles
+
+**Libro**
+
+> [!CAUTION]
+> Siento que faltan datos
+
+Suponga que se genera un árbol binario para implantar un indice de un archivo. El indice es por la clave unívoca legajo que ocupa 10 bytes. Entonces, cada nodo del árbol ocupara:
+
+- [ ] a. 18 bytes 
+- [ ] b. a lo sumo 18 bytes 
+- [ ] c. mas de 21 bytes 
+- [ ] d. 10 bytes 
+- [ ] e. ninguna de las anteriores 
+
+<details><summary>👀 Respuesta</summary>
+mas de 21 bytes
+</details>
+
+---
+
+> [!CAUTION]
+> Se supone que  no puede saber si un arbol tiende a llenarse?
+
+Cuando un arbol B tiende a llenarse 
+
+- [ ] a. se debe procurar mas espacio para el archivo que lo contiene, reacomodando todos los nodos 
+- [ ] b. se debe procurar mas espacio para el archivo que lo contiene, reacomodando el nodo padre y sus hermanos 
+- [ ] c. se debe procurar mas espacio para el archivo 
+- [ ] d. todas las anteriores 
+- [ ] e. algunas de las anteriores 
+- [ ] f. ninguna de las anteriores 
+
+<details><summary>👀 Respuesta</summary>
+ninguna de las anteriores
+</details>
+
+---
+
+- M : Orden del árbol
+- H : Altura del árbol
+
+> La eficiencia de búsqueda en un árbol B consiste en contar los 
+accesos al archivo de datos, que se requieren para localizar un elemento o para determinar que el elemento no se encuen
+
+<table>
+<tr><th>Árboles B</th><th>Árboles B*</th><th>Árboles B+</th></tr>
+<tr><td>
+
+Los árboles B son árboles multicamino con una construcción especial que permite mantenerlos balanceados a bajo costo.
+
+</td>
+<td>Cell 2</td>
+<td>Cell 3</td></tr>
+<tr>
+<td>
+
+- **1)** Cada nodo del árbol puede contener, como máximo, M descendientes y M-1 elementos.
+- **2)** La raíz no posee descendientes directos o tiene al menos dos.
+- **3)** Un nodo con x descendientes directos contiene x-1 elementos.
+- **4)** Los nodos terminales (hojas) tienen, como mínimo, [M/2] – 1 elementos, y como máximo, M-1 elementos.
+- **5)** Los nodos que no son terminales ni raíz tienen, como mínimo, [M / 2] elementos.
+- **6)** Todos los nodos terminales se encuentran al mismo nivel.
+
+</td>
+<td>Cell 5</td>
+<td>Cell 6</td>
+</tr>
+<tr>
+<td>
+
+![image](https://github.com/Fabian-Martinez-Rincon/Fabian-Martinez-Rincon/assets/55964635/df4df6af-cfe5-498f-9f4e-24e38e5ba7d9)
+</td>
+<td>Cell 8</td>
+<td>Cell 9</td>
+</tr>
+</table>
+
+Un Arbol B+ 
+
+- [ ] a. Siempre tiene más claves que un árbol B, para el mismo archivo de datos 
+- [ ] b. Siempre tiene más claves que un árbol B*, para el mismo archivo de datos 
+- [ ] c. Siempre es mas alto que un árbol B 
+- [ ] d. Siempre es más alto que un árbol B* 
+- [ ] e. Todas de las anteriores 
+- [ ] f. Algunas de las anteriores 
+- [ ] g. Ninguna de las anteriores 
+
+<details><summary>👀 Respuesta</summary>
+Ninguna de las anteriores
+</details>
