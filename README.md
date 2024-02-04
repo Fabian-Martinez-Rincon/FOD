@@ -50,6 +50,9 @@
 
 ## Archivos
 
+> [!IMPORTANT]  
+> Siempre se selecciona UNA SOLA respuesta
+
 <table><tr><td>Registro de Longitud Fija</td><td>Registro de Longitud Variable</td></tr>
 
 <tr><td>
@@ -89,9 +92,47 @@ Un archivo con registro de longitud variable
 
 Algunas de las anteriores
 
-> [!NOTE]  
 > a, d
-
 
 </details>
 
+---
+
+
+Un archivo en el cual se accede a un registro luego de acceder a su predecesor en orden físico 
+
+- [ ] a. puede ser un archivo serie 
+- [ ] b. puede ser un archivo secuencial 
+- [ ] c. debe ser un archivo serie 
+- [ ] d. debe ser un archivo secuencial 
+- [ ] e. algunas de las anteriores son correctas 
+- [ ] f. ninguna de las anteriores es correcta 
+
+<details><summary>👀 Respuesta</summary>
+
+Debe ser un archivo serie
+
+> Sin ningún orden preestablecido más que el físico, donde, para acceder a un registro determinado, se deben visitar todos los registros previos en el orden en que estos fueron almacenados.
+
+Secuencial es la forma de acceder a un archivo (no un tipo de archivo)
+
+</details>
+
+---
+
+Un archivo con registro de longitud fija 
+
+- [ ] a. Puede tener un delimitador de fin de registro 
+- [ ] b. Debe tener un delimitador de fin de registro 
+- [ ] c. Puede tener registros del mismo tamaño 
+- [ ] d. Puede tener registros con distinto tamaño 
+- [ ] e. Algunas de las anteriores 
+- [ ] f. Ninguna de las anteriores 
+
+<details><summary>👀 Respuesta</summary>
+
+La respuesta correcta es: Ninguna de las anteriores 
+
+No es puede tener registros del mismo tamaño, es DEBE tener registros del mismo tamaño (Estricto)
+
+</details>
