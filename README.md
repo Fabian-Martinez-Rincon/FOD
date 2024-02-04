@@ -149,13 +149,14 @@ No es puede tener registros del mismo tamaño, es DEBE tener registros del mismo
 <td>
 Archivo que resume información sobre un dominio de problema específico. 
 
+
 Ejemplo: el archivo de productos de una empresa que contiene el stock actual de cada producto.
 </td>
 <td>
 
 Archivo que contiene novedades o movimientos realizados sobre la información almacenada en el maestro. 
 
-Ejemplo: el archivo con todas las ventas de los productos de la empresa realizadas en un
+Ejemplo: el archivo con todas las ventas de los productos de la empresa realizadas en un día particular
 </td>
 </tr>
 
