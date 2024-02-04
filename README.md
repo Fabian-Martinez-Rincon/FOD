@@ -47,7 +47,7 @@
 > Es un recopilatorio de preguntas que estan marcadas por la catedra
 
 - [Archivos](#archivos)
-- [Indices]()
+- [Indices](#indices)
 - [Arboles]()
 - [Hashing]()
 
@@ -727,4 +727,165 @@ La tecnica de primer ajuste
 - [ ] c. se combina con la tecnica de baja fisica de datos 
 - [ ] d. Todas las anteriores son correctas 
 - [ ] e. Algunas de las respuestas anteriores son correctas 
+- [ ] f. Ninguna de las respuestas anteriores son validas
+
+<details><summary>👀 Respuesta</summary>
+Se aplica a archivos con registro de longitud variable 
+</details>
+
+---
+
+La tecnica de mejor ajuste
+
+- [ ] a. permite borrar elementos de un archivo que contiene registros de longitud fija 
+- [ ] b. permite borrar elementos de un archivo que contiene registros de longitud variable 
+- [ ] c. permite hacer baja logica 
+- [ ] d. permite hacer baja fisica 
+- [ ] e. Algunas de las respuestas anteriores son correctas 
 - [ ] f. Ninguna de las respuestas anteriores son validas 
+
+<details><summary>👀 Respuesta</summary>
+Ninguna de las respuestas anteriores son validas
+
+> LAS TECNICAS SON DE ALTAS NO DE BAJAS!!!!!!!!
+
+![image](https://github.com/Fabian-Martinez-Rincon/Fabian-Martinez-Rincon/assets/55964635/067569cb-254f-4e1f-9077-001fc7601638)
+
+</details>
+
+---
+
+El proceso de alta de registro por Peor Ajuste
+
+- [ ] a. Se puede realizar con registros de longitud fija
+- [ ] b. Se debe realizar con registros de longitud fija
+- [ ] c. Se puede realizar con registros de longitud variable 
+- [ ] d. Se debe realizar con registros de longitud variable
+- [ ] e. Ninguna de las anteriores
+
+<details><summary>👀 Respuesta</summary>
+Se debe realizar con registros de longitud variable
+</details>
+
+---
+
+Para que tenga sentido un algoritmo de corte de control 
+
+- [ ] a. El archivo debe estar ordenado 
+- [ ] b. El archivo puede estar ordenado 
+- [ ] c. El archivo puede estar organizado por dispersión 
+- [ ] d. El archivo debe estar organizado por dispersión 
+- [ ] e. El archivo necesita al menos un índice asociado 
+- [ ] f. Algunas de las anteriores
+- [ ] g. Ninguna de las anteriores
+
+<details><summary>👀 Respuesta</summary>
+El archivo debe estar ordenado 
+</details>
+
+---
+
+> [!CAUTION]
+> Puede ser serie y secuencial pero pensaba que solo existian archivos serie y secuencial es solo un tipo de acceso
+
+Un archivo en el cual se accede a un registro luego de acceder a su predecesor en algún orden 
+
+- [ ] a. puede ser un archivo serie 
+- [ ] b. puede ser un archivo secuencial 
+- [ ] c. debe ser un archivo serie 
+- [ ] d. debe ser un archivo secuencial 
+- [ ] e. algunas de las anteriores son correctas 
+- [ ] f. ninguna de las anteriores es correcta 
+
+<details><summary>👀 Respuesta</summary>
+Algunas de las anteriores son correctas
+</details>
+
+---
+
+El concepto de framentación interna en un archivo
+
+- [ ] a. Se puede dar solo en registros de longitud fija 
+- [ ] b. Se puede dar solo en registros de longitud variable 
+- [ ] c. Se puede dar solo en archivos ordenados de longitud variable 
+- [ ] d. Se puede analizar solamente en archivos ordenados de longitud fija 
+- [ ] e. Algunas de las anteriores 
+- [ ] f. Ninguna de las anteriores 
+
+<details><summary>👀 Respuesta</summary>
+Ninguna de las anteriores
+</details>
+
+---
+
+La tecnica de primer ajuste 
+
+- [ ] a. permite borrar elementos de un archivo que contiene registros de longitud fija 
+- [ ] b. permite borrar elementos de un archivo que contiene registros de longitud variable 
+- [ ] c. permite hacer baja logica 
+- [ ] d. permite hacer baja fisica 
+- [ ] e. Algunas de las respuestas anteriores son correctas 
+- [ ] f. Ninguna de las respuestas anteriores son validas 
+
+<details><summary>👀 Respuesta</summary>
+
+Ninguna de las respuestas anteriores son validas
+
+> LAS TECNICAS SON DE ALTAS NO DE BAJAS!!!!!!!!
+
+</details>
+
+---
+
+El proceso de baja lógica 
+
+- [ ] a. Esta diseñado para borrar un registro de un archivo 
+- [ ] b. Necesita que el archivo este ordenado 
+- [ ] c. Necesita que el archivo este desordenado 
+- [ ] d. Se aplica solamente a archivos con registros con longitud fija 
+- [ ] e. Se aplica solamente a archivos con registros con longitud variable 
+- [ ] f. Todas las anteriores 
+- [ ] g. Alguna de las anteriores 
+
+<details><summary>👀 Respuesta</summary>
+Esta diseñado para borrar un registro de un archivo
+</details>
+
+---
+
+> [!CAUTION]
+> Necesito otro confirmación je
+
+El proceso de alta de registro con recuperación de espacio 
+
+- [ ] a. Se debe realizar con registros de longitud variable 
+- [ ] b. Se debe realizar con registros de longitud fija 
+- [ ] c. Se realiza sólo con registros de longitud fija 
+- [ ] d. Se realiza solo con registros de longitud variable 
+- [ ] e. Ninguna de las anteriores
+
+<details><summary>👀 Respuesta</summary>
+Ninguna de las anteriores
+
+> Es ninguna porque no existe recuperación de espacio con altas, es reasignación de espacio
+</details>
+
+---
+
+El proceso de baja lógica
+
+- [ ] a. Esta diseñado para borrar un registro de un archivo 
+- [ ] b. No Necesita que el archivo este ordenado 
+- [ ] c. Necesita que el archivo este desordenado 
+- [ ] d. Se aplica solamente a archivos con registros con longitud fija 
+- [ ] e. Se aplica solamente a archivos con registros con longitud variable 
+- [ ] f. Todas las anteriores 
+- [ ] g. Alguna de las anteriores
+
+<details><summary>👀 Respuesta</summary>
+Alguna de las anteriores
+</details>
+
+---
+
+## Indices
