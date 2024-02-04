@@ -37,11 +37,23 @@
 > [!NOTE]  
 > Es un recopilatorio de preguntas que estan marcadas por la catedra
 
-- [Archivos]()
+- [Archivos](#archivos)
 - [Indices]()
 - [Arboles]()
 - [Hashing]()
 
 > [!TIP]
 > Todas las preguntas van a estar justificadas segun el libro [Introducción a las Bases de Datos - Bertone-Thomas](/Introducción%20a%20las%20Bases%20de%20Datos%20-%20Bertone-Thomas.pdf)
+
+## Archivos
+
+
+Un archivo con registro de longitud variable
+
+- [x] a. Puede estar ordenado por algun criterio 
+- [x] b. Debe estar ordenado por algun criterio 
+- [x] c. Nunca puede ordenarse por algun criterio 
+- [ ] d. Puede tener un carácter delimitador, por ejemplo & 
+- [ ] e. Algunas de las anteriores 
+- [ ] f. Ninguna de las anteriores 
 
