@@ -55,7 +55,7 @@
 - [Hashing]()
 
 > [!TIP]
-> La strat del final este es responder 7 preguntas, porque tenes margen para errarle en 2 preguntas :D
+> La strat del final este es responder 7/10 preguntas, porque tenes margen para errarle en 2 preguntas :D
 
 
 ## Archivos
@@ -1577,4 +1577,104 @@ Dado un archivo con registros de longitud fija. Suponga que tiene un indice corr
 - [ ] c. un arbol b tiene menos cantidad de nodos que un arbol b* creado para la misma finalidad 
 - [ ] d. no tengo datos suficientes para contestar la pregunta 
 
-> no tengo datos suficientes para contestar la pregunta
+
+<details><summary>👀 Respuesta</summary>
+no tengo datos suficientes para contestar la pregunta
+</details>
+
+---
+
+> [!CAUTION]
+> Preguntar o mirar de nuevo
+
+Un arbol b* 
+
+- [ ] a. todos los nodos menos la raiz seguro estan llenos a 2/3 de su capacidad en todo momento 
+- [ ] b. los nodos terminales puede, en situaciones especiales, tener menos de 2/3 de su capacidad ocupada 
+- [ ] c. el nodo adyacente hermano de uno que entra en overflow siempre se puede usar para redistribuir, si no estuviera completo 
+- [ ] d. todas las anteriores son correctas 
+- [ ] e. las opciones a y b son correctas 
+- [ ] f. las opciones b y c son correctas 
+- [ ] g. las opciones a y c son correctas 
+- [ ] h. ninguna opción es correcta 
+
+
+<details><summary>👀 Respuesta</summary>
+La respuesta correcta es: los nodos terminales puede, en situaciones especiales, tener menos de 2/3 de su capacidad ocupada 
+</details>
+
+---
+
+Cuando un arbol B+ de prefijos simples tiende a llenarse 
+
+- [ ] a. se debe procurar mas espacio para el archivo que lo contiene, reacomodando todos los nodos 
+- [ ] b. se debe procurar mas espacio para el archivo que lo contiene, reacomodando el nodo padre y sus hermanos 
+- [ ] c. se debe procurar mas espacio para el archivo 
+- [ ] d. todas las anteriores 
+- [ ] e. algunas de las anteriores 
+- [ ] f. ninguna de las anteriores 
+
+<details><summary>👀 Respuesta</summary>
+ninguna de las anteriores
+</details>
+
+---
+
+> [!CAUTION]
+> Tengo dudas
+
+Un arbol b es mas eficiente que un arbol b+ 
+
+- [ ] a. porque tiene un algoritmo de inserción mas eficiente 
+- [ ] b. porque tiene un algoritmo de borrado mas eficiente 
+- [ ] c. porque tiene un algoritmo de busqueda mas eficiente 
+- [ ] d. no, un arbol b no es más eficiente que un arbol b+ 
+- [ ] e. por todas las anteriores 
+- [ ] f. por algunas de las anteriores 
+- [ ] g. por ninguna de las anteriores 
+
+<details><summary>👀 Respuesta</summary>
+por ninguna de las anteriores
+</details>
+
+---
+
+Un Arbol B+ 
+
+- [ ] a. Al realizar un inserción, puede tener nodos hojas con underflow 
+- [ ] b. Al realizar una baja, puede tener nodos hojas con overflow 
+- [ ] c. Al realizar un inserción, puede requerirse concatenación 
+- [ ] d. Al realizarse una baja, puede requerirse división 
+- [ ] e. Al realizarse un alta puede requerirse redistribución 
+- [ ] f. Todas las anteriores 
+- [ ] g. Algunas de las anteriores 
+- [ ] h. Ninguna de las anteriores 
+
+<details><summary>👀 Respuesta</summary>
+Ninguna de las anteriores
+
+> Te juega con la gramatica, es sentido común
+</details>
+
+---
+
+Un arbol b+ de prefijos simples de orden M 
+
+- [ ] a. se puede aplicar a una clave unica, cuyo atributo es un string 
+- [ ] b. se puede aplicar a una clave secundaria, cuyo atributo es un storing 
+- [ ] c. se puede aplicar a una clave primaria, cuyo atributo es un entero 
+- [ ] d. se puede aplicar solamente a una clave unívoca, cuyo atributo es string 
+- [ ] e. todas las anteriores son correctas 
+- [ ] f. a y b son las opciones correctas 
+- [ ] g. a, c y d son las opciones correctas 
+- [ ] h. a, b y d son las opciones correctas 
+- [ ] i. ninguna de las opciones que tengo es correcta 
+
+<details><summary>👀 Respuesta</summary>
+a y b son las opciones correctas
+</details>
+
+---
+
+## Hashing
+
