@@ -34,24 +34,14 @@
 
 # Finales 
 
+> [!NOTE]  
+> Las preguntas estan marcadas por la catedra
+
 - [Archivos]()
 - [Indices]()
 - [Arboles]()
 - [Hashing]()
 
-> Las preguntas estan marcadas por la catedra
-
-> [!NOTE]  
-> Highlights information that users should take into account, even when skimming.
-
 > [!TIP]
-> Optional information to help a user be more successful.
+> Todas las preguntas van a estar justificadas segun el libro [Introducción a las Bases de Datos - Bertone-Thomas](/Introducción%20a%20las%20Bases%20de%20Datos%20-%20Bertone-Thomas.pdf)
 
-> [!IMPORTANT]  
-> Crucial information necessary for users to succeed.
-
-> [!WARNING]  
-> Critical content demanding immediate user attention due to potential risks.
-
-> [!CAUTION]
-> Negative potential consequences of an action.
