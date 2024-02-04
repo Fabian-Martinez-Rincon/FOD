@@ -35,7 +35,13 @@
 > Las justificaciones son en base a mi criterio y tratando de reforsar con el libro (Puede haber errores)
 
 
+<div align='center'>
+
 # Finales 
+
+![](https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExYWd6dmU4eHZmZ3N3dTA0NTIxMmplNHphMjV5YnlsYThsOW9pczRpZSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3o7TKSxdQJIoiRXHl6/giphy.gif)
+
+</div>
 
 > [!NOTE]  
 > Es un recopilatorio de preguntas que estan marcadas por la catedra
