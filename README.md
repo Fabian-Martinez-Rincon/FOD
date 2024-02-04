@@ -32,7 +32,8 @@
 <img src= 'https://i.gifer.com/origin/8c/8cd3f1898255c045143e1da97fbabf10_w200.gif' height="20" width="100%">
 
 > [!IMPORTANT]  
-> Las justificaciones son en base a mi criterio y tratando de reforsar con el libro (Puede haber errores)
+
+> Todas las preguntas van a estar justificadas segun el libro [Introducción a las Bases de Datos](/Introducción%20a%20las%20Bases%20de%20Datos%20-%20Bertone-Thomas.pdf) y mi sentido común :D
 
 
 <div align='center'>
@@ -54,7 +55,8 @@
 - [Hashing]()
 
 > [!TIP]
-> Todas las preguntas van a estar justificadas segun el libro [Introducción a las Bases de Datos - Bertone-Thomas](/Introducción%20a%20las%20Bases%20de%20Datos%20-%20Bertone-Thomas.pdf)
+> La strat del final este es responder 7 preguntas, porque tenes margen para errarle en 2 preguntas :D
+
 
 ## Archivos
 
@@ -1471,3 +1473,108 @@ Dado un arbol b* de orden 100
 - [ ] f. las opciones b y c son correctas 
 - [ ] g. las opciones a y c son correctas 
 - [ ] h. ninguna opción anteirior es correcta 
+
+<details><summary>👀 Respuesta</summary>
+el nodo raíz pude tener solamente 3 hijos en algun momento de su construcción
+</details>
+
+---
+
+Un árbol que se encuentra balanceado 
+
+- [ ] a. Puede ser un arbol binario 
+- [ ] b. Puede ser un árbol multicamino 
+- [ ] c. Puede ser un árbol B+ 
+- [ ] d. Puede ser un árbol B* 
+- [ ] e. Todas las anteriores son correctas 
+- [ ] f. c y de son correctas 
+- [ ] g. b, c y d son correctas 
+- [ ] h. b y d son correctas 
+- [ ] i. Ninguna de las anteriores es correcta 
+
+<details><summary>👀 Respuesta</summary>
+Todas las anteriores son correctas
+</details>
+
+---
+
+> [!CAUTION]
+> Para mi tambien es la b
+
+La eficiencia de busqueda de un arbol b
+
+- [ ] a. es de orden lineal
+- [ ] b. puede ser de orden lineal, bajo alguna circunstancia del arbol generado
+- [ ] c. es de orden logaritmico
+- [ ] d. es de orden constante (orden del arbol)
+- [ ] e. b y c son correctas
+- [ ] f. b, c y d son correctas 
+- [ ] g. ninguna opción es correcta
+
+<details><summary>👀 Respuesta</summary>
+Es de orden logaritmico
+</details>
+
+---
+
+> [!CAUTION]
+> Preguntar sobre la pregunta c y d
+
+Un árbol B+ de prefijos simples 
+
+- [ ] a. A veces no tiene prefijos 
+- [ ] b. Puede no tener prefijos simples 
+- [ ] c. Si tiene prefijos simples, las hojas están enlazadas 
+- [ ] d. Sino tiene prefijos simples, las hojas están enlazadas 
+- [ ] e. Todas las anteriores 
+- [ ] f. Algunas de las anteriores 
+- [ ] g. Ninguna de las anteriores 
+
+<details><summary>👀 Respuesta</summary>
+Todas las anteriores
+</details>
+
+---
+
+Un Arbol B+ 
+
+- [ ] a. Al realizar un inserción, puede tener nodos hojas con underflow 
+- [ ] b. Al realizar una baja, puede tener nodos hojas con overflow 
+- [ ] c. Al realizar un inserción, puede requerirse concatenación 
+- [ ] d. Al realizarse una baja, puede requerirse división 
+- [ ] e. Al realizarse un alta puede requerirse redistribución 
+- [ ] f. Todas las anteriores 
+- [ ] g. Algunas de las anteriores 
+- [ ] h. Ninguna de las anteriores 
+
+<details><summary>👀 Respuesta</summary>
+Ninguna de las anteriores
+</details>
+
+---
+
+Dado un arbol b de orden 100 
+
+- [ ] a. el nodo raíz puede tener solamente 3 hijos en algun momento de su construcción 
+- [ ] b. El proceso de borrar un elemento del nodo raiz, puede producir un underflow en un nodo terminal 
+- [ ] c. puede ser que un nodo terminal con 50 elementos, tenga 51 hijos 
+- [ ] d. todas las respuestas anteriores son correctas 
+- [ ] e. las opciones a y b son correctas 
+- [ ] f. las opciones b y c son correctas 
+- [ ] g. las opciones a y c son correctas 
+- [ ] h. ninguna opción anteirior es correcta 
+
+<details><summary>👀 Respuesta</summary>
+Las opciones a y b son correctas
+</details>
+
+---
+
+Dado un archivo con registros de longitud fija. Suponga que tiene un indice correspondiente a una clave univoca. Suponga que se crea un arbol de orden 200 para almacenar ese indice univoca. Si archivo y el arbol generado tuvieran 300 elementos insertados entonces: 
+
+- [ ] a. un arbol b tiene la misma cantidad de nodos que un arbol b* creado para la misma finalidad 
+- [ ] b. un arbol b tiene mas cantidad de nodos que un arbol b* creado para la misma finalidad 
+- [ ] c. un arbol b tiene menos cantidad de nodos que un arbol b* creado para la misma finalidad 
+- [ ] d. no tengo datos suficientes para contestar la pregunta 
+
+> no tengo datos suficientes para contestar la pregunta
