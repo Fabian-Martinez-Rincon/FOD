@@ -48,7 +48,7 @@
 
 - [Archivos](#archivos)
 - [Indices](#indices)
-- [Arboles]()
+- [Arboles](#arboles)
 - [Hashing]()
 
 > [!TIP]
@@ -953,3 +953,60 @@ el archivo de datos puede ser de registros de longitud variable
 </details>
 
 ---
+
+> [!CAUTION]
+> COMO QUE NO ES NINGUNA
+
+Un índice secundario tiene eficiencia de búsqueda 
+
+- [ ] a. lineal 
+- [ ] b. logaritmica 
+- [ ] c. contante y es 1 
+- [ ] d. constante y pude tender a 1 
+- [ ] e. Algunas de las anteriores son validas 
+- [ ] f. ninguna de las anteriores son validas
+
+<details><summary>👀 Respuesta</summary>
+ninguna de las anteriores son validas
+</details>
+
+---
+
+Sea un archivo de alumnos, que maneja registros de **longitud fija** y que utiliza la **técnica de primer** ajuste para recuperar espacio en el caso de borrado. Si se implementa un indice por clave unívoca legajo 
+
+- [ ] a. se puede generar un arbol b para implantar ese indice 
+- [ ] b. se puede generar un arbol b* para implantar ese indice 
+- [ ] c. se puede generar un arbol b+ para implantar ese indice 
+- [ ] d. se puede implantar un arbol b+ de prefijos simples para implantar ese indice 
+- [ ] e. Todas las opciones anteriores son correctas 
+- [ ] f. algunas de las opciones anteriores son correctas 
+- [ ] g. la pregunta es inconsistente no hay respuestas correctas 
+
+<details><summary>👀 Respuesta</summary>
+la pregunta es inconsistente no hay respuestas correctas
+
+> Longitud fija y las tecnicas no van de la mano
+</details>
+
+---
+
+> [!CAUTION]
+> No seria se puede sino que seria, tiene que generar a partir de una clave unívoca?
+
+Un indice primario 
+
+- [ ] a. Se puede generar a partir de una clave unívoca de un registro 
+- [ ] b. Se puede generar a partir de una clave no unívoca de un registro 
+- [ ] c. Puede implementarse con una estructura de datos lineal 
+- [ ] d. Debe implementarse con una estructura eficiente no lineal 
+- [ ] e. Algunas de las anteriores 
+- [ ] f. Ninguna de las anteriores
+
+<details><summary>👀 Respuesta</summary>
+
+Puede implementarse con una estructura de datos lineal
+</details>
+
+---
+
+## Arboles
