@@ -279,6 +279,26 @@ Solo lo abre en modo escritua
 
 ---
 
+### Recuperación de espacio
+
+El proceso de baja lógica marca la información de un archivo como  borrada. Ahora bien, esa información sigue ocupando espacio en el  disco rígido. La pregunta a responder sería: ¿qué hacer con dicha  información? Esta pregunta tiene dos respuestas posibles:
+
+<table>
+<tr>
+<th>Recuperación de espacio</th>
+<th>Reasignación de espacio</th></tr><tr>
+<td>Periódicamente utilizar el proceso de  baja física para realizar un proceso de compactación del archivo. El  mismo consiste en quitar todos aquellos registros marcados como  borrados, utilizando para ello cualquiera de los algoritmos discutidos  anteriormente para borrado físico</td>
+<td>
+
+Otra alternativa posible consiste en recuperar el espacio, utilizando los lugares indicados como borrados para el ingreso (altas) de nuevos elementos al archivo
+</td>
+
+</tr>
+</table>
+
+> [!CAUTION]
+> Consultar justificación
+
 El proceso de alta de registro con recuperación de espacio 
 
 - [ ] a. Se debe realizar con registros de longitud variable 
@@ -286,3 +306,9 @@ El proceso de alta de registro con recuperación de espacio
 - [ ] c. Se realiza sólo con registros de longitud fija 
 - [ ] d. Se realiza solo con registros de longitud variable 
 - [ ] e. Ninguna de las anteriores 
+
+<details><summary>👀 Respuesta</summary>
+Ninguna de las anteriores
+
+> Es ninguna porque no existe recuperación de espacio con altas, es reasignación de espacio
+</details>
