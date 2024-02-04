@@ -90,7 +90,7 @@ Un archivo con registro de longitud variable
 Algunas de las anteriores
 
 > [!NOTE]  
-> 
+> a, d
 
 
 </details>
