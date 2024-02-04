@@ -889,3 +889,47 @@ Alguna de las anteriores
 ---
 
 ## Indices
+
+> [!CAUTION]
+> Dudas sobre la estructura lineal (con un ejemplo)
+
+Supóngase el problema de buscar un tema en un libro; independientemente de si este estuviera ordenado por temas, la acción natural sería buscar el material deseado en el índice temático del libro, y luego, acceder directamente a la página que se incluya en dicho índice. Es de notar que en este caso se busca la información en una fuente de datos adicional (el índice), que es de tamaño considerablemente menor, para luego acceder directamente a dicha información.
+
+Un indice primario 
+
+- [ ] a. Se puede generar a partir de una clave unívoca de un registro 
+- [ ] b. Se puede generar a partir de una clave no unívoca de un registro 
+- [ ] c. Puede implementarse con una estructura de datos lineal 
+- [ ] d. Debe implementarse con una estructura eficiente no lineal 
+- [ ] e. Algunas de las anteriores 
+- [ ] f. Ninguna de las anteriores 
+
+<details><summary>👀 Respuesta</summary>
+Puede implementarse con una estructura de datos lineal
+</details>
+
+---
+
+**Indices Secundarios (sacado del libro!)**
+
+La pregunta que seguramente surgió al buscar el compositor de la canción “Here Come The Rain Again” por la clave primaria (ARI2313) es cómo saber este dato, la clave primaria. No es natural ni intuitivo solicitar un dato por clave primaria, sino por el nombre de la canción o eventualmente por autor, que son atributos mucho más fáciles de recordar. Estos atributos, nombre de canción o autor, podrían contener  valores repetidos en el archivo original. Por este motivo, no es posible  pensarlos como parte de una clave primaria. La clave que soporta valores repetidos se denomina clave secundaria.
+
+Por lo tanto, es necesario crear otro tipo de índice mediante el cual se pueda acceder a la información de un archivo, pero con datos fáciles de recordar. De esta manera surge el uso de índices secundarios.
+
+---
+
+En un índice secundario
+
+- [ ] a. Encontrar un registro es a veces mas lento que sobre un indice primario 
+- [ ] b. Encontrar un registro es igual de rápido que sobre un indice primario 
+- [ ] c. Encontrar un registro puede ser mas rápido que sobre un indice primario 
+- [ ] d. si la clave a buscar no se repitiera puede ser igual de rapida su búsqueda que en un indice unívoco 
+- [ ] e. Algunas de las anteriores son validas 
+- [ ] f. ninguna de las anteriores son validas
+
+<details><summary>👀 Respuesta</summary>
+ninguna de las anteriores son validas
+
+En comparacíon nunca es mas rapido que un indice primario ya que se requieren dos accesos desde un indice secundario, mientras que desde un indice primario solo se requiere uno
+
+</details>
