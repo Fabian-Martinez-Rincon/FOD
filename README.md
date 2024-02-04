@@ -161,6 +161,9 @@ Ejemplo: el archivo con todas las ventas de los productos de la empresa realizad
 
 </table>
 
+> [!CAUTION]
+> Consultar respecto al orden de los archivos
+
 Para realizar un algoritmo de actualización maestro-detalle 
 
 - [ ] a. Se requiere al menos 2 archivos. 
@@ -176,9 +179,47 @@ Para realizar un algoritmo de actualización maestro-detalle
 
 La respuesta correcta es: Se requiere al menos 2 archivos. 
 
-> El contenido de un archivo será modificado por el contenido de otro 
-archivo.
+### Justificación
+
+Presenta la variante más simple del proceso de actualización. Las precondiciones del problema son las siguientes:
+
+- Existe un archivo maestro.
+- Existe un único archivo detalle que modifica al maestro.
+- Cada registro del detalle modifica a un registro del maestro. Esto  significa que solamente aparecerán datos en el detalle que se correspondan con datos del maestro. Se descarta la posibilidad de generar altas en ese archivo.
+- No todos los registros del maestro son necesariamente modificados.
+- Cada elemento del maestro que se modifica es alterado por uno y 
+solo un elemento del archivo detalle.
+- Ambos archivos están ordenados por igual criterio. Esta precondición, considerada esencial, se debe a que hasta el momento se trabaja con archivos de datos de acuerdo con su orden físico. Más adelante, se discutirán situaciones donde los archivos respetan un orden lógico de datos.
 
 
+> El proceso de actualización finaliza cuando se termina de recorrer el  archivo detalle. Una vez procesados todos los registros del archivo  detalle, el algoritmo finaliza, sin la necesidad de recorrer el resto del  archivo maestro.
 
+</details>
+
+---
+
+<table>
+<tr>
+<th>Fragmentación Interna</th>
+<th>Fragmentación Externa</th>
+</tr>
+<tr>
+<td>Se produce cuando a un elemento de dato se le asigna mayor espacio del necesario. (Casi siempre en Registros con Longitud Fija , pero la tecnica de primer y mejor ajuste tambien la producen en Registros con Longitud Dinamica)</td>
+<td>
+Se denomina fragmentación externa al espacio disponible entre dos registros, pero que es demasiado pequeño para poder ser reutilizado (La puede generar la tecnica de peor ajuste en Registros con Longitud Dinamica)
+</td>
+</tr>
+</table>
+
+El concepto de fragmentación interna en un archivo
+
+- [ ] a. Se puede dar solo en registros de longitud fija 
+- [ ] b. Se puede dar solo en registros de longitud variable 
+- [ ] c. Se puede dar solo en archivos ordenados de longitud variable 
+- [ ] d. Se puede analizar solamente en archivos ordenados de longitud fija 
+- [ ] e. Algunas de las anteriores 
+- [ ] f. Ninguna de las anteriores 
+
+<details><summary>👀 Respuesta</summary>
+Ninguna de las anteriores
 </details>
