@@ -1304,3 +1304,86 @@ Todas las anteriores son correctas
 
 ---
 
+Cuales de las siguientes propiedades no corresponde a un arbol b* de orden M 
+
+- [ ] a. Cada nodo del arbol puede contener maximo M descendientes y M-1 elementos 
+- [ ] b. La raiz no posee descendientes o posee [M/2] descendientes 
+- [ ] c. Todos los nodos terminales se encuentran al mismo nivel 
+- [ ] d. Los nodos no terminales ni raiz tienen mas de [M/2] y a lo sumo M descendientes 
+- [ ] e. Un nodo con x descendientes contienen x-1 elementos
+
+<details><summary>👀 Respuesta</summary>
+La raiz no posee descendientes o posee [M/2] descendientes
+</details>
+
+---
+
+> [!CAUTION]
+> Necesito un ejemplo visual loco
+
+Dado un arbol b* de orden 100
+
+- [ ] a. el nodo raíz pude tener solamente 3 hijos en algun momento de su construcción 
+- [ ] b. un nodo terminal puede producir un underflow, si al borrar un elemento quedan 48 en el nodo 
+- [ ] c. puede ser que un nodo terminal con 50 elementos, tenga 51 hijos
+- [ ] d. todas las respuestas anteriores son correctas 
+- [ ] e. las opciones a y b son correctas 
+- [ ] f. las opciones b y c son correctas 
+- [ ] g. las opciones a y c son correctas 
+- [ ] h. ninguna opción anteirior es correcta 
+
+<details><summary>👀 Respuesta</summary>
+el nodo raíz pude tener solamente 3 hijos en algun momento de su construcción
+</details>
+
+---
+
+Una inserción en un nodo cualquiera (terminal) de arbol b
+
+- [ ] a. puede generar overflow 
+- [ ] b. puede generar división de un solo nodo 
+- [ ] c. pueden dividirse tres nodos 
+- [ ] d. todas las anteriores son correctas 
+- [ ] e. las dos primeras son correctas 
+- [ ] f. la segunda y tercera son correctas 
+- [ ] g. la primera y la tercera son correctas
+
+
+<details><summary>👀 Respuesta</summary>
+Todas las anteriores son correctas
+</details>
+
+---
+
+Dado un arbol b de prefijos simples de orden 100 
+
+- [ ] a. un nodo entra en underflow si se borra un elemento y solo quedan 48 
+- [ ] b. un nodo no terminal ni raiz tendrá al menos [M/2] hijos 
+- [ ] c. puede ser que la raiz tenga solamente dos hijos en algun momento 
+- [ ] d. todas las anteriores son correctas 
+- [ ] e. algunas de las anteriores son correcta 
+- [ ] f. ninguna de las anteriores son correctas 
+
+<details><summary>👀 Respuesta</summary>
+Todas las anteriores son correctas
+</details>
+
+---
+
+> [!NOTE]
+> PALABRAS DEL LIBRO
+> Es probable que el lector haya implementado algoritmos de árboles binarios sobre memoria RAM. Sin embargo, para poder utilizar estas ideas como soporte de índices de búsqueda, es necesario que los árboles binarios se implanten sobre almacenamiento secundario.
+
+Un arbol b 
+
+- [ ] a. puede ser un arbol AVL
+- [ ] b. puede guardarse en memoria RAM 
+- [ ] c. puede implementar una clave no univoca 
+- [ ] d. puede tener acceso secuencial eficiente y rápido 
+- [ ] e. Todas las anteriores son correctas 
+- [ ] f. Algunas de las anteriores son correctas 
+- [ ] g. ninguna de las anteriores son correctas 
+
+<details><summary>👀 Respuesta</summary>
+Algunas de las anteriores son correctas
+</details>
