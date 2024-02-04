@@ -1370,8 +1370,10 @@ Todas las anteriores son correctas
 
 ---
 
-> [!NOTE]
-> PALABRAS DEL LIBRO
+
+***PALABRAS DEL LIBRO***
+
+> [!NOTE] 
 > Es probable que el lector haya implementado algoritmos de árboles binarios sobre memoria RAM. Sin embargo, para poder utilizar estas ideas como soporte de índices de búsqueda, es necesario que los árboles binarios se implanten sobre almacenamiento secundario.
 
 Un arbol b 
@@ -1387,3 +1389,85 @@ Un arbol b
 <details><summary>👀 Respuesta</summary>
 Algunas de las anteriores son correctas
 </details>
+
+---
+
+> [!CAUTION]
+> La e es sobre el arbol B*
+
+Cuales de las siguientes propiedades NO corresponde a un arbol b+ de orden M 
+
+- [ ] a. cada nodo del arbol puede contener como maximo M descendientes y M-1 elementos 
+- [ ] b. la raiz no posee descendientes o tiene al menos dos 
+- [ ] c. un nodo con x descendientes tiene x-1 elementos 
+- [ ] d. los nodos terminales tiene como maximo M-1 elementos 
+- [ ] e. los nodos no terminales pueden contener como minimo [ 2M/3 ] descendientes 
+- [ ] f. los nodos no terminales puede contener como minimo [M/2] descendientes 
+- [ ] g. todas las respuestas anteriores corresponden a propiedades de arboles b+
+
+<details><summary>👀 Respuesta</summary>
+Todas las espuestas anteriores corresponden a propiedades de arboles b+
+</details>
+
+---
+
+> [!CAUTION]
+> Como se que se tiende a llenar?
+
+Cuando un arbol B+ de prefijos simples tiende a llenarse 
+
+- [ ] a. se debe procurar mas espacio para el archivo que lo contiene, reacomodando todos los nodos 
+- [ ] b. se debe procurar mas espacio para el archivo que lo contiene, reacomodando el nodo padre y sus hermanos 
+- [ ] c. se debe procurar mas espacio para el archivo 
+- [ ] d. todas las anteriores 
+- [ ] e. algunas de las anteriores 
+- [ ] f. ninguna de las anteriores 
+
+<details><summary>👀 Respuesta</summary>
+Ninguna de las anteriores
+</details>
+
+---
+
+Un Arbol B+ 
+
+- [ ] a. Siempre tiene más claves que un árbol B, para el mismo archivo de datos 
+- [ ] b. Siempre tiene más claves que un árbol B*, para el mismo archivo de datos 
+- [ ] c. Siempre es mas alto que un árbol B 
+- [ ] d. Siempre es más alto que un árbol B* 
+- [ ] e. Todas de las anteriores 
+- [ ] f. Algunas de las anteriores 
+- [ ] g. Ninguna de las anteriores 
+
+<details><summary>👀 Respuesta</summary>
+Ninguna de las anteriores
+</details>
+
+---
+
+Un árbol avl
+
+- [ ] a. tiene eficiencia de búsqueda logaritmica 
+- [ ] b. puede tener eficiencia de búsqueda logarítmica 
+- [ ] c. puede tener eficiencia de búsqueda lineal 
+- [ ] d. Las opciones a y b son correctas 
+- [ ] e. Las opciones b y c son correctas 
+- [ ] f. Las opciones a y c son correctas 
+- [ ] g. Ninguna opción es correcta
+
+<details><summary>👀 Respuesta</summary>
+tiene eficiencia de búsqueda logaritmica
+</details>
+
+---
+
+Dado un arbol b* de orden 100
+
+- [ ] a. el nodo raíz pude tener solamente 3 hijos en algun momento de su construcción 
+- [ ] b. un nodo terminal puede producir un underflow, si al borrar un elemento quedan 48 en el nodo 
+- [ ] c. puede ser que un nodo terminal con 50 elementos, tenga 51 hijos 
+- [ ] d. todas las respuestas anteriores son correctas 
+- [ ] e. las opciones a y b son correctas 
+- [ ] f. las opciones b y c son correctas 
+- [ ] g. las opciones a y c son correctas 
+- [ ] h. ninguna opción anteirior es correcta 
