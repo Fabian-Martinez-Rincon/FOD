@@ -1135,8 +1135,172 @@ aprovechar mejor el uso de espacio físico
 Un árbol B+ de prefijos simples es un árbol B+ donde los separadores están representados por la mínima expresión posible de la clave, que permita decidir si la búsqueda se realiza hacia la izquierda o hacia la derecha.
 
 | Arbol B+ | Arbol B+ de prefijos simples |
+|---|---|
 | ![image](https://github.com/Fabian-Martinez-Rincon/Fabian-Martinez-Rincon/assets/55964635/eb40a046-7ed1-4a72-a5ac-f4e3587cf20a) | ![image](https://github.com/Fabian-Martinez-Rincon/Fabian-Martinez-Rincon/assets/55964635/3c44cefd-1bcd-4b3a-90ea-1f4c202b0293) |
 
 ---
 
-Suponga que el nodo terminal de un arbol B+ de prefijos simples de orden 7 tiene las claves 
+Suponga que el nodo terminal de un arbol B+ de prefijos simples de orden 7 tiene las claves GONZALEZ, GOÑEZ, GOODMAN, GOPLANI, GORBA y en dicho nodo se inserta una clave nueva GUTIERREZ, entonces: 
+
+ 
+
+- [ ] a. se produce overflow, y luego de dividir, al padre del nodo se sube la clave GOP 
+- [ ] b. se produce overflow, y luego de dividir, al padre del nodo se sube la clave GOO 
+- [ ] c. se produce overflow, y luego de dividir se sube la clave GO 
+- [ ] d. Todas las anteriores pueden ser correctas, depende el algoritmo utilizado 
+- [ ] e. a y b pueden se correctas, dependen del algoritmo utilizado 
+- [ ] f. a y c pueden ser correctas, dependen del algoritmo utilizado 
+- [ ] g. b y c pueden ser correctas, dependen del algoritmo utilizado 
+- [ ] h. ninguna de las anteriores es correcta 
+
+<details><summary>👀 Respuesta</summary>
+Ninguna de las anteriores es correcta
+
+> Ya que al ser de orden 7, y tener 5 claves, no se produce overflow
+</details>
+
+---
+
+> Se debe tener en cuenta que otra de las propiedades de los árboles B determina que todos los elementos de datos se insertan en los nodos  terminales
+
+Cuando se inserta un elemento en un árbol binario 
+
+- [ ] a. siempre se crea un nuevo nodo 
+- [ ] b. siempre es necesario acceder al nivel hoja 
+- [ ] c. puede siempre insertarse a derecha del padre 
+- [ ] d. Puede aumentar la altura del árbol 
+- [ ] e. Todas las anteriores son validas 
+- [ ] f. algunas de las anteriores son validas 
+- [ ] g. ninguna de las anteriores son validas 
+
+<details><summary>👀 Respuesta</summary>
+Todas las anteriores son validas 
+</details>
+
+---
+
+> [!CAUTION]
+> para para para, como que la D no es?
+
+un arbol balanceado de orden 200 
+
+- [ ] a. se desbalancea cuando la raiz es el unico nodo del arbol y esta produce overflow en una inserción. 
+- [ ] b. puede contener un nodo con 99 hijos y 99 claves 
+- [ ] c. dos nodos adyacentes hermanos, de diferente padre, pueden estar completos, es decir con 199 elementos 
+- [ ] d. todos los nodos terminales están a la misma distancia de todos los nodos raiz 
+- [ ] e. todas las anteriores son correctas 
+- [ ] f. algunas de las anteriores son correctas 
+- [ ] g. ninguna de las anteriores son correctas 
+
+<details><summary>👀 Respuesta</summary>
+Ninguna de las anteriores son correctas
+</details>
+
+---
+
+Un arbol b de orden 130 
+
+- [ ] a. puede tener la raiz con solamente dos hijos 
+- [ ] b. tienen todos los nodos terminales en igual nivel 
+- [ ] c. puede tener todos sus nodos ocupados en al menos 2/3 de su capacidad 
+- [ ] d. Todas las anteriores son correctas 
+- [ ] e. las opciones a y b son correctas 
+- [ ] f. las opciones b y c son correctas 
+- [ ] g. las opciones a y c son correctas 
+- [ ] h. ninguna opción es correcta 
+
+<details><summary>👀 Respuesta</summary>
+Todas las anteriores son correctas
+</details>
+
+---
+
+Suponga que sobre un nodo de un árbol B* se produce overflow. En dicho caso se puede
+
+a. Aplicar saturación progresiva encadenada 
+b. Aplicar doble dispersión 
+c. Aplicar un área de desborde separada para el nodo 
+d. Redistribución 
+e. Division 
+f. Toddas las anteriores 
+g. Algunas de las anteriores 
+h. Ninguna de las anteriores 
+
+<details><summary>👀 Respuesta</summary>
+Algunas de las anteriores
+</details>
+
+---
+
+Un árbol que se encuentra balanceado 
+
+- [ ] a. Puede ser un arbol binario 
+- [ ] b. Puede ser un árbol multicamino 
+- [ ] c. Puede ser un árbol B+ 
+- [ ] d. Puede ser un árbol B* 
+- [ ] e. Todas las anteriores son correctas 
+- [ ] f. c y de son correctas 
+- [ ] g. b, c y d son correctas 
+- [ ] h. b y d son correctas 
+- [ ] i. Ninguna de las anteriores es correcta 
+
+<details><summary>👀 Respuesta</summary>
+Todas las anteriores son correctas
+</details>
+
+---
+
+La eficiencia de de búsqueda de una clave en un arbol b+ es
+
+- [ ] a. de orden lineal 
+- [ ] b. de orden logaritmico similar a un arbol b 
+- [ ] c. de orden logaritmico, similar a un arbol b* 
+- [ ] d. de orden fijo, dado que los elementos de los nodos terminales estan linkeados juntos 
+- [ ] e. las respuestas a, b y c son correctas 
+- [ ] f. las respuestas b, c y d son correctas 
+- [ ] g. las respuestas b y c son correctas 
+- [ ] h. ninguna de las respuestas anteriores es correcta 
+
+<details><summary>👀 Respuesta</summary>
+Las respuestas b y c son correctas 
+</details>
+
+---
+
+> [!CAUTION]
+> Creo que hay más de una falsa
+
+Cuales de las siguientes propiedades no corresponde a un arbol b* de orden M
+
+- [ ] a. Cada nodo del arbol puede contener maximo M descendientes y M-1 elementos 
+- [ ] b. La raiz no posee descendientes o posee [M/2] descendientes
+- [ ] c. Todos los nodos terminales se encuentran al mismo nivel
+- [ ] d. Los nodos no terminales ni raiz tienen mas de [M/2] y a lo sumo M descendientes (Tengo dudas con esta)
+- [ ] e. Un nodo con x descendientes contienen x-1 elementos
+
+<details><summary>👀 Respuesta</summary>
+La raiz no posee descendientes o posee [M/2] descendientes
+
+> Es o posee 2 descendientes
+</details>
+
+---
+
+Un árbol binario 
+
+- [ ] a. puede tener eficiencia de búsqueda logaritmica 
+- [ ] b. puede estar balanceado si tiene 127 elementos 
+- [ ] c. puede tener eficiencia de búsqueda lineal 
+- [ ] d. todas las anteriores son correctas 
+- [ ] e. algunas de las anteriores son validas 
+- [ ] f. ninguna de las anteriores son validas 
+
+<details><summary>👀 Respuesta</summary>
+Todas las anteriores son correctas
+
+> 2^h - 1 = 127 Que es lo que tiene un arbol binario balanceado
+> para h = 7
+</details>
+
+---
+
