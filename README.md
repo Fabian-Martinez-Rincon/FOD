@@ -51,7 +51,8 @@
 - [Archivos](#archivos)
 - [Indices](#indices)
 - [Arboles](#arboles)
-- [Hashing]()
+- [Hashing](#hashing)
+- [Fotos de parciales resueltas](#examenes-en-imagenes-antipandemia)
 
 > [!TIP]
 > La strat del final este es responder 7/10 preguntas, porque tenes margen para errarle en 2 preguntas :D
@@ -2104,7 +2105,6 @@ La respuesta correcta es: las opciones a y d son correctas
 > Ya estoy cansado jefe
 
 # Examenes en imagenes *antiPandemia*
-
 
 
 ![WhatsApp Image 2023-12-16 at 16 39 02](https://github.com/Fabian-Martinez-Rincon/Fabian-Martinez-Rincon/assets/55964635/a8deffe9-b4a4-4f84-bdf1-695ed6aac347)
