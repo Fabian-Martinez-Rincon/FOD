@@ -2103,7 +2103,7 @@ La respuesta correcta es: las opciones a y d son correctas
 > [!WARNING]
 > Ya estoy cansado jefe
 
-# Examenes en imagenes
+# Examenes en imagenes *antiPandemia*
 
 
 
