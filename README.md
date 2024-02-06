@@ -2109,44 +2109,60 @@ La respuesta correcta es: las opciones a y d son correctas
 
 ![WhatsApp Image 2023-12-16 at 16 39 02](https://github.com/Fabian-Martinez-Rincon/Fabian-Martinez-Rincon/assets/55964635/a8deffe9-b4a4-4f84-bdf1-695ed6aac347)
 
-- **1)** 
-- **2)** 
-- **3)** 
-- **4)** 
-- **5)** 
+- **1)** (a,d)
+- **2)** Ninguna
+- **3)** a
+
+![image](https://github.com/Fabo-University/FOD/assets/55964635/8270b5eb-2402-4d3c-b2b4-e74d3015bd97)
+
+- **4)** DNI clave primario, nombres clave secundaria pto. Opcion A
+- **5)** AVL = BINARIO CON DIFERENCIA DE 1 COMO DESBALANCE (UN ARBOL AVL NO PUEDE SER UN ARBOL B NI B* NI B+)
+
+ninguna
 
 
 ![WhatsApp Image 2023-12-16 at 16 39 02 (1)](https://github.com/Fabian-Martinez-Rincon/Fabian-Martinez-Rincon/assets/55964635/83eada33-faa7-42e0-b94d-ef3189f6f92d)
 
-- **1)** 
-- **2)** 
-- **3)** 
-- **4)** 
-- **5)** 
+- **1)** a
+- **2)** b (merge sin orden = unicornio)
+- **3)** b
+
+Las ventajas, en cada caso, tienen que ver con la performance del algoritmo y el espacio utilizado en el disco rígido. 
+
+Mientras que la baja lógica no recupera espacio en memoria secundaria, se comporta de forma mucho más eficiente en el tiempo de respuesta. Además, es posible combinar el proceso de baja lógica con el proceso de ingreso de nueva información al archivo de datos.
+
+- **4)** f
+- **5)** ninguna (mirar bien las definiciones)
 
 
 ![WhatsApp Image 2023-12-16 at 16 39 01](https://github.com/Fabian-Martinez-Rincon/Fabian-Martinez-Rincon/assets/55964635/b9f4ba65-064f-4f65-9d95-b591c8c17762)
 
-- **6)**
-- **7)**
+- **6)** no hay SEPARADORES EN LOS ARBOLES B (SOLO CLAVES) SEPARADORES = COPIAS DE CLAVES O PREFIJO SIMPLE
+![image](https://github.com/Fabo-University/FOD/assets/55964635/3b96400d-0bff-4222-9b38-545746fc4148)
+
+- **7)** CONSULTALE A TU MAMA
 - **8)**
-- **9)**
-- **10)**
+![image](https://github.com/Fabo-University/FOD/assets/55964635/21a5168d-12ec-4fea-ae9d-492faa3d62d2)
+
+- **9)** SATURACIÓN = OVERFLOW
+- **10)** CONSULTALE A TU MAMA
 
 
 ![WhatsApp Image 2023-12-16 at 16 39 01 (2)](https://github.com/Fabian-Martinez-Rincon/Fabian-Martinez-Rincon/assets/55964635/67be5cd8-7bcd-49d7-9e64-9e0165ac4f1b)
 
-- **7)**
-- **8)**
-- **9)**
-- **10)**
+- **7)** CONSULTALE A TU MAMA
+- **8)** NO EXISTE DOBLE PAGINACIÓN EN FOD
+- **9)**Hash extensible = HASH DINAMICO
+
+Los métodos de búsqueda de información en un archivo presentan ventajas y desventajas en cada caso. Como se discutió a lo largo de toda esta sección de archivos, la búsqueda secuencial de información tiene una performance de búsqueda muy deficiente, pero el archivo generado no necesita mayor análisis en cuanto al proceso de altas y/o bajas.
+
+- **10)** ninguna
 
 ![WhatsApp Image 2023-12-16 at 16 39 01 (1)](https://github.com/Fabian-Martinez-Rincon/Fabian-Martinez-Rincon/assets/55964635/233d0050-f4fc-4a46-929a-07396e1baa33)
 
-- **7)**
-- **8)**
-- **9)**
-- **10)**
+- **8)** c
+- **9)** b es definición de clave sinonima
+- **10)** desborde = si aumentar la cantidad de bits (c,d)
 
 ![WhatsApp Image 2023-12-16 at 16 39 00](https://github.com/Fabian-Martinez-Rincon/Fabian-Martinez-Rincon/assets/55964635/0af57699-e23f-4234-865d-288efb9b1171)
 
