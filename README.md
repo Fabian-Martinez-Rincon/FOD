@@ -2070,7 +2070,8 @@ El metodo de doble dispersión, para el tratamiento de Colisiones
 - [ ] h. Ninguna de las anteriores 
 
 <details><summary>👀 Respuesta</summary>
-
+qsy
+</details>
 
 ---
 
