@@ -2102,3 +2102,271 @@ La respuesta correcta es: las opciones a y d son correctas
 
 > [!WARNING]
 > Ya estoy cansado jefe
+
+# Examenes en imagenes
+
+
+
+![WhatsApp Image 2023-12-16 at 16 39 02](https://github.com/Fabian-Martinez-Rincon/Fabian-Martinez-Rincon/assets/55964635/a8deffe9-b4a4-4f84-bdf1-695ed6aac347)
+
+- **1)** 
+- **2)** 
+- **3)** 
+- **4)** 
+- **5)** 
+
+
+![WhatsApp Image 2023-12-16 at 16 39 02 (1)](https://github.com/Fabian-Martinez-Rincon/Fabian-Martinez-Rincon/assets/55964635/83eada33-faa7-42e0-b94d-ef3189f6f92d)
+
+- **1)** 
+- **2)** 
+- **3)** 
+- **4)** 
+- **5)** 
+
+
+![WhatsApp Image 2023-12-16 at 16 39 01](https://github.com/Fabian-Martinez-Rincon/Fabian-Martinez-Rincon/assets/55964635/b9f4ba65-064f-4f65-9d95-b591c8c17762)
+
+- **6)**
+- **7)**
+- **8)**
+- **9)**
+- **10)**
+
+
+![WhatsApp Image 2023-12-16 at 16 39 01 (2)](https://github.com/Fabian-Martinez-Rincon/Fabian-Martinez-Rincon/assets/55964635/67be5cd8-7bcd-49d7-9e64-9e0165ac4f1b)
+
+- **7)**
+- **8)**
+- **9)**
+- **10)**
+
+![WhatsApp Image 2023-12-16 at 16 39 01 (1)](https://github.com/Fabian-Martinez-Rincon/Fabian-Martinez-Rincon/assets/55964635/233d0050-f4fc-4a46-929a-07396e1baa33)
+
+- **7)**
+- **8)**
+- **9)**
+- **10)**
+
+![WhatsApp Image 2023-12-16 at 16 39 00](https://github.com/Fabian-Martinez-Rincon/Fabian-Martinez-Rincon/assets/55964635/0af57699-e23f-4234-865d-288efb9b1171)
+
+- **1)**
+- **2)**
+- **3)**
+- **4)**
+- **5)**
+- **6)**
+- **7)**
+
+![WhatsApp Image 2023-12-16 at 16 39 00 (3)](https://github.com/Fabian-Martinez-Rincon/Fabian-Martinez-Rincon/assets/55964635/30d556e1-48a2-4c65-af9e-03bb8ff94354)
+
+- **6)**
+- **7)**
+- **8)**
+- **9)**
+- **10)**
+
+![WhatsApp Image 2023-12-16 at 16 39 00 (2)](https://github.com/Fabian-Martinez-Rincon/Fabian-Martinez-Rincon/assets/55964635/469d40c4-4e58-4270-9c44-6021a362dd26)
+
+- **23)**
+- **24)**
+- **25)**
+- **26)**
+- **27)**
+- **28)**
+- **29)**
+- **30)**
+
+![WhatsApp Image 2023-12-16 at 16 39 00 (1)](https://github.com/Fabian-Martinez-Rincon/Fabian-Martinez-Rincon/assets/55964635/92ac08ab-25a1-4645-9037-ddb18c3c7db0)
+
+- **1)**
+- **2)**
+- **3)**
+- **4)**
+- **5)**
+
+![WhatsApp Image 2023-12-16 at 16 38 59](https://github.com/Fabian-Martinez-Rincon/Fabian-Martinez-Rincon/assets/55964635/be5e116d-8ac6-4d10-97d9-a157920696b3)
+
+- **7)**
+- **8)**
+- **9)**
+- **10)**
+
+![WhatsApp Image 2023-12-16 at 16 38 59 (2)](https://github.com/Fabian-Martinez-Rincon/Fabian-Martinez-Rincon/assets/55964635/6dae533a-fc8a-4632-9534-5af9ae16bf85)
+
+- **1)**
+- **2)**
+- **3)**
+- **4)**
+- **5)**
+- **6)**
+
+![WhatsApp Image 2023-12-16 at 16 38 59 (1)](https://github.com/Fabian-Martinez-Rincon/Fabian-Martinez-Rincon/assets/55964635/8ca511f4-813e-49e1-bb98-9adf56b64740)
+
+- **1)**
+- **2)**
+- **3)**
+- **4)**
+
+
+![WhatsApp Image 2023-12-16 at 16 38 58 (3)](https://github.com/Fabian-Martinez-Rincon/Fabian-Martinez-Rincon/assets/55964635/fab2d9bb-e109-4e90-9ad4-03753d3f3f24)
+
+- **1)**
+- **2)**
+- **3)**
+- **4)**
+- **5)**
+- **6)**
+
+![WhatsApp Image 2023-12-16 at 16 38 58 (2)](https://github.com/Fabian-Martinez-Rincon/Fabian-Martinez-Rincon/assets/55964635/d0093a4d-11ca-442d-b2dc-c14574010664)
+
+- **7)**
+- **8)**
+- **9)**
+- **10)**
+
+
+![WhatsApp Image 2023-12-16 at 16 38 57](https://github.com/Fabian-Martinez-Rincon/Fabian-Martinez-Rincon/assets/55964635/72397470-c8a4-4f03-9f60-30218e2f51e0)
+
+- **1)**
+- **2)**
+- **3)**
+- **4)**
+- **5)**
+
+![WhatsApp Image 2023-12-16 at 16 38 57 (2)](https://github.com/Fabian-Martinez-Rincon/Fabian-Martinez-Rincon/assets/55964635/e47c2b62-57e8-4d7c-a0a6-572c674bd53a)
+
+- **1)**
+- **2)**
+- **3)**
+- **4)**
+- **5)**
+
+![WhatsApp Image 2023-12-16 at 16 38 55](https://github.com/Fabian-Martinez-Rincon/Fabian-Martinez-Rincon/assets/55964635/e58c120b-c1de-41d1-ad04-6f905f2d66e6)
+
+- **6)**
+- **7)**
+- **8)**
+- **9)**
+- **10)**
+
+![WhatsApp Image 2023-12-16 at 16 38 55 (3)](https://github.com/Fabian-Martinez-Rincon/Fabian-Martinez-Rincon/assets/55964635/13d57bbc-dbd8-4865-a624-9d0cc095867b)
+
+- **6)**
+- **7)**
+- **8)**
+- **9)**
+- **10)**
+
+![WhatsApp Image 2023-12-16 at 16 38 55 (2)](https://github.com/Fabian-Martinez-Rincon/Fabian-Martinez-Rincon/assets/55964635/b4b330e0-193f-4246-a3d5-26bdaeca81d5)
+
+- **1)**
+- **2)**
+- **3)**
+- **4)**
+- **5)**
+
+![WhatsApp Image 2023-12-16 at 16 38 55 (1)](https://github.com/Fabian-Martinez-Rincon/Fabian-Martinez-Rincon/assets/55964635/db9c3498-d3cc-4441-9252-a817a19a46f6)
+
+- **1)**
+- **2)**
+- **3)**
+- **4)**
+- **5)**
+
+
+![WhatsApp Image 2023-12-16 at 16 38 54](https://github.com/Fabian-Martinez-Rincon/Fabian-Martinez-Rincon/assets/55964635/f7f0164b-e460-4b34-8ab1-25bdfb255ab9)
+
+- **6)**
+- **7)**
+- **8)**
+- **9)**
+- **10)**
+
+![WhatsApp Image 2023-12-16 at 16 38 54 (1)](https://github.com/Fabian-Martinez-Rincon/Fabian-Martinez-Rincon/assets/55964635/8a4b1060-8608-4110-8614-41e54e9fa894)
+
+- **1)**
+- **2)**
+- **3)**
+- **4)**
+- **5)**
+
+![WhatsApp Image 2023-12-16 at 16 38 15](https://github.com/Fabian-Martinez-Rincon/Fabian-Martinez-Rincon/assets/55964635/087773db-1ab7-4bc5-bea0-8f9d433d97aa)
+
+- **1)**
+- **2)**
+- **3)**
+- **4)**
+- **5)**
+
+![WhatsApp Image 2023-12-16 at 16 38 14](https://github.com/Fabian-Martinez-Rincon/Fabian-Martinez-Rincon/assets/55964635/84277822-3e82-4d46-b463-aa239e3d85eb)
+
+- **6)**
+- **7)**
+- **8)**
+- **9)**
+- **10)**
+
+![WhatsApp Image 2023-12-16 at 16 38 14 (2)](https://github.com/Fabian-Martinez-Rincon/Fabian-Martinez-Rincon/assets/55964635/a3bf7ea3-e8a5-4726-bab5-5abca7a3e982)
+
+- **6)**
+- **7)**
+- **8)**
+- **9)**
+- **10)**
+
+![WhatsApp Image 2023-12-16 at 16 38 14 (1)](https://github.com/Fabian-Martinez-Rincon/Fabian-Martinez-Rincon/assets/55964635/09c496cd-ca64-4a76-a0be-7862a50d2112)
+
+- **1)**
+- **2)**
+- **3)**
+- **4)**
+- **5)**
+
+![WhatsApp Image 2023-12-16 at 16 37 57](https://github.com/Fabian-Martinez-Rincon/Fabian-Martinez-Rincon/assets/55964635/25986578-3201-487d-baeb-87880fa1e500)
+
+- **23)**
+- **24)**
+- **25)**
+- **26)**
+- **27)**
+- **28)**
+- **29)**
+- **30)**
+
+![WhatsApp Image 2023-12-16 at 16 37 57 (1)](https://github.com/Fabian-Martinez-Rincon/Fabian-Martinez-Rincon/assets/55964635/8d2905aa-7507-497c-9377-e0c7a2bd2f98)
+
+- **9)**
+- **10)**
+- **11)**
+- **12)**
+- **13)**
+- **14)**
+
+![WhatsApp Image 2023-12-16 at 16 37 56](https://github.com/Fabian-Martinez-Rincon/Fabian-Martinez-Rincon/assets/55964635/27da657b-fca8-4262-94b4-ff2ef3a931a8)
+
+- **1)**
+- **2)**
+- **3)**
+- **4)**
+
+
+![WhatsApp Image 2023-12-16 at 16 37 56 (2)](https://github.com/Fabian-Martinez-Rincon/Fabian-Martinez-Rincon/assets/55964635/65d20f49-8b78-41f5-9137-62d282e2ba6c)
+
+- **1)**
+- **2)**
+- **3)**
+- **4)**
+- **5)**
+- **6)**
+- **7)**
+
+![WhatsApp Image 2023-12-16 at 16 37 56 (1)](https://github.com/Fabian-Martinez-Rincon/Fabian-Martinez-Rincon/assets/55964635/aa5ced84-3c8f-488a-ad2e-65797f303390)
+
+- **15)**
+- **16)**
+- **17)**
+- **18)**
+- **19)**
+- **20)**
+- **21)**
