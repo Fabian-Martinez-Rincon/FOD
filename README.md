@@ -1677,3 +1677,421 @@ a y b son las opciones correctas
 
 ## Hashing
 
+#### densidad de empaquetamiento
+
+> Se define la Densidad de Empaquetamiento (DE) como la relación entre el espacio disponible para el archivo de datos y la cantidad de registros que integran dicho archivo.
+
+Cuales de los siguientes parámetros no corresponde a hashing 
+
+- a. Función de hash 
+- b. Tamaño del nodo (capacidad para almacenar registros) 
+- c. Densidad de busqueda 
+- d. Forma de tratar los desbordes 
+- e. Todas las anteriores corresponden 
+
+<details><summary>👀 Respuesta</summary>
+
+Densidad de busqueda 
+
+### Justificación
+
+El método de dispersión, cuando utiliza espacio de direccionamiento estático, presenta cuatro parámetros esenciales que definen su comportamiento. En este apartado, se abordan estos parámetros y se analiza con detalle la influencia que ejercen sobre el método.
+
+
+Los cuatro parámetros a estudiar son los siguientes:
+- Función de hash.
+- Tamaño de cada nodo de almacenamiento.
+- Densidad de empaquetamiento.
+- Métodos de tratamiento de desbordes (overflow).
+
+</details>
+
+---
+
+> [!CAUTION]
+> Consultar cuales
+
+Cual de los siguientes parámetros afecta la eficiencia de la dispersión 
+
+- [ ] a. Cantidad de elementos del archivo 
+- [ ] b. Cantidad de espacio para almacenar el archivo 
+- [ ] c. Densidad de Empaquetamiento x
+- [ ] d. Función de Dispersión x
+- [ ] e. Algoritmos para el tratamiento de registros sinónimos 
+- [ ] f. Todas las anteriores 
+- [ ] g. Algunas de las anteriores 
+- [ ] h. Ninguna de las anteriores 
+
+<details><summary>👀 Respuesta</summary>
+Algunas de las anteriores
+
+> istribuir los registros de la forma más aleatoria posible. Las colisiones se presentan cuando dos o más claves compiten por la misma dirección física de memoria. Para ello, se debe buscar una función de dispersión que distribuya su resultado de la forma más aleatoria posible
+</details>
+
+---
+
+> [!CAUTION]
+> SOLO EXISTE FRAGMENTACIÓN INTERNA
+
+Un archivo tratado con hash estatico, que tiene una densidad de empaquetamiento del 10% 
+
+- [ ] a. tiene mucha fragmentación interna 
+- [ ] b. tiene mucha fragmentación externa 
+- [ ] c. presenta un nivel de colisiones bajo 
+- [ ] d. presenta un nivel de overflow bajo 
+- [ ] e. Todas las anteriores son correctas 
+- [ ] f. las opciones b y c son correctas 
+- [ ] g. las opciones a y c son correctas 
+- [ ] h. las opciones a, c y d son correctas 
+- [ ] i. las opciones b,c y d son correctas 
+- [ ] j. ninguna opción es correcta 
+
+<details><summary>👀 Respuesta</summary>
+las opciones a, c y d son correctas
+
+Por el contrario, si la DE se mantiene baja, se dispone de mayor espacio para esparcir registros y, por ende, disminuye la probabilidad de colisiones.
+
+Por otra parte, cuando la DE se mantiene baja, se desperdicia espacio en el disco, dado que se utiliza menor espacio que el reservado, generando fragmentación.
+
+</details>
+
+---
+
+La función de hashing 
+
+- [ ] a. Afecta a la densidad de empaquetamiento 
+- [ ] b. Puede afectar a la densidad de empaquetamiento
+- [ ] c. Afecta la densidad de empaquetamiento sólo en casos especiales 
+- [ ] d. Afecta la densidad de empaquetamiento en la mayoría de los casos 
+- [ ] e. Todas las anteriores 
+- [ ] f. Algunas de las anteriores 
+- [ ] g. Ninguna de las anteriores 
+
+<details><summary>👀 Respuesta</summary>
+Ninguna de las anteriores
+
+
+Esta función debe esparcir los registros de la manera más uniforme posible, es decir, que a cada clave se le asigne una dirección física distinta.
+
+No tiene nada que ver una cosa con la otra
+
+</details>
+
+---
+
+La técnica de Area de desoborde por separado: 
+
+- [ ] a. Utiliza un área de memoria separada para las claves en overflow.
+- [ ] b. Reduce la densidad de empaquetamiento. 
+- [ ] c. Utiliza una segunda función de dispersión siempre que se desee almacenar un registro en un archivo.
+- [ ] d. Solo se aplica a la dispersión extensible. 
+- [ ] e. Ayuda a predecir la cantidad de claves en overflow. 
+- [ ] f. Hay más de una opción correcta. 
+- [ ] g. Ninguna de las opciones anteriores es correcta 
+
+<details><summary>👀 Respuesta</summary>
+Utiliza un área de memoria separada para las claves en overflow.
+</details>
+
+---
+
+El metodo de area de desborde separada 
+
+- [ ] a. Reubica los registros en overflow 
+- [ ] b. Utiliza una segunda funcion de hash en caso de ser necesaria 
+- [ ] c. Puede generar areas de overflow dentro del archivo 
+- [ ] d. Todas las anteriores son validas 
+- [ ] e. Algunas de las anteriores 
+- [ ] f. Ninguna de las anteriores. 
+
+<details><summary>👀 Respuesta</summary>
+Reubica los registros en overflow 
+</details>
+
+---
+
+Si se tiene una política de hash con espacio de direccionamiento dinámico 
+
+
+- [ ] a. la densidad de empaquetamiento puede ser mayor que 1 
+- [ ] b. cuando la densidad de empaquetemiento supera el 75% se debe reacomodar al archivo 
+- [ ] c. cuando la densidad de empaquetamiento supera el 75% se debe utilizar mas espacio para nodos 
+- [ ] d. cuando la densidad de empaquetamiento supera el 75% debe activarse una política de tratamiento de overflow, como por ejemplo area de desborde separado 
+- [ ] e. Algunas de las anteriores son validas 
+- [ ] f. ninguna de las anteriores son validas 
+
+<details><summary>👀 Respuesta</summary>
+
+Ninguana de las anteriores son validas
+
+Se denomina hashing con espacio de direccionamiento dinámico a aquella política donde el espacio disponible para dispersar los registros de un archivo de datos aumenta o disminuye en función de las necesidades de espacio que en cada momento tiene el archivo.
+
+</details>
+
+---
+
+A partir de un archivo dispersado con hashing extensible
+
+- [ ] a. Siempre es posible agregar elementos al archivo X
+- [ ] b. Algunas veces no es posible agregar elementos al archivo 
+- [ ] c. Se puede utilizar Saturación Progresiva Encadenada para tratar registros en saturación 
+- [ ] d. No se puede utilizar Dispersión Doble para tratar registros en saturación
+- [ ] e. Algunas de las anteriores 
+- [ ] f. Ninguna de las anteriores
+
+<details><summary>👀 Respuesta</summary>
+Algunas de las anteriores
+</details>
+
+---
+
+#### Sacado del libro
+
+> El principal problema que se tiene con los métodos dinámicos en general y con el hash extensible en particular es que las direcciones de nodos no están prefijadas a priori, y por lo tanto la función de hash no puede retornar una dirección fija. Entonces, es necesario cambiar la política de trabajo de la función de dispersión.
+
+#### Ejemplo
+
+Suponga que la función de hash retorna 32 bits. En ese caso es posible direccionar 2(Elevado)32 direcciones de nodos diferentes, si fuera necesario. 
+
+Si se tiene en cuenta que cada dirección podría almacenar 100 registros, por ejemplo, la cantidad de claves a dispersar es importante.
+
+La tecnica de hashing extensible 
+
+- [ ] a. No utiliza una función de hash porque debe cambiar dinámicamente 
+- [ ] b. No utiliza una función de hash porque encuentra los registros siempre en un acceso 
+- [ ] c. Utiliza una función de hash pero esta función no devuelve la dirección donde guardar el registro 
+- [ ] d. Utiliza area de desborde por separado para los registros en overflow 
+- [ ] e. Todas las anteriores son validas 
+- [ ] f. Las respuestas a y c son correctas 
+- [ ] g. Las respuestas b y c son correctas 
+- [ ] h. Las respuestas a, c y d son correctas 
+- [ ] i. Ninguna es correcta 
+
+<details><summary>👀 Respuesta</summary>
+
+Utiliza una función de hash pero esta función no devuelve la dirección donde guardar el registro
+
+</details>
+
+---
+
+> [!CAUTION]
+> Puede tener un tratamiento de desbordes 
+
+El hash con espacio de direccionamiento estatico 
+
+- [ ] a. Puede tener densidad de empaquetamiento menor que uno 
+- [ ] b. Puede tener un tratamiento de desbordes 
+- [ ] c. Puede tener una funcion aleatoria y uniforme 
+- [ ] d. Todas de las anteriores 
+- [ ] e. Las opciones a y b son correctas 
+- [ ] f. las opciones a y c son correctas 
+- [ ] g. las opciones b y c son correctas 
+- [ ] h. ninguna de las anteriores son correctas
+
+<details><summary>👀 Respuesta</summary>
+ninguna de las anteriores son correctas 
+</details>
+
+---
+
+Si se quiere dispersar un archivo de 40.000 elementos 
+
+- [ ] a. Se requiere un archivo de 40.000 cubetas 
+- [ ] b. Se requiere un archivo de al menos 40.000 cubetas 
+- [ ] c. Se requiere un archivo de menos de 40.000 cubetas 
+- [ ] d. Todas las anteriores 
+- [ ] e. Algunas de las anteriores 
+- [ ] f. Ninguna de las anteriores
+
+<details><summary>👀 Respuesta</summary>
+NINGUNA DE LAS ANTERIORES
+</details>
+
+---
+
+Si la densidad de empaquetamiento tiene a 1 ( o el 100%):
+
+- [ ] a. Es conveniente utilizar dispersion doble para el tratamiento de overflow. 
+- [ ] b. Se debe cambiar la función de dispersión. 
+- [ ] c. Debe aumentarse el tamaño del archivo. 
+- [ ] d. Debe aumentarse el tamaño de los nodos 
+- [ ] e. Todas las anteriores son validas 
+- [ ] f. Las opciones b y c son correctas 
+- [ ] g. Las opciones b y d son correctas 
+- [ ] h. Las opciones c y d son correctas 
+- [ ] i. Las opciones b, c y d son correctas 
+- [ ] j. Ninguna de las opciones anteriores es correcta. 
+
+<details><summary>👀 Respuesta</summary>
+Debe aumentarse el tamaño del archivo., Las opciones b y c son correctas
+
+</details>
+
+---
+
+> Aquí se debe tener en cuenta que uno de los parámetros que afectan la eficiencia del hash, y que aún no se han discutido, es precisamente el método de tratamiento de colisiones
+
+Cual de los siguientes parámetros afecta la eficiencia de la dispersión 
+
+- [ ] a. Cantidad de elementos del archivo 
+- [ ] b. Cantidad de espacio para almacenar el archivo 
+- [ ] c. Densidad de Empaquetamiento 
+- [ ] d. Función de Dispersión 
+- [ ] e. Algoritmos para el tratamiento de registros en saturación 
+- [ ] f. Todas las anteriores 
+- [ ] g. Algunas de las anteriores 
+- [ ] h. Ninguna de las anteriores 
+
+<details><summary>👀 Respuesta</summary>
+Todos los anteriores
+</details>
+
+---
+
+![image](https://github.com/Fabo-University/FOD/assets/55964635/e098aaaf-54af-43d8-b003-5ed4ef4c9d4f)
+
+Cual de los siguientes métodos sirve para el tratamiento de colisiones en hash estático 
+
+> TODO ESTO ES DEL TRATAMIENTO DE OVERFLOW
+
+- [ ] a. area de desborde por separado 
+- [ ] b. saturación progresiva 
+- [ ] c. saturación progresiva encadenada 
+- [ ] d. doble dispersión 
+- [ ] e. Todas las anteriores 
+- [ ] f. ninguna de las anteriores son validas
+
+<details><summary>👀 Respuesta</summary>
+Ninguna de las anteriores son validas
+</details>
+
+---
+
+El metodo de area de desborde por separado 
+
+- [ ] a. Utiliza una segunda funcion de hash para ubicar los registros en saturación de un archivo 
+- [ ] b. direcciona el overflow de un nodo a otro nodo diferente 
+- [ ] c. Evita generar zonas contiguas de nodos en overflow 
+- [ ] d. todas las anteriores son validas 
+- [ ] e. Las opciones a y b son verdaderas 
+- [ ] f. Las opciones a y c son verdaderas 
+- [ ] g. Las opciones b y c son verdaderas 
+- [ ] h. Ninguna de las anteriores 
+
+<details><summary>👀 Respuesta</summary>
+Las opciones b y c son verdaderas 
+</details>
+
+---
+
+La tecnica de hashing extensible 
+
+- [ ] a. No utiliza una función de hash porque debe cambiar dinámicamente 
+- [ ] b. No utiliza una función de hash porque encuentra los registros siempre en un acceso 
+- [ ] c. Utiliza una función de hash pero esta función no devuelve la dirección donde guardar el registro 
+- [ ] d. Utiliza area de desborde por separado para los registros en overflow 
+- [ ] e. Todas las anteriores son validas 
+- [ ] f. Las respuestas a y c son correctas 
+- [ ] g. Las respuestas b y c son correctas 
+- [ ] h. Las respuestas a, c y d son correctas 
+- [ ] i. Ninguna es correcta 
+
+<details><summary>👀 Respuesta</summary>
+Utiliza una función de hash pero esta función no devuelve la dirección donde guardar el registro
+</details>
+
+---
+
+> [!CAUTION]
+> Consultar Joaquina :,(
+
+La eficiencia de búsqueda de un registro en un archivo organizado mediante dispersión estática : 
+
+- [ ] a. Es de Orden lineal 
+- [ ] b. tiende a uno 
+- [ ] c. Siempre es uno 
+- [ ] d. Es de Orden Logarítmico 
+- [ ] e. Algunas de las anteriores son correctas 
+- [ ] f. Ninguno de las opciones anteriores es correcta 
+
+<details><summary>👀 Respuesta</summary>
+Tiende a uno
+</details>
+
+---
+
+A partir de un archivo dispersado con hashing extensible 
+
+- [ ] a. Siempre es posible agregar elementos al archivo 
+- [ ] b. Algunas veces no es posible agregar elementos al archivo 
+- [ ] c. Se puede utilizar Saturación Progresiva Encadenada para tratar registros en saturación 
+- [ ] d. No se puede utilizar Dispersión Doble para tratar registros en saturación 
+- [ ] e. Algunas de las anteriores 
+- [ ] f. Ninguna de las anteriores 
+
+<details><summary>👀 Respuesta</summary>
+Algunas de las anteriores
+</details>
+
+---
+
+> [!CAUTION]
+> COMO QUE NINGUNA
+
+El hash con espacio de direccionamiento estatico
+
+- [ ] a. Puede tener densidad de empaquetamiento menor que uno 
+- [ ] b. Puede tener un tratamiento de desbordes 
+- [ ] c. Puede tener una funcion aleatoria y uniforme 
+- [ ] d. Todas de las anteriores 
+- [ ] e. Las opciones a y b son correctas 
+- [ ] f. las opciones a y c son correctas 
+- [ ] g. las opciones b y c son correctas 
+- [ ] h. ninguna de las anteriores son correctas 
+
+<details><summary>👀 Respuesta</summary>
+ninguna de las anteriores son correctas
+</details>
+
+---
+
+# EL ESTATICO TIENDE A 1 Y EL DINAMICO ES 1
+
+El metodo de doble dispersión, para el tratamiento de Colisiones 
+
+- [ ] a. Utiliza una segunda funcion de hash para ubicar a todos los registros del archivo 
+- [ ] b. Utiliza una segunda funcion de hash para ubicar algunos registros del archico 
+- [ ] c. Evita generar zonas contiguas de nodos en overflow 
+- [ ] d. todas las anteriores son validas 
+- [ ] e. Las opciones a y b son verdaderas 
+- [ ] f. Las opciones a y c son verdaderas 
+- [ ] g. Las opciones b y c son verdaderas 
+- [ ] h. Ninguna de las anteriores 
+
+<details><summary>👀 Respuesta</summary>
+
+
+---
+
+La dispersión dinamica, denominata hash extensible: 
+
+Seleccione una: 
+
+ 
+
+- [ ] a. Siempre requiere el uso de una estructura auxiliar. 
+- [ ] b. Guarda los registros de forma ordenada por algún criterio 
+- [ ] c. Necesita de dos funciones de dispersión. 
+- [ ] d. Varia el tamaño del espacio de direcciones disponible, sin afectar a la función de has 
+- [ ] e. las opciones a y b son correctas 
+- [ ] f. las opciones a y d son correctas 
+- [ ] g. Ninguna de las opciones anteriores es correcta 
+
+ 
+
+<details><summary>👀 Respuesta</summary>
+
+La respuesta correcta es: las opciones a y d son correctas 
+
+</details>
