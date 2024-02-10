@@ -54,8 +54,10 @@
 - [Hashing](#hashing)
 - [Fotos de parciales resueltas](#examenes-en-imagenes-antipandemia)
 
-> [!TIP]
-> La strat del final este es responder 7/10 preguntas, porque tenes margen para errarle en 2 preguntas :D
+- 7 margen 2 errores
+- 8 margen 2 errores
+- 9 margen 3 errores
+- 10 margen 4 errores
 
 
 ## Archivos
