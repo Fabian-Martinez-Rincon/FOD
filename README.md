@@ -471,7 +471,7 @@ Ninguna de las respuestas anteriores son validas
 ![image](https://github.com/Fabian-Martinez-Rincon/Fabian-Martinez-Rincon/assets/55964635/067569cb-254f-4e1f-9077-001fc7601638)
 
 </details>
-
+ 
 ---
 
 
@@ -552,22 +552,6 @@ Para que tenga sentido un algoritmo de corte de control
 
 <details><summary>👀 Respuesta</summary>
 Ninguna de las anteriores
-</details>
-
----
-
-Para realizar un algoritmo de actualización maestro-detalle
-
-- [ ] a. Se requiere al menos 2 archivos. 
-- [ ] b. Se requiere que los archivos estén ordenados 
-- [ ] c. Se requiere que los archivos estén desordenados 
-- [ ] d. Se requiere que al menos uno de los archivos esté ordenado 
-- [ ] e. Se requiere que los archivos tengan la misma estructura 
-- [ ] f. Algunas de las anteriores 
-- [ ] g. Ninguna de las anteriores
-
-<details><summary>👀 Respuesta</summary>
-Se requiere al menos 2 archivos.
 </details>
 
 ---
