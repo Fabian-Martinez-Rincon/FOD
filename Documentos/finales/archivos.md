@@ -10,11 +10,7 @@
 - [Archivo Directo](#archivo-directo)
 - [Archivo Serie](#archivo-serie)
 - [Archivo Secuencial](#archivo-secuencial)
-- Operaciones
-    - [Reset]()
-    - [Rewrite]()
-    - [Write/Read]()
-    - [Otras]()
+- [Operaciones]()
 
 ---
 
@@ -83,6 +79,7 @@ El proceso de actualización finaliza cuando se termina de recorrer el  archivo 
 - Se puede aplicar corte de control
 - Puede ocupar el mismo espacion con registros de longitud fija
 - Las altas (con ajustes) pueden no generar ningun tipo de fragmentación
+- Altas Usan la tecnica de lista invertida
 
 ---
 
@@ -114,6 +111,8 @@ El proceso de actualización finaliza cuando se termina de recorrer el  archivo 
 - No permite el acceso secuencial ni secuencial indizado
 - Tiene acceso directo
 
+---
+
 ### Archivo Serie
 
 - Tiene acceso secuencial
@@ -122,7 +121,84 @@ El proceso de actualización finaliza cuando se termina de recorrer el  archivo 
 - Puede ordenarse
 - Un archivo en el cual se accede a un registro luego de acceder a su predecesor en orden físico 
 
+---
+
 ### Archivo Secuencial
 
 - No se accede a un registro luego de acceder a su predecesor en orden físico sino en orden lógico *
 
+---
+
+### Operaciones
+
+- ***La operación RESET()***
+    - Se realiza luego a la operación ASSIGN()
+    - Abre un archivo para leer y escribir
+    - Coloca el puntero al inicio del archivo
+    - Si el archivo no existe genera un error
+- ***La operación REWRITE()***
+    - Se realiza luego a la operación ASSIGN()
+    - Abre un archivo para escribir
+    - Si el archivo no existe lo crea
+    - Si el archivo existe borra lo que tenia y lo deja vacio
+- ***La operación READ() y WRITE()***
+    - Leen/Escriben un registro en el archivo y avanzan la posición del puntero
+- ***La operación filesize()***
+    - Cantidad de elementos que tiene el archivo
+    - Para un filesieze() = 0 el archivo esta vacio
+    - Para un filesize() = 1 el archivo tiene un registro
+- ***La operación seek(nombre_logico, filesize(nombre_logico))***
+    - Deja la operación en el final del archivo en la marca de fin de archivo
+- **seek(nombre_logico, posición)**
+    - Modifica la posición del puntero
+- **Filepos(nombre_logico)**
+    - Devuelve la posición actual del puntero (0 hasta filesize(nombre_logico) - 1)
+
+---
+
+Tengo dudas con la lista invertida nomas
+
+#### Pregunta 4)
+
+Dado un archivo organizado con una lista invertida interna al mismo archivo para recuperación de espacio libre:
+
+- **a)** Ante una nueva alta, se debe recorrer el archivo de forma secuencial buscando un espacio libre.
+- **b)** La búsqueda de un elemento en el archivo puede realizarse secuencialmente.
+- **c)** Ante una nueva alta, siempre se modifica el registro de la posición 0.
+- **d)** Ante una baja de un elemento existente en el archivo, siempre se modifica el registro de la posición 0.
+- **e)** Hay más de una opción valida.
+- **f)** Todas las opciones anteriores son correctas.
+- **g)** Ninguna de las opciones anteriores es correcta.
+
+> No hay respuesta
+
+---
+
+#### Pregunta 9)
+
+Dado un archivo organizado con una lista invertida interna al mismo archivo para recuperación de espacio libre:
+
+- **a)** Ante una nueva alta, se recorre el archivo de forma secuencial buscando un espacio libre.
+- **b)** Ante una nueva alta, se modifica el registro de la posición 0.
+- **c)** Ante una baja de un elemento existente en un archivo, se modifica el registro de la posición 0.
+- **d)** Si se eliminan todos los registros del archivo, entonces se debe eliminar el registro en la posición 0 del archivo. **`//Esta no es`**
+- **e)** La lista invertida interna no puede estar vacía.
+- **f)** Hay más de una opción válida.
+- **g)** Todas las opciones anteriores son correctas.
+- **h)** Ninguna de las opciones anteriores es correcta.
+
+---
+
+#### Pregunta 3)
+
+Dado un archivo organizado con una lista invertida interna al mismo archivo para recuperación de espacio libre:
+
+- **a)** El registro ubicado en la posición 1 se considera un registro especial que se utiliza como inicio de la lista.
+- **b)** Ante una nueva alta, se recorre el archivo de forma secuencial buscando un espacio libre.
+- **c)** Ante una nueva alta, si la lista interna de espacio libre está vacía se recorre el archivo secuencialemnte hasta el final y ahí se agrega el nuevo registro.
+- **d)** Ante una baja, no es necesario actualizar la lista interna de espacio libre.
+- **e)** Si se eliminan todos los registros del archivo, entonces se debe eliminar el registro en la posición 0 del archivo.
+- **f)** La lista invertida interna no puede estar vacía.
+- **g)** Hay más de una opción válida. **`//Esta no es`**
+- **h)** Todas las opciones anteriores son correctas.
+- **i)** Ninguna de las opciones anteriores es correcta.

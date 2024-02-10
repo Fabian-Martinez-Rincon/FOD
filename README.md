@@ -48,11 +48,13 @@
 
 ## Temario de Preguntas
 
-- [Archivos](#archivos)
+- [Archivos](/Documentos/archivos.md)
 - [Indices](#indices)
 - [Arboles](#arboles)
 - [Hashing](#hashing)
 - [Fotos de parciales resueltas](#examenes-en-imagenes-antipandemia)
+
+Margenes de errores segun la cantidad de respuestas respondidas
 
 - 7 margen 2 errores
 - 8 margen 2 errores
@@ -64,62 +66,6 @@
 
 > [!IMPORTANT]  
 > Siempre se selecciona UNA SOLA respuesta
-
-
----
-
-La operación RESET() 
-
-- [ ] a. Se realiza luego de la operación REWRITE() 
-- [ ] b. Se realiza previo a la operación ASSIGN() 
-- [ ] c. Abre un archivo para leer o escribir 
-- [ ] d. Abre un archivo sólo para escribir 
-- [ ] e. Abre un archivo 
-
-<details><summary>👀 Respuesta</summary>
-
-Abre un archivo
-
-No es leer o escribir, es leer y escribir
-
-</details>
-
----
-
-La operación REWRITE() 
-
-a. Se realiza luego de la operación RESET() 
-b. Se realiza previo a la operación ASSIGN() 
-c. Abre un archivo para leer o escribir 
-d. Abre un archivo sólo para leer 
-e. Abre un archivo 
-
-<details><summary>👀 Respuesta</summary>
-Abre un archivo
-
-Solo lo abre en modo escritua
-
-</details>
-
----
-
-
-> [!CAUTION]
-> Consultar justificación
-
-El proceso de alta de registro con recuperación de espacio 
-
-- [ ] a. Se debe realizar con registros de longitud variable 
-- [ ] b. Se debe realizar con registros de longitud fija 
-- [ ] c. Se realiza sólo con registros de longitud fija 
-- [ ] d. Se realiza solo con registros de longitud variable 
-- [ ] e. Ninguna de las anteriores 
-
-<details><summary>👀 Respuesta</summary>
-Ninguna de las anteriores
-
-> Es ninguna porque no existe recuperación de espacio con altas, es reasignación de espacio
-</details>
 
 
 
