@@ -48,7 +48,7 @@
 
 ## Temario de Preguntas
 
-- [Archivos](/Documentos/archivos.md)
+- [Archivos](//Documentos/finales/archivos.md)
 - [Indices](#indices)
 - [Arboles](#arboles)
 - [Hashing](#hashing)
