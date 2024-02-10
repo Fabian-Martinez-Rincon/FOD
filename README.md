@@ -151,63 +151,9 @@ No es puede tener registros del mismo tamaño, es DEBE tener registros del mismo
 
 ---
 
-<table>
-<tr>
-<th>Maestro</th>
-<th>Detalle</th>
-
-</tr>
-<tr>
-<td>
-Archivo que resume información sobre un dominio de problema específico. 
 
 
-Ejemplo: el archivo de productos de una empresa que contiene el stock actual de cada producto.
-</td>
-<td>
 
-Archivo que contiene novedades o movimientos realizados sobre la información almacenada en el maestro. 
-
-Ejemplo: el archivo con todas las ventas de los productos de la empresa realizadas en un día particular
-</td>
-</tr>
-
-</table>
-
-> [!CAUTION]
-> Consultar respecto al orden de los archivos
-
-Para realizar un algoritmo de actualización maestro-detalle 
-
-- [ ] a. Se requiere al menos 2 archivos. 
-- [ ] b. Se requiere que los archivos estén ordenados 
-- [ ] c. Se requiere que los archivos estén desordenados 
-- [ ] d. Se requiere que al menos uno de los archivos esté ordenado 
-- [ ] e. Se requiere que los archivos tengan la misma estructura 
-- [ ] f. Algunas de las anteriores 
-- [ ] g. Ninguna de las anteriores 
-
- 
-<details><summary>👀 Respuesta</summary>
-
-La respuesta correcta es: Se requiere al menos 2 archivos. 
-
-### Justificación
-
-Presenta la variante más simple del proceso de actualización. Las precondiciones del problema son las siguientes:
-
-- Existe un archivo maestro.
-- Existe un único archivo detalle que modifica al maestro.
-- Cada registro del detalle modifica a un registro del maestro. Esto  significa que solamente aparecerán datos en el detalle que se correspondan con datos del maestro. Se descarta la posibilidad de generar altas en ese archivo.
-- No todos los registros del maestro son necesariamente modificados.
-- Cada elemento del maestro que se modifica es alterado por uno y 
-solo un elemento del archivo detalle.
-- Ambos archivos están ordenados por igual criterio. Esta precondición, considerada esencial, se debe a que hasta el momento se trabaja con archivos de datos de acuerdo con su orden físico. Más adelante, se discutirán situaciones donde los archivos respetan un orden lógico de datos.
-
-
-> El proceso de actualización finaliza cuando se termina de recorrer el  archivo detalle. Una vez procesados todos los registros del archivo  detalle, el algoritmo finaliza, sin la necesidad de recorrer el resto del  archivo maestro.
-
-</details>
 
 ---
 
@@ -528,21 +474,6 @@ Ninguna de las respuestas anteriores son validas
 
 ---
 
-El algoritmo de actualizacion maestro – detalle 
-
-- [ ] a. Solo se puede implementar si los archivos (maestro y detalles) estan ordenados 
-- [ ] b. Solo se puede implementar si el archivo maestro esta ordenado 
-- [ ] c. Solo se puede implementar si los archivos detalles estan ordenados 
-- [ ] d. Solo se puede implementar si los archivos (maestro y detalles) estan desordenados 
-- [ ] e. Todas las anteriores 
-- [ ] f. Algunas de las anteriores 
-- [ ] g. Ninguna de las anteriores 
-
-<details><summary>👀 Respuesta</summary>
-Ninguna de las anteriores
-
-> NO IMPORTA ABSOLUTAMENTE NINGUN TIPO DE ORDEN (SI ESO)
-</details>
 
 ---
 
