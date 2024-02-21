@@ -262,3 +262,21 @@ Si el elemento se encuentra ubicado en el nodo raíz, la cantidad de **accesos r
 
 **Eliminación**
 
+Para poder eliminar un elemento el mismo debe estar en un nodo terminal.
+
+Si es un nodo interno, se intercambia con el mayor de sus claves menores, o la menor de sus claves menores.
+
+Existes dos situaciones 
+
+- Si se elimina un elemento del nodo terminal y los elementos restantes no están por debajo de la cantidad minima [M/2]-1, no se genera **underflow**
+- Cuando se produce **underflow** por tener menos que el minimo
+    - La opción más inmediata es la **concatenación**, pero el nodo no puede superar la cantidad maxima de elementos.
+    - La otra opción es la **redistribución** 
+
+#### Nodos Hermanos
+
+Son aquellos nodos que tienen el mismo nodo padre
+
+#### Nodos adyacentes hermanos
+
+Son aquellos nodos que, siendo hermanos, son además dependientes de punteros consecutivos del padre.
