@@ -191,4 +191,39 @@ Una ventaja en la organización mediante árboles binarios está dada en la inse
 - Busca al padre de dicho elemento. Para ello se recorre el archivo desde la raiz hasta llegar a un nodo terminal.
 - Actualiza el padre, haciendo referencia a la dirección del nuevo hijo.
 
-Borrado es lo mismo casi
+Borrado es casi lo mismo
+
+**La desventaja** Es que tengo que crear un arbol por cada campo que quiero ordenar.
+
+#### Arbol Balanceado
+
+Se entiende por arbol balanceado a aquel arbol donde la trayectoria de la raíz a cada una de las hojas está representada por igual cantidad de nodos. Es decir, todos los nodos hoja se encuentran a igual distancia del nodo raiz.
+
+#### Arbol AVL (arboles balanceados en altura)
+
+Son arboles binarios cuya construcción se determina respetando un precepto muy simple: La diferencia entre el camino más corto y mas largo entre un nodo terminal y la raiz no puede diferir en mas de un determinado delta y dicho delta es el nivel de balanceo en altura del árbol. 
+
+#### Arboles Multicamino
+
+Es una estructura de datos en la cual cada nodo puede contener k elementos y k+1 hijos.
+
+Se define el concepto de orden de un árbol multicamino como la máxima cantidad de descendientes posibles de un nodo
+
+---
+
+
+## Resumen capitulo 7
+
+### Familia de árboles balanceados
+
+#### Arboles
+
+Estas reglas son las que comparten los 3 tipos de arboles
+
+- **CADA NODO** del arbol puede contener como maximo M descendientes y M-1 Elementos
+- **LA RAIZ** no posee descendientes directos o posee al menos dos
+
+#### Arbol B
+
+Son arboles multicamino con una construcción especial que permite mantenerlos balanceados a bajo costo
+
