@@ -26,7 +26,7 @@
 - [Practica 3](/Documentos/Practicas/Practica3.md)
 - [Practica 4](/Documentos/Practicas/Practica4.md)
 - [PARCIALES RESUELTOS DE ARCHIVOS](/Documentos/archivos.md)
-- [MUCHAS PREGUNTAS PARA EL FINAL](/Documentos/archivos.md)
+- [MUCHAS PREGUNTAS PARA EL FINAL](/Documentos/preguntas.md)
 
 <img src= 'https://i.gifer.com/origin/8c/8cd3f1898255c045143e1da97fbabf10_w200.gif' height="20" width="100%">
 
