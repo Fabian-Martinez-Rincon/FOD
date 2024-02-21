@@ -294,3 +294,39 @@ Son aquellos nodos que tienen el mismo nodo padre
 #### Nodos adyacentes hermanos
 
 Son aquellos nodos que, siendo hermanos, son además dependientes de punteros consecutivos del padre.
+
+#### Arbol B*
+
+Es casi igual al **arbol B** pero en lugar de dividir y generar un nuevo nodo en los casos de overflow, este mismo distribuye en esos casos. Al crear menos nodos, el arbol tarda más en aumentar de altura.
+
+En saturación reubica sus elementos en un nodo adyacente hermano. Cuando no sea posible esta redistribución, se estará en una situación donde tanto el nodo que genera overflow como su adyacente hermano están completos. Esto abre la posibilidad de dividir partiendo de dos nodos completos en dos terceras partes (2/3)
+
+- **NODOS TERMINALES** Tienen, como 
+    - **minimo** [(2M-1)/3]-1 Elementos y como 
+    - **maximo** M-1 Elementos
+- **NODOS NO TERMINALES NI RAIZ** Tienen, como 
+    - **minimo** (2M-1)/3 Descendientes
+
+***Busqueda**
+
+Es igual que el arbol B
+
+***Baja***
+
+Es igual que el arbol B
+
+***Inserción***
+
+Tenemos diferentes formas de aplicar la redistribución
+- Politica de un lado
+- Politica de un lado u otro lado
+- Politica de un lado y otro lado
+
+### Acceso secuencial Indizado
+
+Es aquel que permite dos formas de visualizar la información 
+
+- **Indizada**: El archivo puede verse como un conjunto de registros, ordenados por una clave o llave.
+- **Secuencial**: Se puede acceder secuencialmente al archivo, con registros físicamente contiguos y ordenados nuevamente por una clave o llave
+
+#### Arboles B+
