@@ -82,6 +82,51 @@ Es aquel que contiene novedades o movimientos realizados sobre la información a
 
 Se denomina **proceso de baja** a aquel proceso que permite quitar información de un archivo. 
 
-***Baja física***
+- ***Baja física*** Consiste en borrar efectivamente la información del archivo, recuperando el espacio físico
+- ***Baja lógica*** Consiste en borrar la información del archivom pero sin recuperar el espacio fisico respectivo
+    - Igual para archivos con registros de longitud variable y longitud fija
 
-Consiste en borrar efectivamente 
+#### Lista Invertida
+
+Dado un archivo organizado con una lista invertida interna al mismo archivo
+
+- La operación de FileSize del archivo siempre es mayor o igual a 1
+- El registro cabecera nunca se elimina
+- La lista invertida interna puede estar vacia (Si no se eliminaron elementos)
+- El registro en la posición 0 se considera el registro cabecera
+- Nunca se recoore de forma secuencial (Solo para busquedas?)
+- Ante una alta no es necesario actualizar la lista interna de espacio libre
+- Ante una baja, siempre se modifica el registro cabecera.
+- Lista encadenada invertida con los elementos borrados.
+
+#### Registros de Longitud Fija
+
+- La información siempre es homogenea
+- Altas, Bajas, y Modificaciones son mucho mas faciles ya que todos los registros tiene el mismo tamaño.
+- Es ineficiente en cuanto a memoria
+
+#### Registros de Longitud Variable
+
+- La utilización del espacio en disco es optimizada
+- Insertar y eliminar elementos es mas dificil
+- Utiliza delimitadores
+
+#### Eliminación con registros de longitud variable
+
+Es lo mismo tanto en registros de longitud fija como variable.
+
+#### Altas en registros de longitud variable
+
+Al igual que los registros de longitud fija, se usa una lista encadenada invertida para los elementos borrados. Pero en este caso como tenemos los registros con distinto tamaño, tenemos que aplicar una politica para elegir el mejor lugar.
+
+- ***Primer Ajuste*** Consite en seleccionar el primer espacio disponible donde quepa el registro a insertar
+- ***Mejor Ajuste*** Consiste en seleccionar el espacio más adecuado para el registro. Se considera el espacio más adecuado com aquel de menor tamaño donde quepa el registro.
+- ***Peor Ajuste*** Consiste en selecccionar el espacio de mayor tamaño asignado para el registro solo los bytes necesarios.
+
+#### Fragmentación interna
+
+Es aquella que se produce cuando un elemento de dato se le asigna mayor espacio del necesario
+
+#### Fragmentación externa
+
+Es aquel espacio disponible entre dos registros, pero que es demasiado pequeño para poder ser reutilizado
