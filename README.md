@@ -221,9 +221,38 @@ Se define el concepto de orden de un árbol multicamino como la máxima cantidad
 Estas reglas son las que comparten los 3 tipos de arboles
 
 - **CADA NODO** del arbol puede contener como maximo M descendientes y M-1 Elementos
-- **LA RAIZ** no posee descendientes directos o posee al menos dos
+- **LA RAIZ** no posee descendientes directos o posee al menos dos.
+- **UN NODO CON** x descendietes directos directos contiene x-1 elementos
+- **TODOS LOS NODOS TERMINALES** Se encuentran al mismo nivel
 
 #### Arbol B
 
 Son arboles multicamino con una construcción especial que permite mantenerlos balanceados a bajo costo
+
+- **NODOS TERMINALES** Tienen como 
+    - **minimo** [M/2]-1 Elementos y como 
+    - **maximo** M-1 Elementos
+
+**Inserción**
+
+Si tengo lugar en el nodo, se inserta normal (siempre ordenado)
+
+Si se produce overflow
+
+- Se crea un nodo nuevo..
+- La primera mitad de las claves se mantienen en el nodo viejo.
+- La segunda mitad de las claves se trasladan al nodo nuevo.
+- La menor de las claves de la segunda mitad se promociona al nodo padre.
+
+**Busqueda**
+
+El procceso de busqueda realiza el mismo proceso que la inserción
+
+- Se comienza desde el nodo raiz, se procede a buscar el elemento en cuestión
+
+**Eficiencia de busqueda**: Consiste en contar los accesos al archivo de datos, que se requieren para localizar un elemento o para determinar que el elemento no se encuentra.
+
+El resultado es un valor acotado en el rango entero [1, H], siendo H la altura del árbol, tal como fuera definida previamente. 
+
+Si el elemento se encuentra ubicado en el nodo raíz, la cantidad de **accesos requeridos es 1**. En caso de localizar al elemento en un nodo terminal, (o que el elemento no se encuentre), **serán requeridos H accesos**
 
