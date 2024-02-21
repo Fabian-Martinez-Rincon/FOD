@@ -235,7 +235,11 @@ Son arboles multicamino con una construcción especial que permite mantenerlos b
 
 **Inserción**
 
+Todos los elementos de datos se insertan en los nodos terminales. Por ese motivo es necesario realizar H lecturas para poder encontrar el nodo donde el elemento será almacenado (desde la raiz hasta un nodo temrinal)
+
 Si tengo lugar en el nodo, se inserta normal (siempre ordenado)
+
+Si no se produce overflow, solo hago una escritura. En caso de overflow, como se divide el nodo, se necesita la escritura de dos nodos en el nivel terminal, mas la escritura de la raiz.
 
 Si se produce overflow
 
@@ -255,4 +259,6 @@ El procceso de busqueda realiza el mismo proceso que la inserción
 El resultado es un valor acotado en el rango entero [1, H], siendo H la altura del árbol, tal como fuera definida previamente. 
 
 Si el elemento se encuentra ubicado en el nodo raíz, la cantidad de **accesos requeridos es 1**. En caso de localizar al elemento en un nodo terminal, (o que el elemento no se encuentre), **serán requeridos H accesos**
+
+**Eliminación**
 
