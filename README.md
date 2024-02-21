@@ -271,7 +271,21 @@ Existes dos situaciones
 - Si se elimina un elemento del nodo terminal y los elementos restantes no están por debajo de la cantidad minima [M/2]-1, no se genera **underflow**
 - Cuando se produce **underflow** por tener menos que el minimo
     - La opción más inmediata es la **concatenación**, pero el nodo no puede superar la cantidad maxima de elementos.
-    - La otra opción es la **redistribución** 
+    - La otra opción es la **redistribución** plantea que algun nodo adyacente hermano ceda elementos al nodo que precenta insuficiencia (La ventaja es que no cambia la cantidad de nodos)
+
+
+**Eficiencia en la eliminación**
+
+- **Mejor caso** Cuando se borra un elemento del nodo y no tiene insuficiencia
+    - H Lecturas y 1 Escritura
+- **Peor caso** Cuando se borra un elemento del nodo y tiene insuficiencia
+    - 2*H-1 Lecturas y H-1 Escrituras
+
+**Actualización**
+
+Es pensar en una baja mas un alta de un elemento.
+
+
 
 #### Nodos Hermanos
 
