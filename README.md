@@ -166,3 +166,29 @@ Son claves primarias que por algun motivo, no se usaron
 Es una estructura de datos adicional que permite relacionar una clave secundaria con una o más claves primarias. Varios registros pueden contener la misma clave secundaria
 
 - Primero se accede a un indice primario por una clave secundaria
+
+#### Altas en indice secundario
+
+Cualquier alta en el archivo de datos genera una inserción en el índice secundario, que implica reacomodar el archivo en el cual se almacena.
+
+#### Bajas en indice secundario
+
+Cuando se elimina un registro del archivo de datos, esta operación implica elminar la referencia a ese registro en el indice primario más todas las referencias en indices secundarios.
+
+---
+
+## Resumen capitulo 6
+
+### Arboles: Introducción
+
+#### Arboles Binarios
+
+Es una estructura de datos dinámica no lineal, en la cual cada nodo puede tener a los sumo dos hijos
+
+Una ventaja en la organización mediante árboles binarios está dada en la inserción de nuevos elementos, mientras que en un archivo se desordena cuando se agrega un nuevo dato, si la organización se realiza con la politica de arbol binario, la operatoria resulta más sensilla en terminos de complejidad computacional.
+
+- Agregar el nuevo elemento de datos al final de archivo.
+- Busca al padre de dicho elemento. Para ello se recorre el archivo desde la raiz hasta llegar a un nodo terminal.
+- Actualiza el padre, haciendo referencia a la dirección del nuevo hijo.
+
+Borrado es lo mismo casi
