@@ -127,6 +127,11 @@ Al igual que los registros de longitud fija, se usa una lista encadenada inverti
 
 Es aquella que se produce cuando un elemento de dato se le asigna mayor espacio del necesario
 
+- Se puede producir con registros de longitud fija y con registros de longitud variable para con las tecnicas de primer ajuste y mejor ajuste.
+
 #### Fragmentación externa
 
 Es aquel espacio disponible entre dos registros, pero que es demasiado pequeño para poder ser reutilizado
+
+- Solo se produce con registros de longitud variable con la tecnica de peor ajuste.
+
