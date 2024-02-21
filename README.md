@@ -135,3 +135,34 @@ Es aquel espacio disponible entre dos registros, pero que es demasiado pequeño 
 
 - Solo se produce con registros de longitud variable con la tecnica de peor ajuste.
 
+---
+
+## Resumen capitulo 5
+
+### Búsqueda de información. Manejo de índices.
+
+#### Indización 
+
+La caracteristica fundamental de un indice es que posibilita imponer un orden en un archivo sin que realmente se reacomode
+
+- Tiene registros de longitud fija
+
+#### Indice Primario
+
+- ***Altas*** Se agrega al final
+- ***Modificaciones*** Si el archivo esta organizando por registros de longitud fija, el indice no se toca, si se cambia de tamaño, se reubica
+
+
+***La principal ventaja radica en las bajas***
+
+Al ser de menor tamaño que el archivo asociado y tener registros de longitud fija, posibilita mejorar la performance de busqueda, se pueden realizar busquedas binarias
+
+#### Clave candidata
+
+Son claves primarias que por algun motivo, no se usaron
+
+#### Indice Secundario
+
+Es una estructura de datos adicional que permite relacionar una clave secundaria con una o más claves primarias. Varios registros pueden contener la misma clave secundaria
+
+- Primero se accede a un indice primario por una clave secundaria
