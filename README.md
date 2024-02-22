@@ -330,3 +330,77 @@ Es aquel que permite dos formas de visualizar la información
 - **Secuencial**: Se puede acceder secuencialmente al archivo, con registros físicamente contiguos y ordenados nuevamente por una clave o llave
 
 #### Arboles B+
+
+Los arboles anteriores nos permiten recuperar elementos en forma ordenada a bajo costo, sin necesitad de reacomodamientos fisicos costosos.
+
+Ahora necesitamos un mecanismo que nos permita localizar los datos contenidos en los nodos a bajo costo
+
+La estructura intermedia se denomina **arbol B** e incorpora las caracteristicas discutidas para árboles B, ademas del tratamiento secuencial ordenado del archivo.
+
+**Importante:** Se pueden realizar busquedas aleatorias rapidas de información, en conjunto con acceso secuencial eficiente
+
+**SOLO ACCESO SECUENCIAL NO BUSQUEDA**
+
+- Los nodos terminales representan un conjunto de datos y son enlazados entre ellos.
+
+**Insetar**
+
+- **Sin Overflow** no pasa nada
+- **Con Overflow** el nodo se divide, y se crea una copia de la menor de las claves del hijo derecho. Solo ante la saturación de un nodo terminal se promociona una copia, en caso contrario, se promociona el elemento normal.
+
+#### Árbol B+ de prefijos simples
+
+Es un arbol B+ donde los separadores estar representados por la mínima expresión posible de la clave, que permite decidir si la busqueda se realiza hacia la izquierda o hacia la derecha
+
+**LOS ARBOLES SON IMPORTANTES PARA BUSQUEDAS ALEATORIAS Y ACCESO SECUENCIAL**
+
+---
+
+## Resumen capitulo 8
+
+
+### Dispersión (Hashing)
+
+**Definiciones**
+- Tecnica para generar dirección base única para una clave dada. La **dispersión** se usa cuando se requiere acceso rápido mediante una clave.
+- Técnica que convierte la clave asociada a un registro de datos en un numero aleatorio, el cual posteriormente es utilizado para determinar dónde se almacena dicho registro.
+- Técnica de almacenamiento y recuperación que usa una función para mapear registros en direcciones de almacenamiento secundario.
+
+**Ventajas**
+
+- Inserción y Borrado más eficientes (en promedio un acceso)
+- Para busquedas lo mismo, en promedio es 1
+
+**Desventajas**
+- No es posible aplicar HASHING sobre registros de longitud variable
+- No es posible obtener un orden logico de los datos. Los indices imponen la propiedad de orden, esto en hashing no es posible.
+- No es posible tratar con claves duplicadas( No se puede aplicar una función de hash sobre una clave secundaria)
+
+#### Tipos de Dispersión (Hashing)
+
+**Hashing con espacio de direccionamiento Estatico**: Es aquella politica donde el espacio disponible para dispersar los registros de un archivo de datos está fijado previamente.
+
+Asi, la función de hash aplicada a una clave da como resultado una dirección física posible dentro del espacio disponible para el archivo.
+
+**Hashing con espacio de direccionamiento Dinamico**: Es aquella politica donde el espacio disponible para dispersar los registros de un archivo de datos aumenta o disminuye en función de las necesidades de espacio que en cada momento tiene el archivo. 
+
+Asi, la función de hash aplicada a una clave da como resultad un valor intermedio que sera utilizado para obtener la dirección física posible para el archivo. Estas direcciones físicas no están establecidas a priori y son generadas de manera dinámica.
+
+#### Parametros de disperción
+
+- **Función de hash**
+- **Tamaño de cada nodo de almacenamiento**
+- **Densidad de empaquetamiento**
+- **Metodos de tratamiento de desbordes (overflow)**
+
+#### Función de hash
+
+Es una función que transforma un valor, que representa una llave primaria de un registro, en otro valor dentro de un determindo rango, que se utiliza como dirección fisica de acceso para insertar un registro en un archivo de datos.
+
+#### Densidad de empaquetamiento
+
+Es la relación entre el espacio disponible para el archivo de datos y la cantidad de registros que integran dicho archivo
+
+---
+
+>> Me fui a rendir, ya fue
