@@ -2,16 +2,23 @@
 
 [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/Fabian-Martinez-Rincon/FOD)
 [![GitHub stars](https://img.shields.io/github/stars/Fabian-Martinez-Rincon/FOD)](https://github.com/Fabian-Martinez-Rincon/FOD/stargazers/)
-[![GitHub repo size in bytes](https://img.shields.io/github/repo-size/Fabian-Martinez-Rincon/FOD)](https://github.com/Fabian-Martinez-Rincon/FOD)
 
 
 <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=30&duration=1700&pause=800&color=28CDF7&center=true&width=435&lines=FOD"/>
- </div>
+
+---
+
+<a title="" href="https://youtu.be/2CpD3Ffz0hc?si=CkAHPyj09pownd4F"><img src="/Otros/image.png" width="550px"  /></a>
+
+---
+
 
 </div>
 
+> [!IMPORTANT]  
+> Si encuentran algun link roto o tienen alguna duda, no duden en decirme por mail fabianmartinezrincon.123@gmail.com
 
-<img src= 'https://i.gifer.com/origin/8c/8cd3f1898255c045143e1da97fbabf10_w200.gif' height="20" width="100%">
+
 
 <p><img width="250" align='right' src="https://media.giphy.com/media/QxSveBdhdtLgagcKdR/giphy.gif"></p>
 
@@ -41,9 +48,10 @@ En esta pagina tenes preguntas para poder simular el final
 
 El objetivo de este blog es poder tener la información necesaria para aprobar el final y que no dependa de si conseguiste finales o si no sabes donde encontrar información para estudiar.
 
-- [Repositorio con todas las clases](https://github.com/Fabo-University/FOD)
-- [Libro de la materia](https://github.com/Fabo-University/FOD/blob/main/Introducci%C3%B3n%20a%20las%20Bases%20de%20Datos%20-%20Bertone-Thomas.pdf)
-- [Cuestionario online](https://j-josu.github.io/Quiz-FOD/)
+- [Libro de la materia](https://github.com/Fabian-Martinez-Rincon/FOD/blob/main/Otros/Introducci%C3%B3n%20a%20las%20Bases%20de%20Datos%20-%20Bertone-Thomas.pdf)
+- [Cuestionario online](https://josu-dev.github.io/Depende-Quiz-Datos/)
+
+---
 
 ## Final de septiembre (07/09/2023) 
 
